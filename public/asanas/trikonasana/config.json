@@ -1,0 +1,62 @@
+{
+  "id": "trikonasana",
+  "name": "Trikonasana",
+  "sanskrit": "त्रिकोणासन",
+  "english": "Triangle Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 49.84,
+  "description": "A foundational standing pose that stretches the hamstrings, spine, and chest while improving core stability.",
+  "benefits": [
+    "Stretches legs, knees, ankles, chest, and shoulders",
+    "Improves digestion",
+    "Helps relieve backache",
+    "Strengthens core and legs"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Spread your feet three feet apart, raise arms sideways to shoulder level.",
+      "duration": 10,
+      "voice_prompt": "Stand with your feet about three feet apart, raise both arms parallel to the floor, palms facing down.",
+      "video_start": 0.0,
+      "video_end": 9.97
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Turn your right foot out ninety degrees, keeping hips square.",
+      "duration": 10,
+      "voice_prompt": "Turn your right foot outward ninety degrees, keeping your torso facing forward.",
+      "video_start": 9.97,
+      "video_end": 19.94
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Reach your torso to the right, hinging sideways at your hip.",
+      "duration": 10,
+      "voice_prompt": "Exhale, reach your torso to the right, and hinge sideways at your hip joint.",
+      "video_start": 19.94,
+      "video_end": 29.91
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Lower right hand to shin, reach left arm straight up, and gaze up.",
+      "duration": 10,
+      "voice_prompt": "Lower your right hand to your shin, extend your left arm up, and look at your left thumb.",
+      "video_start": 29.91,
+      "video_end": 39.88
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Inhale, rise back up to center, and release your arms.",
+      "duration": 10,
+      "voice_prompt": "Inhale, pull yourself up, turn your foot forward, and lower your arms.",
+      "video_start": 39.88,
+      "video_end": 49.84
+    }
+  ]
+}

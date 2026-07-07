@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Private AI Prompt Files
+prompts/yoga_coach_system_prompt.txt
+

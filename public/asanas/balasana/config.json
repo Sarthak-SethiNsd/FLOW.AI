@@ -1,0 +1,106 @@
+{
+  "id": "balasana",
+  "name": "Balasana",
+  "sanskrit": "बालासन",
+  "english": "Child's Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 164.26,
+  "description": "A deeply restorative resting posture. Balasana stretches the lower back and hips while calming the mind and nervous system.",
+  "benefits": [
+    "Gently stretches hips, thighs, and ankles",
+    "Calms the brain and helps relieve stress",
+    "Relieves back and neck pain"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Sit comfortably back on your heels with an upright spine.",
+      "duration": 16,
+      "voice_prompt": "Sit comfortably back on your heels, lengthening your spine upward.",
+      "video_start": 0.0,
+      "video_end": 16.43
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Move forward slowly into a tabletop position.",
+      "duration": 16,
+      "voice_prompt": "Inhale and move forward slowly, bringing your body into a tabletop position.",
+      "video_start": 16.43,
+      "video_end": 32.86
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Exhale and slowly lower your hips back onto your heels.",
+      "duration": 16,
+      "voice_prompt": "Exhale and lower your hips back toward your heels slowly.",
+      "video_start": 32.86,
+      "video_end": 49.29
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Keep knees together, or spread them slightly apart for comfort.",
+      "duration": 16,
+      "voice_prompt": "Bring your knees together, or spread them slightly apart to find comfort.",
+      "video_start": 49.29,
+      "video_end": 65.72
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Extend your arms overhead with palms flat on the floor.",
+      "duration": 16,
+      "voice_prompt": "Extend your arms straight out in front of you, placing your palms on the floor.",
+      "video_start": 65.72,
+      "video_end": 82.15
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Lower your chest down and rest your forehead on the mat.",
+      "duration": 16,
+      "voice_prompt": "Lay your chest down between your thighs, resting your forehead flat on the mat.",
+      "video_start": 82.15,
+      "video_end": 98.58
+    },
+    {
+      "step_number": 7,
+      "type": "hold",
+      "instruction": "Relax your shoulders and take slow, steady breaths.",
+      "duration": 16,
+      "voice_prompt": "Relax your shoulders, elbows, and back, breathing deeply.",
+      "video_start": 98.58,
+      "video_end": 115.01
+    },
+    {
+      "step_number": 8,
+      "type": "hold",
+      "instruction": "Exhale, letting your belly sink and relax against your thighs.",
+      "duration": 16,
+      "voice_prompt": "Exhale slowly, letting your belly sink and release tension against your thighs.",
+      "video_start": 115.01,
+      "video_end": 131.44
+    },
+    {
+      "step_number": 9,
+      "type": "hold",
+      "instruction": "Rest in this restorative position, taking slow breaths.",
+      "duration": 16,
+      "voice_prompt": "Rest here. Focus on the gentle expansion of your back on every inhale.",
+      "video_start": 131.44,
+      "video_end": 147.87
+    },
+    {
+      "step_number": 10,
+      "type": "hold",
+      "instruction": "Place palms under shoulders, inhale, and slowly lift back to sitting.",
+      "duration": 16,
+      "voice_prompt": "To release, place your hands under shoulders, inhale, and slowly roll up to seated.",
+      "video_start": 147.87,
+      "video_end": 164.26
+    }
+  ]
+}

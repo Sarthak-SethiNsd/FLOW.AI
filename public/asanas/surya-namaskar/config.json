@@ -1,0 +1,107 @@
+{
+  "id": "surya-namaskar",
+  "name": "Surya Namaskar",
+  "sanskrit": "सूर्य नमस्कार",
+  "english": "Sun Salutation",
+  "difficulty": "Intermediate",
+  "duration_seconds": 153.88,
+  "description": "A dynamic sequence of 12 postures coordinated with deep breathing. Surya Namaskar builds full-body strength, flexibility, and cardiovascular endurance.",
+  "benefits": [
+    "Warms up the entire body",
+    "Improves blood circulation",
+    "Stretches and strengthens muscles",
+    "Calms the nervous system"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall and bring your palms together in prayer position.",
+      "duration": 15,
+      "voice_prompt": "Stand with feet together at the front of your mat, hands joined in prayer position.",
+      "video_start": 0.0,
+      "video_end": 15.39
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Inhale, reach arms up and arch back gently.",
+      "duration": 15,
+      "voice_prompt": "Inhale deeply, raise your arms overhead, and gently arch back from the spine.",
+      "video_start": 15.39,
+      "video_end": 30.78
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Exhale, reach forward and fold down, placing palms on the mat.",
+      "duration": 15,
+      "voice_prompt": "Exhale, reach forward and fold down, placing palms or fingers beside your feet.",
+      "video_start": 30.78,
+      "video_end": 46.17
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Inhale, step your right leg back, rest knee on floor, and look up.",
+      "duration": 15,
+      "voice_prompt": "Inhale, step your right leg back, place right knee down, and lift your chest looking up.",
+      "video_start": 46.17,
+      "video_end": 61.56
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Slide your left leg back, bringing your body into a straight plank.",
+      "duration": 15,
+      "voice_prompt": "Exhale, step your left leg back, aligning your hips and spine in a straight plank.",
+      "video_start": 61.56,
+      "video_end": 76.95
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Lower knees, chest, and chin down to the floor, hips slightly raised.",
+      "duration": 15,
+      "voice_prompt": "Lower your knees, chest, and chin to the mat, keeping your elbows close to your torso.",
+      "video_start": 76.95,
+      "video_end": 92.34
+    },
+    {
+      "step_number": 7,
+      "type": "hold",
+      "instruction": "Inhale, slide forward, press palms down, and lift chest up.",
+      "duration": 15,
+      "voice_prompt": "Inhale, slide forward, and lift your chest into a gentle cobra stretch.",
+      "video_start": 92.34,
+      "video_end": 107.73
+    },
+    {
+      "step_number": 8,
+      "type": "hold",
+      "instruction": "Exhale, lift hips up and back into Downward-Facing Dog.",
+      "duration": 15,
+      "voice_prompt": "Exhale, lift your hips high and back, pressing your heels toward the mat.",
+      "video_start": 107.73,
+      "video_end": 123.12
+    },
+    {
+      "step_number": 9,
+      "type": "hold",
+      "instruction": "Inhale, step right foot forward between hands, left knee down, look up.",
+      "duration": 15,
+      "voice_prompt": "Inhale, step your right foot forward between your hands, lower left knee, and look up.",
+      "video_start": 123.12,
+      "video_end": 138.51
+    },
+    {
+      "step_number": 10,
+      "type": "hold",
+      "instruction": "Step left foot forward to fold, then inhale, reach up and arch back.",
+      "duration": 15,
+      "voice_prompt": "Step left foot forward, fold down, then inhale, stand up, reach overhead and arch back.",
+      "video_start": 138.51,
+      "video_end": 153.88
+    }
+  ]
+}

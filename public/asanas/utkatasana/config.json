@@ -1,0 +1,62 @@
+{
+  "id": "utkatasana",
+  "name": "Utkatasana",
+  "sanskrit": "उत्कटासन",
+  "english": "Chair Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 51.99,
+  "description": "A powerful standing squat that generates heat, strengthens the legs, and engages the core.",
+  "benefits": [
+    "Strengthens ankles, thighs, calves, and spine",
+    "Stretches shoulders and chest",
+    "Stimulates abdominal organs and heart",
+    "Reduces flat feet"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall with feet together, arms relaxed by your side.",
+      "duration": 10,
+      "voice_prompt": "Stand tall with your feet together, body relaxed and upright.",
+      "video_start": 0.0,
+      "video_end": 10.4
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Inhale, raise your heels and raise your arms to shoulder level.",
+      "duration": 10,
+      "voice_prompt": "Inhale, raise your heels up off the floor and raise your arms up to shoulder level.",
+      "video_start": 10.4,
+      "video_end": 20.8
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Turn your palms down, exhale, and slowly squat down halfway.",
+      "duration": 10,
+      "voice_prompt": "Turn your palms down. Exhale, and slowly squat down halfway as if sitting on a chair.",
+      "video_start": 20.8,
+      "video_end": 31.2
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Keep spine in line, stretch arms forward, and breathe.",
+      "duration": 10,
+      "voice_prompt": "Keep your back straight, arms extended forward, and hold the pose while breathing.",
+      "video_start": 31.2,
+      "video_end": 41.6
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Inhale, come up slowly, lower heels, and release arms.",
+      "duration": 10,
+      "voice_prompt": "Inhale, slowly stand back up, lower your heels, and relax your arms down.",
+      "video_start": 41.6,
+      "video_end": 51.99
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "bhujangasana",
+  "name": "Bhujangasana",
+  "sanskrit": "भुजङ्गासन",
+  "english": "Cobra Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 68.03,
+  "description": "A prone backbend that opens the chest, strengthens the spine, and improves lung capacity.",
+  "benefits": [
+    "Strengthens the spine",
+    "Stretches chest, lungs, shoulders, and abdomen",
+    "Firms the buttocks",
+    "Helps relieve stress and fatigue"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Lie flat on your stomach with forehead on the mat, hands by your chest.",
+      "duration": 11,
+      "voice_prompt": "Lie flat on your stomach. Place your palms flat on the floor beside your chest.",
+      "video_start": 0.0,
+      "video_end": 11.34
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Place hips flat, tuck pubic bone down, and suck navel in.",
+      "duration": 11,
+      "voice_prompt": "Press your hip and legs down, tucking your pubic bone in and drawing your belly to your spine.",
+      "video_start": 11.34,
+      "video_end": 22.68
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Inhale, press palms down, and roll shoulders back to lift chest.",
+      "duration": 11,
+      "voice_prompt": "Inhale, bring your shoulders up and roll them back, lifting your chest off the floor.",
+      "video_start": 22.68,
+      "video_end": 34.02
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Straighten arms to 80 percent, elbows slightly bent.",
+      "duration": 11,
+      "voice_prompt": "Straighten your arms to eighty percent, keeping your elbows bent and close to your body.",
+      "video_start": 34.02,
+      "video_end": 45.36
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Pull mat backward with hands, push chest forward and lift chin.",
+      "duration": 11,
+      "voice_prompt": "Pull your mat backward with your palms to push your chest forward and lift your chin.",
+      "video_start": 45.36,
+      "video_end": 56.7
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Exhale slowly, lower chest down, and relax.",
+      "duration": 11,
+      "voice_prompt": "Exhale slowly, lower your torso back down to the floor, and relax completely.",
+      "video_start": 56.7,
+      "video_end": 68.03
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "cat-cow-flow",
+  "name": "Cat-Cow Flow",
+  "sanskrit": "मार्जरीआसन / बितिलासन",
+  "english": "Spine Warmup",
+  "difficulty": "Beginner",
+  "duration_seconds": 14.51,
+  "description": "A gentle, repetitive flow coordinating spinal arching and rounding with inhalation and exhalation.",
+  "benefits": [
+    "Warms up and mobilizes the entire spine",
+    "Relieves back tension",
+    "Coordinative breath and movement training"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Start on hands and knees with a flat, neutral tabletop spine.",
+      "duration": 3,
+      "voice_prompt": "Start on your hands and knees with your spine flat, hands under shoulders, and knees under hips.",
+      "video_start": 0.0,
+      "video_end": 2.9
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Cat Pose: Exhale and round your spine up toward the ceiling.",
+      "duration": 3,
+      "voice_prompt": "Exhale, pull your belly in, round your spine up towards the ceiling, and tuck your chin.",
+      "video_start": 2.9,
+      "video_end": 5.8
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Hold Cat Pose, breathing into your shoulders.",
+      "duration": 3,
+      "voice_prompt": "Hold the cat stretch. Feel the space opening up between your shoulder blades.",
+      "video_start": 5.8,
+      "video_end": 8.7
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Cow Pose: Inhale, drop your belly down, and lift your chest.",
+      "duration": 3,
+      "voice_prompt": "Inhale, drop your navel toward the floor, lift your chest, and look up gently.",
+      "video_start": 8.7,
+      "video_end": 11.6
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Return to a flat, neutral tabletop position.",
+      "duration": 3,
+      "voice_prompt": "Slowly release and return your spine to a flat tabletop position.",
+      "video_start": 11.6,
+      "video_end": 14.51
+    }
+  ]
+}

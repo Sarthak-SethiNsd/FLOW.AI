@@ -1,0 +1,62 @@
+{
+  "id": "adho-mukha-svanasana",
+  "name": "Adho Mukha Svanasana",
+  "sanskrit": "अधोमुखश्वानासन",
+  "english": "Downward-Facing Dog",
+  "difficulty": "Beginner",
+  "duration_seconds": 43.8,
+  "description": "One of the most widely recognized yoga poses. It stretches the entire body, energizes the nervous system, and builds upper body strength.",
+  "benefits": [
+    "Stretches shoulders, hamstrings, and calves",
+    "Strengthens arms and legs",
+    "Relieves back pain and fatigue",
+    "Calms the brain"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Start on hands and knees with hands underneath your shoulders.",
+      "duration": 9,
+      "voice_prompt": "Begin on your hands and knees in tabletop stance, wrists directly under shoulders.",
+      "video_start": 0.0,
+      "video_end": 8.76
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Tuck your toes under and spread your fingers wide on the mat.",
+      "duration": 9,
+      "voice_prompt": "Tuck your toes, press down with your hands, and spread your fingers wide.",
+      "video_start": 8.76,
+      "video_end": 17.52
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Press hands down and lift your knees off the floor.",
+      "duration": 9,
+      "voice_prompt": "Press your palms down and lift your knees off the floor, raising your hips.",
+      "video_start": 17.52,
+      "video_end": 26.28
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Push your hips high and back, and press your heels down.",
+      "duration": 9,
+      "voice_prompt": "Push your hips high and back, reaching a triangle shape, and press your heels down.",
+      "video_start": 26.28,
+      "video_end": 35.04
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Gently bend knees if needed to lengthen spine, holding the pose.",
+      "duration": 9,
+      "voice_prompt": "Gently bend your knees to lengthen your spine, and breathe deeply in the pose.",
+      "video_start": 35.04,
+      "video_end": 43.8
+    }
+  ]
+}

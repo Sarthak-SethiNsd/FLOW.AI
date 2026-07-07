@@ -1,0 +1,89 @@
+{
+  "id": "virabhadrasana-ii",
+  "name": "Virabhadrasana II",
+  "sanskrit": "वीरभद्रासन II",
+  "english": "Warrior II",
+  "difficulty": "Beginner",
+  "duration_seconds": 109.34,
+  "description": "A powerful standing pose that builds stamina, focus, and strength in the legs and core.",
+  "benefits": [
+    "Strengthens legs and ankles",
+    "Stretches groin, chest, and shoulders",
+    "Increases stamina and concentration",
+    "Stimulates abdominal organs"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall in the center of your mat, focusing your breath.",
+      "duration": 13,
+      "voice_prompt": "Stand tall, centering your weight and connecting with your breath.",
+      "video_start": 0.0,
+      "video_end": 13.67
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Step your feet wide apart, about four feet, hands on hips.",
+      "duration": 13,
+      "voice_prompt": "Step your feet wide apart, wider than your hips, and rest hands on your waist.",
+      "video_start": 13.67,
+      "video_end": 27.34
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Turn your left toes in and your right toes out forward.",
+      "duration": 13,
+      "voice_prompt": "Turn your left toes slightly inward, and turn your right toes out ninety degrees.",
+      "video_start": 27.34,
+      "video_end": 41.01
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Draw your navel in, tuck tailbone, and lengthen up through the spine.",
+      "duration": 13,
+      "voice_prompt": "Draw your navel in, tuck your tailbone slightly, and lengthen your spine upward.",
+      "video_start": 41.01,
+      "video_end": 54.68
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Inhale, reach right fingertips forward and left fingertips backward.",
+      "duration": 13,
+      "voice_prompt": "Inhale, stretch your arms out to the sides, reaching front and back fingertips wide.",
+      "video_start": 54.68,
+      "video_end": 68.35
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Exhale and bend your front knee, keeping the knee aligned over ankle.",
+      "duration": 13,
+      "voice_prompt": "Exhale, bend your front knee, keeping your shin perpendicular to the floor.",
+      "video_start": 68.35,
+      "video_end": 82.02
+    },
+    {
+      "step_number": 7,
+      "type": "hold",
+      "instruction": "Gaze over your right hand, breathing deeply into your chest.",
+      "duration": 13,
+      "voice_prompt": "Look over your right hand and hold the pose. Feel strong and stable.",
+      "video_start": 82.02,
+      "video_end": 95.69
+    },
+    {
+      "step_number": 8,
+      "type": "hold",
+      "instruction": "Inhale, straighten your leg, release hands, and return to center.",
+      "duration": 14,
+      "voice_prompt": "Inhale, straighten your front leg, lower your arms, and step your feet back together.",
+      "video_start": 95.69,
+      "video_end": 109.34
+    }
+  ]
+}

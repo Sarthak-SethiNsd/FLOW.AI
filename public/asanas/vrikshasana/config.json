@@ -1,0 +1,62 @@
+{
+  "id": "vrikshasana",
+  "name": "Vrikshasana",
+  "sanskrit": "वृक्षासन",
+  "english": "Tree Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 41.32,
+  "description": "A classic standing balance pose. Vrikshasana improves focus, concentration, and balance while strengthening the legs.",
+  "benefits": [
+    "Improves balance and posture",
+    "Strengthens thighs, calves, and ankles",
+    "Opens the chest and shoulders",
+    "Calms the mind"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall with feet together, arms relaxed by your sides.",
+      "duration": 8,
+      "voice_prompt": "Stand tall with your feet together, arms relaxed at your sides, and gaze forward.",
+      "video_start": 0.0,
+      "video_end": 8.26
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Shift your weight onto your left leg, finding stability.",
+      "duration": 8,
+      "voice_prompt": "Shift your weight slowly onto your left leg, keeping it strong and grounded.",
+      "video_start": 8.26,
+      "video_end": 16.52
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Lift your right foot and place it against your inner left thigh.",
+      "duration": 8,
+      "voice_prompt": "Lift your right foot and place it on your inner left thigh. Avoid placing it on the knee joint.",
+      "video_start": 16.52,
+      "video_end": 24.78
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Bring your hands together in prayer position in front of your chest.",
+      "duration": 8,
+      "voice_prompt": "Join your palms in front of your chest in prayer pose, finding your balance.",
+      "video_start": 24.78,
+      "video_end": 33.04
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Inhale, raise your arms overhead, and hold your balance.",
+      "duration": 8,
+      "voice_prompt": "Inhale, stretch your arms straight overhead, open your chest, and hold your balance.",
+      "video_start": 33.04,
+      "video_end": 41.32
+    }
+  ]
+}
