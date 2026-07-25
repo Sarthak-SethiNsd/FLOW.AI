@@ -4,7 +4,7 @@
   "sanskrit": "मार्जरीआसन / बितिलासन",
   "english": "Spine Warmup",
   "difficulty": "Beginner",
-  "duration_seconds": 14.51,
+  "duration_seconds": 60,
   "description": "A gentle, repetitive flow coordinating spinal arching and rounding with inhalation and exhalation.",
   "benefits": [
     "Warms up and mobilizes the entire spine",
@@ -15,47 +15,47 @@
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Start on hands and knees with a flat, neutral tabletop spine.",
-      "duration": 3,
-      "voice_prompt": "Start on your hands and knees with your spine flat, hands under shoulders, and knees under hips.",
+      "instruction": "Start on hands and knees with a flat, neutral tabletop spine (back straight and flat like a table).",
+      "duration": 12,
+      "voice_prompt": "Get down onto your hands and knees. Place both palms flat on the floor directly under your shoulders. Point your fingers straight forward. Place your knees directly under your hips, spaced a few inches apart. Rest the tops of your feet flat against the floor. Keep your back completely flat and straight from your neck to your hips. Look straight down at the floor between your hands.",
       "video_start": 0.0,
-      "video_end": 2.9
+      "video_end": 12.0
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Cat Pose: Exhale and round your spine up toward the ceiling.",
-      "duration": 3,
-      "voice_prompt": "Exhale, pull your belly in, round your spine up towards the ceiling, and tuck your chin.",
-      "video_start": 2.9,
-      "video_end": 5.8
+      "instruction": "Cat Pose: Exhale and round your spine up toward the ceiling, tucking your chin to chest.",
+      "duration": 12,
+      "voice_prompt": "Breathe out and push your hands into the floor to round your entire back upward toward the ceiling. Pull your stomach inward. Drop your head downward and tuck your chin against your chest. Look backward between your legs. Keep your arms straight and your palms flat on the floor. Keep your knees on the ground.",
+      "video_start": 12.0,
+      "video_end": 24.0
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Hold Cat Pose, breathing into your shoulders.",
-      "duration": 3,
-      "voice_prompt": "Hold the cat stretch. Feel the space opening up between your shoulder blades.",
-      "video_start": 5.8,
-      "video_end": 8.7
+      "instruction": "Hold Cat Pose, breathing into the upper back and shoulders.",
+      "duration": 12,
+      "voice_prompt": "Hold this rounded position. Keep your chin tucked securely against your chest. Keep your back curved upward as high as it will go. Press both palms and the tops of both feet firmly down against the floor. Do not bend your elbows.",
+      "video_start": 24.0,
+      "video_end": 36.0
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Cow Pose: Inhale, drop your belly down, and lift your chest.",
-      "duration": 3,
-      "voice_prompt": "Inhale, drop your navel toward the floor, lift your chest, and look up gently.",
-      "video_start": 8.7,
-      "video_end": 11.6
+      "instruction": "Cow Pose: Inhale, drop your belly down toward the mat, lift your chest, and look up gently.",
+      "duration": 12,
+      "voice_prompt": "Breathe in and drop your stomach downward toward the floor, creating a downward curve in your lower back. Lift your chest and head upward, looking straight ahead or slightly up at the ceiling. Keep your arms perfectly straight and your palms flat. Push your shoulders backward, away from your ears. Keep your knees and the tops of your feet on the floor.",
+      "video_start": 36.0,
+      "video_end": 48.0
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Return to a flat, neutral tabletop position.",
-      "duration": 3,
-      "voice_prompt": "Slowly release and return your spine to a flat tabletop position.",
-      "video_start": 11.6,
-      "video_end": 14.51
+      "instruction": "Exhale slowly and return to a flat, neutral tabletop position.",
+      "duration": 12,
+      "voice_prompt": "Breathe out and return your back to a completely flat and straight position. Stop rounding or arching your back. Look straight down at the floor between your hands again. Keep your arms straight and your palms flat. Well done.",
+      "video_start": 48.0,
+      "video_end": 60.0
     }
   ]
 }

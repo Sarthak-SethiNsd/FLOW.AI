@@ -4,8 +4,8 @@
   "sanskrit": "सूर्य नमस्कार",
   "english": "Sun Salutation",
   "difficulty": "Intermediate",
-  "duration_seconds": 153.88,
-  "description": "A dynamic sequence of 12 postures coordinated with deep breathing. Surya Namaskar builds full-body strength, flexibility, and cardiovascular endurance.",
+  "duration_seconds": 120,
+  "description": "A dynamic sequence of 10 postures coordinated with deep breathing. Surya Namaskar builds full-body strength, flexibility, and cardiovascular endurance.",
   "benefits": [
     "Warms up the entire body",
     "Improves blood circulation",
@@ -16,92 +16,92 @@
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Stand tall and bring your palms together in prayer position.",
-      "duration": 15,
-      "voice_prompt": "Stand with feet together at the front of your mat, hands joined in prayer position.",
+      "instruction": "Stand tall at the front of your mat and bring your palms together in prayer position at chest center.",
+      "duration": 12,
+      "voice_prompt": "Welcome to Surya Namaskar. Stand at the front of your mat. Place both feet together, with your big toes and heels touching each other. Keep your legs straight. Bring your palms together in the center of your chest, with your fingers pointing straight up. Drop your shoulders down. Keep your head straight and look forward.",
       "video_start": 0.0,
-      "video_end": 15.39
+      "video_end": 12.0
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Inhale, reach arms up and arch back gently.",
-      "duration": 15,
-      "voice_prompt": "Inhale deeply, raise your arms overhead, and gently arch back from the spine.",
-      "video_start": 15.39,
-      "video_end": 30.78
+      "instruction": "Inhale deeply, raise both arms overhead, and arch back gently from your upper spine.",
+      "duration": 12,
+      "voice_prompt": "Breathe in. Keep your feet together and legs straight. Raise both arms straight up above your head, shoulder-width apart, with your palms facing each other and fingers pointing up. Bend your upper back backwards slightly, pushing your hips forward. Tilt your head back to look up at your hands.",
+      "video_start": 12.0,
+      "video_end": 24.0
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Exhale, reach forward and fold down, placing palms on the mat.",
-      "duration": 15,
-      "voice_prompt": "Exhale, reach forward and fold down, placing palms or fingers beside your feet.",
-      "video_start": 30.78,
-      "video_end": 46.17
+      "instruction": "Exhale, reach forward, and fold your torso down, placing your hands beside your feet.",
+      "duration": 12,
+      "voice_prompt": "Breathe out. Keep your feet together and legs straight. Bend forward at your hips. Lower your arms and upper body down. Place both palms flat on the floor, directly beside the outside edges of your feet, fingers pointing forward. Let your head hang down toward your knees.",
+      "video_start": 24.0,
+      "video_end": 36.0
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Inhale, step your right leg back, rest knee on floor, and look up.",
-      "duration": 15,
-      "voice_prompt": "Inhale, step your right leg back, place right knee down, and lift your chest looking up.",
-      "video_start": 46.17,
-      "video_end": 61.56
+      "instruction": "Inhale, step your right leg far back, rest your knee on the floor, and look up.",
+      "duration": 12,
+      "voice_prompt": "Breathe in. Keep your hands flat on the floor. Step your right foot far back. Rest your right knee on the mat and untuck your toes so the top of your right foot is flat on the floor. Keep your left foot flat on the floor between your hands, with your left knee bent at a right angle, like the corner of a square directly over your left ankle. Lift your chest and head to look straight forward.",
+      "video_start": 36.0,
+      "video_end": 48.0
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Slide your left leg back, bringing your body into a straight plank.",
-      "duration": 15,
-      "voice_prompt": "Exhale, step your left leg back, aligning your hips and spine in a straight plank.",
-      "video_start": 61.56,
-      "video_end": 76.95
+      "instruction": "Slide your left leg back to meet the right, bringing your body into a straight Plank pose.",
+      "duration": 12,
+      "voice_prompt": "Hold your breath. Press your hands into the floor. Step your left foot back to place it next to your right foot. Keep your arms straight with your shoulders directly over your wrists. Straighten both legs so your body forms a straight line from the top of your head to your heels, like a push-up position. Look down at the floor.",
+      "video_start": 48.0,
+      "video_end": 60.0
     },
     {
       "step_number": 6,
       "type": "hold",
-      "instruction": "Lower knees, chest, and chin down to the floor, hips slightly raised.",
-      "duration": 15,
-      "voice_prompt": "Lower your knees, chest, and chin to the mat, keeping your elbows close to your torso.",
-      "video_start": 76.95,
-      "video_end": 92.34
+      "instruction": "Exhale, lower your knees, chest, and chin down to the floor, keeping hips slightly raised.",
+      "duration": 12,
+      "voice_prompt": "Breathe out. Lower both knees down to rest on the mat. Bend your elbows straight backward, keeping your arms pressed against your ribs. Lower your chest and your chin to rest on the mat between your hands. Keep your hips lifted slightly off the floor. Your hands, knees, chest, chin, and toes should be touching the mat.",
+      "video_start": 60.0,
+      "video_end": 72.0
     },
     {
       "step_number": 7,
       "type": "hold",
-      "instruction": "Inhale, slide forward, press palms down, and lift chest up.",
-      "duration": 15,
-      "voice_prompt": "Inhale, slide forward, and lift your chest into a gentle cobra stretch.",
-      "video_start": 92.34,
-      "video_end": 107.73
+      "instruction": "Inhale, slide your chest forward, press palms down, and lift into Cobra Pose.",
+      "duration": 12,
+      "voice_prompt": "Breathe in. Slide your body forward and lower your hips to the mat. Untuck your toes so the tops of your feet are flat on the floor. Press your hands into the mat to lift your head and chest up. Keep your elbows slightly bent and pressed against your ribs. Look straight forward.",
+      "video_start": 72.0,
+      "video_end": 84.0
     },
     {
       "step_number": 8,
       "type": "hold",
-      "instruction": "Exhale, lift hips up and back into Downward-Facing Dog.",
-      "duration": 15,
-      "voice_prompt": "Exhale, lift your hips high and back, pressing your heels toward the mat.",
-      "video_start": 107.73,
-      "video_end": 123.12
+      "instruction": "Exhale, lift your hips up and back into Downward-Facing Dog.",
+      "duration": 12,
+      "voice_prompt": "Breathe out. Tuck your toes under. Push your hands into the floor and lift your hips up and back. Straighten your arms and legs to form an upside-down V shape. Press your heels down toward the floor. Keep your head between your upper arms and look back toward your feet.",
+      "video_start": 84.0,
+      "video_end": 96.0
     },
     {
       "step_number": 9,
       "type": "hold",
-      "instruction": "Inhale, step right foot forward between hands, left knee down, look up.",
-      "duration": 15,
-      "voice_prompt": "Inhale, step your right foot forward between your hands, lower left knee, and look up.",
-      "video_start": 123.12,
-      "video_end": 138.51
+      "instruction": "Inhale, step your right foot forward between your hands, left knee down, and look up.",
+      "duration": 12,
+      "voice_prompt": "Breathe in. Step your right foot forward and place it flat on the mat exactly between your hands. Lower your left knee onto the mat and untuck your left toes so the top of the foot is flat. Your right knee should be bent at a right angle, like the corner of a square directly over your right ankle. Lift your chest and look straight forward.",
+      "video_start": 96.0,
+      "video_end": 108.0
     },
     {
       "step_number": 10,
       "type": "hold",
-      "instruction": "Step left foot forward to fold, then inhale, reach up and arch back.",
-      "duration": 15,
-      "voice_prompt": "Step left foot forward, fold down, then inhale, stand up, reach overhead and arch back.",
-      "video_start": 138.51,
-      "video_end": 153.88
+      "instruction": "Exhale, step left foot forward to fold, then inhale, rise to stand, and arch back.",
+      "duration": 12,
+      "voice_prompt": "Breathe out. Step your left foot forward and place it next to your right foot. Keep both feet together. Bend forward at your hips, keeping your hands on the floor beside your feet. Breathe in, stand all the way up, keeping your legs straight. Reach both arms straight up and slightly back, looking up. Breathe out, lower your arms to your sides. Well done.",
+      "video_start": 108.0,
+      "video_end": 120.0
     }
   ]
 }

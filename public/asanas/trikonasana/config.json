@@ -4,7 +4,7 @@
   "sanskrit": "त्रिकोणासन",
   "english": "Triangle Pose",
   "difficulty": "Beginner",
-  "duration_seconds": 49.84,
+  "duration_seconds": 60,
   "description": "A foundational standing pose that stretches the hamstrings, spine, and chest while improving core stability.",
   "benefits": [
     "Stretches legs, knees, ankles, chest, and shoulders",
@@ -16,47 +16,47 @@
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Spread your feet three feet apart, raise arms sideways to shoulder level.",
-      "duration": 10,
-      "voice_prompt": "Stand with your feet about three feet apart, raise both arms parallel to the floor, palms facing down.",
+      "instruction": "Stand with feet wide apart, about three to four feet. Raise arms sideways parallel to the floor.",
+      "duration": 12,
+      "voice_prompt": "Welcome to Triangle Pose. Stand with your body facing the side of your mat. Step your feet about three to four feet apart. Keep both legs straight. Raise both arms straight out to the sides, level with the floor. Face your palms down toward the floor, with your fingers pointing straight out.",
       "video_start": 0.0,
-      "video_end": 9.97
+      "video_end": 12.0
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Turn your right foot out ninety degrees, keeping hips square.",
-      "duration": 10,
-      "voice_prompt": "Turn your right foot outward ninety degrees, keeping your torso facing forward.",
-      "video_start": 9.97,
-      "video_end": 19.94
+      "instruction": "Turn your right foot out ninety degrees, keeping your hips and torso facing forward.",
+      "duration": 12,
+      "voice_prompt": "Turn your right foot out to a right angle, like the corner of a square, so your toes point to the front edge of the mat. Turn your left foot slightly inward. Keep both legs completely straight. Keep your upper body and hips facing the side of the mat. Keep your arms stretched out to the sides, level with your shoulders, palms facing down.",
+      "video_start": 12.0,
+      "video_end": 24.0
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Reach your torso to the right, hinging sideways at your hip.",
-      "duration": 10,
-      "voice_prompt": "Exhale, reach your torso to the right, and hinge sideways at your hip joint.",
-      "video_start": 19.94,
-      "video_end": 29.91
+      "instruction": "Exhale, reach your torso to the right, and hinge sideways at your right hip joint.",
+      "duration": 12,
+      "voice_prompt": "Breathe out. Keep your legs straight and your feet in position. Reach your right arm straight forward over your right leg. Bend sideways at your waist to the right. Keep your upper body facing the side, without turning your chest toward the floor.",
+      "video_start": 24.0,
+      "video_end": 36.0
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Lower right hand to shin, reach left arm straight up, and gaze up.",
-      "duration": 10,
-      "voice_prompt": "Lower your right hand to your shin, extend your left arm up, and look at your left thumb.",
-      "video_start": 29.91,
-      "video_end": 39.88
+      "instruction": "Lower your right hand to your shin, reach left arm straight up, and gaze toward your left thumb.",
+      "duration": 12,
+      "voice_prompt": "Lower your right hand down and place it on the front of your lower leg, ankle, or the floor. Raise your left arm straight up toward the ceiling. Your arms should form a straight up and down line. Turn your head to look up at your left hand. Keep both legs straight, and keep your chest facing the side. Breathe steadily.",
+      "video_start": 36.0,
+      "video_end": 48.0
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Inhale, rise back up to center, and release your arms.",
-      "duration": 10,
-      "voice_prompt": "Inhale, pull yourself up, turn your foot forward, and lower your arms.",
-      "video_start": 39.88,
-      "video_end": 49.84
+      "instruction": "Inhale, press through your heels, rise back up to center, and lower your arms.",
+      "duration": 12,
+      "voice_prompt": "Breathe in. Keep your legs straight. Lift your upper body back up to a standing position. Turn your right foot inward to point to the side again. Lower both arms down to your sides. Step your feet back together. Well done.",
+      "video_start": 48.0,
+      "video_end": 60.0
     }
   ]
 }

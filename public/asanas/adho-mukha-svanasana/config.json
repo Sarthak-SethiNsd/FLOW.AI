@@ -4,7 +4,7 @@
   "sanskrit": "अधोमुखश्वानासन",
   "english": "Downward-Facing Dog",
   "difficulty": "Beginner",
-  "duration_seconds": 43.8,
+  "duration_seconds": 58,
   "description": "One of the most widely recognized yoga poses. It stretches the entire body, energizes the nervous system, and builds upper body strength.",
   "benefits": [
     "Stretches shoulders, hamstrings, and calves",
@@ -16,47 +16,47 @@
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Start on hands and knees with hands underneath your shoulders.",
-      "duration": 9,
-      "voice_prompt": "Begin on your hands and knees in tabletop stance, wrists directly under shoulders.",
+      "instruction": "Start on hands and knees with your hands underneath your shoulders. Your back is flat and straight.",
+      "duration": 10,
+      "voice_prompt": "Start by getting down onto your hands and knees. Place your palms flat on the floor directly beneath your shoulders. Spread your fingers wide apart on the mat and point your middle fingers straight forward. Place your knees directly underneath your hips, with your knees and feet spaced several inches apart. Keep your back completely flat and straight from the bottom of your neck to the bottom of your back. Look straight down at the floor between your hands.",
       "video_start": 0.0,
-      "video_end": 8.76
+      "video_end": 10.0
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Tuck your toes under and spread your fingers wide on the mat.",
-      "duration": 9,
-      "voice_prompt": "Tuck your toes, press down with your hands, and spread your fingers wide.",
-      "video_start": 8.76,
-      "video_end": 17.52
+      "instruction": "Tuck your toes under and spread your fingers wide on the mat, pressing through your palms.",
+      "duration": 10,
+      "voice_prompt": "Bend your toes under so they are resting flat on the floor. Keep your fingers spread wide and press the entire surface of your palms down into the mat. Press your thumbs and index fingers firmly against the floor. Keep your elbows straight but do not lock the joints. Keep your head looking straight down.",
+      "video_start": 10.0,
+      "video_end": 20.0
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Press hands down and lift your knees off the floor.",
-      "duration": 9,
-      "voice_prompt": "Press your palms down and lift your knees off the floor, raising your hips.",
-      "video_start": 17.52,
-      "video_end": 26.28
+      "instruction": "Press hands down, inhale, and lift your knees off the floor, raising your hips slightly.",
+      "duration": 10,
+      "voice_prompt": "Press your hands into the floor and lift both knees up in the air. Keep your knees slightly bent at first. Push your hips straight up and back toward the ceiling. Keep your arms completely straight, pushing the floor away from you. Let your head hang down between your upper arms, and look backward at your legs or feet.",
+      "video_start": 20.0,
+      "video_end": 30.0
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Push your hips high and back, and press your heels down.",
-      "duration": 9,
-      "voice_prompt": "Push your hips high and back, reaching a triangle shape, and press your heels down.",
-      "video_start": 26.28,
-      "video_end": 35.04
+      "instruction": "Push your hips high and back, reaching a triangle shape, and press your heels down toward the floor.",
+      "duration": 14,
+      "voice_prompt": "Push your hips up and back, straightening your legs. Your body should form an upside-down V shape. Press your heels toward the floor. It is okay if your heels do not touch the ground, but keep pushing them downward. Push your chest backward toward your thighs. Ensure your back remains completely straight from your hands all the way to your hips. If your back rounds, bend your knees slightly to keep a flat back.",
+      "video_start": 30.0,
+      "video_end": 44.0
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Gently bend knees if needed to lengthen spine, holding the pose.",
-      "duration": 9,
-      "voice_prompt": "Gently bend your knees to lengthen your spine, and breathe deeply in the pose.",
-      "video_start": 35.04,
-      "video_end": 43.8
+      "instruction": "Hold Downward-Facing Dog. Breathe deeply and feel the stretch through your spine and legs.",
+      "duration": 14,
+      "voice_prompt": "Hold this upside-down V shape. Keep your fingers spread wide, palms flat, and arms straight. Push your weight backward into your legs. Keep your head positioned between your upper arms. Press your heels firmly down toward the floor and keep the back of your legs straight. Breathe steadily, keeping your back entirely flat.",
+      "video_start": 44.0,
+      "video_end": 58.0
     }
   ]
 }

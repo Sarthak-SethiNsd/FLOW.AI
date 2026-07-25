@@ -16,9 +16,6 @@ export default function Header({ cameraConnected = false, cameraActive = false }
           <Link href="/" className="text-white border-b-2 border-flow-green pb-1">
             My Practice
           </Link>
-          <a href="#" className="hover:text-white transition">Library</a>
-          <a href="#" className="hover:text-white transition">Stats</a>
-          <a href="#" className="hover:text-white transition">Settings</a>
         </nav>
       </div>
       <div className="flex items-center space-x-4">

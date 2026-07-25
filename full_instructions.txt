@@ -1,0 +1,613 @@
+<USER_REQUEST>
+You need to implement a complete upgrade to the Yoga app Watch mode. Here is exactly what to do. Do NOT ask questions â€” just implement everything as described.
+
+## CONTEXT
+The app is at `c:\Users\LENOVO\Desktop\Websites\Yoga-Project`. It is a Next.js yoga coaching app. The Watch mode (`src/app/pose/[id]/watch/WatchClient.js`) shows an SVG skeleton guide when no video is present.
+
+## WHAT TO DO â€” ALL 7 FILES
+
+---
+
+### FILE 1: `public/asanas/balasana/config.json` (OVERWRITE)
+
+```json
+{
+  "id": "balasana",
+  "name": "Balasana",
+  "sanskrit": "à¤¬à¤¾à¤²à¤¾à¤¸à¤¨",
+  "english": "Child's Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 71,
+  "description": "A deeply restorative resting posture. Balasana stretches the lower back and hips while calming the mind and nervous system.",
+  "benefits": [
+    "Gently stretches hips, thighs, and ankles",
+    "Calms the brain and helps relieve stress",
+    "Relieves back and neck pain"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Come down to kneel on the mat. Sit your bottom back onto your heels and place both hands on your thighs. Sit up tall.",
+      "duration": 8,
+      "voice_prompt": "Let us begin. Gently come down onto your knees on the mat. Place both your knees about as wide as your hips â€” the distance that feels natural. Now sit back and rest your bottom down onto your heels â€” your heels are the rounded, bony bumps at the back of your feet. Place both hands, palms facing downward, on top of your thighs. Sit up as tall as you can â€” imagine a gentle string attached to the very top of your head, slowly pulling you upward toward the ceiling. Let your eyes close softly and take one slow, deep breath in through your nose to prepare.",
+      "video_start": 0,
+      "video_end": 8,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Inhale slowly and raise both arms straight up overhead, reaching your fingertips toward the ceiling.",
+      "duration": 8,
+      "voice_prompt": "Inhale slowly and deeply through your nose. As you breathe in, raise both arms smoothly up overhead â€” let them sweep upward like wings opening. Keep your elbows gently soft, not locked stiff. Reach your fingertips toward the ceiling as high as feels comfortable. Your palms can face each other or face forward. Feel your ribs gently lifting and your spine growing longer with each breath. Your bottom should still be resting on your heels as you breathe and stretch upward. Hold this lengthened position and feel the full expansion of your breath.",
+      "video_start": 8,
+      "video_end": 16,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Exhale and begin hinging forward from your hips, bringing your torso toward your thighs with arms reaching forward.",
+      "duration": 10,
+      "voice_prompt": "Now gently exhale â€” breathe out slowly and completely through your mouth. As you breathe out, hinge your entire upper body forward from your hips â€” your hips are the wide, bony area at the very top of your legs where your legs meet your body. Do not round from your shoulders â€” instead, think of your whole torso tipping forward as one long unit. Your arms stay outstretched in front of you, reaching forward along the mat. Keep your bottom on your heels as much as you comfortably can. Let gravity do the work and gently pull your chest toward your thighs.",
+      "video_start": 16,
+      "video_end": 26,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Continue folding forward, walking your fingertips further along the mat until your arms are fully extended in front of you.",
+      "duration": 10,
+      "voice_prompt": "Continue breathing slowly and reach your arms further along the mat â€” walk your fingertips forward little by little until your arms are completely stretched out flat in front of you. Let your chest lower toward, and eventually rest upon, your thighs. Feel a deep, satisfying stretch opening across your shoulders and all the way down the sides of your body. Your hips are pressed back toward your heels. Let your belly soften and settle between or on top of your thighs. There is no urgency here â€” move at whatever pace feels good for your body today.",
+      "video_start": 26,
+      "video_end": 36,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Allow your forehead to rest gently on the mat. Arms extended forward, palms flat. This is Child's Pose.",
+      "duration": 12,
+      "voice_prompt": "Allow your forehead to rest gently down onto the mat. If your forehead does not quite reach the mat, that is completely fine â€” simply let your head hang as low as it will go naturally. Your arms are stretched fully out in front, palms pressing flat on the mat. Feel how your whole back forms a gentle, comfortable rounded curve, like the shell of a turtle. This is Balasana â€” Child's Pose. It is a resting pose, which means there is nothing to force or achieve here. Simply let go. Soften your jaw. Soften your shoulders. Soften your hands.",
+      "video_start": 36,
+      "video_end": 48,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Stay here and breathe. Feel your back rise with each inhale and your body sink deeper with each exhale.",
+      "duration": 15,
+      "voice_prompt": "Stay here and breathe naturally, without controlling or forcing the breath. With each breath in, notice your entire back gently rising and expanding like a gentle wave. With each breath out, let your body melt a little deeper into the mat â€” a little more relaxed, a little heavier, a little more at rest. There is nothing to do here except be still. This pose gently stretches your lower back, your hips, and the fronts of your thighs. It also quiets the nervous system â€” which is the body's wiring that controls stress and relaxation. Close your eyes if you like and simply rest here for as long as you need.",
+      "video_start": 48,
+      "video_end": 63,
+      "isHoldStep": true
+    },
+    {
+      "step_number": 7,
+      "type": "hold",
+      "instruction": "Walk your hands back toward your knees. Inhale and slowly roll your spine upright to seated. You have completed Child's Pose.",
+      "duration": 8,
+      "voice_prompt": "When you feel ready to come out, slowly begin walking your hands back along the mat toward your body. Place your palms flat and directly beneath your shoulders. On your next inhale, gently press down through your palms and begin lifting your torso upright â€” uncurl your spine slowly, one section at a time, from the lower back all the way up to your head coming up last. Come back to the gentle seated position on your heels. Take one slow breath in and one slow breath out. Sit tall and notice how your body feels â€” perhaps calmer, perhaps more open. Well done. You have completed Balasana â€” Child's Pose.",
+      "video_start": 63,
+      "video_end": 71,
+      "isHoldStep": false
+    }
+  ]
+}
+```
+
+---
+
+### FILE 2: `public/asanas/tadasana/config.json` (OVERWRITE)
+
+```json
+{
+  "id": "tadasana",
+  "name": "Tadasana",
+  "sanskrit": "à¤¤à¤¾à¤¡à¤¾à¤¸à¤¨",
+  "english": "Mountain Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 58,
+  "description": "The foundation of all standing poses. Tadasana builds postural awareness, improves balance, and teaches active stillness.",
+  "benefits": [
+    "Improves posture and body awareness",
+    "Strengthens thighs, knees, and ankles",
+    "Firms abdomen and buttocks",
+    "Relieves sciatica"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand on your mat with feet hip-width apart, arms relaxed at your sides, and gaze forward.",
+      "duration": 7,
+      "voice_prompt": "Welcome to Tadasana â€” Mountain Pose. In Sanskrit, Tada means mountain. This pose teaches you to stand as steady, still, and strong as a mountain. Begin by standing on your mat with your feet roughly hip-width apart â€” that means about the same distance apart as the width of your own hips. Your toes point forward. Let your arms hang naturally and comfortably at your sides. Look straight ahead at a fixed point on the wall in front of you, at eye level. Take one full, slow breath in and one full breath out to settle yourself and arrive in this moment.",
+      "video_start": 0,
+      "video_end": 7,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bring your feet together and press all four corners of each foot firmly into the mat.",
+      "duration": 8,
+      "voice_prompt": "Now bring your feet together so your big toes are touching and your heels are either touching or very close together. Spread your toes apart gently â€” as if your toes were fingers trying to spread wide. Now press down through all four corners of each foot: the base of your big toe, the base of your little toe, and both sides of your heel. This action is called grounding â€” it means creating a solid, stable, full connection with the floor beneath you. Feel how that firmness in your feet begins to create a sense of stability rising up through your whole body.",
+      "video_start": 7,
+      "video_end": 15,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Firm your leg muscles, lift your kneecaps gently, and lengthen your spine tall.",
+      "duration": 8,
+      "voice_prompt": "Now gently firm the muscles of your legs â€” tighten them as if you are squeezing something gently between your inner thighs. You do not need to bend or move anything â€” simply firm up. As you do this, notice that your kneecaps gently lift upward. This is correct â€” it means your leg muscles are properly engaged and supporting you. At the same time, lengthen your spine â€” imagine a gentle thread attached to the crown of your head, the very topmost point, slowly pulling that point straight up toward the ceiling. Let your spine grow as long as possible from your tailbone all the way to the top of your head.",
+      "video_start": 15,
+      "video_end": 23,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Roll your shoulders up, then back, then down. Turn your palms to face forward and open your chest.",
+      "duration": 8,
+      "voice_prompt": "Now bring awareness to your shoulders. Roll them: first lift them upward toward your ears, then roll them backward as if trying to bring your shoulder blades together behind you, and finally let them drop down â€” away from your ears. Feel your chest open like two doors swinging wide apart. Now gently rotate your palms so they face forward, away from your body. This small rotation in the arms opens the shoulders even further and gives the lungs more room to fully expand. Take a slow, deep breath in and feel your chest filling completely â€” expanding from the front, the sides, and the back.",
+      "video_start": 23,
+      "video_end": 31,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Inhale and sweep both arms overhead, pressing your palms together above your head.",
+      "duration": 8,
+      "voice_prompt": "On your next inhale, slowly sweep both arms up from your sides and raise them overhead alongside your ears. If it is comfortable, press your palms flat together above your head â€” this joining of hands is called Anjali Mudra and is a gesture of intention and focus. If pressing palms together causes any shoulder discomfort, simply keep your arms shoulder-width apart with palms facing each other. Reach your fingertips as high as possible while keeping your feet firmly grounded below. Feel the wonderful full-body stretch running from the soles of your feet all the way to the very tips of your fingers.",
+      "video_start": 31,
+      "video_end": 39,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Hold Mountain Pose. Breathe slowly and feel the connection from your grounded feet to your reaching fingertips.",
+      "duration": 12,
+      "voice_prompt": "Hold this complete Mountain Pose and breathe slowly and smoothly. Notice how every part of your body is working together right now â€” your feet are grounded and strong, your legs are firm and supporting, your spine is long and upright, your chest is open, and your arms are reaching high toward the sky. Feel the connection between the earth below supporting you and the open sky above receiving you. Each time you inhale, allow yourself to grow just a tiny bit taller. Each time you exhale, press just a little more firmly into the mat below. Stay here and enjoy the quiet power and stability of the mountain.",
+      "video_start": 39,
+      "video_end": 51,
+      "isHoldStep": true
+    },
+    {
+      "step_number": 7,
+      "type": "hold",
+      "instruction": "Exhale and gently lower your arms back to your sides. Stand tall in simple standing pose. Pose complete.",
+      "duration": 7,
+      "voice_prompt": "On your next exhale, slowly and gently lower your arms back down to your sides â€” lower them like two birds softly landing, with no hurry. Let your palms face your body again. Roll your shoulders back one final time and let them settle and relax. Stand here in simple, upright standing â€” feet together, spine tall, arms at your sides, breathing easily. Notice how grounded and calm you feel right now. This stillness â€” this quiet, powerful, present awareness â€” is what Tadasana teaches. Well done. You have completed Mountain Pose.",
+      "video_start": 51,
+      "video_end": 58,
+      "isHoldStep": false
+    }
+  ]
+}
+```
+
+---
+
+### FILE 3: `public/asanas/vrikshasana/config.json` (OVERWRITE)
+
+```json
+{
+  "id": "vrikshasana",
+  "name": "Vrikshasana",
+  "sanskrit": "à¤µà¥ƒà¤•à¥à¤·à¤¾à¤¸à¤¨",
+  "english": "Tree Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 65,
+  "description": "A classic standing balance pose. Vrikshasana improves focus, concentration, and balance while strengthening the legs.",
+  "benefits": [
+    "Improves balance and posture",
+    "Strengthens thighs, calves, and ankles",
+    "Opens the chest and shoulders",
+    "Calms and focuses the mind"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand in Mountain Pose â€” feet together, spine tall, gaze fixed on a single point in front of you at eye level.",
+      "duration": 6,
+      "voice_prompt": "Welcome to Vrikshasana â€” Tree Pose. Vriksha means tree in Sanskrit. In this pose, we stand on one leg like a tree grows from a single strong trunk. Begin by standing in Mountain Pose â€” feet together, spine tall, arms relaxed at your sides. This fixed gaze is absolutely essential for balance â€” choose one single point on the wall directly in front of you at eye level, and keep your eyes softly but steadily focused there throughout the pose. In yoga, this fixed gaze point is called Drishti. It is your anchor. Breathe slowly and begin to feel the steadiness in your feet.",
+      "video_start": 0,
+      "video_end": 6,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Slowly shift your weight onto your left foot. Press it firmly into the mat. Your right foot stays lightly on the mat.",
+      "duration": 8,
+      "voice_prompt": "Begin to slowly shift your body weight onto your left foot. Distribute your weight carefully â€” press your entire left foot firmly down into the mat, from the heel to the toes, as if you are trying to leave a clear footprint in soft clay. Feel the muscles of your left leg firming up to support your weight â€” your calf, your thigh, the muscles all around your knee. Your right foot is still touching the mat but you are placing less and less weight on it. Keep your gaze steady on that fixed point. Breathe normally. Your core â€” the muscles of your belly â€” should feel gently firm, like a very light brace.",
+      "video_start": 6,
+      "video_end": 14,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Bend your right knee out to the side. Place the sole of your right foot against the inside of your left leg at the ankle or calf level.",
+      "duration": 10,
+      "voice_prompt": "Now slowly lift your right foot off the mat. Bend your right knee and rotate it outward â€” turn it out to the right side as if opening a door. Place the sole â€” the flat bottom â€” of your right foot gently against the inside of your left leg. For the beginner version, place it at the ankle, which is the bony area at the very bottom of your leg just above your foot. If that feels stable, you can slide it slightly higher up to the inner calf â€” the muscular area between the ankle and the knee. Whichever height you choose, press your foot gently into your leg and your leg gently back into your foot. This mutual pressure helps create stability and balance.",
+      "video_start": 14,
+      "video_end": 24,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "If stable, slide your right foot up to the inner left thigh â€” the soft upper inner leg â€” with your right knee pointing out to the side.",
+      "duration": 10,
+      "voice_prompt": "If you feel stable and comfortable, slowly slide your right foot higher â€” up past the calf and ideally all the way up to the inner left thigh â€” the inner thigh is the soft inner surface of your upper leg. There is an important rule here: never place your foot directly on the side of the knee joint â€” the knee joint is the bony middle point of the leg where it bends. Placing weight there can harm the joint. Your foot should be either below or above the knee, never on it. Once placed on the thigh, continue pressing your foot into the thigh and your thigh back into your foot. Keep your gaze steady, your standing leg strong, and your hips level â€” meaning both hip bones should be at the same height, not tilting.",
+      "video_start": 24,
+      "video_end": 34,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Bring both hands together in a prayer position at the center of your chest, elbows out to the sides. Find your balance.",
+      "duration": 8,
+      "voice_prompt": "When you feel balanced on one leg, bring both hands together in front of your heart. Press your palms flat together at the very center of your chest, with your elbows pointing outward to the sides. This is called Anjali Mudra â€” a gesture of respect, focus, and inner centering. Feel how this position draws your attention inward and helps you find stillness. Continue breathing slowly and naturally. Keep your gaze fixed softly on that one point in front of you. If you wobble, that is completely normal â€” trees sway gently in the wind but their roots hold firm. Simply refocus on your gaze point and breathe.",
+      "video_start": 34,
+      "video_end": 42,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Inhale and raise both arms overhead, palms together. Hold Tree Pose here and breathe steadily.",
+      "duration": 15,
+      "voice_prompt": "On your next inhale, sweep both arms overhead â€” keeping your palms pressed together or shoulder-width apart â€” and reach your fingertips toward the sky. You are now in the complete Tree Pose. Your root is your grounded left foot, your trunk is your tall upright spine, and your branches are your arms reaching upward into the open sky. Breathe here slowly and steadily. With each inhale, feel yourself growing taller, more connected, more rooted. With each exhale, allow your body to settle more deeply into its single point of balance. A tree is not rigid â€” it is strong but also flexible. If you sway a little, simply breathe and refocus. That is part of the practice.",
+      "video_start": 42,
+      "video_end": 57,
+      "isHoldStep": true
+    },
+    {
+      "step_number": 7,
+      "type": "hold",
+      "instruction": "Gently lower your arms and release your right foot back to the mat. Stand on both feet and breathe.",
+      "duration": 8,
+      "voice_prompt": "When you are ready to come out, gently lower your arms back to your sides. Then slowly release your right foot back down to the mat and stand on both feet. Take a moment to stand quietly and notice how your left leg feels after bearing your full weight â€” it may feel warmer, stronger, or slightly different from the right. Take two full, slow breaths. When you are ready, you can repeat Tree Pose on the other side by shifting your weight to the right foot and lifting the left. Well done â€” you have completed Vrikshasana, Tree Pose.",
+      "video_start": 57,
+      "video_end": 65,
+      "isHoldStep": false
+    }
+  ]
+}
+```
+
+---
+
+### FILE 4: `public/asanas/bhujangasana/config.json` (OVERWRITE)
+
+```json
+{
+  "id": "bhujangasana",
+  "name": "Bhujangasana",
+  "sanskrit": "à¤­à¥à¤œà¤‚à¤—à¤¾à¤¸à¤¨",
+  "english": "Cobra Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 58,
+  "description": "A prone backbend that opens the chest, strengthens the spine, and improves lung capacity.",
+  "benefits": [
+    "Strengthens the spine and lower back",
+    "Stretches chest, lungs, shoulders, and abdomen",
+    "Helps relieve stress and fatigue",
+    "Opens the heart and improves breathing"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Lie face down on your mat. Legs stretched behind you, forehead or chin resting on the mat. Arms relaxed at your sides.",
+      "duration": 8,
+      "voice_prompt": "Welcome to Bhujangasana â€” Cobra Pose. Bhujanga means serpent or cobra in Sanskrit, because in this pose you rise up like a cobra. Begin by lying face down on your mat â€” on your belly, with your face pointing downward. Your legs should be stretched straight out behind you, roughly hip-width apart, or together if that feels more comfortable. Let the tops of your feet â€” the front side of your feet â€” rest flat on the mat, not the soles. Lay your chin or your forehead gently on the mat. Let your arms lie loosely beside your body for now. Take a moment to breathe, feel the mat beneath you, and let your whole body relax.",
+      "video_start": 0,
+      "video_end": 8,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bend your elbows and slide your palms to the mat directly below your shoulders. Keep elbows pointing back, close to your sides.",
+      "duration": 8,
+      "voice_prompt": "Now position your hands â€” this is very important for doing the pose safely. Bend your elbows and bring your palms flat to the mat, placing them directly below your shoulders â€” your shoulders are the rounded tops of your arms. Your fingertips should point forward toward the top of the mat. Your elbows should be pointing straight backward toward your feet â€” not flaring out to the sides like chicken wings â€” but tucked close to your sides like folded wings. Keeping the elbows in like this protects your shoulders and gives you the most efficient support for the lifting to come. Feel your hands pressing firmly and evenly into the mat.",
+      "video_start": 8,
+      "video_end": 16,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Inhale and slowly peel your head and chest upward, using your back muscles. Keep elbows bent. This is Low Cobra.",
+      "duration": 10,
+      "voice_prompt": "On your next inhale, begin to slowly peel your head and chest up off the mat â€” gently and slowly, as if you are a cobra slowly rising to look around. Do not push up suddenly with your arms. Instead, use the muscles of your back â€” the long muscles that run alongside your spine â€” to create most of this lift. Think of it as pulling your chest forward and upward through space, rather than just pushing up with your hands. Keep your elbows bent. Your belly button â€” the navel â€” may still be on or very close to the mat. This beginner version is called Low Cobra and it is a completely full and beneficial version of the pose.",
+      "video_start": 16,
+      "video_end": 26,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Press your palms into the mat and gently straighten your arms to lift the chest higher. Roll your shoulders back and down.",
+      "duration": 12,
+      "voice_prompt": "If your lower back feels comfortable, continue to press your palms down into the mat and gently straighten your arms further â€” not all the way to completely straight, but about eighty percent extended, keeping a soft bend at the elbows. This lifts your chest higher. As you do, roll your shoulders back and down â€” away from your ears â€” to open the front of your chest. You may tilt your head back slightly to look upward, but only do this if your neck feels completely comfortable. Your hips and legs remain flat on the mat. Feel the wonderful deep stretch across the front of your entire body â€” your chest, your belly, and the fronts of your hips.",
+      "video_start": 26,
+      "video_end": 38,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Cobra Pose. Breathe slowly. Feel your chest open and your spine strengthen with each breath.",
+      "duration": 12,
+      "voice_prompt": "Hold this Cobra Pose and breathe here slowly. Breathe in through your nose and out through your mouth. With each inhale, allow your chest to lift just a tiny bit higher and your heart to open a little wider. With each exhale, keep the lift â€” do not let your chest fall â€” and feel the strength in your back supporting you. Your thighs may want to lift off the mat, but try to keep them on the mat. Feel how this pose opens the entire front side of your body â€” the chest, the belly, and the hip flexors, which are the muscles at the very front of your hips where your legs meet your torso. This is a wonderful counter-stretch if you spend time sitting.",
+      "video_start": 38,
+      "video_end": 50,
+      "isHoldStep": true
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Exhale slowly and gently lower your chest and forehead back down to the mat. Rest your arms alongside your body. Pose complete.",
+      "duration": 8,
+      "voice_prompt": "When you are ready to release, on your next exhale, very slowly and gently lower your chest back down to the mat â€” do not collapse or let yourself fall, but control the descent carefully and slowly. Then lower your head and let your chin or forehead rest on the mat again. Relax your arms back alongside your body. Turn your head to one side and rest your cheek on the mat. Take two full, slow breaths here and let your entire back relax and release completely. You can gently rock your hips side to side to release any remaining tension. You have just completed Bhujangasana â€” Cobra Pose. Well done.",
+      "video_start": 50,
+      "video_end": 58,
+      "isHoldStep": false
+    }
+  ]
+}
+```
+
+---
+
+### FILE 5: `public/asanas/utkatasana/config.json` (OVERWRITE)
+
+```json
+{
+  "id": "utkatasana",
+  "name": "Utkatasana",
+  "sanskrit": "à¤‰à¤¤à¥à¤•à¤Ÿà¤¾à¤¸à¤¨",
+  "english": "Chair Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 57,
+  "description": "A powerful standing squat that generates heat, strengthens the legs, and engages the core.",
+  "benefits": [
+    "Strengthens ankles, thighs, calves, and spine",
+    "Stretches shoulders and chest",
+    "Stimulates abdominal organs",
+    "Builds heat and endurance"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall on your mat with feet together or hip-width apart. Spine long, chest open, arms relaxed at your sides.",
+      "duration": 7,
+      "voice_prompt": "Welcome to Utkatasana â€” Chair Pose, sometimes called Fierce Pose or Powerful Pose in Sanskrit, because it truly is a challenging and powerful posture. We will move into a position that looks like sitting on an invisible chair that is not actually there â€” this challenges your thigh muscles, your core muscles which are the muscles around your belly and lower back, and your overall endurance and strength. Begin by standing tall on your mat with your feet either together or hip-width apart â€” hip-width means roughly as wide as your own hips. Your spine is long, your chest is open, and your arms hang comfortably at your sides. Take one slow, settling breath.",
+      "video_start": 0,
+      "video_end": 7,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Inhale and raise both arms overhead alongside your ears. Palms face each other. Feel the full stretch from feet to fingertips.",
+      "duration": 8,
+      "voice_prompt": "On your next inhale, slowly raise both arms overhead alongside your ears. Your arms should be roughly parallel â€” like two posts going straight up â€” with your palms facing each other. As you raise your arms, notice that your spine naturally wants to lengthen further upward â€” let it. Reach your fingertips as high toward the ceiling as you comfortably can. If raising your arms fully overhead causes any discomfort in your shoulders or neck, you can bring them to shoulder height in front of you instead â€” that is a valid modification. Take a deep breath in and feel the full beautiful stretch from your feet all the way up to your fingertips.",
+      "video_start": 7,
+      "video_end": 15,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Exhale and begin bending both knees, pushing your bottom backward and downward as if finding an invisible chair behind you.",
+      "duration": 10,
+      "voice_prompt": "Now, on your exhale, begin to bend both of your knees at the same time. Push your bottom â€” your hips â€” backward and downward as if there is a chair placed just behind you and you are searching for it. Your torso will naturally lean slightly forward â€” this is correct, not a mistake. Think of it as a gentle hinge at your hips, which are the wide bony area where your legs connect to your torso. Keep your arms reaching upward. As your knees bend, make sure they are tracking forward over your toes â€” meaning if you look down, your knee should be going in the same direction as your second toe, not collapsing inward toward each other.",
+      "video_start": 15,
+      "video_end": 25,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Lower until your thighs are as close to parallel to the floor as comfortable. Spine long, arms reaching forward-upward.",
+      "duration": 12,
+      "voice_prompt": "Continue lowering down until your thighs are as close to being parallel with the floor as is comfortable for you today â€” parallel means at the same level as the floor, like a shelf or a table. Your knees should not travel further forward than your toes â€” check this by glancing down. Your body weight should be mostly in your heels â€” you should be able to wiggle your toes slightly without falling. Your spine is long and slightly forward-leaning, your chest is open, and your arms are reaching upward and slightly forward. This is the complete Chair Pose. It is demanding â€” your thighs are working hard, and that is excellent.",
+      "video_start": 25,
+      "video_end": 37,
+      "isHoldStep": false
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Chair Pose. Breathe steadily. Keep weight in your heels and spine long.",
+      "duration": 12,
+      "voice_prompt": "Hold this position and breathe steadily and slowly. Take slow breaths in through your nose and out through your mouth. Your thighs may begin to feel warm or may even burn slightly â€” this is completely normal and expected, and it means the muscles are working and growing stronger. Keep your gaze forward or slightly downward. Remind yourself to keep your weight in your heels, not your toes. Keep your back as straight and as long as comfortable. Each breath in, reach your fingertips a little higher toward the ceiling. Each breath out, try to sit just a fraction deeper into the invisible chair. You are building strength, heat, and endurance.",
+      "video_start": 37,
+      "video_end": 49,
+      "isHoldStep": true
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Inhale and press through your heels to straighten your legs and rise back to standing. Lower your arms. Pose complete.",
+      "duration": 8,
+      "voice_prompt": "On your next inhale, press firmly down through your heels â€” really drive your heels into the mat â€” and begin to straighten your legs to rise back up to standing. As you rise, lower your arms back down to your sides at the same time. Come all the way back up to a tall standing position with your spine long and your feet grounded. Take two full, slow breaths here and notice the sensation in your legs â€” perhaps a warmth, a heaviness, or even a slight shakiness. These sensations are all signs of honest effort and strength being built. You have completed Utkatasana â€” Chair Pose. Well done.",
+      "video_start": 49,
+      "video_end": 57,
+      "isHoldStep": false
+    }
+  ]
+}
+```
+
+---
+
+### FILE 6: `src/app/pose/[id]/watch/YogaGuide.js` (CREATE NEW)
+
+Create this file with this exact content:
+
+```javascript
+'use client';
+
+import React, { useState, useEffect } from 'react';
+
+// â”€â”€â”€ SKELETON COORDINATE DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// viewType: 'side' = person faces left | 'front' = person faces viewer
+// isHoldStep: shows breathing indicator ring
+// All coordinates reference a 500x300 SVG viewBox. Mat is at y=265.
+
+const ASANA_GUIDE_DATA = {
+
+  balasana: {
+    label: 'à¤¬à¤¾à¤²à¤¾à¤¸à¤¨ Â· BALASANA Â· Child\'s Pose',
+    viewType: 'side',
+    steps: [
+      // Step 1: Kneeling upright on heels
+      { head:{x:308,y:112}, shoulder_L:{x:305,y:152}, shoulder_R:{x:320,y:158}, elbow_L:{x:298,y:195}, elbow_R:{x:313,y:200}, wrist_L:{x:275,y:230}, wrist_R:{x:290,y:235}, hip_L:{x:320,y:228}, hip_R:{x:335,y:233}, knee_L:{x:210,y:265}, knee_R:{x:225,y:265}, ankle_L:{x:335,y:265}, ankle_R:{x:350,y:265}, mid_spine:{x:312,y:188}, isHoldStep:false },
+      // Step 2: Arms raised overhead
+      { head:{x:308,y:112}, shoulder_L:{x:305,y:152}, shoulder_R:{x:320,y:158}, elbow_L:{x:308,y:108}, elbow_R:{x:323,y:113}, wrist_L:{x:308,y:68}, wrist_R:{x:323,y:72}, hip_L:{x:320,y:228}, hip_R:{x:335,y:233}, knee_L:{x:210,y:265}, knee_R:{x:225,y:265}, ankle_L:{x:335,y:265}, ankle_R:{x:350,y:265}, mid_spine:{x:312,y:188}, isHoldStep:false },
+      // Step 3: Begin folding forward
+      { head:{x:228,y:172}, shoulder_L:{x:260,y:195}, shoulder_R:{x:275,y:200}, elbow_L:{x:215,y:210}, elbow_R:{x:230,y:215}, wrist_L:{x:178,y:222}, wrist_R:{x:193,y:227}, hip_L:{x:318,y:225}, hip_R:{x:333,y:230}, knee_L:{x:210,y:265}, knee_R:{x:225,y:265}, ankle_L:{x:335,y:265}, ankle_R:{x:350,y:265}, mid_spine:{x:285,y:212}, isHoldStep:false },
+      // Step 4: Deeper fold
+      { head:{x:172,y:218}, shoulder_L:{x:215,y:228}, shoulder_R:{x:230,y:232}, elbow_L:{x:162,y:238}, elbow_R:{x:177,y:242}, wrist_L:{x:122,y:250}, wrist_R:{x:137,y:254}, hip_L:{x:315,y:252}, hip_R:{x:330,y:256}, knee_L:{x:215,y:265}, knee_R:{x:230,y:265}, ankle_L:{x:338,y:265}, ankle_R:{x:353,y:265}, mid_spine:{x:258,y:248}, isHoldStep:false },
+      // Step 5: Full Child's Pose
+      { head:{x:148,y:252}, shoulder_L:{x:192,y:232}, shoulder_R:{x:207,y:237}, elbow_L:{x:148,y:248}, elbow_R:{x:163,y:252}, wrist_L:{x:108,y:260}, wrist_R:{x:123,y:264}, hip_L:{x:315,y:252}, hip_R:{x:330,y:256}, knee_L:{x:218,y:265}, knee_R:{x:233,y:265}, ankle_L:{x:340,y:265}, ankle_R:{x:355,y:265}, mid_spine:{x:252,y:248}, isHoldStep:false },
+      // Step 6: Hold and breathe
+      { head:{x:148,y:252}, shoulder_L:{x:192,y:232}, shoulder_R:{x:207,y:237}, elbow_L:{x:148,y:248}, elbow_R:{x:163,y:252}, wrist_L:{x:108,y:260}, wrist_R:{x:123,y:264}, hip_L:{x:315,y:252}, hip_R:{x:330,y:256}, knee_L:{x:218,y:265}, knee_R:{x:233,y:265}, ankle_L:{x:340,y:265}, ankle_R:{x:355,y:265}, mid_spine:{x:252,y:248}, isHoldStep:true },
+      // Step 7: Rise back up
+      { head:{x:308,y:112}, shoulder_L:{x:305,y:152}, shoulder_R:{x:320,y:158}, elbow_L:{x:298,y:195}, elbow_R:{x:313,y:200}, wrist_L:{x:275,y:230}, wrist_R:{x:290,y:235}, hip_L:{x:320,y:228}, hip_R:{x:335,y:233}, knee_L:{x:210,y:265}, knee_R:{x:225,y:265}, ankle_L:{x:335,y:265}, ankle_R:{x:350,y:265}, mid_spine:{x:312,y:188}, isHoldStep:false },
+    ]
+  },
+
+  tadasana: {
+    label: 'à¤¤à¤¾à¤¡à¤¾à¤¸à¤¨ Â· TADASANA Â· Mountain Pose',
+    viewType: 'front',
+    steps: [
+      // Step 1: Feet hip-width
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:232,y:182}, hip_R:{x:268,y:182}, knee_L:{x:228,y:228}, knee_R:{x:272,y:228}, ankle_L:{x:222,y:263}, ankle_R:{x:278,y:263}, mid_spine:{x:250,y:135}, isHoldStep:false },
+      // Step 2: Feet together, rooted
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:268,y:228}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:135}, isHoldStep:false },
+      // Step 3: Engage legs, lengthen spine
+      { head:{x:250,y:47}, shoulder_L:{x:212,y:86}, shoulder_R:{x:288,y:86}, elbow_L:{x:196,y:136}, elbow_R:{x:304,y:136}, wrist_L:{x:188,y:180}, wrist_R:{x:312,y:180}, hip_L:{x:234,y:180}, hip_R:{x:266,y:180}, knee_L:{x:232,y:226}, knee_R:{x:268,y:226}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:133}, isHoldStep:false },
+      // Step 4: Shoulders back, palms forward
+      { head:{x:250,y:47}, shoulder_L:{x:210,y:86}, shoulder_R:{x:290,y:86}, elbow_L:{x:194,y:136}, elbow_R:{x:306,y:136}, wrist_L:{x:184,y:180}, wrist_R:{x:316,y:180}, hip_L:{x:234,y:180}, hip_R:{x:266,y:180}, knee_L:{x:232,y:226}, knee_R:{x:268,y:226}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:133}, isHoldStep:false },
+      // Step 5: Arms overhead, palms together
+      { head:{x:250,y:47}, shoulder_L:{x:210,y:86}, shoulder_R:{x:290,y:86}, elbow_L:{x:238,y:52}, elbow_R:{x:262,y:52}, wrist_L:{x:248,y:22}, wrist_R:{x:252,y:22}, hip_L:{x:234,y:180}, hip_R:{x:266,y:180}, knee_L:{x:232,y:226}, knee_R:{x:268,y:226}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:133}, isHoldStep:false },
+      // Step 6: Hold Mountain Pose
+      { head:{x:250,y:47}, shoulder_L:{x:210,y:86}, shoulder_R:{x:290,y:86}, elbow_L:{x:238,y:52}, elbow_R:{x:262,y:52}, wrist_L:{x:248,y:22}, wrist_R:{x:252,y:22}, hip_L:{x:234,y:180}, hip_R:{x:266,y:180}, knee_L:{x:232,y:226}, knee_R:{x:268,y:226}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:133}, isHoldStep:true },
+      // Step 7: Lower arms, release
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:268,y:228}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:135}, isHoldStep:false },
+    ]
+  },
+
+  vrikshasana: {
+    label: 'à¤µà¥ƒà¤•à¥à¤·à¤¾à¤¸à¤¨ Â· VRIKSHASANA Â· Tree Pose',
+    viewType: 'front',
+    steps: [
+      // Step 1: Mountain base
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:268,y:228}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:135}, isHoldStep:false },
+      // Step 2: Weight shifting to left
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:270,y:228}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:255}, mid_spine:{x:250,y:135}, isHoldStep:false },
+      // Step 3: Right foot at left ankle (low tree)
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:234,y:182}, hip_R:{x:265,y:182}, knee_L:{x:232,y:228}, knee_R:{x:300,y:228}, ankle_L:{x:232,y:263}, ankle_R:{x:234,y:256}, mid_spine:{x:250,y:135}, isHoldStep:false },
+      // Step 4: Right foot at inner left thigh
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:314,y:208}, ankle_L:{x:232,y:263}, ankle_R:{x:236,y:208}, mid_spine:{x:250,y:135}, isHoldStep:false },
+      // Step 5: Prayer hands at chest
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:220,y:118}, elbow_R:{x:280,y:118}, wrist_L:{x:247,y:130}, wrist_R:{x:253,y:130}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:314,y:208}, ankle_L:{x:232,y:263}, ankle_R:{x:236,y:208}, mid_spine:{x:250,y:135}, isHoldStep:false },
+      // Step 6: Full Tree â€” arms overhead, hold
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:238,y:52}, elbow_R:{x:262,y:52}, wrist_L:{x:248,y:22}, wrist_R:{x:252,y:22}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:314,y:208}, ankle_L:{x:232,y:263}, ankle_R:{x:236,y:208}, mid_spine:{x:250,y:135}, isHoldStep:true },
+      // Step 7: Return to standing
+      { head:{x:250,y:50}, shoulder_L:{x:212,y:88}, shoulder_R:{x:288,y:88}, elbow_L:{x:196,y:138}, elbow_R:{x:304,y:138}, wrist_L:{x:188,y:182}, wrist_R:{x:312,y:182}, hip_L:{x:234,y:182}, hip_R:{x:266,y:182}, knee_L:{x:232,y:228}, knee_R:{x:268,y:228}, ankle_L:{x:232,y:263}, ankle_R:{x:268,y:263}, mid_spine:{x:250,y:135}, isHoldStep:false },
+    ]
+  },
+
+  bhujangasana: {
+    label: 'à¤­à¥à¤œà¤‚à¤—à¤¾à¤¸à¤¨ Â· BHUJANGASANA Â· Cobra Pose',
+    viewType: 'side',
+    steps: [
+      // Step 1: Lying flat, arms at sides
+      { head:{x:112,y:232}, shoulder_L:{x:150,y:230}, shoulder_R:{x:164,y:234}, elbow_L:{x:195,y:234}, elbow_R:{x:210,y:238}, wrist_L:{x:238,y:238}, wrist_R:{x:252,y:242}, hip_L:{x:300,y:243}, hip_R:{x:314,y:246}, knee_L:{x:365,y:248}, knee_R:{x:379,y:251}, ankle_L:{x:425,y:252}, ankle_R:{x:439,y:254}, mid_spine:{x:225,y:237}, isHoldStep:false },
+      // Step 2: Palms beside chest, elbows bent
+      { head:{x:112,y:232}, shoulder_L:{x:150,y:230}, shoulder_R:{x:164,y:234}, elbow_L:{x:148,y:250}, elbow_R:{x:162,y:254}, wrist_L:{x:126,y:260}, wrist_R:{x:140,y:264}, hip_L:{x:300,y:243}, hip_R:{x:314,y:246}, knee_L:{x:365,y:248}, knee_R:{x:379,y:251}, ankle_L:{x:425,y:252}, ankle_R:{x:439,y:254}, mid_spine:{x:225,y:237}, isHoldStep:false },
+      // Step 3: Low Cobra â€” head and chest lifting
+      { head:{x:100,y:200}, shoulder_L:{x:148,y:215}, shoulder_R:{x:162,y:220}, elbow_L:{x:148,y:248}, elbow_R:{x:162,y:252}, wrist_L:{x:128,y:260}, wrist_R:{x:142,y:264}, hip_L:{x:298,y:245}, hip_R:{x:312,y:248}, knee_L:{x:362,y:250}, knee_R:{x:376,y:253}, ankle_L:{x:422,y:254}, ankle_R:{x:436,y:257}, mid_spine:{x:222,y:238}, isHoldStep:false },
+      // Step 4: Full Cobra â€” chest high
+      { head:{x:90,y:166}, shoulder_L:{x:146,y:193}, shoulder_R:{x:160,y:198}, elbow_L:{x:155,y:238}, elbow_R:{x:169,y:243}, wrist_L:{x:140,y:260}, wrist_R:{x:154,y:264}, hip_L:{x:294,y:247}, hip_R:{x:308,y:250}, knee_L:{x:358,y:252}, knee_R:{x:372,y:255}, ankle_L:{x:418,y:257}, ankle_R:{x:432,y:260}, mid_spine:{x:218,y:222}, isHoldStep:false },
+      // Step 5: Hold Cobra
+      { head:{x:90,y:166}, shoulder_L:{x:146,y:193}, shoulder_R:{x:160,y:198}, elbow_L:{x:155,y:238}, elbow_R:{x:169,y:243}, wrist_L:{x:140,y:260}, wrist_R:{x:154,y:264}, hip_L:{x:294,y:247}, hip_R:{x:308,y:250}, knee_L:{x:358,y:252}, knee_R:{x:372,y:255}, ankle_L:{x:418,y:257}, ankle_R:{x:432,y:260}, mid_spine:{x:218,y:222}, isHoldStep:true },
+      // Step 6: Lower back down
+      { head:{x:112,y:232}, shoulder_L:{x:150,y:230}, shoulder_R:{x:164,y:234}, elbow_L:{x:195,y:234}, elbow_R:{x:210,y:238}, wrist_L:{x:238,y:238}, wrist_R:{x:252,y:242}, hip_L:{x:300,y:243}, hip_R:{x:314,y:246}, knee_L:{x:365,y:248}, knee_R:{x:379,y:251}, ankle_L:{x:425,y:252}, ankle_R:{x:439,y:254}, mid_spine:{x:225,y:237}, isHoldStep:false },
+    ]
+  },
+
+  utkatasana: {
+    label: 'à¤‰à¤¤à¥à¤•à¤Ÿà¤¾à¤¸à¤¨ Â· UTKATASANA Â· Chair Pose',
+    viewType: 'side',
+    steps: [
+      // Step 1: Standing upright
+      { head:{x:250,y:60}, shoulder_L:{x:247,y:96}, shoulder_R:{x:262,y:102}, elbow_L:{x:242,y:146}, elbow_R:{x:257,y:152}, wrist_L:{x:238,y:192}, wrist_R:{x:253,y:198}, hip_L:{x:246,y:192}, hip_R:{x:261,y:198}, knee_L:{x:242,y:232}, knee_R:{x:257,y:237}, ankle_L:{x:240,y:265}, ankle_R:{x:255,y:265}, mid_spine:{x:248,y:148}, isHoldStep:false },
+      // Step 2: Arms raised overhead
+      { head:{x:250,y:60}, shoulder_L:{x:247,y:96}, shoulder_R:{x:262,y:102}, elbow_L:{x:250,y:52}, elbow_R:{x:265,y:57}, wrist_L:{x:252,y:25}, wrist_R:{x:267,y:30}, hip_L:{x:246,y:192}, hip_R:{x:261,y:198}, knee_L:{x:242,y:232}, knee_R:{x:257,y:237}, ankle_L:{x:240,y:265}, ankle_R:{x:255,y:265}, mid_spine:{x:248,y:148}, isHoldStep:false },
+      // Step 3: Begin bending knees
+      { head:{x:234,y:82}, shoulder_L:{x:236,y:116}, shoulder_R:{x:251,y:122}, elbow_L:{x:248,y:70}, elbow_R:{x:263,y:76}, wrist_L:{x:258,y:45}, wrist_R:{x:273,y:51}, hip_L:{x:258,y:202}, hip_R:{x:273,y:208}, knee_L:{x:225,y:250}, knee_R:{x:240,y:254}, ankle_L:{x:208,y:265}, ankle_R:{x:223,y:265}, mid_spine:{x:244,y:162}, isHoldStep:false },
+      // Step 4: Full Chair Pose
+      { head:{x:218,y:104}, shoulder_L:{x:228,y:134}, shoulder_R:{x:242,y:140}, elbow_L:{x:246,y:90}, elbow_R:{x:260,y:96}, wrist_L:{x:260,y:66}, wrist_R:{x:274,y:72}, hip_L:{x:270,y:210}, hip_R:{x:284,y:216}, knee_L:{x:208,y:258}, knee_R:{x:222,y:262}, ankle_L:{x:186,y:265}, ankle_R:{x:200,y:265}, mid_spine:{x:242,y:175}, isHoldStep:false },
+      // Step 5: Hold Chair
+      { head:{x:218,y:104}, shoulder_L:{x:228,y:134}, shoulder_R:{x:242,y:140}, elbow_L:{x:246,y:90}, elbow_R:{x:260,y:96}, wrist_L:{x:260,y:66}, wrist_R:{x:274,y:72}, hip_L:{x:270,y:210}, hip_R:{x:284,y:216}, knee_L:{x:208,y:258}, knee_R:{x:222,y:262}, ankle_L:{x:186,y:265}, ankle_R:{x:200,y:265}, mid_spine:{x:242,y:175}, isHoldStep:true },
+      // Step 6: Rise back up
+      { head:{x:250,y:60}, shoulder_L:{x:247,y:96}, shoulder_R:{x:262,y:102}, elbow_L:{x:242,y:146}, elbow_R:{x:257,y:152}, wrist_L:{x:238,y:192}, wrist_R:{x:253,y:198}, hip_L:{x:246,y:192}, hip_R:{x:261,y:198}, knee_L:{x:242,y:232}, knee_R:{x:257,y:237}, ankle_L:{x:240,y:265}, ankle_R:{x:255,y:265}, mid_spine:{x:248,y:148}, isHoldStep:false },
+    ]
+  },
+};
+
+// â”€â”€â”€ JOINT LABEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function JointLabel({ jx, jy, label, dx = -14, dy = -14 }) {
+  return (
+    <>
+      <circle cx={jx + dx} cy={jy + dy} r={9} fill="#6d28d9" stroke="rgba(255,255,255,0.3)" strokeWidth={1} />
+      <text x={jx + dx} y={jy + dy + 3.5} textAnchor="middle" fill="white" fontSize={9} fontWeight="bold" fontFamily="system-ui,sans-serif">{label}</text>
+    </>
+  );
+}
+
+// â”€â”€â”€ INTERACTIVE YOGA GUIDE COMPONENT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+export function InteractiveYogaGuide({ asanaId, currentStepIndex, svgKey }) {
+  const [showAltView, setShowAltView] = useState(false);
+
+  useEffect(() => {
+    setShowAltView(false);
+    const timer = setTimeout(() => setShowAltView(true), 2500);
+    return () => clearTimeout(timer);
+  }, [currentStepIndex, svgKey]);
+
+  const asanaData = ASANA_GUIDE_DATA[asanaId];
+
+  if (!asanaData) {
+    return (
+      <img
+        src={`/asanas/${asanaId}/animation.svg`}
+        alt="Yoga Guide"
+        className="w-full h-full object-contain max-h-[85%]"
+      />
+    );
+  }
+
+  const step = asanaData.steps[currentStepIndex] || asanaDat
+<truncated 28223 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.

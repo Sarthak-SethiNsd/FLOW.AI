@@ -4,59 +4,73 @@
   "sanskrit": "उत्कटासन",
   "english": "Chair Pose",
   "difficulty": "Beginner",
-  "duration_seconds": 51.99,
-  "description": "A powerful standing squat that generates heat, strengthens the legs, and engages the core.",
+  "duration_seconds": 58,
+  "description": "A powerful standing pose that builds strength in the thighs and core while improving endurance and mental focus.",
   "benefits": [
-    "Strengthens ankles, thighs, calves, and spine",
-    "Stretches shoulders and chest",
-    "Stimulates abdominal organs and heart",
-    "Reduces flat feet"
+    "Strengthens the thighs, calves, and spine",
+    "Stimulates the heart and diaphragm",
+    "Builds core strength and endurance"
   ],
   "steps": [
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Stand tall with feet together, arms relaxed by your side.",
-      "duration": 10,
-      "voice_prompt": "Stand tall with your feet together, body relaxed and upright.",
-      "video_start": 0.0,
-      "video_end": 10.4
+      "instruction": "Stand with feet together or hip-width apart in Mountain Pose. Arms relaxed at sides, standing tall.",
+      "duration": 8,
+      "voice_prompt": "Start by standing straight on your mat. Place both feet together so your big toes touch, or place them about a fist's width apart. Let your arms hang straight down by your sides with your palms facing your legs. Keep your back completely straight, press the bottoms of your feet firmly into the floor, and look straight ahead. Take a slow, deep breath in through your nose.",
+      "video_start": 0,
+      "video_end": 8,
+      "isHoldStep": false
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Inhale, raise your heels and raise your arms to shoulder level.",
-      "duration": 10,
-      "voice_prompt": "Inhale, raise your heels up off the floor and raise your arms up to shoulder level.",
-      "video_start": 10.4,
-      "video_end": 20.8
+      "instruction": "Inhale and sweep both arms upward overhead, straightening them alongside your ears, palms facing each other.",
+      "duration": 8,
+      "voice_prompt": "As you breathe in, raise both arms straight up above your head. Place your upper arms directly beside your ears. Keep your elbows completely straight. Turn your hands so that your palms are facing each other and your fingers are pointing straight up toward the ceiling. If this hurts your shoulders, hold your arms straight out in front of your chest instead, level with the floor. Keep your shoulders pressed downward, away from your ears.",
+      "video_start": 8,
+      "video_end": 16,
+      "isHoldStep": false
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Turn your palms down, exhale, and slowly squat down halfway.",
+      "instruction": "Exhale and begin to bend both knees, lowering your hips as if you are sitting back into a chair. Keep your weight in your heels.",
       "duration": 10,
-      "voice_prompt": "Turn your palms down. Exhale, and slowly squat down halfway as if sitting on a chair.",
-      "video_start": 20.8,
-      "video_end": 31.2
+      "voice_prompt": "Breathe out and bend both knees. Lower your hips backward and down, exactly as if you are sitting down on a chair. Keep your knees pointing straight ahead in the same direction as your toes; do not let your knees collapse inward. Shift your body weight back onto your heels. If you look down, you should be able to clearly see all of your toes in front of your kneecaps.",
+      "video_start": 16,
+      "video_end": 26,
+      "isHoldStep": false
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Keep spine in line, stretch arms forward, and breathe.",
+      "instruction": "Lower until your thighs are as parallel to the floor as possible. Chest lifted, arms up, back straight.",
       "duration": 10,
-      "voice_prompt": "Keep your back straight, arms extended forward, and hold the pose while breathing.",
-      "video_start": 31.2,
-      "video_end": 41.6
+      "voice_prompt": "Continue to lower your hips until your thighs are as close to level with the floor as possible. Keep your chest lifted upward and forward. Keep your arms raised straight up beside your ears, or straight in front of you. Keep a completely straight back. Your upper body will naturally lean forward at an angle, but keep your back flat, not rounded.",
+      "video_start": 26,
+      "video_end": 36,
+      "isHoldStep": false
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Inhale, come up slowly, lower heels, and release arms.",
-      "duration": 10,
-      "voice_prompt": "Inhale, slowly stand back up, lower your heels, and relax your arms down.",
-      "video_start": 41.6,
-      "video_end": 51.99
+      "instruction": "Hold Chair Pose. Breathe steadily. Feel the burn in your thighs — that means your muscles are working and getting stronger.",
+      "duration": 14,
+      "voice_prompt": "Hold this position and breathe steadily. Keep the bottoms of your feet flat on the floor, your knees bent, and your arms held straight. Make sure your palms are still facing each other. With every breath out, try to lower your hips just one inch further down. Keep looking straight ahead. Your thigh muscles will feel warm and tired, which means you are building strength. Keep your chest up and your back flat.",
+      "video_start": 36,
+      "video_end": 50,
+      "isHoldStep": true
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Inhale and press through your feet to straighten your legs and rise back up to standing. Lower your arms on the exhale.",
+      "duration": 8,
+      "voice_prompt": "Breathe in, press your feet firmly into the floor, and straighten your legs completely to return to a standing position. As you breathe out, lower both arms straight down to rest beside your legs. Keep standing tall and straight. Well done.",
+      "video_start": 50,
+      "video_end": 58,
+      "isHoldStep": false
     }
   ]
 }

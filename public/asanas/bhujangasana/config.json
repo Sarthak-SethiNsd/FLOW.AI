@@ -1,71 +1,76 @@
 {
   "id": "bhujangasana",
   "name": "Bhujangasana",
-  "sanskrit": "भुजङ्गासन",
+  "sanskrit": "भुजंगासन",
   "english": "Cobra Pose",
   "difficulty": "Beginner",
-  "duration_seconds": 68.03,
-  "description": "A prone backbend that opens the chest, strengthens the spine, and improves lung capacity.",
+  "duration_seconds": 62,
+  "description": "A gentle backbend that strengthens the spine and opens the chest. Bhujangasana is a fundamental pose practiced in many yoga sequences.",
   "benefits": [
-    "Strengthens the spine",
-    "Stretches chest, lungs, shoulders, and abdomen",
-    "Firms the buttocks",
-    "Helps relieve stress and fatigue"
+    "Strengthens the spine and back muscles",
+    "Opens the chest and stretches the lungs",
+    "Stimulates the abdominal organs"
   ],
   "steps": [
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Lie flat on your stomach with forehead on the mat, hands by your chest.",
-      "duration": 11,
-      "voice_prompt": "Lie flat on your stomach. Place your palms flat on the floor beside your chest.",
-      "video_start": 0.0,
-      "video_end": 11.34
+      "instruction": "Lie flat on your stomach on the mat. Place your legs straight back, toes pointed. Rest your forehead on the mat.",
+      "duration": 8,
+      "voice_prompt": "Let us begin Bhujangasana, or Cobra Pose. Lie completely flat on your stomach on the mat. Extend both legs straight back with your feet together. Point your toes backward so the tops of your feet touch the floor. Rest your forehead directly on the mat.",
+      "video_start": 0,
+      "video_end": 8,
+      "isHoldStep": false
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Place hips flat, tuck pubic bone down, and suck navel in.",
-      "duration": 11,
-      "voice_prompt": "Press your hip and legs down, tucking your pubic bone in and drawing your belly to your spine.",
-      "video_start": 11.34,
-      "video_end": 22.68
+      "instruction": "Place your palms flat on the mat directly under your shoulders. Hug your elbows close to your sides.",
+      "duration": 8,
+      "voice_prompt": "Bring both hands up and place your palms flat on the mat directly under your shoulders. Point your fingers straight forward. Bend your elbows and pull them in tight against the sides of your body. Press the tops of your feet firmly down into the mat.",
+      "video_start": 8,
+      "video_end": 16,
+      "isHoldStep": false
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Inhale, press palms down, and roll shoulders back to lift chest.",
-      "duration": 11,
-      "voice_prompt": "Inhale, bring your shoulders up and roll them back, lifting your chest off the floor.",
-      "video_start": 22.68,
-      "video_end": 34.02
+      "instruction": "Inhale and slowly lift your forehead, then your nose, then your chin, then your chest off the mat. Use your back muscles, not just your arms.",
+      "duration": 10,
+      "voice_prompt": "Breathe in slowly and begin to lift your head off the mat. Lift your forehead, then your nose, then your chin. Use the muscles in your back to lift your chest off the floor. Keep your arms bent and your elbows hugged against your ribs.",
+      "video_start": 16,
+      "video_end": 26,
+      "isHoldStep": false
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Straighten arms to 80 percent, elbows slightly bent.",
-      "duration": 11,
-      "voice_prompt": "Straighten your arms to eighty percent, keeping your elbows bent and close to your body.",
-      "video_start": 34.02,
-      "video_end": 45.36
+      "instruction": "Press your palms into the mat and lift your chest higher. Roll your shoulders back and down away from your ears.",
+      "duration": 10,
+      "voice_prompt": "Press your palms into the mat to lift your chest a bit higher. Keep your hips and the front of your hip area pressed firmly against the floor. Pull your shoulders back and down away from your ears. Look straight ahead with your neck long.",
+      "video_start": 26,
+      "video_end": 36,
+      "isHoldStep": false
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Pull mat backward with hands, push chest forward and lift chin.",
-      "duration": 11,
-      "voice_prompt": "Pull your mat backward with your palms to push your chest forward and lift your chin.",
-      "video_start": 45.36,
-      "video_end": 56.7
+      "instruction": "Hold Cobra Pose. Breathe steadily. Feel the front of your body opening and your spine gently arching.",
+      "duration": 12,
+      "voice_prompt": "Hold this position and breathe steadily. Keep your elbows bent and close to your sides. Keep your shoulders pulled down and your chest pushed forward. Ensure your legs are straight and the tops of your feet remain on the floor.",
+      "video_start": 36,
+      "video_end": 48,
+      "isHoldStep": true
     },
     {
       "step_number": 6,
       "type": "hold",
-      "instruction": "Exhale slowly, lower chest down, and relax.",
-      "duration": 11,
-      "voice_prompt": "Exhale slowly, lower your torso back down to the floor, and relax completely.",
-      "video_start": 56.7,
-      "video_end": 68.03
+      "instruction": "Exhale slowly and lower your chest, then your chin, then your forehead back down to the mat gently.",
+      "duration": 8,
+      "voice_prompt": "Breathe out slowly and gently lower your body back down. Lower your chest, then your chin, and finally place your forehead back on the mat. Relax your arms down by your sides. Well done. You have completed Cobra Pose.",
+      "video_start": 48,
+      "video_end": 56,
+      "isHoldStep": false
     }
   ]
 }

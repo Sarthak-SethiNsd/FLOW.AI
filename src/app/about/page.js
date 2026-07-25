@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Chatbot from '@/components/Chatbot';
@@ -8,8 +8,7 @@ import { ArrowLeft, BookOpen, ShieldCheck, Heart, Sparkles } from 'lucide-react'
 import aboutData from '../../../public/content/about.json';
 
 export default function AboutPage() {
-  const [language, setLanguage] = useState('english'); // 'english' | 'hindi'
-  const t = aboutData[language];
+  const t = aboutData.english;
 
   return (
     <div className="h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground select-none">
@@ -91,29 +90,7 @@ export default function AboutPage() {
 
             </div>
 
-            {/* Language Toggle Controls at Bottom */}
-            <div className="mt-8 border-t border-border-dark pt-6 flex items-center justify-center space-x-4">
-              <button 
-                onClick={() => setLanguage('english')}
-                className={`px-5 py-2.5 rounded-lg text-sm font-semibold border transition ${
-                  language === 'english'
-                    ? 'bg-flow-green border-flow-green text-white shadow-lg shadow-flow-green/25'
-                    : 'bg-[#161b22] border-border-dark text-gray-400 hover:text-white'
-                }`}
-              >
-                English
-              </button>
-              <button 
-                onClick={() => setLanguage('hindi')}
-                className={`px-5 py-2.5 rounded-lg text-sm font-semibold border transition ${
-                  language === 'hindi'
-                    ? 'bg-flow-green border-flow-green text-white shadow-lg shadow-flow-green/25'
-                    : 'bg-[#161b22] border-border-dark text-gray-400 hover:text-white'
-                }`}
-              >
-                हिन्दी (Hindi)
-              </button>
-            </div>
+
 
           </div>
         </div>

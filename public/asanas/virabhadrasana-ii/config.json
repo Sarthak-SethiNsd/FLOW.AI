@@ -4,7 +4,7 @@
   "sanskrit": "वीरभद्रासन II",
   "english": "Warrior II",
   "difficulty": "Beginner",
-  "duration_seconds": 109.34,
+  "duration_seconds": 96,
   "description": "A powerful standing pose that builds stamina, focus, and strength in the legs and core.",
   "benefits": [
     "Strengthens legs and ankles",
@@ -16,74 +16,74 @@
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Stand tall in the center of your mat, focusing your breath.",
-      "duration": 13,
-      "voice_prompt": "Stand tall, centering your weight and connecting with your breath.",
+      "instruction": "Stand tall in Mountain Pose at the center of your mat, focusing your breath.",
+      "duration": 12,
+      "voice_prompt": "Welcome to Warrior Two. Stand tall at the center of your mat. Place both feet together, with your toes pointing forward. Keep your arms resting straight down at your sides. Look straight ahead.",
       "video_start": 0.0,
-      "video_end": 13.67
+      "video_end": 12.0
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Step your feet wide apart, about four feet, hands on hips.",
-      "duration": 13,
-      "voice_prompt": "Step your feet wide apart, wider than your hips, and rest hands on your waist.",
-      "video_start": 13.67,
-      "video_end": 27.34
+      "instruction": "Step your feet wide apart, about four feet. Rest your hands on your hips.",
+      "duration": 12,
+      "voice_prompt": "Step your feet wide apart, about four feet. Keep both legs straight. Place both hands on your hips. Keep your upper body and hips facing the side of your mat. Look straight ahead.",
+      "video_start": 12.0,
+      "video_end": 24.0
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Turn your left toes in and your right toes out forward.",
-      "duration": 13,
-      "voice_prompt": "Turn your left toes slightly inward, and turn your right toes out ninety degrees.",
-      "video_start": 27.34,
-      "video_end": 41.01
+      "instruction": "Turn your left toes slightly inward, and turn your right toes out ninety degrees forward.",
+      "duration": 12,
+      "voice_prompt": "Turn your right foot out to a right angle, like the corner of a square, so your toes point to the front of the mat. Turn your left foot slightly inward. Keep both legs straight. Make sure your hips and chest are still facing the side of the mat, not turned toward your right foot.",
+      "video_start": 24.0,
+      "video_end": 36.0
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Draw your navel in, tuck tailbone, and lengthen up through the spine.",
-      "duration": 13,
-      "voice_prompt": "Draw your navel in, tuck your tailbone slightly, and lengthen your spine upward.",
-      "video_start": 41.01,
-      "video_end": 54.68
+      "instruction": "Inhale, raise your arms parallel to the floor, reaching out to the sides.",
+      "duration": 12,
+      "voice_prompt": "Breathe in. Keep your legs as they are. Raise both arms straight out to the sides, level with the floor. Face your palms down toward the floor. Point your fingers straight out. Keep your upper body straight and centered.",
+      "video_start": 36.0,
+      "video_end": 48.0
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Inhale, reach right fingertips forward and left fingertips backward.",
-      "duration": 13,
-      "voice_prompt": "Inhale, stretch your arms out to the sides, reaching front and back fingertips wide.",
-      "video_start": 54.68,
-      "video_end": 68.35
+      "instruction": "Exhale, bend your right knee over your ankle, keeping your torso centered.",
+      "duration": 12,
+      "voice_prompt": "Breathe out. Bend your right knee until your right thigh is level with the floor. Your right knee should be bent at a right angle, like the corner of a square, directly above your right ankle. Keep your left leg completely straight, with your left foot pressed flat into the floor. Keep your upper body straight up, with your arms still stretched out to the sides.",
+      "video_start": 48.0,
+      "video_end": 60.0
     },
     {
       "step_number": 6,
       "type": "hold",
-      "instruction": "Exhale and bend your front knee, keeping the knee aligned over ankle.",
-      "duration": 13,
-      "voice_prompt": "Exhale, bend your front knee, keeping your shin perpendicular to the floor.",
-      "video_start": 68.35,
-      "video_end": 82.02
+      "instruction": "Turn your head and gaze over your right fingertips. Hold and breathe.",
+      "duration": 12,
+      "voice_prompt": "Keep your legs and upper body exactly as they are. Turn your head to the right and look straight out over the fingers of your right hand. Keep your arms straight and level with the floor, palms facing down. Breathe steadily.",
+      "video_start": 60.0,
+      "video_end": 72.0
     },
     {
       "step_number": 7,
       "type": "hold",
-      "instruction": "Gaze over your right hand, breathing deeply into your chest.",
-      "duration": 13,
-      "voice_prompt": "Look over your right hand and hold the pose. Feel strong and stable.",
-      "video_start": 82.02,
-      "video_end": 95.69
+      "instruction": "Continue holding Warrior II, maintaining steady breath and strong posture.",
+      "duration": 12,
+      "voice_prompt": "Hold the pose. Keep your right knee bent at a right angle, like the corner of a square, directly over the ankle. Keep your left leg straight. Keep your upper body perfectly upright. Keep your arms stretched straight out to the sides, level with your shoulders. Look out over your right hand. Breathe.",
+      "video_start": 72.0,
+      "video_end": 84.0
     },
     {
       "step_number": 8,
       "type": "hold",
-      "instruction": "Inhale, straighten your leg, release hands, and return to center.",
-      "duration": 14,
-      "voice_prompt": "Inhale, straighten your front leg, lower your arms, and step your feet back together.",
-      "video_start": 95.69,
-      "video_end": 109.34
+      "instruction": "Inhale, straighten your right leg, lower your arms, and step feet back together.",
+      "duration": 12,
+      "voice_prompt": "Breathe in. Straighten your right leg. Lower both arms down to your sides. Turn your right foot inward so your toes point to the side of the mat. Step your feet back together. Well done.",
+      "video_start": 84.0,
+      "video_end": 96.0
     }
   ]
 }

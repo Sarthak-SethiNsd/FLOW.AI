@@ -11,5 +11,6 @@ export default async function WatchPage({ params }) {
     notFound();
   }
 
+  // SVG-only mode — no video needed
   return <WatchClient asana={asana} />;
 }

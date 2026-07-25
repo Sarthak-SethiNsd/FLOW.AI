@@ -4,59 +4,73 @@
   "sanskrit": "वृक्षासन",
   "english": "Tree Pose",
   "difficulty": "Beginner",
-  "duration_seconds": 41.32,
-  "description": "A classic standing balance pose. Vrikshasana improves focus, concentration, and balance while strengthening the legs.",
+  "duration_seconds": 65,
+  "description": "A classic standing balance pose that builds focus, stability, and strength in the legs while opening the hips.",
   "benefits": [
-    "Improves balance and posture",
-    "Strengthens thighs, calves, and ankles",
-    "Opens the chest and shoulders",
-    "Calms the mind"
+    "Improves balance and coordination",
+    "Strengthens ankles, calves, and thighs",
+    "Opens the hips and stretches the inner thigh"
   ],
   "steps": [
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Stand tall with feet together, arms relaxed by your sides.",
+      "instruction": "Stand in Mountain Pose (Tadasana) — feet together, arms at sides, standing tall. Find a fixed point to gaze at.",
       "duration": 8,
-      "voice_prompt": "Stand tall with your feet together, arms relaxed at your sides, and gaze forward.",
-      "video_start": 0.0,
-      "video_end": 8.26
+      "voice_prompt": "Let us begin Vrikshasana, or Tree Pose. Stand up straight with your feet together and your toes pointing forward. Let your arms hang at your sides with your palms facing your legs. Look straight ahead at a fixed spot on the wall to help you balance.",
+      "video_start": 0,
+      "video_end": 8,
+      "isHoldStep": false
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Shift your weight onto your left leg, finding stability.",
+      "instruction": "Shift your weight onto your left foot, pressing it firmly into the mat. Keep your left leg strong and straight.",
       "duration": 8,
-      "voice_prompt": "Shift your weight slowly onto your left leg, keeping it strong and grounded.",
-      "video_start": 8.26,
-      "video_end": 16.52
+      "voice_prompt": "Shift your body weight entirely onto your left foot. Press the bottom of your left foot firmly into the mat. Keep your left leg straight and strong, but do not lock your knee perfectly stiff. Keep your toes pointing forward.",
+      "video_start": 8,
+      "video_end": 16,
+      "isHoldStep": false
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Lift your right foot and place it against your inner left thigh.",
-      "duration": 8,
-      "voice_prompt": "Lift your right foot and place it on your inner left thigh. Avoid placing it on the knee joint.",
-      "video_start": 16.52,
-      "video_end": 24.78
+      "instruction": "Bend your right knee and place the sole of your right foot on your inner left calf or inner left thigh — never on the knee joint itself.",
+      "duration": 10,
+      "voice_prompt": "Bend your right knee outward to the right side. Lift your right foot and place the flat bottom of it against the inside of your left leg. Place it either on the back of your lower left leg, or on your upper left thigh. Do not place your foot directly on the side of your knee joint.",
+      "video_start": 16,
+      "video_end": 26,
+      "isHoldStep": false
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Bring your hands together in prayer position in front of your chest.",
-      "duration": 8,
-      "voice_prompt": "Join your palms in front of your chest in prayer pose, finding your balance.",
-      "video_start": 24.78,
-      "video_end": 33.04
+      "instruction": "Join your palms together at your heart center. Feel the balance between your foot pressing the leg and your leg pressing back.",
+      "duration": 10,
+      "voice_prompt": "Once your foot is secure, bring both hands in front of your chest. Press your palms flat together with your fingers pointing straight up. Point your elbows out to the sides. Press your right foot into your left leg, and push your left leg back against your foot to stay steady.",
+      "video_start": 26,
+      "video_end": 36,
+      "isHoldStep": false
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Inhale, raise your arms overhead, and hold your balance.",
-      "duration": 8,
-      "voice_prompt": "Inhale, stretch your arms straight overhead, open your chest, and hold your balance.",
-      "video_start": 33.04,
-      "video_end": 41.32
+      "instruction": "Hold Tree Pose. Breathe steadily and feel your body becoming calm and rooted, like the trunk of a tree.",
+      "duration": 15,
+      "voice_prompt": "Hold this position and keep your eyes focused on your spot. Keep your right knee pointing out to the side. Keep your palms pressed together at chest level. Breathe slowly and steadily while keeping your balance on one leg.",
+      "video_start": 36,
+      "video_end": 51,
+      "isHoldStep": true
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "Slowly release your right foot back to the mat. Stand in Mountain Pose for a breath before switching sides.",
+      "duration": 7,
+      "voice_prompt": "Slowly lower your right foot back down to the mat next to your left foot. Lower your arms back down to your sides. Take a breath standing on both feet. Well done. You can repeat this on the other side.",
+      "video_start": 51,
+      "video_end": 58,
+      "isHoldStep": false
     }
   ]
 }

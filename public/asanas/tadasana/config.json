@@ -4,217 +4,73 @@
   "sanskrit": "ताड़ासन",
   "english": "Mountain Pose",
   "difficulty": "Beginner",
-  "duration_seconds": 101.0,
-  "description": "The foundational standing posture. Tadasana establishes alignment, balance, and centered focus for all other standing poses.",
+  "duration_seconds": 60,
+  "description": "The foundational standing pose. Tadasana teaches proper alignment, builds body awareness, and strengthens the legs and core.",
   "benefits": [
     "Improves posture and body alignment",
     "Strengthens thighs, knees, and ankles",
-    "Firms abdomen and buttocks",
-    "Reduces flat feet"
+    "Firms the abdomen and buttocks"
   ],
   "steps": [
     {
       "step_number": 1,
       "type": "hold",
-      "instruction": "Stand erect with your feet close together, arms relaxed alongside body.",
-      "duration": 12,
-      "voice_prompt": "Start by standing erect with your feet together and your arms relaxed alongside your body.",
-      "video_start": 0.0,
-      "video_end": 12.63
+      "instruction": "Stand with your feet together or hip-width apart, arms relaxed at your sides. Find your balance.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Tadasana, or Mountain Pose. Stand up straight on your mat. Place both your feet together, touching each other side by side. Let your arms hang naturally by your sides, with your palms facing inward toward your thighs and your fingers pointing down to the floor. Look straight ahead at a fixed point in front of you to keep your balance.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false
     },
     {
       "step_number": 2,
       "type": "hold",
-      "instruction": "Distribute your weight evenly across the soles of both feet.",
-      "duration": 12,
-      "voice_prompt": "Distribute your weight evenly across the soles of both your feet and press your toes down.",
-      "video_start": 12.63,
-      "video_end": 25.26,
-      "validation": [
-        {
-          "id": "legs_straight",
-          "type": "angle",
-          "keypoints": [
-            "left_hip",
-            "left_knee",
-            "left_ankle"
-          ],
-          "target_angle": 180,
-          "tolerance_deg": 15,
-          "joint_label": "knees",
-          "fail_straight_msg": "Try to straighten your knees.",
-          "fail_overbend_msg": ""
-        },
-        {
-          "id": "spine_upright",
-          "type": "angle",
-          "keypoints": [
-            "left_shoulder",
-            "left_hip",
-            "left_knee"
-          ],
-          "target_angle": 180,
-          "tolerance_deg": 15,
-          "joint_label": "spine",
-          "fail_straight_msg": "Stand up straight, lengthen your spine.",
-          "fail_overbend_msg": ""
-        }
-      ]
+      "instruction": "Press all four corners of each foot into the mat. Gently lift your kneecaps by engaging your thigh muscles.",
+      "duration": 10,
+      "voice_prompt": "Press the base of your big toes, the base of your little toes, and the left and right sides of your heels firmly into the mat. Keep your toes pointing straight forward. Gently squeeze the muscles in the front of your thighs. As you do this, you will feel your kneecaps lift slightly upward. This action protects your knees and tightens your legs.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false
     },
     {
       "step_number": 3,
       "type": "hold",
-      "instruction": "Inhale deeply, raise your arms, and interlock your fingers.",
-      "duration": 12,
-      "voice_prompt": "Inhale deeply, raise your arms, and interlock your fingers.",
-      "video_start": 25.26,
-      "video_end": 37.89,
-      "validation": [
-        {
-          "id": "arms_raised",
-          "type": "height_compare",
-          "source_keypoint": "left_wrist",
-          "reference_keypoint": "left_shoulder",
-          "relation": "above",
-          "limb_label": "arms",
-          "fail_msg": "Raise your arms fully overhead."
-        },
-        {
-          "id": "arms_straight",
-          "type": "angle",
-          "keypoints": [
-            "left_shoulder",
-            "left_elbow",
-            "left_wrist"
-          ],
-          "target_angle": 180,
-          "tolerance_deg": 20,
-          "joint_label": "elbows",
-          "fail_straight_msg": "Straighten your elbows overhead.",
-          "fail_overbend_msg": ""
-        }
-      ]
+      "instruction": "Gently tuck your tailbone down, lift your chest, and roll your shoulders back and down away from your ears.",
+      "duration": 10,
+      "voice_prompt": "Tuck the bottom of your back slightly downward and inward. Lift your chest upward and open it wide. Roll your shoulders backward and pull them down away from your ears. Keep your chin level with the floor, not tilting up or down. Keep your palms facing inward.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false
     },
     {
       "step_number": 4,
       "type": "hold",
-      "instruction": "Turn palms out and reach your hands high toward the ceiling.",
-      "duration": 12,
-      "voice_prompt": "Turn your palms outward and reach high towards the ceiling.",
-      "video_start": 37.89,
-      "video_end": 50.52
+      "instruction": "Inhale deeply, reach the crown of your head toward the ceiling, and feel your entire spine lengthen.",
+      "duration": 10,
+      "voice_prompt": "Take a slow, deep breath in through your nose. Rise up onto your toes, lifting your heels off the mat. Lift the top of your head upward toward the ceiling to lengthen your back. Keep your shoulders down and your chest open. Balance your weight evenly on the front of both feet.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": true
     },
     {
       "step_number": 5,
       "type": "hold",
-      "instruction": "Get onto the tips of your toes with your heels together.",
+      "instruction": "Hold Mountain Pose. Breathe steadily and feel the strength and stillness of being rooted like a mountain.",
       "duration": 12,
-      "voice_prompt": "Get onto the tips of your toes with your heels together.",
-      "video_start": 50.52,
-      "video_end": 63.15,
-      "validation": [
-        {
-          "id": "hands_together",
-          "type": "distance_compare",
-          "keypoints": [
-            "left_wrist",
-            "right_wrist"
-          ],
-          "relation": "close",
-          "max_distance_factor": 0.15,
-          "limb_label": "hands",
-          "fail_msg": "Bring your palms close together overhead."
-        },
-        {
-          "id": "arms_straight_join",
-          "type": "angle",
-          "keypoints": [
-            "left_shoulder",
-            "left_elbow",
-            "left_wrist"
-          ],
-          "target_angle": 180,
-          "tolerance_deg": 20,
-          "joint_label": "elbows",
-          "fail_straight_msg": "Keep your arms straight as you join your hands.",
-          "fail_overbend_msg": ""
-        }
-      ]
+      "voice_prompt": "Hold this raised position and breathe steadily. Keep your heels lifted off the floor and your toes gripping the mat. Keep your leg muscles tight and your lower belly pulled in. Keep your eyes focused straight ahead to keep your balance. Notice the effort it takes to stay perfectly still.",
+      "video_start": 40,
+      "video_end": 52,
+      "isHoldStep": true
     },
     {
       "step_number": 6,
       "type": "hold",
-      "instruction": "Tighten knees, pull up hamstrings, and contract hips.",
-      "duration": 12,
-      "voice_prompt": "Tighten your knees, pull up your hamstrings, and contract your hips.",
-      "video_start": 63.15,
-      "video_end": 75.78,
-      "validation": [
-        {
-          "id": "hands_together_stretch",
-          "type": "distance_compare",
-          "keypoints": [
-            "left_wrist",
-            "right_wrist"
-          ],
-          "relation": "close",
-          "max_distance_factor": 0.15,
-          "limb_label": "hands",
-          "fail_msg": "Keep your hands together overhead."
-        },
-        {
-          "id": "arms_up_stretch",
-          "type": "height_compare",
-          "source_keypoint": "left_wrist",
-          "reference_keypoint": "left_shoulder",
-          "relation": "above",
-          "limb_label": "arms",
-          "fail_msg": "Keep stretching your arms high."
-        }
-      ]
-    },
-    {
-      "step_number": 7,
-      "type": "hold",
-      "instruction": "Pull in your abdomen, expand your chest, and hold your breath.",
-      "duration": 12,
-      "voice_prompt": "Pull in your abdomen and expand your chest. Hold your breath and look at a point straight ahead.",
-      "video_start": 75.78,
-      "video_end": 88.41
-    },
-    {
-      "step_number": 8,
-      "type": "hold",
-      "instruction": "Breathe out, lower your heels, and relax your arms down.",
-      "duration": 13,
-      "voice_prompt": "Relax and breathe out, lowering your heels and bringing your arms beside your thighs.",
-      "video_start": 88.41,
-      "video_end": 101.0,
-      "validation": [
-        {
-          "id": "arms_down",
-          "type": "height_compare",
-          "source_keypoint": "left_wrist",
-          "reference_keypoint": "left_hip",
-          "relation": "below",
-          "limb_label": "arms",
-          "fail_msg": "Relax your arms down by your sides."
-        },
-        {
-          "id": "feet_down",
-          "type": "angle",
-          "keypoints": [
-            "left_hip",
-            "left_knee",
-            "left_ankle"
-          ],
-          "target_angle": 180,
-          "tolerance_deg": 15,
-          "joint_label": "knees",
-          "fail_straight_msg": "Keep your legs straight and stand tall.",
-          "fail_overbend_msg": ""
-        }
-      ]
+      "instruction": "Exhale, soften your muscles, and return to a relaxed standing position. Notice how your posture has changed.",
+      "duration": 8,
+      "voice_prompt": "Slowly breathe out and lower your heels back down flat onto the mat. Release the tension in your leg and belly muscles. Let your arms hang loosely and stand in a relaxed position. Well done. You have completed Tadasana.",
+      "video_start": 52,
+      "video_end": 60,
+      "isHoldStep": false
     }
   ]
 }
