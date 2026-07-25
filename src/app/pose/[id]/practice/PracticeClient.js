@@ -437,7 +437,7 @@ export default function PracticeClient({ asana }) {
       : currentStep.voice_prompt;
 
   return (
-    <div className="h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground select-none relative">
+    <div className="min-h-screen md:h-screen flex flex-col md:overflow-hidden bg-background text-foreground select-none relative">
       
       {/* Top Header */}
       <Header cameraActive={true} cameraConnected={cameraConnected} />
@@ -467,10 +467,10 @@ export default function PracticeClient({ asana }) {
       )}
 
       {/* Main Workspace */}
-      <main className="flex-1 flex overflow-hidden">
+      <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
         
         {/* Left Side: Interactive Video Player Arena */}
-        <div className="flex-1 p-6 flex flex-col justify-between relative bg-background">
+        <div className="h-[50vh] md:flex-1 md:h-auto p-4 md:p-6 flex flex-col justify-between relative bg-background">
           <div className="relative w-full h-full rounded-xl overflow-hidden bg-panel border border-[#30363d] flex items-center justify-center shadow-2xl">
             
             {/* HTML5 Synchronous Demo Video (Center background) */}
@@ -592,7 +592,7 @@ export default function PracticeClient({ asana }) {
         </div>
 
         {/* Right Side: Instructions Sidebar */}
-        <div className="w-96 bg-panel border-l border-border-dark p-6 flex flex-col justify-between shadow-xl flex-shrink-0">
+        <div className="w-full md:w-96 bg-panel border-t md:border-t-0 md:border-l border-border-dark p-4 md:p-6 flex flex-col justify-between shadow-xl md:flex-shrink-0">
           <div>
             <div className="mb-6 flex justify-between items-start">
               <div>
@@ -678,8 +678,8 @@ export default function PracticeClient({ asana }) {
       </main>
 
       {/* Bottom Footer Control Bar */}
-      <footer className="bg-panel border-t border-border-dark px-8 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-6">
+      <footer className="bg-panel border-t border-border-dark px-4 md:px-8 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <div className="hidden md:flex items-center space-x-6">
           <div className="text-sm">
             <span className="text-gray-400">Current:</span> 
             <span className="font-semibold text-white ml-1">{asana.name}</span>
@@ -702,7 +702,7 @@ export default function PracticeClient({ asana }) {
         </div>
 
         {/* Action Control Buttons Grid Layout */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center flex-wrap gap-2 justify-center md:justify-start">
           <button 
             onClick={handlePause}
             className="px-5 py-2 rounded-lg text-sm font-medium bg-[#21262d] hover:bg-[#30363d] text-gray-300 border border-[#30363d] transition"

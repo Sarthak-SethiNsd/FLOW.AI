@@ -11,7 +11,7 @@ export default function AboutPage() {
   const t = aboutData.english;
 
   return (
-    <div className="h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground select-none">
+    <div className="min-h-screen md:h-screen flex flex-col justify-between md:overflow-hidden bg-background text-foreground select-none">
       
       {/* Header */}
       <Header cameraActive={false} />
@@ -95,8 +95,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Right Side: Spacer Panel (Reserved for Chatbot in V2) */}
-        <div className="w-96 bg-[#161b22] border-l border-border-dark flex items-center justify-center relative p-6">
+        {/* Right Side: Spacer Panel — hidden on mobile */}
+        <div className="hidden md:flex w-96 bg-[#161b22] border-l border-border-dark items-center justify-center relative p-6">
           <div className="text-center opacity-5">
             <BookOpen className="w-48 h-48 mx-auto" />
           </div>

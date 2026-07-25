@@ -15,7 +15,7 @@ export default async function PoseSelectionPage({ params }) {
   }
 
   return (
-    <div className="h-screen flex flex-col justify-between overflow-hidden bg-background text-foreground select-none">
+    <div className="min-h-screen md:h-screen flex flex-col justify-between md:overflow-hidden bg-background text-foreground select-none">
       
       {/* Top Header */}
       <Header cameraActive={false} />
@@ -93,8 +93,8 @@ export default async function PoseSelectionPage({ params }) {
           </div>
         </div>
 
-        {/* Right Side: Spacer Panel (Reserved for Chatbot in V2) */}
-        <div className="w-96 bg-[#161b22] border-l border-[#30363d] flex items-center justify-center relative p-6 flex-shrink-0">
+        {/* Right Side: Spacer Panel — hidden on mobile */}
+        <div className="hidden md:flex w-96 bg-[#161b22] border-l border-[#30363d] items-center justify-center relative p-6 flex-shrink-0">
           <div className="text-center opacity-5">
             <Sparkles className="w-48 h-48 mx-auto text-flow-green" />
           </div>

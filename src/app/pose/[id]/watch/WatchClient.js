@@ -974,13 +974,13 @@ export default function WatchClient({ asana }) {
 
   // ── RENDER ────────────────────────────────────────────────────────────────
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-background text-foreground select-none">
+    <div className="min-h-screen md:h-screen flex flex-col md:overflow-hidden bg-background text-foreground select-none">
       <Header cameraActive={false}/>
 
-      <main className="flex-1 flex overflow-hidden">
+      <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
 
         {/* ── LEFT: Canvas ── */}
-        <div className="flex-1 p-5 flex flex-col relative bg-background">
+        <div className="h-[50vh] md:flex-1 md:h-auto p-5 flex flex-col relative bg-background">
           <div className="relative w-full h-full rounded-xl overflow-hidden bg-panel border border-border-dark
                           flex items-center justify-center shadow-2xl">
 
@@ -1020,7 +1020,7 @@ export default function WatchClient({ asana }) {
         </div>
 
         {/* ── RIGHT: Sidebar ── */}
-        <div className="w-[26rem] bg-panel border-l border-border-dark flex flex-col shadow-xl flex-shrink-0 overflow-hidden">
+        <div className="w-full md:w-[26rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
           <div className="flex-1 overflow-y-auto p-5 space-y-4">
 
             {/* Pose title */}

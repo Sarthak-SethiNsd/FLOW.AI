@@ -25,3 +25,9 @@ body {
   overflow: hidden;
   user-select: none;
 }
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+}

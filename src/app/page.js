@@ -11,15 +11,15 @@ export default function HomePage() {
   const asanas = getAllAsanas();
 
   return (
-    <div className="h-screen bg-background text-foreground flex flex-col justify-between overflow-hidden select-none">
+    <div className="min-h-screen md:h-screen bg-background text-foreground flex flex-col justify-between md:overflow-hidden select-none">
       <div>
         <Header cameraActive={false} />
 
         {/* Main Split Layout */}
-        <main className="max-w-5xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <main className="max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           
           {/* Left: About FLOW.AI Card Menu */}
-          <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-8 shadow-xl flex flex-col justify-between h-80 hover:border-gray-500 transition-all duration-300">
+          <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:border-gray-500 transition-all duration-300">
             <div>
               <div className="inline-flex items-center space-x-2 bg-flow-green/10 text-flow-green px-3 py-1 rounded-full border border-flow-green/20 text-xs font-bold uppercase tracking-wider mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-flow-green animate-pulse" />
