@@ -7,7 +7,7 @@
     "why_useful_desc": "FLOW.AI makes learning and practicing yoga more accessible, interactive, and confidence-inspiring. Whether you're just starting out or building a consistent routine, the platform provides step-by-step guidance, real-time posture analysis, and instant voice feedback to help you practice safely and improve with every session. Best of all, everything runs directly in your browser, keeping your practice private and your data on your device.",
 
     "how_it_works_title": "How It Works",
-    "how_it_works_desc": "Choose a yoga pose and begin with Watch & Learn mode, where animated visual guides and spoken instructions walk you through each step. When you're ready, switch to Practice mode and let FLOW.AI analyze your posture in real time using your device's camera. The app provides live voice corrections, pauses the hold timer when your alignment needs improvement, and resumes automatically once your posture is corrected.",
+    "how_it_works_desc": "Choose a yoga pose and begin with Watch & Learn mode, where animated visual guides and spoken instructions walk you through each step. When you're ready, switch to Practice mode and let FLOW.AI analyze your posture in real time using your device's camera. The website provides live voice corrections, pauses the hold timer when your alignment needs improvement, and resumes automatically once your posture is corrected.",
 
     "what_it_does_title": "Key Features",
     "what_it_does_list": [
@@ -15,7 +15,6 @@
       "Real-time AI-powered posture analysis using your device's camera",
       "Live voice feedback with priority-based corrections for easier learning",
       "Smart hold timer that pauses until your posture is correct",
-      "Daily practice streaks with milestone celebrations to keep you motivated",
       "Privacy-first experience with all processing performed locally in your browser"
     ]
   }

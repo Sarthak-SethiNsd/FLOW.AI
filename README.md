@@ -13,7 +13,6 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 - **Smart Hold Timer** — The timer only counts down when your pose is correct. It pauses automatically when your alignment is off, and resumes when you fix it.
 - **Priority-Based Corrections** — When your pose has multiple errors, the website corrects them one at a time from the ground up (feet first, then knees, then upper body) so you are not overwhelmed.
 - **Voice Feedback** — Every step instruction and correction is spoken out loud using the browser's built-in Web Speech API. No third-party voice service needed.
-- **Daily Practice Streaks** — The website tracks how many consecutive days you practice and shows a celebration animation on milestone days.
 
 ---
 
@@ -44,7 +43,6 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Pose Detection | Google MediaPipe Pose (loaded from CDN) |
 | Voice Instructions | Browser Web Speech API (SpeechSynthesis) |
 | Icons | Lucide React |
-| Celebrations | Canvas-Confetti |
 
 ---
 
