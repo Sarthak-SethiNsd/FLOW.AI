@@ -147,6 +147,7 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:200,y:104}, shoulder_L:{x:152,y:170}, shoulder_R:{x:248,y:170}, elbow_L:{x:80,y:170}, elbow_R:{x:320,y:170}, wrist_L:{x:20,y:170}, wrist_R:{x:380,y:170}, hip_L:{x:170,y:322}, hip_R:{x:230,y:322}, knee_L:{x:130,y:424}, knee_R:{x:300,y:400}, ankle_L:{x:100,y:502}, ankle_R:{x:300,y:502}, mid_spine:{x:200,y:248}, isHoldStep:false, altShift:{tx:15,ty:10,scale:1.08} },
       { head:{x:200,y:104}, shoulder_L:{x:152,y:170}, shoulder_R:{x:248,y:170}, elbow_L:{x:80,y:170}, elbow_R:{x:320,y:170}, wrist_L:{x:20,y:170}, wrist_R:{x:380,y:170}, hip_L:{x:170,y:322}, hip_R:{x:230,y:322}, knee_L:{x:130,y:424}, knee_R:{x:300,y:400}, ankle_L:{x:100,y:502}, ankle_R:{x:300,y:502}, mid_spine:{x:200,y:248}, isHoldStep:false, altShift:{tx:15,ty:10,scale:1.08} },
       { head:{x:200,y:104}, shoulder_L:{x:152,y:170}, shoulder_R:{x:248,y:170}, elbow_L:{x:80,y:170}, elbow_R:{x:320,y:170}, wrist_L:{x:20,y:170}, wrist_R:{x:380,y:170}, hip_L:{x:170,y:322}, hip_R:{x:230,y:322}, knee_L:{x:130,y:424}, knee_R:{x:300,y:400}, ankle_L:{x:100,y:502}, ankle_R:{x:300,y:502}, mid_spine:{x:200,y:248}, isHoldStep:true, altShift:{tx:15,ty:10,scale:1.1} },
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
   }
 };
