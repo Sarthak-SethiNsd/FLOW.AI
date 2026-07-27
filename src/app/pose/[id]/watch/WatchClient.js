@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Chatbot from '@/components/Chatbot';
 import YogaSVG, { ASANA_GUIDE_DATA, JOINT_KEYS } from '@/components/YogaSVG';
+import { ArrowLeft, Square, Play, RotateCcw, ChevronLeft, ChevronRight, Volume2 } from 'lucide-react';
 
 const ANIM_DURATION = 900; // ms for step transition
 

@@ -1,7 +1,14 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { getAsanaById } from '@/utils/asanas';
+import { getAsanaById, getAllAsanas } from '@/utils/asanas';
 import WatchClient from './WatchClient';
+
+export async function generateStaticParams() {
+  const asanas = getAllAsanas();
+  return asanas.map((asana) => ({
+    id: asana.id,
+  }));
+}
 
 export default async function WatchPage({ params }) {
   const { id } = await params;
@@ -11,6 +18,5 @@ export default async function WatchPage({ params }) {
     notFound();
   }
 
-  // SVG-only mode — no video needed
   return <WatchClient asana={asana} />;
 }

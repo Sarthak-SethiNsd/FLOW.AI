@@ -3,8 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Chatbot from '@/components/Chatbot';
-import { getAsanaById } from '@/utils/asanas';
+import { getAsanaById, getAllAsanas } from '@/utils/asanas';
 import { Eye, ArrowLeft, Dumbbell, Sparkles } from 'lucide-react';
+
+export async function generateStaticParams() {
+  const asanas = getAllAsanas();
+  return asanas.map((asana) => ({
+    id: asana.id,
+  }));
+}
 
 export default async function PoseSelectionPage({ params }) {
   const { id } = await params;
@@ -78,7 +85,7 @@ export default async function PoseSelectionPage({ params }) {
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Practice Mode</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
-                    Turn on your webcam to practice the pose in real-time. Receive live posture adjustments, voice coaching, and build your daily exercise streak.
+                    Turn on your webcam to practice the pose in real-time. Receive live posture adjustments, voice coaching, and build your daily exercise routine.
                   </p>
                 </div>
                 <Link 
@@ -107,7 +114,7 @@ export default async function PoseSelectionPage({ params }) {
         <p>&copy; {new Date().getFullYear()} FLOW.AI. Designed for premium movement validation.</p>
       </footer>
 
-      {/* Chatbot (V2 Hook) */}
+      {/* Chatbot */}
       <Chatbot />
     </div>
   );
