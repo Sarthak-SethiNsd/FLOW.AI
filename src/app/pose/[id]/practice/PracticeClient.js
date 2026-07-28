@@ -496,7 +496,7 @@ export default function PracticeClient({ asana }) {
       <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
 
         {/* Arena: 50/50 Dual View */}
-        <div className="h-[60vh] md:flex-1 md:h-auto p-3 md:p-5 flex flex-col bg-background">
+        <div className="h-[55vh] md:flex-1 md:h-auto p-3 md:p-4 flex flex-col bg-background">
           <div className="relative w-full h-full rounded-xl overflow-hidden bg-panel border border-[#30363d] flex flex-col md:flex-row shadow-2xl">
 
             {/* Left 50%: Live User Camera + MediaPipe Skeleton */}
@@ -595,7 +595,7 @@ export default function PracticeClient({ asana }) {
         </div>
 
         {/* Right Sidebar */}
-        <div className="w-full md:w-[26rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
+        <div className="w-full md:w-[22rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
           <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4">
 
             {/* Title + Mute */}

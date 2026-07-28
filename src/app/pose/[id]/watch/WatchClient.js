@@ -194,7 +194,7 @@ export default function WatchClient({ asana }) {
       <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
 
         {/* Left: Canvas */}
-        <div className="h-[50vh] md:flex-1 md:h-auto p-5 flex flex-col relative bg-background">
+        <div className="h-[55vh] md:flex-1 md:h-auto p-4 md:p-5 flex flex-col relative bg-background">
           <div className="relative w-full h-full rounded-xl overflow-hidden bg-panel border border-border-dark flex items-center justify-center shadow-2xl">
 
             {/* 2D Vector Stickman SVG */}
@@ -235,7 +235,7 @@ export default function WatchClient({ asana }) {
         </div>
 
         {/* Right: Sidebar */}
-        <div className="w-full md:w-[26rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
+        <div className="w-full md:w-[22rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
           <div className="flex-1 overflow-y-auto p-5 space-y-4">
 
             {/* Pose Title */}

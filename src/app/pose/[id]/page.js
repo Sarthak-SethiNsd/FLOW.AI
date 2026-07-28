@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Chatbot from '@/components/Chatbot';
 import { getAsanaById, getAllAsanas } from '@/utils/asanas';
-import { Eye, ArrowLeft, Dumbbell, Sparkles } from 'lucide-react';
+import { Eye, ArrowLeft, Dumbbell } from 'lucide-react';
 
 export async function generateStaticParams() {
   const asanas = getAllAsanas();
@@ -27,12 +27,10 @@ export default async function PoseSelectionPage({ params }) {
       {/* Top Header */}
       <Header cameraActive={false} />
 
-      {/* Main Content Workspace */}
-      <main className="flex-1 flex overflow-hidden">
+      {/* Main Content */}
+      <main className="flex-1 py-10 px-4 md:px-8 bg-background overflow-y-auto">
 
-        {/* Left/Center: Mode Selector Canvas */}
-        <div className="flex-1 p-8 flex flex-col justify-between overflow-y-auto bg-background">
-          <div className="max-w-4xl mx-auto w-full">
+        <div className="max-w-3xl mx-auto w-full">
             
             {/* Back navigation */}
             <div className="mb-6">
@@ -97,16 +95,7 @@ export default async function PoseSelectionPage({ params }) {
               </div>
 
             </section>
-          </div>
         </div>
-
-        {/* Right Side: Spacer Panel — hidden on mobile */}
-        <div className="hidden md:flex w-96 bg-[#161b22] border-l border-[#30363d] items-center justify-center relative p-6 flex-shrink-0">
-          <div className="text-center opacity-5">
-            <Sparkles className="w-48 h-48 mx-auto text-flow-green" />
-          </div>
-        </div>
-
       </main>
 
       {/* Footer */}

@@ -11,18 +11,15 @@ export default function AboutPage() {
   const t = aboutData.english;
 
   return (
-    <div className="min-h-screen md:h-screen flex flex-col justify-between md:overflow-hidden bg-background text-foreground select-none">
+    <div className="min-h-screen flex flex-col bg-background text-foreground select-none">
       
       {/* Header */}
       <Header cameraActive={false} />
 
-      {/* Main Content Workspace */}
-      <main className="flex-1 flex overflow-hidden">
-        
-        {/* Left Side: About Details Page Content */}
-        <div className="flex-1 p-8 flex flex-col justify-between overflow-y-auto bg-background">
-          <div className="max-w-3xl mx-auto w-full">
-            
+      {/* Main Content */}
+      <main className="flex-1 py-10 px-4 md:px-8 bg-background">
+        <div className="max-w-4xl mx-auto w-full">
+          
             {/* Back Button */}
             <div className="mb-6">
               <Link 
@@ -89,24 +86,15 @@ export default function AboutPage() {
               </div>
 
             </div>
-
-
-
-          </div>
         </div>
-
-        {/* Right Side: Spacer Panel — hidden on mobile */}
-        <div className="hidden md:flex w-96 bg-[#161b22] border-l border-border-dark items-center justify-center relative p-6">
-          <div className="text-center opacity-5">
-            <BookOpen className="w-48 h-48 mx-auto" />
-          </div>
-        </div>
-
       </main>
 
-      {/* Chatbot (Triggered server-side conditional rendering) */}
-      <Chatbot />
+      {/* Footer */}
+      <footer className="bg-[#161b22] border-t border-[#30363d] px-8 py-6 text-center text-xs text-gray-500">
+        <p>&copy; {new Date().getFullYear()} FLOW.AI. Designed for premium movement validation.</p>
+      </footer>
 
+      <Chatbot />
     </div>
   );
 }

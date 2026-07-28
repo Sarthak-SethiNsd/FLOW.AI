@@ -16,7 +16,7 @@ export default function HomePage() {
         <Header cameraActive={false} />
 
         {/* Main Split Layout */}
-        <main className="max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <main className="max-w-6xl mx-auto px-4 md:px-10 py-10 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
           
           {/* Left: About FLOW.AI Card Menu */}
           <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:border-gray-500 transition-all duration-300">
