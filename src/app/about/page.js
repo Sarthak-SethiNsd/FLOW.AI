@@ -5,13 +5,14 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Chatbot from '@/components/Chatbot';
 import { ArrowLeft, BookOpen, ShieldCheck, Heart, Sparkles } from 'lucide-react';
-import aboutData from '../../../public/content/about.json';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function AboutPage() {
-  const t = aboutData.english;
+  const { t } = useLanguage();
+  const listItems = t('whatItDoesList');
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground select-none">
+    <div className="h-screen overflow-y-auto flex flex-col bg-background text-foreground select-none">
       
       {/* Header */}
       <Header cameraActive={false} />
@@ -27,7 +28,7 @@ export default function AboutPage() {
                 className="inline-flex items-center space-x-2 text-xs font-semibold text-gray-400 hover:text-white transition"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>BACK TO HOME</span>
+                <span>{t('backToHome')}</span>
               </Link>
             </div>
 
@@ -35,13 +36,13 @@ export default function AboutPage() {
             <div className="border-b border-border-dark pb-6 mb-8">
               <div className="inline-flex items-center space-x-2 bg-flow-green/10 text-flow-green px-3 py-1 rounded-full border border-flow-green/20 text-[10px] font-bold uppercase tracking-wider mb-3">
                 <Sparkles className="w-3 h-3" />
-                <span>Documentation</span>
+                <span>{t('documentationBadge')}</span>
               </div>
               <h1 className="text-3xl font-extrabold text-white tracking-tight">
-                {t.title}
+                {t('aboutTitle')}
               </h1>
               <p className="text-sm font-medium text-flow-green uppercase tracking-wider mt-1.5">
-                {t.subtitle}
+                {t('aboutSubtitle')}
               </p>
             </div>
 
@@ -54,8 +55,8 @@ export default function AboutPage() {
                   <Heart className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white mb-2">{t.why_useful_title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{t.why_useful_desc}</p>
+                  <h3 className="text-base font-bold text-white mb-2">{t('whyUsefulTitle')}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{t('whyUsefulDesc')}</p>
                 </div>
               </div>
 
@@ -65,8 +66,8 @@ export default function AboutPage() {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white mb-2">{t.how_it_works_title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{t.how_it_works_desc}</p>
+                  <h3 className="text-base font-bold text-white mb-2">{t('howItWorksTitle')}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{t('howItWorksDesc')}</p>
                 </div>
               </div>
 
@@ -76,9 +77,9 @@ export default function AboutPage() {
                   <BookOpen className="w-5 h-5" />
                 </div>
                 <div className="w-full">
-                  <h3 className="text-base font-bold text-white mb-2">{t.what_it_does_title}</h3>
+                  <h3 className="text-base font-bold text-white mb-2">{t('whatItDoesTitle')}</h3>
                   <ul className="text-sm text-gray-400 space-y-2 list-disc list-inside">
-                    {t.what_it_does_list.map((item, i) => (
+                    {Array.isArray(listItems) && listItems.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
                   </ul>
@@ -91,7 +92,7 @@ export default function AboutPage() {
 
       {/* Footer */}
       <footer className="bg-[#161b22] border-t border-[#30363d] px-8 py-6 text-center text-xs text-gray-500">
-        <p>&copy; {new Date().getFullYear()} FLOW.AI. Designed for premium movement validation.</p>
+        <p>&copy; {new Date().getFullYear()} {t('footerText')}</p>
       </footer>
 
       <Chatbot />

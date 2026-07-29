@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Chatbot from '@/components/Chatbot';
 import YogaSVG, { ASANA_GUIDE_DATA, JOINT_KEYS } from '@/components/YogaSVG';
 import { ArrowLeft, Square, Play, RotateCcw, ChevronLeft, ChevronRight, Volume2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ANIM_DURATION = 900; // ms for step transition
 
@@ -13,8 +14,11 @@ const ANIM_DURATION = 900; // ms for step transition
 const easeInOut = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
 
 export default function WatchClient({ asana }) {
+  const { language, t, getLocalizedAsana } = useLanguage();
+  const localizedAsana = getLocalizedAsana(asana);
+
   const data = ASANA_GUIDE_DATA[asana.id];
-  const steps = asana.steps;
+  const steps = localizedAsana.steps;
 
   const [stepIndex, setStepIndex] = useState(0);
   const [animCoords, setAnimCoords] = useState(
@@ -76,11 +80,16 @@ export default function WatchClient({ asana }) {
     window.speechSynthesis.cancel();
     setAudioState('playing');
     const utt = new SpeechSynthesisUtterance(text);
+    if (language === 'hi') {
+      utt.lang = 'hi-IN';
+    } else {
+      utt.lang = 'en-US';
+    }
     utt.rate = 0.85;
     utt.onend = () => setAudioState('completed');
     utt.onerror = () => setAudioState('completed');
     window.speechSynthesis.speak(utt);
-  }, []);
+  }, [language]);
 
   const handleStopAudio = () => {
     if (typeof window !== 'undefined' && window.speechSynthesis) {
@@ -104,18 +113,21 @@ export default function WatchClient({ asana }) {
     playFromBeginning(steps[stepIndex].voice_prompt);
   };
 
-  // Visual Timer
+  // Alt-view Timer logic
   const startAltTimer = useCallback((ms) => {
     if (altTimerRef.current) clearTimeout(altTimerRef.current);
-    visualTimerStartRef.current = Date.now();
+    visualTimerStartRef.current = performance.now();
     visualRemainingRef.current = ms;
+    setVisualCountdown(ms / 1000);
 
     const interval = setInterval(() => {
-      const elapsed = Date.now() - visualTimerStartRef.current;
-      const rem = Math.max(0, ms - elapsed);
-      setVisualCountdown(rem / 1000);
-      if (rem <= 0) clearInterval(interval);
-    }, 250);
+      if (visualTimerStartRef.current) {
+        const elapsed = performance.now() - visualTimerStartRef.current;
+        const rem = Math.max(0, visualRemainingRef.current - elapsed);
+        setVisualCountdown(rem / 1000);
+        if (rem <= 0) clearInterval(interval);
+      }
+    }, 100);
 
     altTimerRef.current = setTimeout(() => {
       clearInterval(interval);
@@ -127,36 +139,34 @@ export default function WatchClient({ asana }) {
 
   const handleStopVisual = () => {
     if (altTimerRef.current) clearTimeout(altTimerRef.current);
-    const elapsed = Date.now() - (visualTimerStartRef.current || Date.now());
-    const remaining = Math.max(0, visualRemainingRef.current - elapsed);
-    visualRemainingRef.current = remaining;
+    if (visualTimerStartRef.current) {
+      const elapsed = performance.now() - visualTimerStartRef.current;
+      visualRemainingRef.current = Math.max(0, visualRemainingRef.current - elapsed);
+    }
     setVisualState('paused');
-    setVisualCountdown(remaining / 1000);
   };
 
   const handleContinueVisual = () => {
-    setVisualState('playing');
-    if (visualRemainingRef.current <= 0) {
-      setShowAltView(false);
-      visualRemainingRef.current = 2500;
-      startAltTimer(2500);
-    } else {
+    if (visualState === 'paused' && visualRemainingRef.current > 0) {
+      setVisualState('playing');
       startAltTimer(visualRemainingRef.current);
+    } else {
+      setShowAltView(true);
+      setVisualState('completed');
     }
   };
 
   const handleReplayVisual = () => {
     setShowAltView(false);
-    visualRemainingRef.current = 2500;
     setVisualState('playing');
+    visualRemainingRef.current = 2500;
     startAltTimer(2500);
   };
 
-  // Step Change Effect
+  // Step change effect
   useEffect(() => {
-    if (!data || !data.steps) return;
-    const targetIndex = Math.min(stepIndex, data.steps.length - 1);
-    const toStep = data.steps[targetIndex];
+    const toStep = data && data.steps ? data.steps[stepIndex] : null;
+    if (!toStep) return;
 
     startInterpolation(fromCoordsRef.current || toStep, toStep);
 
@@ -176,7 +186,7 @@ export default function WatchClient({ asana }) {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stepIndex]);
+  }, [stepIndex, language]);
 
   const goNext = () => {
     if (stepIndex < steps.length - 1) setStepIndex((p) => p + 1);
@@ -207,7 +217,7 @@ export default function WatchClient({ asana }) {
 
             {/* Badge */}
             <div className="absolute top-4 left-4 z-20 bg-flow-green/20 text-flow-green text-xs font-bold uppercase tracking-widest px-3 py-1 rounded border border-flow-green/30">
-              ● Watch &amp; Learn Mode
+              {t('watchModeBadge')}
             </div>
 
             {/* Exit */}
@@ -216,13 +226,13 @@ export default function WatchClient({ asana }) {
               className="absolute top-4 right-4 z-20 bg-card-bg/80 hover:bg-card-bg border border-border-dark text-xs text-gray-300 font-semibold px-3 py-1.5 rounded transition flex items-center space-x-1.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Exit Preview</span>
+              <span>{t('exitPreview')}</span>
             </Link>
 
             {/* Progress HUD */}
             <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 w-2/3 text-center">
               <p className="text-xs uppercase tracking-widest text-gray-400 mb-2 font-semibold">
-                Step {currentStep.step_number} of {steps.length}
+                {t('stepCount', { step: currentStep.step_number, total: steps.length })}
               </p>
               <div className="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden border border-gray-700">
                 <div
@@ -240,14 +250,14 @@ export default function WatchClient({ asana }) {
 
             {/* Pose Title */}
             <div>
-              <h2 className="text-xl font-bold tracking-tight text-white">{asana.name}</h2>
-              <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{asana.english}</p>
+              <h2 className="text-xl font-bold tracking-tight text-white">{localizedAsana.name}</h2>
+              <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{localizedAsana.english}</p>
             </div>
 
             {/* Step Instruction */}
             <div className="p-4 bg-card-bg rounded-lg border border-border-dark">
               <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">
-                Step {currentStep.step_number} — What to Do
+                {t('stepHeader', { step: currentStep.step_number })}
               </p>
               <p className="text-sm text-gray-100 leading-relaxed font-medium">
                 {currentStep.instruction}
@@ -267,7 +277,7 @@ export default function WatchClient({ asana }) {
 
             {/* Audio Controls */}
             <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">Audio Controls</p>
+              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('audioControlsTitle')}</p>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
                   <button
@@ -276,7 +286,7 @@ export default function WatchClient({ asana }) {
                     className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
                   >
                     <Square className="w-3.5 h-3.5" />
-                    <span>Stop Audio</span>
+                    <span>{t('stopAudio')}</span>
                   </button>
                   <button
                     onClick={handleContinueAudio}
@@ -284,7 +294,7 @@ export default function WatchClient({ asana }) {
                     className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
                   >
                     <Play className="w-3.5 h-3.5" />
-                    <span>Continue Audio</span>
+                    <span>{t('continueAudio')}</span>
                   </button>
                 </div>
                 <button
@@ -292,14 +302,14 @@ export default function WatchClient({ asana }) {
                   className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-violet-950/40 hover:bg-violet-900/60 text-violet-300 border border-violet-800/30 transition flex items-center justify-center gap-1.5"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  <span>Replay From Beginning</span>
+                  <span>{t('replayAudio')}</span>
                 </button>
               </div>
             </div>
 
             {/* Visual Controls */}
             <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">Visual (Alt View)</p>
+              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('visualControlsTitle')}</p>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
                   <button
@@ -308,7 +318,7 @@ export default function WatchClient({ asana }) {
                     className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
                   >
                     <Square className="w-3.5 h-3.5" />
-                    <span>Stop Visual</span>
+                    <span>{t('pauseGuide')}</span>
                   </button>
                   <button
                     onClick={handleContinueVisual}
@@ -316,7 +326,7 @@ export default function WatchClient({ asana }) {
                     className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
                   >
                     <Play className="w-3.5 h-3.5" />
-                    <span>Continue Visual</span>
+                    <span>{t('resumeGuide')}</span>
                   </button>
                 </div>
                 <button
@@ -324,23 +334,16 @@ export default function WatchClient({ asana }) {
                   className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-indigo-950/40 hover:bg-indigo-900/60 text-indigo-300 border border-indigo-800/30 transition flex items-center justify-center gap-1.5"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  <span>Replay Visual</span>
+                  <span>{t('replayVisual')}</span>
                 </button>
               </div>
-              <p className="text-[10px] text-gray-500 mt-1.5 text-center">
-                {visualState === 'playing'
-                  ? `Camera shifts in ${visualCountdown.toFixed(1)}s…`
-                  : visualState === 'completed'
-                  ? 'Alt view angle active.'
-                  : 'Visual paused.'}
-              </p>
             </div>
 
             {/* Joint Legend */}
             <div className="p-3 bg-card-bg/40 rounded-lg border border-border-dark/60">
-              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">Joint Numbering</h4>
+              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('jointKeyTitle')}</h4>
               <div className="space-y-1.5 text-[10px] text-gray-400">
-                {[{ n: '1', a: 'Wrist', l: 'Hip' }, { n: '2', a: 'Elbow', l: 'Knee' }, { n: '3', a: 'Shoulder', l: 'Ankle' }].map(({ n, a, l }) => (
+                {[{ n: '1', a: t('jointWrist'), l: t('jointHip') }, { n: '2', a: t('jointElbow'), l: t('jointKnee') }, { n: '3', a: t('jointShoulder'), l: t('jointAnkle') }].map(({ n, a, l }) => (
                   <div key={n} className="flex items-center gap-2">
                     <span className="w-5 h-5 rounded-full bg-purple-700 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0">
                       {n}
@@ -353,7 +356,7 @@ export default function WatchClient({ asana }) {
 
             {/* Segment Tracker */}
             <div>
-              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-3 tracking-wider">Segment Tracker</h4>
+              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-3 tracking-wider">{t('stepCount', { step: stepIndex + 1, total: steps.length })}</h4>
               <div className="flex items-center space-x-1">
                 {steps.map((_, idx) => (
                   <React.Fragment key={idx}>
@@ -387,7 +390,7 @@ export default function WatchClient({ asana }) {
           {/* Footer Navigation */}
           <div className="border-t border-border-dark px-5 py-4 flex-shrink-0 flex items-center justify-between bg-panel">
             <div className="text-xs text-gray-500">
-              Step <span className="text-white font-semibold">{stepIndex + 1}</span> / {steps.length}
+              {t('stepCount', { step: stepIndex + 1, total: steps.length })}
             </div>
             <div className="flex items-center space-x-2">
               <button
@@ -396,14 +399,14 @@ export default function WatchClient({ asana }) {
                 className="px-4 py-2 rounded-lg text-sm font-medium bg-[#21262d] hover:bg-[#30363d] text-gray-300 border border-[#30363d] disabled:opacity-30 disabled:pointer-events-none transition flex items-center space-x-1"
               >
                 <ChevronLeft className="w-4 h-4" />
-                <span>BACK</span>
+                <span>{t('prevStep')}</span>
               </button>
               <button
                 onClick={goNext}
                 disabled={stepIndex === steps.length - 1}
                 className="px-4 py-2 rounded-lg text-sm font-semibold bg-flow-green hover:bg-flow-green-hover text-white disabled:opacity-30 disabled:pointer-events-none transition flex items-center space-x-1.5"
               >
-                <span>NEXT</span>
+                <span>{t('nextStep')}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -413,8 +416,8 @@ export default function WatchClient({ asana }) {
 
       <Chatbot
         asanaContext={{
-          name: asana.name,
-          sanskrit: asana.sanskrit,
+          name: localizedAsana.name,
+          sanskrit: localizedAsana.sanskrit,
           currentStep: stepIndex + 1,
           totalSteps: steps.length,
           instruction: currentStep.instruction,

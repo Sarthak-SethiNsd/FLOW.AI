@@ -8,9 +8,13 @@ import Chatbot from '@/components/Chatbot';
 import YogaSVG, { ASANA_GUIDE_DATA } from '@/components/YogaSVG';
 import { validateRule } from '@/utils/geometry';
 import { Play, Pause, RotateCcw, ChevronRight, ArrowLeft, Volume2, ShieldAlert, CheckCircle, Activity, Square } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function PracticeClient({ asana }) {
   const router = useRouter();
+  const { language, t, getLocalizedAsana } = useLanguage();
+  const localizedAsana = getLocalizedAsana(asana);
+
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [isCalibrated, setIsCalibrated] = useState(false);
   const [calibrationProgress, setCalibrationProgress] = useState(0);
@@ -30,7 +34,7 @@ export default function PracticeClient({ asana }) {
   const [visualState, setVisualState] = useState('playing');
   const [showAltView, setShowAltView] = useState(false);
 
-  const steps = asana.steps;
+  const steps = localizedAsana.steps;
   const currentStep = steps[currentStepIndex];
 
   // Refs
@@ -73,6 +77,11 @@ export default function PracticeClient({ asana }) {
     setAudioState('playing');
 
     const utt = new SpeechSynthesisUtterance(text);
+    if (language === 'hi') {
+      utt.lang = 'hi-IN';
+    } else {
+      utt.lang = 'en-US';
+    }
     utt.rate = 0.85;
     utt.onend = () => {
       isSpeakingRef.current = false;
@@ -118,22 +127,25 @@ export default function PracticeClient({ asana }) {
   // Step Change Effect
   useEffect(() => {
     const step = steps[currentStepIndex];
+    if (!step) return;
+
     setHoldTime(step.duration || 10);
-    setActiveError('');
     setPoseState('incorrect');
-    setIsPaused(false);
+    setActiveError('');
     lastSpokenErrorRef.current = '';
 
-    // Force-speak the new step instruction
+    // Play step voice prompt on step entry (force=true so user immediately hears new instruction)
     speakText(step.voice_prompt, true);
+
+    return () => {
+      if (holdTimerRef.current) clearInterval(holdTimerRef.current);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentStepIndex]);
+  }, [currentStepIndex, language]);
 
-  // Load MediaPipe scripts and start camera on mount
+  // Load MediaPipe Pose Scripts
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    let isSubscribed = true;
+    let isMountedFlag = true;
 
     const loadScripts = async () => {
       try {
@@ -141,40 +153,41 @@ export default function PracticeClient({ asana }) {
           await new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = 'https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js';
+            script.crossOrigin = 'anonymous';
             script.onload = resolve;
             script.onerror = reject;
-            document.body.appendChild(script);
+            document.head.appendChild(script);
           });
         }
-
         if (!window.Camera) {
           await new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = 'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js';
+            script.crossOrigin = 'anonymous';
             script.onload = resolve;
             script.onerror = reject;
-            document.body.appendChild(script);
+            document.head.appendChild(script);
           });
         }
 
-        if (isSubscribed) {
+        if (isMountedFlag) {
           initMediaPipe();
         }
       } catch (err) {
         console.error('Failed to load MediaPipe CDN scripts:', err);
-        if (isSubscribed) {
-          setCameraState('denied');
-        }
       }
     };
 
     loadScripts();
 
     return () => {
-      isSubscribed = false;
-      if (cameraInstanceRef.current) cameraInstanceRef.current.stop();
-      if (poseInstanceRef.current) poseInstanceRef.current.close();
-      if (holdTimerRef.current) clearInterval(holdTimerRef.current);
+      isMountedFlag = false;
+      if (cameraInstanceRef.current) {
+        cameraInstanceRef.current.stop();
+      }
+      if (poseInstanceRef.current) {
+        poseInstanceRef.current.close();
+      }
       if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
@@ -183,8 +196,10 @@ export default function PracticeClient({ asana }) {
   }, []);
 
   const initMediaPipe = () => {
+    if (!window.Pose) return;
+
     const pose = new window.Pose({
-      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`
+      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`,
     });
 
     pose.setOptions({
@@ -192,7 +207,7 @@ export default function PracticeClient({ asana }) {
       smoothLandmarks: true,
       enableSegmentation: false,
       minDetectionConfidence: 0.5,
-      minTrackingConfidence: 0.5
+      minTrackingConfidence: 0.5,
     });
 
     pose.onResults(onPoseResults);
@@ -218,7 +233,7 @@ export default function PracticeClient({ asana }) {
             camera.start();
             cameraInstanceRef.current = camera;
 
-            speakText("Stand back. Position your entire body in front of the camera.", true);
+            speakText(t('standBackInitial'), true);
           }
         })
         .catch((err) => {
@@ -230,8 +245,6 @@ export default function PracticeClient({ asana }) {
   };
 
   // MediaPipe pose results handler
-  // NOTE: This runs ~30fps. Never call speakText(force=true) here — only speakText(force=false)
-  // so in-flight speech is never interrupted by posture checks.
   const onPoseResults = (results) => {
     if (!results.poseLandmarks || !canvasRef.current) return;
 
@@ -264,14 +277,12 @@ export default function PracticeClient({ asana }) {
       if (calibrationRatio >= 0.9) {
         isCalibratedRef.current = true;
         setIsCalibrated(true);
-        // force=true because this is a one-time transition announcement
-        speakText("Body detected. Calibration complete. Let's begin.", true);
+        speakText(t('calibSuccess'), true);
       } else {
-        const calibErr = "Please step back so your full body including feet are visible.";
+        const calibErr = t('calibStepBack');
         setActiveError(calibErr);
         if (lastSpokenErrorRef.current !== calibErr) {
           lastSpokenErrorRef.current = calibErr;
-          // force=false — only speak if nothing is already playing
           speakText(calibErr, false);
         }
       }
@@ -280,7 +291,7 @@ export default function PracticeClient({ asana }) {
 
     // --- Active Pose Validation ---
     const step = currentStepRef.current;
-    const validationResults = step.validation.map(rule => ({
+    const validationResults = (step.validation || []).map(rule => ({
       ruleId: rule.id,
       ...validateRule(rule, landmarks)
     }));
@@ -310,34 +321,24 @@ export default function PracticeClient({ asana }) {
     if ((activeState === 'incorrect' || activeState === 'partially-correct') && errorMessage) {
       if (lastSpokenErrorRef.current !== errorMessage) {
         lastSpokenErrorRef.current = errorMessage;
-        // force=false — only start speaking if nothing currently playing
         speakText(errorMessage, false);
       }
     } else if (activeState === 'correct') {
-      if (lastSpokenErrorRef.current !== '') {
-        lastSpokenErrorRef.current = '';
-        speakText("Posture corrected. Hold this position.", false);
+      if (lastSpokenErrorRef.current !== 'correct') {
+        lastSpokenErrorRef.current = 'correct';
+        speakText(t('postureCorrected'), false);
       }
     }
 
-    // Skeleton color by state
-    let skeletonColor = '#ef4444';
-    if (activeState === 'correct') skeletonColor = '#2ea44f';
-    else if (activeState === 'partially-correct') skeletonColor = '#fbbf24';
-
-    drawSkeleton(ctx, landmarks, skeletonColor);
+    // Draw Skeleton with appropriate color
+    const color = activeState === 'correct' ? '#2ea44f' : activeState === 'partially-correct' ? '#eab308' : '#ef4444';
+    drawSkeleton(ctx, landmarks, color);
   };
 
-  // Draw skeleton on canvas
+  // Skeleton Drawing Helper
   const drawSkeleton = (ctx, landmarks, color) => {
-    const width = canvasRef.current.width;
-    const height = canvasRef.current.height;
-
-    const mapPt = (pt) => ({ x: (1 - pt.x) * width, y: pt.y * height });
-
     const connections = [
-      [11, 12],
-      [11, 13], [13, 15],
+      [11, 12], [11, 13], [13, 15],
       [12, 14], [14, 16],
       [11, 23], [12, 24], [23, 24],
       [23, 25], [25, 27],
@@ -346,44 +347,36 @@ export default function PracticeClient({ asana }) {
 
     ctx.lineWidth = 4;
     ctx.strokeStyle = color;
-    ctx.lineCap = 'round';
+    ctx.fillStyle = color;
 
-    connections.forEach(([iA, iB]) => {
-      const pA = landmarks[iA];
-      const pB = landmarks[iB];
-      if (pA && pB && pA.visibility > 0.5 && pB.visibility > 0.5) {
-        const cA = mapPt(pA);
-        const cB = mapPt(pB);
+    // Draw connecting bones
+    connections.forEach(([i, j]) => {
+      const p1 = landmarks[i];
+      const p2 = landmarks[j];
+      if (p1 && p2 && p1.visibility > 0.4 && p2.visibility > 0.4) {
         ctx.beginPath();
-        ctx.moveTo(cA.x, cA.y);
-        ctx.lineTo(cB.x, cB.y);
+        ctx.moveTo(p1.x * ctx.canvas.width, p1.y * ctx.canvas.height);
+        ctx.lineTo(p2.x * ctx.canvas.width, p2.y * ctx.canvas.height);
         ctx.stroke();
       }
     });
 
-    ctx.fillStyle = '#ffffff';
-    [11, 12, 13, 14, 15, 16, 23, 24, 25, 26, 27, 28].forEach(idx => {
-      const pt = landmarks[idx];
-      if (pt && pt.visibility > 0.5) {
-        const c = mapPt(pt);
+    // Draw key joint points
+    [11, 12, 13, 14, 15, 16, 23, 24, 25, 26, 27, 28].forEach((i) => {
+      const p = landmarks[i];
+      if (p && p.visibility > 0.4) {
         ctx.beginPath();
-        ctx.arc(c.x, c.y, 4, 0, 2 * Math.PI);
+        ctx.arc(p.x * ctx.canvas.width, p.y * ctx.canvas.height, 6, 0, 2 * Math.PI);
         ctx.fill();
       }
     });
   };
 
-  // Smart Hold-Timer Effect
+  // Hold Timer Effect
   useEffect(() => {
-    if (!isCalibrated || isPaused) {
-      if (holdTimerRef.current) {
-        clearInterval(holdTimerRef.current);
-        holdTimerRef.current = null;
-      }
-      return;
-    }
+    if (!isCalibrated || isPaused || isCompleted) return;
 
-    if (poseState === 'correct' || poseState === 'partially-correct') {
+    if (poseState === 'correct') {
       if (!holdTimerRef.current) {
         holdTimerRef.current = setInterval(() => {
           setHoldTime((prev) => {
@@ -410,43 +403,43 @@ export default function PracticeClient({ asana }) {
         holdTimerRef.current = null;
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [poseState, isCalibrated, isPaused]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [poseState, isCalibrated, isPaused, isCompleted]);
 
+  // Step Completion Handler
   const handleStepComplete = () => {
-    if (currentStepIndex < steps.length - 1) {
-      speakText("Step completed! Moving to the next step.", true);
-      setTimeout(() => {
-        setCurrentStepIndex(prev => prev + 1);
-      }, 1200);
-    } else {
-      speakText("Congratulations! You have completed all steps of this practice.", true);
-      setIsCompleted(true);
-    }
-  };
-
-  const handleRestart = () => {
-    setIsPaused(false);
-    isPausedRef.current = false;
     if (holdTimerRef.current) {
       clearInterval(holdTimerRef.current);
       holdTimerRef.current = null;
     }
+
+    if (currentStepIndex < steps.length - 1) {
+      setCurrentStepIndex((prev) => prev + 1);
+    } else {
+      setIsCompleted(true);
+      if (cameraInstanceRef.current) {
+        cameraInstanceRef.current.stop();
+      }
+      speakText(t('practiceCompleteTitle'), true);
+    }
+  };
+
+  // Manual Controls
+  const handleRestart = () => {
     setHoldTime(currentStep.duration || 10);
     setPoseState('incorrect');
     setActiveError('');
     lastSpokenErrorRef.current = '';
+    setIsCompleted(false);
     speakText(currentStep.voice_prompt, true);
   };
 
   const handlePause = () => {
-    if (isPaused) {
-      setIsPaused(false);
-      isPausedRef.current = false;
-      speakText("Resuming practice.", true);
-    } else {
-      setIsPaused(true);
-      isPausedRef.current = true;
+    const nextPausedState = !isPaused;
+    setIsPaused(nextPausedState);
+    isPausedRef.current = nextPausedState;
+
+    if (nextPausedState) {
       if (holdTimerRef.current) {
         clearInterval(holdTimerRef.current);
         holdTimerRef.current = null;
@@ -461,9 +454,9 @@ export default function PracticeClient({ asana }) {
 
   // Caption text for overlay
   const captionText = !isCalibrated
-    ? "Calibration in progress. Position your entire body in front of the camera."
+    ? t('calibStepBack')
     : isPaused
-      ? "Practice paused. Click RESUME PRACTICE to continue."
+      ? t('correctPostureToResume')
       : activeError
         ? activeError
         : currentStep.voice_prompt;
@@ -479,16 +472,31 @@ export default function PracticeClient({ asana }) {
           <div className="w-20 h-20 rounded-full bg-flow-green/20 border-2 border-flow-green flex items-center justify-center text-flow-green animate-bounce">
             <CheckCircle className="w-10 h-10" />
           </div>
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">Practice Complete!</h2>
-          <p className="text-gray-400 text-sm max-w-sm text-center">
-            You successfully completed all steps of <b className="text-white">{asana.name}</b>.
-          </p>
-          <button
-            onClick={() => router.push('/')}
-            className="px-6 py-3 rounded-lg text-sm font-bold bg-flow-green hover:bg-flow-green-hover text-white transition-all shadow-lg shadow-flow-green/20"
-          >
-            RETURN TO POSES
-          </button>
+          <div className="text-center max-w-md px-4">
+            <h2 className="text-3xl font-extrabold text-white mb-2">{t('practiceCompleteTitle')}</h2>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              {t('practiceCompleteDesc')} <span className="text-flow-green font-bold">{localizedAsana.name} ({localizedAsana.english})</span>. {t('greatJob')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => {
+                  setCurrentStepIndex(0);
+                  setIsCompleted(false);
+                  setIsCalibrated(false);
+                  initMediaPipe();
+                }}
+                className="px-6 py-3 rounded-xl font-bold text-sm bg-flow-green hover:bg-flow-green-hover text-white shadow-lg shadow-emerald-950/40 transition"
+              >
+                {t('restartPractice')}
+              </button>
+              <button
+                onClick={() => router.push(`/pose/${asana.id}`)}
+                className="px-6 py-3 rounded-xl font-semibold text-sm bg-[#21262d] hover:bg-[#30363d] text-gray-200 border border-[#30363d] transition"
+              >
+                {t('exitPractice')}
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
@@ -514,7 +522,7 @@ export default function PracticeClient({ asana }) {
               />
               <div className="absolute top-3 left-3 z-20 bg-red-500/20 text-red-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border border-red-500/30 backdrop-blur-md flex items-center space-x-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-                <span>Your Live Camera</span>
+                <span>{t('liveCamera')}</span>
               </div>
             </div>
 
@@ -527,10 +535,10 @@ export default function PracticeClient({ asana }) {
                   showAltView={showAltView}
                 />
               ) : (
-                <div className="text-gray-500 text-xs uppercase tracking-wider">Target Pose Guide</div>
+                <div className="text-gray-500 text-xs uppercase tracking-wider">{t('targetPoseGuide')}</div>
               )}
               <div className="absolute top-3 left-3 z-20 bg-flow-green/20 text-flow-green text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border border-flow-green/30 backdrop-blur-md">
-                ● Target Pose Guide
+                ● {t('targetPoseGuide')}
               </div>
             </div>
 
@@ -540,14 +548,14 @@ export default function PracticeClient({ asana }) {
             {/* Top right: Mode badge + Exit */}
             <div className="absolute top-3 right-3 z-20 flex items-center gap-2">
               <div className="bg-red-500/20 text-red-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border border-red-500/30 backdrop-blur-md">
-                Practice Mode
+                {t('practiceModeTitle')}
               </div>
               <Link
                 href={`/pose/${asana.id}`}
                 className="bg-card-bg/85 hover:bg-card-bg border border-border-dark text-xs text-gray-300 font-semibold px-2.5 py-1 rounded transition flex items-center space-x-1 backdrop-blur-md"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Exit</span>
+                <span>{t('exitPractice')}</span>
               </Link>
             </div>
 
@@ -563,7 +571,7 @@ export default function PracticeClient({ asana }) {
             {/* Bottom HUD: Progress bar + Hold timer */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 w-2/3 text-center">
               <p className="text-xs uppercase tracking-widest text-gray-400 mb-1.5 font-semibold">
-                Step {currentStepIndex + 1} of {steps.length}
+                {t('stepCount', { step: currentStepIndex + 1, total: steps.length })}
               </p>
               <div className="w-full bg-gray-800/80 h-2 rounded-full overflow-hidden mb-2 border border-gray-700 backdrop-blur-sm">
                 <div
@@ -577,7 +585,7 @@ export default function PracticeClient({ asana }) {
                     CALIBRATION: {calibrationProgress}%
                   </span>
                 ) : isPaused ? (
-                  <span className="text-blue-400 font-medium text-xs">PRACTICE PAUSED</span>
+                  <span className="text-blue-400 font-medium text-xs">{t('timerPaused')}</span>
                 ) : (
                   <>
                     <Activity className={`w-3.5 h-3.5 ${poseState === 'correct' ? 'text-flow-green animate-spin' : 'text-yellow-500 animate-pulse'}`} />
@@ -601,13 +609,13 @@ export default function PracticeClient({ asana }) {
             {/* Title + Mute */}
             <div className="flex justify-between items-start">
               <div>
-                <h2 className="text-xl font-bold tracking-tight text-white">{asana.name}</h2>
-                <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{asana.english}</p>
+                <h2 className="text-xl font-bold tracking-tight text-white">{localizedAsana.name}</h2>
+                <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{localizedAsana.english}</p>
               </div>
               <button
                 onClick={() => { setIsMuted(v => !v); isMutedRef.current = !isMutedRef.current; }}
                 className={`p-2 rounded-lg border transition ${!isMuted ? 'bg-flow-green/10 text-flow-green border-flow-green/20' : 'bg-card-bg text-gray-400 border-border-dark'}`}
-                title={isMuted ? "Unmute Voice Coach" : "Mute Voice Coach"}
+                title={isMuted ? t('unmute') : t('mute')}
               >
                 <Volume2 className="w-4 h-4" />
               </button>
@@ -616,7 +624,7 @@ export default function PracticeClient({ asana }) {
             {/* Step Instruction */}
             <div className="p-4 bg-card-bg rounded-lg border border-border-dark">
               <span className="text-[10px] font-bold uppercase text-gray-500 tracking-wider block mb-1">
-                Step {currentStepIndex + 1} — Instructions
+                {t('stepHeader', { step: currentStepIndex + 1 })}
               </span>
               <p className="text-sm text-gray-100 leading-relaxed font-medium">
                 {currentStep.instruction}
@@ -630,7 +638,7 @@ export default function PracticeClient({ asana }) {
                   <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-400" />
                   <div>
                     <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Positioning Required</span>
-                    <span>Please step back so your full body including feet are visible.</span>
+                    <span>{t('calibStepBack')}</span>
                   </div>
                 </div>
               ) : isPaused ? (
@@ -638,7 +646,7 @@ export default function PracticeClient({ asana }) {
                   <Pause className="w-4 h-4 flex-shrink-0 mt-0.5 text-blue-400" />
                   <div>
                     <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Practice Paused</span>
-                    <span>Press RESUME PRACTICE to continue.</span>
+                    <span>{t('correctPostureToResume')}</span>
                   </div>
                 </div>
               ) : activeError ? (
@@ -654,7 +662,7 @@ export default function PracticeClient({ asana }) {
                   <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-flow-green" />
                   <div>
                     <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Form Aligned</span>
-                    <span>Posture correct! Hold position to complete this step.</span>
+                    <span>{t('holdSteady')}</span>
                   </div>
                 </div>
               )}
@@ -662,51 +670,51 @@ export default function PracticeClient({ asana }) {
 
             {/* Audio Controls */}
             <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">Audio Controls</p>
+              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('audioControlsTitle')}</p>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
                   <button onClick={handleStopAudio} disabled={audioState !== 'playing'}
                     className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Square className="w-3.5 h-3.5" /><span>Stop Audio</span>
+                    <Square className="w-3.5 h-3.5" /><span>{t('stopAudio')}</span>
                   </button>
                   <button onClick={handleContinueAudio} disabled={audioState === 'playing'}
                     className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Play className="w-3.5 h-3.5" /><span>Continue Audio</span>
+                    <Play className="w-3.5 h-3.5" /><span>{t('continueAudio')}</span>
                   </button>
                 </div>
                 <button onClick={handleReplayAudio}
                   className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-violet-950/40 hover:bg-violet-900/60 text-violet-300 border border-violet-800/30 transition flex items-center justify-center gap-1.5">
-                  <RotateCcw className="w-3 h-3" /><span>Replay Audio Instruction</span>
+                  <RotateCcw className="w-3 h-3" /><span>{t('replayAudio')}</span>
                 </button>
               </div>
             </div>
 
             {/* Visual Guide Controls */}
             <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">Visual Guide Controls</p>
+              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('visualControlsTitle')}</p>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
                   <button onClick={handleStopVisual} disabled={visualState !== 'playing'}
                     className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Square className="w-3.5 h-3.5" /><span>Pause Visual</span>
+                    <Square className="w-3.5 h-3.5" /><span>{t('pauseGuide')}</span>
                   </button>
                   <button onClick={handleContinueVisual} disabled={visualState === 'playing'}
                     className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Play className="w-3.5 h-3.5" /><span>Resume Visual</span>
+                    <Play className="w-3.5 h-3.5" /><span>{t('resumeGuide')}</span>
                   </button>
                 </div>
                 <button onClick={handleReplayVisual}
                   className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-indigo-950/40 hover:bg-indigo-900/60 text-indigo-300 border border-indigo-800/30 transition flex items-center justify-center gap-1.5">
-                  <RotateCcw className="w-3 h-3" /><span>Replay Visual Guide</span>
+                  <RotateCcw className="w-3 h-3" /><span>{t('replayVisual')}</span>
                 </button>
               </div>
             </div>
 
             {/* Joint Numbering Legend */}
             <div className="p-3 bg-card-bg/40 rounded-lg border border-border-dark/60">
-              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">Joint Numbering Key</h4>
+              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('jointKeyTitle')}</h4>
               <div className="space-y-1.5 text-[10px] text-gray-400">
-                {[{n:'1',a:'Wrist',l:'Hip'},{n:'2',a:'Elbow',l:'Knee'},{n:'3',a:'Shoulder',l:'Ankle'}].map(({n,a,l}) => (
+                {[{n:'1',a:t('jointWrist'),l:t('jointHip')},{n:'2',a:t('jointElbow'),l:t('jointKnee')},{n:'3',a:t('jointShoulder'),l:t('jointAnkle')}].map(({n,a,l}) => (
                   <div key={n} className="flex items-center gap-2">
                     <span className="w-5 h-5 rounded-full bg-purple-700 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0">{n}</span>
                     <span>Arm → {a} &nbsp;|&nbsp; Leg → {l}</span>
@@ -717,7 +725,7 @@ export default function PracticeClient({ asana }) {
 
             {/* Segment Tracker */}
             <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-3">Segment Tracker</h4>
+              <h4 className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-3">{t('stepCount', { step: currentStepIndex + 1, total: steps.length })}</h4>
               <div className="flex items-center space-x-1.5">
                 {steps.map((step, idx) => (
                   <React.Fragment key={idx}>
@@ -754,12 +762,12 @@ export default function PracticeClient({ asana }) {
         <div className="hidden md:flex items-center space-x-6">
           <div className="text-sm">
             <span className="text-gray-400">Current:</span>
-            <span className="font-semibold text-white ml-1">{asana.name}</span>
+            <span className="font-semibold text-white ml-1">{localizedAsana.name}</span>
           </div>
           <div className="w-px h-4 bg-gray-700"></div>
           <div className="text-sm flex items-center space-x-1.5">
             <span className="text-gray-400">Step:</span>
-            <span className="font-semibold text-white">{currentStepIndex + 1} of {steps.length}</span>
+            <span className="font-semibold text-white">{t('stepCount', { step: currentStepIndex + 1, total: steps.length })}</span>
             <div className="flex space-x-1 ml-1">
               {steps.map((_, i) => (
                 <span key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentStepIndex ? 'bg-flow-green' : 'bg-gray-700'}`}></span>
@@ -778,7 +786,7 @@ export default function PracticeClient({ asana }) {
             }`}
           >
             {isPaused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
-            <span>{isPaused ? 'RESUME PRACTICE' : 'PAUSE PRACTICE'}</span>
+            <span>{isPaused ? t('resumePractice') : t('pausePractice')}</span>
           </button>
 
           <button
@@ -786,14 +794,14 @@ export default function PracticeClient({ asana }) {
             className="px-5 py-2 rounded-lg text-sm font-semibold bg-[#21262d] hover:bg-[#30363d] text-gray-200 border border-[#30363d] transition flex items-center space-x-2"
           >
             <RotateCcw className="w-4 h-4" />
-            <span>RESTART STEP</span>
+            <span>{t('restartPractice')}</span>
           </button>
 
           <button
             onClick={handleStepComplete}
             className="px-5 py-2 rounded-lg text-sm font-bold bg-flow-green hover:bg-flow-green-hover text-white shadow-md shadow-emerald-950 transition flex items-center space-x-2"
           >
-            <span>NEXT STEP</span>
+            <span>{t('nextStep')}</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -801,8 +809,8 @@ export default function PracticeClient({ asana }) {
 
       <Chatbot
         asanaContext={{
-          name: asana.name,
-          sanskrit: asana.sanskrit,
+          name: localizedAsana.name,
+          sanskrit: localizedAsana.sanskrit,
           currentStep: currentStepIndex + 1,
           totalSteps: steps.length,
           instruction: currentStep.instruction
