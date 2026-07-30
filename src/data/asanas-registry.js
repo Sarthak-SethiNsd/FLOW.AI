@@ -23,6 +23,7 @@ import utkatasana from '../../public/asanas/utkatasana/config.json';
 import virabhadrasanaII from '../../public/asanas/virabhadrasana-ii/config.json';
 import vrikshasana from '../../public/asanas/vrikshasana/config.json';
 import adhoMukhaSvanasana from '../../public/asanas/adho-mukha-svanasana/config.json';
+import savasana from '../../public/asanas/savasana/config.json';
 
 /** All asanas in display order */
 export const ALL_ASANAS = [
@@ -32,6 +33,7 @@ export const ALL_ASANAS = [
   catCowFlow,
   vrikshasana,
   adhoMukhaSvanasana,
+  savasana,
   suryaNamaskar,
   utkatasana,
   trikonasana,

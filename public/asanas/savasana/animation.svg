@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0px 0px 2px rgba(46, 164, 79, 0.4)); opacity: 0.8; }
+            50% { filter: drop-shadow(0px 0px 8px rgba(46, 164, 79, 0.9)); opacity: 1; }
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); transform-origin: 200px 130px; }
+            50% { transform: scale(1.02); transform-origin: 200px 130px; }
+        }
+        .glow-element {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+        .body-group {
+            animation: breathe 4s infinite ease-in-out;
+        }
+    </style>
+    <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#30363d" stroke-width="0.5"/>
+        </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="#161b22"/>
+    <rect width="100%" height="100%" fill="url(#grid)" opacity="0.25"/>
+    
+    <!-- Yoga Mat -->
+    <rect x="30" y="148" width="340" height="10" rx="5" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+    <g class="body-group">
+        <!-- Spine (Lying flat horizontally) -->
+        <path d="M 120 130 L 220 130" fill="none" stroke="#2ea44f" stroke-width="4" stroke-linecap="round" class="glow-element"/>
+        
+        <!-- Head -->
+        <circle cx="95" cy="130" r="14" fill="none" stroke="#2ea44f" stroke-width="3" class="glow-element"/>
+        
+        <!-- Shoulders -->
+        <path d="M 130 120 L 130 140" fill="none" stroke="#2ea44f" stroke-width="4" stroke-linecap="round" class="glow-element"/>
+        
+        <!-- Left & Right Arms (Extending slightly out from sides) -->
+        <path d="M 130 120 L 210 115" fill="none" stroke="#2ea44f" stroke-width="3" stroke-linecap="round" class="glow-element"/>
+        <path d="M 130 140 L 210 145" fill="none" stroke="#2ea44f" stroke-width="3" stroke-linecap="round" class="glow-element"/>
+        
+        <!-- Hips -->
+        <path d="M 220 122 L 220 138" fill="none" stroke="#2ea44f" stroke-width="4" stroke-linecap="round" class="glow-element"/>
+        
+        <!-- Legs (Extending straight out with feet apart) -->
+        <path d="M 220 125 L 340 120" fill="none" stroke="#2ea44f" stroke-width="4" stroke-linecap="round" class="glow-element"/>
+        <path d="M 220 135 L 340 140" fill="none" stroke="#2ea44f" stroke-width="4" stroke-linecap="round" class="glow-element"/>
+        
+        <!-- Joint Nodes (Neon Dots) -->
+        <circle cx="95" cy="130" r="3" fill="#e6edf3"/>
+        <circle cx="130" cy="120" r="4" fill="#e6edf3" class="glow-element"/>
+        <circle cx="130" cy="140" r="4" fill="#e6edf3" class="glow-element"/>
+        <circle cx="210" cy="115" r="3" fill="#e6edf3"/>
+        <circle cx="210" cy="145" r="3" fill="#e6edf3"/>
+        <circle cx="220" cy="122" r="4" fill="#e6edf3" class="glow-element"/>
+        <circle cx="220" cy="138" r="4" fill="#e6edf3" class="glow-element"/>
+        <circle cx="340" cy="120" r="3" fill="#e6edf3"/>
+        <circle cx="340" cy="140" r="3" fill="#e6edf3"/>
+    </g>
+</svg>

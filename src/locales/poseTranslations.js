@@ -1,5 +1,5 @@
 /**
- * Pose Translations Dictionary (Hindi translations for all 10 supported yoga poses)
+ * Pose Translations Dictionary (Hindi translations for supported yoga poses)
  * Preserves exact business logic, step numbers, timing, and posture rules.
  * Provides accurate Devanagari Hindi text for names, english titles, descriptions,
  * benefits, step instructions, and voice prompts.

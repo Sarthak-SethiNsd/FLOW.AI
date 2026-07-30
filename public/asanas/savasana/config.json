@@ -1,0 +1,177 @@
+{
+  "id": "savasana",
+  "name": "Savasana",
+  "sanskrit": "शवासन",
+  "english": "Corpse Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 70,
+  "description": "A foundational relaxation posture practiced lying flat on the back. Savasana calms the mind, lowers stress, and allows the body to fully integrate the benefits of yoga practice.",
+  "benefits": [
+    "Calms the central nervous system and relieves stress",
+    "Reduces fatigue, anxiety, and blood pressure",
+    "Promotes deep physical and mental relaxation"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Lie flat on your back on the mat with your legs extended straight and your arms resting alongside your body.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Savasana, or Corpse Pose. Lie completely flat on your back in the center of your mat. Extend both legs straight out in front of you. Place your arms along the sides of your body with your palms facing down and your fingers resting flat on the floor. Keep your head centered and look straight up at the ceiling.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "savasana_leg_left_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your left leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your left leg fully onto the mat."
+        },
+        {
+          "id": "savasana_leg_right_1",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your right leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your right leg fully onto the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Separate your legs slightly, allowing your heels to sit about hip-width apart and your feet and toes to flop out to the sides.",
+      "duration": 10,
+      "voice_prompt": "Move your legs apart until your heels are about hip-width apart. Let your feet flop outward so your toes point out to the left and right sides. Keep the back of your lower legs and the back of your upper legs resting flat against the mat.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "savasana_leg_left_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your left leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your left leg fully onto the mat."
+        },
+        {
+          "id": "savasana_leg_right_2",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your right leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your right leg fully onto the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Rest your arms a few inches away from your torso with your palms facing upward and your fingers naturally curled.",
+      "duration": 10,
+      "voice_prompt": "Move your arms a few inches away from the sides of your upper body. Turn your hands over so your palms face straight up toward the ceiling. Allow your fingers to curl naturally inward toward your palms without making a fist.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "savasana_arm_left_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your left arm straight along the mat.",
+          "fail_overbend_msg": "Relax your left arm straight on the mat."
+        },
+        {
+          "id": "savasana_arm_right_3",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your right arm straight along the mat.",
+          "fail_overbend_msg": "Relax your right arm straight on the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Tuck your chin slightly to lengthen the back of your neck. Relax your shoulders down into the mat and rest your head evenly.",
+      "duration": 10,
+      "voice_prompt": "Tuck your chin slightly toward your chest to lengthen the back of your neck. Rest the back of your head evenly on the mat without tilting your head left or right. Pull your shoulders down away from your ears and let the back of your shoulders sink into the floor. Look straight up or gently close your eyes.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "savasana_leg_left_4",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your left leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your left leg fully onto the mat."
+        },
+        {
+          "id": "savasana_leg_right_4",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your right leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your right leg fully onto the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Corpse Pose. Breathe naturally and stay completely still while letting your entire body relax.",
+      "duration": 20,
+      "voice_prompt": "Hold this position and remain completely still. Keep your heels separated, your toes turned outward, and your palms facing up toward the ceiling. Breathe in and breathe out slowly and naturally through your nose. Keep all the muscles in your face, shoulders, legs, and feet completely relaxed.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "savasana_leg_left_5",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your left leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your left leg fully onto the mat."
+        },
+        {
+          "id": "savasana_leg_right_5",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your right leg straight out on the mat.",
+          "fail_overbend_msg": "Straighten your right leg fully onto the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: gently wiggle your fingers and toes, take a deep breath, and slowly roll to your right side before sitting up.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to finish, gently wiggle your fingers and toes. Turn your head slowly from side to side. Bend your knees, roll onto your right side, and use your hands to push yourself up into a sitting position. Well done. You have completed Savasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

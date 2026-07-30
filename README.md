@@ -16,7 +16,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 
 ---
 
-## 🧘 Yoga Poses Included (Version 1)
+## 🧘 Yoga Poses Included (11 Supported Poses)
 
 | Pose | Difficulty |
 |---|---|
@@ -26,6 +26,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Cat-Cow Flow | Beginner |
 | Vrikshasana (Tree Pose) | Beginner |
 | Adho Mukha Svanasana (Downward Dog) | Beginner |
+| Savasana (Corpse Pose) | Beginner |
 | Surya Namaskar (Sun Salutation) | Intermediate |
 | Utkatasana (Chair Pose) | Intermediate |
 | Trikonasana (Triangle Pose) | Intermediate |
