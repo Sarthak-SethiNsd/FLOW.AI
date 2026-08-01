@@ -1,0 +1,177 @@
+{
+  "id": "virasana",
+  "name": "Virasana",
+  "sanskrit": "वीरासन",
+  "english": "Hero Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 60,
+  "description": "A grounding kneeling posture that strengthens the legs, improves posture, and opens the front of the upper legs. Virasana is widely used as a seated meditation and breathing posture.",
+  "benefits": [
+    "Stretches the front of the upper legs and the tops of the feet",
+    "Strengthens the back and improves upright posture",
+    "Calms the mind and supports steady breathing"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Come down to kneel on the mat with your knees together and the tops of your feet flat on the floor behind you. Sit your bottom back onto your heels.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Virasana, or Hero Pose. Come down onto your knees on the mat. Place your knees together side by side. Point your toes straight back so the tops of your feet rest flat on the floor. Lower your bottom down onto your heels. Sit up straight and look straight ahead. Rest both hands flat on top of your upper legs with your palms facing down and your fingers pointing toward your knees.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virasana_arm_left_1",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Bend your left arm and rest your left hand on your upper leg.",
+          "fail_overbend_msg": "Relax your left arm so your left hand rests on your upper leg."
+        },
+        {
+          "id": "virasana_arm_right_1",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Bend your right arm and rest your right hand on your upper leg.",
+          "fail_overbend_msg": "Relax your right arm so your right hand rests on your upper leg."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Separate your feet slightly wider than your hips so there is space between your feet for your hips to sit down.",
+      "duration": 10,
+      "voice_prompt": "Now move your feet apart. Slide each foot out to the side until your feet are a little wider than your hips. Keep your knees close together on the mat. The tops of your feet should still be flat against the floor with your toes pointing straight back. Keep your bottom on your heels for now and breathe in slowly.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virasana_arm_left_2",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Relax your left arm down to rest your hand on your upper leg.",
+          "fail_overbend_msg": "Straighten your left arm a little and let your hand rest on your upper leg."
+        },
+        {
+          "id": "virasana_arm_right_2",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Relax your right arm down to rest your hand on your upper leg.",
+          "fail_overbend_msg": "Straighten your right arm a little and let your hand rest on your upper leg."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Lean slightly forward and lower your hips down to sit on the mat between your two feet.",
+      "duration": 10,
+      "voice_prompt": "Tilt your upper body slightly forward. Press your hands into the mat to support yourself and lower your hips down between your two feet until your bottom rests on the mat. If your hips do not reach the floor, stay seated on your heels. Keep the tops of both feet flat on the floor. Keep your toes pointing straight back behind you.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virasana_arm_left_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Bring your left hand back to rest on your upper leg.",
+          "fail_overbend_msg": "Relax your left arm and let your hand rest on your upper leg."
+        },
+        {
+          "id": "virasana_arm_right_3",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Bring your right hand back to rest on your upper leg.",
+          "fail_overbend_msg": "Relax your right arm and let your hand rest on your upper leg."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Sit up tall with your back straight. Place both palms flat on your upper legs and roll your shoulders back and down away from your ears.",
+      "duration": 10,
+      "voice_prompt": "Sit all the way up straight and tall. Place both palms flat on top of your upper legs with your fingers pointing forward toward your knees. Roll your shoulders back and pull them down away from your ears. Keep your chin level with the floor and look straight ahead. Let your belly muscles gently tighten to help hold your back straight. Breathe in slowly and steadily.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virasana_arm_left_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bring your left hand down to rest flat on your upper leg.",
+          "fail_overbend_msg": "Relax your left arm and rest your left hand on your upper leg."
+        },
+        {
+          "id": "virasana_arm_right_4",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bring your right hand down to rest flat on your upper leg.",
+          "fail_overbend_msg": "Relax your right arm and rest your right hand on your upper leg."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Hero Pose. Breathe steadily and keep your back straight and your chest open.",
+      "duration": 20,
+      "voice_prompt": "Hold this position and breathe naturally. Keep your back straight and your bottom on the mat between your feet. Keep both palms resting flat on your upper legs with your fingers pointing forward. Keep your shoulders rolled back and down away from your ears. Look straight ahead and breathe in and breathe out slowly and steadily through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "virasana_arm_left_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep your left hand resting flat on your upper leg.",
+          "fail_overbend_msg": "Relax your left arm and keep your hand resting on your upper leg."
+        },
+        {
+          "id": "virasana_arm_right_5",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 155,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep your right hand resting flat on your upper leg.",
+          "fail_overbend_msg": "Relax your right arm and keep your hand resting on your upper leg."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: press both palms into the mat in front of your knees, lift your hips, and bring your legs forward to sit with your legs extended.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to finish, press both palms flat into the mat in front of your knees. Use your hands to lift your hips up off the floor. Bring one knee forward at a time until you are kneeling upright with your hips over your knees. Then sit down and stretch both legs straight out in front of you. Well done. You have completed Virasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

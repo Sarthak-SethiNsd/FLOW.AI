@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="88%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+  <rect width="400" height="560" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="57" cy="140" r="1.2"/><circle cx="114" cy="140" r="1.2"/>
+    <circle cx="171" cy="140" r="1.2"/><circle cx="228" cy="140" r="1.2"/>
+    <circle cx="285" cy="140" r="1.2"/><circle cx="342" cy="140" r="1.2"/>
+    <circle cx="57" cy="280" r="1.2"/><circle cx="114" cy="280" r="1.2"/>
+    <circle cx="171" cy="280" r="1.2"/><circle cx="228" cy="280" r="1.2"/>
+    <circle cx="285" cy="280" r="1.2"/><circle cx="342" cy="280" r="1.2"/>
+    <circle cx="57" cy="420" r="1.2"/><circle cx="114" cy="420" r="1.2"/>
+    <circle cx="171" cy="420" r="1.2"/><circle cx="228" cy="420" r="1.2"/>
+    <circle cx="285" cy="420" r="1.2"/><circle cx="342" cy="420" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="480" width="320" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Label -->
+  <text x="200" y="545" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#7c3aed" opacity="0.7">वीरासन · VIRASANA · Hero Pose</text>
+
+  <!-- SKELETON — front-facing kneeling pose, hands on thighs -->
+  <g class="pose-line" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+
+    <!-- Right limbs (back layer, darker) -->
+    <!-- Right upper leg: hip_R → knee_R -->
+    <line x1="235" y1="340" x2="245" y2="456" stroke="#4c1d95" stroke-width="5"/>
+    <!-- Right lower leg: knee_R → ankle_R (foot tucked back, ankle at mat) -->
+    <line x1="245" y1="456" x2="248" y2="480" stroke="#4c1d95" stroke-width="5"/>
+    <!-- Right upper arm: shoulder_R → elbow_R -->
+    <line x1="252" y1="168" x2="248" y2="236" stroke="#5b21b6" stroke-width="3.5"/>
+    <!-- Right forearm: elbow_R → wrist_R -->
+    <line x1="248" y1="236" x2="238" y2="300" stroke="#5b21b6" stroke-width="3.5"/>
+
+    <!-- Left limbs (front layer, brighter) -->
+    <!-- Left upper leg: hip_L → knee_L -->
+    <line x1="165" y1="340" x2="155" y2="456" stroke="#8b5cf6" stroke-width="6"/>
+    <!-- Left lower leg: knee_L → ankle_L -->
+    <line x1="155" y1="456" x2="152" y2="480" stroke="#7c3aed" stroke-width="6"/>
+
+    <!-- Shoulder bar -->
+    <line x1="148" y1="168" x2="252" y2="168" stroke="#9f7aea" stroke-width="3.5"/>
+    <!-- Hip bar -->
+    <line x1="165" y1="340" x2="235" y2="340" stroke="#7c3aed" stroke-width="3.5"/>
+
+    <!-- Spine (quadratic curve) -->
+    <path d="M200 340 Q200 255 200 168" fill="none" stroke="#a78bfa" stroke-width="5"/>
+
+    <!-- Neck -->
+    <line x1="200" y1="168" x2="200" y2="100" stroke="#c4b5fd" stroke-width="3.5"/>
+
+    <!-- Left upper arm: shoulder_L → elbow_L -->
+    <line x1="148" y1="168" x2="162" y2="236" stroke="#c4b5fd" stroke-width="4"/>
+    <!-- Left forearm: elbow_L → wrist_L -->
+    <line x1="162" y1="236" x2="172" y2="300" stroke="#c4b5fd" stroke-width="4"/>
+
+    <!-- Head -->
+    <circle cx="200" cy="77" r="23" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="148" cy="168" r="4.5" fill="#a78bfa"/>
+    <circle cx="162" cy="236" r="4.5" fill="#a78bfa"/>
+    <circle cx="172" cy="300" r="4.5" fill="#a78bfa"/>
+    <circle cx="165" cy="340" r="4.5" fill="#a78bfa"/>
+    <circle cx="155" cy="456" r="4.5" fill="#a78bfa"/>
+    <circle cx="152" cy="480" r="4.5" fill="#a78bfa"/>
+  </g>
+</svg>
