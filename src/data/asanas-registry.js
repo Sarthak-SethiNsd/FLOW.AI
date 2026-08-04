@@ -25,6 +25,7 @@ import vrikshasana from '../../public/asanas/vrikshasana/config.json';
 import adhoMukhaSvanasana from '../../public/asanas/adho-mukha-svanasana/config.json';
 import savasana from '../../public/asanas/savasana/config.json';
 import virasana from '../../public/asanas/virasana/config.json';
+import baddhaKonasana from '../../public/asanas/baddha-konasana/config.json';
 
 /** All asanas in display order */
 export const ALL_ASANAS = [
@@ -36,6 +37,7 @@ export const ALL_ASANAS = [
   adhoMukhaSvanasana,
   savasana,
   virasana,
+  baddhaKonasana,
   suryaNamaskar,
   utkatasana,
   trikonasana,

@@ -1,0 +1,177 @@
+{
+  "id": "baddha-konasana",
+  "name": "Baddha Konasana",
+  "sanskrit": "बद्धकोणासन",
+  "english": "Bound Angle Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 60,
+  "description": "A seated posture where the soles of the feet are pressed together and the knees drop open toward the sides. Baddha Konasana opens the hips, stretches the inner upper legs, and improves seated posture.",
+  "benefits": [
+    "Opens the hips and stretches the inner upper legs and groin",
+    "Strengthens the back and improves upright sitting posture",
+    "Calms the mind and helps relieve fatigue"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Sit up straight on your mat with your legs extended straight out in front of you and your hands resting beside your hips.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Baddha Konasana, or Bound Angle Pose. Sit on the mat with both legs extended straight out in front of you. Place your palms flat on the floor right beside your hips with your fingers pointing forward toward your toes. Keep your back straight, your chest open, and look straight ahead.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "baddha_konasana_arm_left_1",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 165,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep your left arm straight beside your hips.",
+          "fail_overbend_msg": "Relax your left arm straight beside your hips."
+        },
+        {
+          "id": "baddha_konasana_arm_right_1",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 165,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep your right arm straight beside your hips.",
+          "fail_overbend_msg": "Relax your right arm straight beside your hips."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bend your knees and draw your heels in toward your body, bringing the bottoms of your feet together.",
+      "duration": 10,
+      "voice_prompt": "Bend both knees and slide your heels in toward your body. Press the bottoms of your left foot and right foot flat against each other. Let your knees drop open to the left and right sides toward the floor. Keep your back straight and your hands resting on the floor beside your hips.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "baddha_konasana_arm_left_2",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 165,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep your left hand resting beside your hip on the mat.",
+          "fail_overbend_msg": "Straighten your left arm beside your hip."
+        },
+        {
+          "id": "baddha_konasana_arm_right_2",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 165,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep your right hand resting beside your hip on the mat.",
+          "fail_overbend_msg": "Straighten your right arm beside your hip."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Clasp your hands around your feet or ankles and draw your heels as close to your groin as comfortable.",
+      "duration": 10,
+      "voice_prompt": "Reach forward with both arms and clasp your hands around your feet or ankles. Interlock your fingers around your toes or hold onto your ankles firmly with your palms. Draw your heels in closer toward your body as far as comfortable while keeping the bottoms of your feet pressed together.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "baddha_konasana_arm_left_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 150,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Reach forward and hold your feet with your left hand.",
+          "fail_overbend_msg": "Hold your feet firmly with your left hand."
+        },
+        {
+          "id": "baddha_konasana_arm_right_3",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 150,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Reach forward and hold your feet with your right hand.",
+          "fail_overbend_msg": "Hold your feet firmly with your right hand."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Lengthen your back, roll your shoulders back and down, and allow your knees to relax down toward the floor.",
+      "duration": 10,
+      "voice_prompt": "Sit up straight and tall. Roll your shoulders back and pull them down away from your ears. Lift your chest slightly and lengthen your back. Gently press the outer edges of your feet into the mat and let your knees relax down toward the floor without forcing them. Look straight ahead.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "baddha_konasana_arm_left_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 150,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Keep holding your feet with your left hand while keeping your back straight.",
+          "fail_overbend_msg": "Keep your left arm steady holding your feet."
+        },
+        {
+          "id": "baddha_konasana_arm_right_4",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 150,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Keep holding your feet with your right hand while keeping your back straight.",
+          "fail_overbend_msg": "Keep your right arm steady holding your feet."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Bound Angle Pose. Breathe slowly and deeply while keeping your back straight and your hips open.",
+      "duration": 20,
+      "voice_prompt": "Hold this position and remain steady. Keep the bottoms of your feet pressed together and your hands clasped around your feet. Keep your back straight, your chest open, and your shoulders relaxed down away from your ears. Breathe in and breathe out slowly and deeply through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "baddha_konasana_arm_left_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 150,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Keep holding your feet and maintain your straight back.",
+          "fail_overbend_msg": "Keep your left arm holding your feet steady."
+        },
+        {
+          "id": "baddha_konasana_arm_right_5",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 150,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Keep holding your feet and maintain your straight back.",
+          "fail_overbend_msg": "Keep your right arm holding your feet steady."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: release your hands, bring your knees together, and stretch your legs straight out in front of you.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to finish, release your hands from your feet. Place your hands on the outer sides of your knees to gently bring your knees together. Extend both legs straight out in front of you on the mat and relax. Well done. You have completed Baddha Konasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}
