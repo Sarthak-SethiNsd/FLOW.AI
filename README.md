@@ -16,7 +16,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 
 ---
 
-## 🧘 Yoga Poses Included (13 Supported Poses)
+## 🧘 Yoga Poses Included (14 Supported Poses)
 
 | Pose | Difficulty |
 |---|---|
@@ -29,6 +29,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Savasana (Corpse Pose) | Beginner |
 | Virasana (Hero Pose) | Beginner |
 | Baddha Konasana (Bound Angle Pose) | Beginner |
+| Setu Bandhasana (Bridge Pose) | Beginner |
 | Surya Namaskar (Sun Salutation) | Intermediate |
 | Utkatasana (Chair Pose) | Intermediate |
 | Trikonasana (Triangle Pose) | Intermediate |

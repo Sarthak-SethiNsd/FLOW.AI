@@ -191,6 +191,20 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:200,y:77}, shoulder_L:{x:148,y:168}, shoulder_R:{x:252,y:168}, elbow_L:{x:155,y:280}, elbow_R:{x:245,y:280}, wrist_L:{x:200,y:455}, wrist_R:{x:200,y:455}, hip_L:{x:165,y:360}, hip_R:{x:235,y:360}, knee_L:{x:90,y:440}, knee_R:{x:310,y:440}, ankle_L:{x:195,y:470}, ankle_R:{x:205,y:470}, mid_spine:{x:200,y:264}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
       { head:{x:200,y:77}, shoulder_L:{x:148,y:168}, shoulder_R:{x:252,y:168}, elbow_L:{x:145,y:268}, elbow_R:{x:255,y:268}, wrist_L:{x:142,y:360}, wrist_R:{x:258,y:360}, hip_L:{x:165,y:360}, hip_R:{x:235,y:360}, knee_L:{x:165,y:425}, knee_R:{x:235,y:425}, ankle_L:{x:165,y:480}, ankle_R:{x:235,y:480}, mid_spine:{x:200,y:264}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
+  },
+  'setu-bandhasana': {
+    label: 'सेतुबंधासन · SETU BANDHASANA · Bridge Pose',
+    viewBox: '0 0 560 380',
+    matY: 355,
+    viewType: 'supine',
+    steps: [
+      { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:210,y:335}, elbow_R:{x:220,y:337}, wrist_L:{x:270,y:340}, wrist_R:{x:280,y:342}, hip_L:{x:280,y:335}, hip_R:{x:290,y:337}, knee_L:{x:380,y:260}, knee_R:{x:390,y:262}, ankle_L:{x:400,y:355}, ankle_R:{x:410,y:355}, mid_spine:{x:215,y:333}, isHoldStep:false, altShift:{tx:0,ty:10,scale:1.06} },
+      { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:205,y:344}, elbow_R:{x:215,y:348}, wrist_L:{x:260,y:352}, wrist_R:{x:270,y:354}, hip_L:{x:280,y:335}, hip_R:{x:290,y:337}, knee_L:{x:380,y:240}, knee_R:{x:390,y:242}, ankle_L:{x:400,y:355}, ankle_R:{x:410,y:355}, mid_spine:{x:215,y:333}, isHoldStep:false, altShift:{tx:5,ty:10,scale:1.06} },
+      { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:205,y:344}, elbow_R:{x:215,y:348}, wrist_L:{x:260,y:352}, wrist_R:{x:270,y:354}, hip_L:{x:270,y:220}, hip_R:{x:280,y:225}, knee_L:{x:380,y:235}, knee_R:{x:390,y:240}, ankle_L:{x:400,y:355}, ankle_R:{x:410,y:355}, mid_spine:{x:210,y:275}, isHoldStep:false, altShift:{tx:0,ty:5,scale:1.07} },
+      { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:205,y:344}, elbow_R:{x:215,y:348}, wrist_L:{x:260,y:352}, wrist_R:{x:270,y:354}, hip_L:{x:270,y:175}, hip_R:{x:280,y:180}, knee_L:{x:380,y:235}, knee_R:{x:390,y:240}, ankle_L:{x:400,y:355}, ankle_R:{x:410,y:355}, mid_spine:{x:210,y:252}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.08} },
+      { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:205,y:344}, elbow_R:{x:215,y:348}, wrist_L:{x:260,y:352}, wrist_R:{x:270,y:354}, hip_L:{x:270,y:175}, hip_R:{x:280,y:180}, knee_L:{x:380,y:235}, knee_R:{x:390,y:240}, ankle_L:{x:400,y:355}, ankle_R:{x:410,y:355}, mid_spine:{x:210,y:252}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
+      { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:210,y:335}, elbow_R:{x:220,y:337}, wrist_L:{x:270,y:340}, wrist_R:{x:280,y:342}, hip_L:{x:280,y:335}, hip_R:{x:290,y:337}, knee_L:{x:380,y:340}, knee_R:{x:390,y:342}, ankle_L:{x:470,y:345}, ankle_R:{x:480,y:347}, mid_spine:{x:215,y:333}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+    ]
   }
 };
 

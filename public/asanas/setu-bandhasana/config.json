@@ -1,0 +1,150 @@
+{
+  "id": "setu-bandhasana",
+  "name": "Setu Bandhasana",
+  "sanskrit": "सेतुबंधासन",
+  "english": "Bridge Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 60,
+  "description": "A reclining backbend that opens the chest, strengthens the legs and buttocks, and stretches the front of the upper body. Setu Bandhasana calms the mind and energizes the body.",
+  "benefits": [
+    "Stretches the chest, neck, and front of the upper body",
+    "Strengthens the back of the upper legs, buttocks, and back",
+    "Calms the brain and helps reduce stress and fatigue"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Lie flat on your back on the mat with your knees bent and your feet flat on the floor about hip-width apart.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Setu Bandhasana, or Bridge Pose. Lie completely flat on your back in the center of your mat. Bend both knees and place the bottoms of your feet flat on the floor, about hip-width apart. Keep your toes pointing straight forward.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "setu_bandhasana_leg_left_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 90,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your left knee more and keep your left foot flat on the mat.",
+          "fail_overbend_msg": "Adjust your left knee so your foot rests flat on the floor."
+        },
+        {
+          "id": "setu_bandhasana_leg_right_1",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 90,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your right knee more and keep your right foot flat on the mat.",
+          "fail_overbend_msg": "Adjust your right knee so your foot rests flat on the floor."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Slide your heels in close to your hips and place your arms flat alongside your body with your palms facing down.",
+      "duration": 10,
+      "voice_prompt": "Slide your heels in closer to your hips until your fingers can gently touch your heels. Place your arms along the sides of your body with your palms facing straight down against the mat. Rest the back of your head and shoulders flat on the floor.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "setu_bandhasana_arm_left_2",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your left arm straight along the sides of your body.",
+          "fail_overbend_msg": "Straighten your left arm flat on the mat."
+        },
+        {
+          "id": "setu_bandhasana_arm_right_2",
+          "type": "angle",
+          "keypoints": ["right_shoulder", "right_elbow", "right_wrist"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your right arm straight along the sides of your body.",
+          "fail_overbend_msg": "Straighten your right arm flat on the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Press your feet and arms into the floor, breathe in, and lift your hips up toward the ceiling.",
+      "duration": 10,
+      "voice_prompt": "Press both feet and your arms firmly down into the floor. Breathe in and lift your hips straight up toward the ceiling. Tighten the muscles in the back of your upper legs and buttocks to lift your lower back and upper body off the mat.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "setu_bandhasana_hip_lift_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 160,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Lift your hips higher toward the ceiling.",
+          "fail_overbend_msg": "Keep your hips lifted in a straight line from knees to shoulders."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Roll your shoulders slightly underneath your chest, clasp your hands beneath your back, and press your arms into the mat.",
+      "duration": 10,
+      "voice_prompt": "Roll your shoulders slightly underneath your back. Clasp your hands together under your lifted hips and interlock your fingers on the mat. Press your arms and feet into the floor to lift your chest higher toward your chin. Keep your knees level with your hips and pointing straight forward.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "setu_bandhasana_hip_lift_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 160,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your hips lifted high and shoulders rolled under.",
+          "fail_overbend_msg": "Maintain a steady lift through your hips and chest."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Bridge Pose. Keep your hips lifted, your chest open, and breathe slowly and steadily.",
+      "duration": 20,
+      "voice_prompt": "Hold this position and remain steady. Keep your feet flat on the floor, knees over your ankles, and your hips lifted high. Keep your chest open toward your chin and your arms pressing down into the mat. Breathe in and breathe out slowly and deeply through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "setu_bandhasana_hip_lift_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 160,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your hips lifted high off the floor.",
+          "fail_overbend_msg": "Hold your hips steady in the lifted bridge position."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: release your clasped hands, breathe out, and slowly roll your back down onto the mat one bone at a time.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to finish, release your clasped hands and place your palms flat on the mat. Breathe out and slowly roll your back down onto the floor, one section at a time, until your hips rest on the mat. Extend both legs straight out and relax. Well done. You have completed Setu Bandhasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="88%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="560" height="380" fill="url(#bg)"/>
+  <rect width="560" height="380" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="80" cy="95" r="1.2"/><circle cx="160" cy="95" r="1.2"/>
+    <circle cx="240" cy="95" r="1.2"/><circle cx="320" cy="95" r="1.2"/>
+    <circle cx="400" cy="95" r="1.2"/><circle cx="480" cy="95" r="1.2"/>
+    <circle cx="80" cy="190" r="1.2"/><circle cx="160" cy="190" r="1.2"/>
+    <circle cx="240" cy="190" r="1.2"/><circle cx="320" cy="190" r="1.2"/>
+    <circle cx="400" cy="190" r="1.2"/><circle cx="480" cy="190" r="1.2"/>
+    <circle cx="80" cy="285" r="1.2"/><circle cx="160" cy="285" r="1.2"/>
+    <circle cx="240" cy="285" r="1.2"/><circle cx="320" cy="285" r="1.2"/>
+    <circle cx="400" cy="285" r="1.2"/><circle cx="480" cy="285" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="355" width="480" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Label -->
+  <text x="280" y="340" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#7c3aed" opacity="0.7">सेतुबंधासन · SETU BANDHASANA · Bridge Pose</text>
+
+  <!-- SKELETON — supine side-view bridge pose -->
+  <g class="pose-line" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+
+    <!-- Right limbs (back layer, darker) -->
+    <!-- Right lower leg: knee_R → ankle_R -->
+    <line x1="390" y1="240" x2="410" y2="355" stroke="#4c1d95" stroke-width="5"/>
+    <!-- Right upper leg: hip_R → knee_R -->
+    <line x1="280" y1="180" x2="390" y2="240" stroke="#4c1d95" stroke-width="5"/>
+    <!-- Right upper arm: shoulder_R → elbow_R -->
+    <line x1="160" y1="332" x2="215" y2="348" stroke="#5b21b6" stroke-width="3.5"/>
+    <!-- Right forearm: elbow_R → wrist_R -->
+    <line x1="215" y1="348" x2="270" y2="354" stroke="#5b21b6" stroke-width="3.5"/>
+
+    <!-- Left limbs (front layer, brighter) -->
+    <!-- Left lower leg: knee_L → ankle_L -->
+    <line x1="380" y1="235" x2="400" y2="355" stroke="#7c3aed" stroke-width="6"/>
+    <!-- Left upper leg: hip_L → knee_L -->
+    <line x1="270" y1="175" x2="380" y2="235" stroke="#8b5cf6" stroke-width="6"/>
+
+    <!-- Shoulder bar -->
+    <line x1="150" y1="330" x2="160" y2="332" stroke="#9f7aea" stroke-width="3.5"/>
+    <!-- Hip bar -->
+    <line x1="270" y1="175" x2="280" y2="180" stroke="#7c3aed" stroke-width="3.5"/>
+
+    <!-- Spine (arch curve from shoulders up to hips) -->
+    <path d="M150 330 Q215 220 270 175" fill="none" stroke="#a78bfa" stroke-width="5"/>
+
+    <!-- Neck / Head -->
+    <line x1="150" y1="330" x2="100" y2="320" stroke="#c4b5fd" stroke-width="3.5"/>
+
+    <!-- Left upper arm: shoulder_L → elbow_L -->
+    <line x1="150" y1="330" x2="205" y2="344" stroke="#c4b5fd" stroke-width="4"/>
+    <!-- Left forearm: elbow_L → wrist_L -->
+    <line x1="205" y1="344" x2="260" y2="352" stroke="#c4b5fd" stroke-width="4"/>
+
+    <!-- Head -->
+    <circle cx="100" cy="320" r="23" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="150" cy="330" r="4.5" fill="#a78bfa"/>
+    <circle cx="205" cy="344" r="4.5" fill="#a78bfa"/>
+    <circle cx="260" cy="352" r="4.5" fill="#a78bfa"/>
+    <circle cx="270" cy="175" r="4.5" fill="#a78bfa"/>
+    <circle cx="380" cy="235" r="4.5" fill="#a78bfa"/>
+    <circle cx="400" cy="355" r="4.5" fill="#a78bfa"/>
+  </g>
+</svg>
