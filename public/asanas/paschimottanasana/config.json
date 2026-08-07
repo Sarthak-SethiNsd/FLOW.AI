@@ -1,0 +1,150 @@
+{
+  "id": "paschimottanasana",
+  "name": "Paschimottanasana",
+  "sanskrit": "पश्चिमोत्तानासन",
+  "english": "Seated Forward Bend",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A seated posture where you fold forward over both straight legs to stretch the entire back of the body. Paschimottanasana calms the mind, stretches the spine and the back of the upper and lower legs, and stimulates the digestive organs.",
+  "benefits": [
+    "Stretches the entire spine and the back of both legs from heel to hip",
+    "Calms the mind and helps relieve stress, mild depression, and fatigue",
+    "Stimulates the liver and digestive organs and improves digestion"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Sit on the mat with both legs extended straight out in front of you and your hands resting flat on your upper legs.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Paschimottanasana, or Seated Forward Bend. Sit on the mat with both legs extended straight out in front of you. Keep your knees straight and press the back of both legs firmly into the mat. Sit up as tall as you can, straighten your back, open your chest, and rest both palms flat on top of your upper legs with your fingers pointing toward your feet.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "paschimottanasana_leg_left_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Straighten your left leg fully and press the back of your leg into the mat.",
+          "fail_overbend_msg": "Keep your left leg straight and flat on the mat."
+        },
+        {
+          "id": "paschimottanasana_leg_right_1",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Straighten your right leg fully and press the back of your leg into the mat.",
+          "fail_overbend_msg": "Keep your right leg straight and flat on the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Take a deep breath in and lift both arms straight up overhead with your palms facing each other.",
+      "duration": 10,
+      "voice_prompt": "Take a slow, deep breath in through your nose. As you breathe in, sweep both arms up and overhead. Straighten your elbows fully and point your fingers toward the ceiling. Keep your palms facing each other. Feel your spine lengthen and your chest lift. Look straight ahead.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "paschimottanasana_arm_left_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_shoulder", "left_elbow"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Lift your left arm fully overhead and straighten the elbow.",
+          "fail_overbend_msg": "Keep your left arm straight up overhead."
+        },
+        {
+          "id": "paschimottanasana_arm_right_2",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_shoulder", "right_elbow"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Lift your right arm fully overhead and straighten the elbow.",
+          "fail_overbend_msg": "Keep your right arm straight up overhead."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Breathe out and slowly fold your upper body forward over your legs, leading with your chest, not your forehead.",
+      "duration": 10,
+      "voice_prompt": "Breathe out through your nose and begin to hinge your upper body forward from your hip joints. Lead with your chest toward your toes, not your forehead toward your knees. Keep your back as flat and long as possible as you lower your arms forward over your legs. Let your hands reach toward your feet.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "paschimottanasana_torso_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 110,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Fold your upper body forward over your straight legs.",
+          "fail_overbend_msg": "Keep your forward fold smooth and do not round your upper back sharply."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Reach both hands as far forward as you comfortably can — to your shins, ankles, or the soles of your feet — and hold the fold.",
+      "duration": 10,
+      "voice_prompt": "Continue to fold forward and reach your hands as far along your legs as you comfortably can. If your hands reach your feet, wrap your fingers around the outer edges of both feet. If not, hold your shins or ankles. Keep your elbows wide and your back as long as you can. Do not bend your knees.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "paschimottanasana_torso_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 80,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Try to fold your upper body further forward over your legs.",
+          "fail_overbend_msg": "Keep your back long and avoid collapsing your spine in the forward fold."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold the forward bend. Breathe slowly and deeply. With each breath out, allow your upper body to sink a little further forward.",
+      "duration": 20,
+      "voice_prompt": "Hold this position and remain steady. Keep your legs straight with the back of both legs pressed into the mat. Hold your feet, ankles, or shins firmly. On every breath out, let your upper body soften and sink a little further forward over your legs. Breathe in and breathe out slowly and deeply through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "paschimottanasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 70,
+          "tolerance_deg": 50,
+          "fail_straight_msg": "Maintain your forward fold with your upper body over your legs.",
+          "fail_overbend_msg": "Keep your forward bend stable and breathe steadily."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: breathe in, lift your chest and arms overhead, then breathe out and lower your hands onto your upper legs as you sit up tall.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to finish, breathe in through your nose and lift your chest and your arms back up overhead, keeping your back long. Pause at the top for a moment. Then breathe out and slowly lower both arms back down to rest your palms flat on your upper legs. Sit up tall and look straight ahead. Well done. You have completed Paschimottanasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

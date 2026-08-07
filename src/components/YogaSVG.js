@@ -205,6 +205,20 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:205,y:344}, elbow_R:{x:215,y:348}, wrist_L:{x:260,y:352}, wrist_R:{x:270,y:354}, hip_L:{x:270,y:175}, hip_R:{x:280,y:180}, knee_L:{x:380,y:235}, knee_R:{x:390,y:240}, ankle_L:{x:400,y:355}, ankle_R:{x:410,y:355}, mid_spine:{x:210,y:252}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
       { head:{x:100,y:320}, shoulder_L:{x:150,y:330}, shoulder_R:{x:160,y:332}, elbow_L:{x:210,y:335}, elbow_R:{x:220,y:337}, wrist_L:{x:270,y:340}, wrist_R:{x:280,y:342}, hip_L:{x:280,y:335}, hip_R:{x:290,y:337}, knee_L:{x:380,y:340}, knee_R:{x:390,y:342}, ankle_L:{x:470,y:345}, ankle_R:{x:480,y:347}, mid_spine:{x:215,y:333}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
+  },
+  paschimottanasana: {
+    label: 'पश्चिमोत्तानासन · PASCHIMOTTANASANA · Seated Forward Bend',
+    viewBox: '0 0 560 380',
+    matY: 355,
+    viewType: 'side',
+    steps: [
+      { head:{x:230,y:105}, shoulder_L:{x:248,y:170}, shoulder_R:{x:260,y:174}, elbow_L:{x:246,y:240}, elbow_R:{x:258,y:244}, wrist_L:{x:244,y:305}, wrist_R:{x:256,y:309}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:250,y:235}, isHoldStep:false, altShift:{tx:0,ty:10,scale:1.06} },
+      { head:{x:225,y:55}, shoulder_L:{x:244,y:125}, shoulder_R:{x:256,y:129}, elbow_L:{x:226,y:70}, elbow_R:{x:238,y:74}, wrist_L:{x:220,y:20}, wrist_R:{x:232,y:24}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:253,y:213}, isHoldStep:false, altShift:{tx:-10,ty:0,scale:1.07} },
+      { head:{x:280,y:140}, shoulder_L:{x:310,y:195}, shoulder_R:{x:322,y:199}, elbow_L:{x:360,y:235}, elbow_R:{x:372,y:239}, wrist_L:{x:420,y:260}, wrist_R:{x:432,y:264}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:285,y:248}, isHoldStep:false, altShift:{tx:10,ty:5,scale:1.07} },
+      { head:{x:350,y:195}, shoulder_L:{x:370,y:240}, shoulder_R:{x:382,y:244}, elbow_L:{x:420,y:265}, elbow_R:{x:432,y:269}, wrist_L:{x:468,y:300}, wrist_R:{x:480,y:304}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:315,y:270}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.08} },
+      { head:{x:390,y:238}, shoulder_L:{x:404,y:278}, shoulder_R:{x:416,y:282}, elbow_L:{x:448,y:296}, elbow_R:{x:460,y:300}, wrist_L:{x:484,y:332}, wrist_R:{x:496,y:336}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:332,y:289}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
+      { head:{x:230,y:105}, shoulder_L:{x:248,y:170}, shoulder_R:{x:260,y:174}, elbow_L:{x:246,y:240}, elbow_R:{x:258,y:244}, wrist_L:{x:244,y:305}, wrist_R:{x:256,y:309}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:250,y:235}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+    ]
   }
 };
 
