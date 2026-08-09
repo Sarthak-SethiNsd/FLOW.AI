@@ -219,6 +219,20 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:390,y:238}, shoulder_L:{x:404,y:278}, shoulder_R:{x:416,y:282}, elbow_L:{x:448,y:296}, elbow_R:{x:460,y:300}, wrist_L:{x:484,y:332}, wrist_R:{x:496,y:336}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:332,y:289}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
       { head:{x:230,y:105}, shoulder_L:{x:248,y:170}, shoulder_R:{x:260,y:174}, elbow_L:{x:246,y:240}, elbow_R:{x:258,y:244}, wrist_L:{x:244,y:305}, wrist_R:{x:256,y:309}, hip_L:{x:260,y:300}, hip_R:{x:272,y:304}, knee_L:{x:390,y:320}, knee_R:{x:402,y:324}, ankle_L:{x:490,y:355}, ankle_R:{x:502,y:355}, mid_spine:{x:250,y:235}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
+  },
+  'virabhadrasana-1': {
+    label: 'वीरभद्रासन I · VIRABHADRASANA I · Warrior I Pose',
+    viewBox: '0 0 400 560',
+    matY: 510,
+    viewType: 'front',
+    steps: [
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+      { head:{x:200,y:120}, shoulder_L:{x:175,y:170}, shoulder_R:{x:225,y:170}, elbow_L:{x:160,y:230}, elbow_R:{x:240,y:230}, wrist_L:{x:150,y:290}, wrist_R:{x:250,y:290}, hip_L:{x:190,y:310}, hip_R:{x:210,y:310}, knee_L:{x:160,y:400}, knee_R:{x:290,y:410}, ankle_L:{x:160,y:502}, ankle_R:{x:330,y:502}, mid_spine:{x:200,y:240}, isHoldStep:false, altShift:{tx:5,ty:0,scale:1.06} },
+      { head:{x:200,y:120}, shoulder_L:{x:175,y:170}, shoulder_R:{x:225,y:170}, elbow_L:{x:160,y:230}, elbow_R:{x:240,y:230}, wrist_L:{x:150,y:290}, wrist_R:{x:250,y:290}, hip_L:{x:190,y:310}, hip_R:{x:210,y:310}, knee_L:{x:120,y:400}, knee_R:{x:290,y:410}, ankle_L:{x:120,y:502}, ankle_R:{x:330,y:502}, mid_spine:{x:200,y:240}, isHoldStep:false, altShift:{tx:0,ty:5,scale:1.07} },
+      { head:{x:200,y:120}, shoulder_L:{x:175,y:170}, shoulder_R:{x:225,y:170}, elbow_L:{x:170,y:100}, elbow_R:{x:230,y:100}, wrist_L:{x:185,y:30}, wrist_R:{x:215,y:30}, hip_L:{x:190,y:310}, hip_R:{x:210,y:310}, knee_L:{x:120,y:400}, knee_R:{x:290,y:410}, ankle_L:{x:120,y:502}, ankle_R:{x:330,y:502}, mid_spine:{x:200,y:240}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.08} },
+      { head:{x:200,y:120}, shoulder_L:{x:175,y:170}, shoulder_R:{x:225,y:170}, elbow_L:{x:170,y:100}, elbow_R:{x:230,y:100}, wrist_L:{x:185,y:30}, wrist_R:{x:215,y:30}, hip_L:{x:190,y:310}, hip_R:{x:210,y:310}, knee_L:{x:120,y:400}, knee_R:{x:290,y:410}, ankle_L:{x:120,y:502}, ankle_R:{x:330,y:502}, mid_spine:{x:200,y:240}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+    ]
   }
 };
 

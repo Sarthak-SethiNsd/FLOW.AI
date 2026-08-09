@@ -16,7 +16,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 
 ---
 
-## 🧘 Yoga Poses Included (15 Supported Poses)
+## 🧘 Yoga Poses Included (16 Supported Poses)
 
 | Pose | Difficulty |
 |---|---|
@@ -35,6 +35,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Utkatasana (Chair Pose) | Intermediate |
 | Trikonasana (Triangle Pose) | Intermediate |
 | Virabhadrasana II (Warrior II) | Intermediate |
+| Virabhadrasana I (Warrior I Pose) | Intermediate |
 
 ---
 
