@@ -1,0 +1,132 @@
+{
+  "id": "kumbhakasana",
+  "name": "Kumbhakasana",
+  "sanskrit": "कुंभकासन",
+  "english": "Plank Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A core-strengthening posture where the body forms a straight line from head to heels supported by the arms and toes. Kumbhakasana builds core stability, chest strength, and shoulder endurance.",
+  "benefits": [
+    "Strengthens the arms, wrists, shoulders, and core abdominal muscles",
+    "Tones the abdominal organs, thighs, and buttocks",
+    "Improves posture, spine alignment, and overall endurance"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Start on all fours on your mat in Table Top posture with palms under shoulders and knees under hips.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Kumbhakasana, or Plank Pose. Start on your hands and knees in Table Top posture. Place your palms flat on the mat directly under your shoulders, fingers spread wide, and knees directly under your hips. Look straight down at the mat between your hands.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "kumbhakasana_arm_left_1",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your left arm straight under your shoulder.",
+          "fail_overbend_msg": "Maintain straight extended arms."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Step your right leg straight back, tucking your toes under on the floor behind you.",
+      "duration": 10,
+      "voice_prompt": "Step your right leg straight back behind you. Tuck your right toes firmly into the floor and straighten your right knee. Keep your palms pressing down and your core engaged.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "kumbhakasana_leg_right_2",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 170,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Extend your right leg straight back with toes tucked.",
+          "fail_overbend_msg": "Keep your right leg straight."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Step your left leg straight back to meet your right leg, coming into a high push-up posture.",
+      "duration": 10,
+      "voice_prompt": "Step your left leg straight back to meet your right leg. Tuck your left toes under so both feet are together or hip-width apart. Press firmly into the mat through all ten fingers and broaden across your upper back.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "kumbhakasana_leg_left_3",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 170,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Extend both legs straight back with knees fully extended.",
+          "fail_overbend_msg": "Keep both legs straight."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Align your body in a single straight diagonal line from your head down through your spine to your heels.",
+      "duration": 10,
+      "voice_prompt": "Adjust your body into one long straight line from the crown of your head to your heels. Draw your navel up toward your spine, pull your front ribs in, and do not let your hips sag down or pike up into the air.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "kumbhakasana_body_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Keep your body in a straight line without letting your hips sag or lift too high.",
+          "fail_overbend_msg": "Maintain a straight spine and hip alignment."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Plank Pose. Keep your arms straight, core tight, thighs engaged, and breathe steadily.",
+      "duration": 20,
+      "voice_prompt": "Hold this strong Plank position. Press the mat away with your arms, engage your abdominal muscles, squeeze your upper thighs, and push back through your heels. Keep your neck long and breathe slowly and deeply through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "kumbhakasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Hold your plank posture straight from shoulders to heels.",
+          "fail_overbend_msg": "Keep your core tight and body in a straight line."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: gently lower both knees down to the mat, un-tuck your toes, and sit back into Child's Pose.",
+      "duration": 10,
+      "voice_prompt": "Exhale as you softly lower both knees down to the mat. Untuck your toes, shift your hips back toward your heels, and relax down into Child's Pose. Well done, you have completed Kumbhakasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

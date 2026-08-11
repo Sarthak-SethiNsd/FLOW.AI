@@ -29,6 +29,7 @@ import baddhaKonasana from '../../public/asanas/baddha-konasana/config.json';
 import setuBandhasana from '../../public/asanas/setu-bandhasana/config.json';
 import paschimottanasana from '../../public/asanas/paschimottanasana/config.json';
 import virabhadrasana1 from '../../public/asanas/virabhadrasana-1/config.json';
+import kumbhakasana from '../../public/asanas/kumbhakasana/config.json';
 
 /** All asanas in display order */
 export const ALL_ASANAS = [
@@ -48,6 +49,7 @@ export const ALL_ASANAS = [
   trikonasana,
   virabhadrasanaII,
   virabhadrasana1,
+  kumbhakasana,
 ];
 
 /**

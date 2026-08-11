@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="560" height="380" fill="url(#bg)"/>
+  <rect width="560" height="380" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="80" cy="95" r="1.2"/><circle cx="160" cy="95" r="1.2"/>
+    <circle cx="240" cy="95" r="1.2"/><circle cx="320" cy="95" r="1.2"/>
+    <circle cx="400" cy="95" r="1.2"/><circle cx="480" cy="95" r="1.2"/>
+    <circle cx="80" cy="190" r="1.2"/><circle cx="160" cy="190" r="1.2"/>
+    <circle cx="240" cy="190" r="1.2"/><circle cx="320" cy="190" r="1.2"/>
+    <circle cx="400" cy="190" r="1.2"/><circle cx="480" cy="190" r="1.2"/>
+    <circle cx="80" cy="285" r="1.2"/><circle cx="160" cy="285" r="1.2"/>
+    <circle cx="240" cy="285" r="1.2"/><circle cx="320" cy="285" r="1.2"/>
+    <circle cx="400" cy="285" r="1.2"/><circle cx="480" cy="285" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="348" width="480" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Stick figure: Kumbhakasana (Plank Pose - Side view, prone/high push-up) -->
+  <g filter="url(#glow)" class="pose-line">
+
+    <!-- Right Leg (Back leg, dimmer) -->
+    <line x1="220" y1="260" x2="130" y2="295" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+    <line x1="130" y1="295" x2="80" y2="340" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Left Leg (Front leg, bright) -->
+    <line x1="220" y1="250" x2="130" y2="288" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round"/>
+    <line x1="130" y1="288" x2="70" y2="340" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Pelvis/Hips -->
+    <line x1="220" y1="250" x2="220" y2="260" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Spine/Torso (straight diagonal line from hips up to shoulders) -->
+    <path d="M220 255 L380 200" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Shoulders -->
+    <line x1="380" y1="200" x2="385" y2="210" stroke="#9f7aea" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Left Arm (Front arm, straight down from shoulder to mat) -->
+    <line x1="380" y1="200" x2="380" y2="270" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+    <line x1="380" y1="270" x2="380" y2="348" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Right Arm (Back arm, dimmer, straight down) -->
+    <line x1="385" y1="210" x2="385" y2="275" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="385" y1="275" x2="385" y2="348" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Neck & Head (neutral, facing down/forward) -->
+    <line x1="380" y1="200" x2="410" y2="190" stroke="#c4b5fd" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="430" cy="180" r="18" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="70" cy="340" r="4.5" fill="#a78bfa"/>
+    <circle cx="130" cy="288" r="4.5" fill="#a78bfa"/>
+    <circle cx="220" cy="250" r="4.5" fill="#a78bfa"/>
+    <circle cx="380" cy="200" r="4.5" fill="#a78bfa"/>
+    <circle cx="380" cy="270" r="4.5" fill="#a78bfa"/>
+    <circle cx="380" cy="348" r="4.5" fill="#a78bfa"/>
+
+    <!-- Label -->
+    <text x="280" y="36" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#a78bfa" opacity="0.9" font-weight="500">कुंभकासन · KUMBHAKASANA</text>
+    <text x="280" y="56" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7c3aed" opacity="0.8">Plank Pose</text>
+  </g>
+</svg>
