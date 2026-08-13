@@ -247,8 +247,23 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:430,y:180}, shoulder_L:{x:380,y:200}, shoulder_R:{x:385,y:210}, elbow_L:{x:380,y:270}, elbow_R:{x:385,y:275}, wrist_L:{x:380,y:348}, wrist_R:{x:385,y:348}, hip_L:{x:220,y:250}, hip_R:{x:225,y:260}, knee_L:{x:130,y:288}, knee_R:{x:135,y:295}, ankle_L:{x:70,y:340}, ankle_R:{x:75,y:340}, mid_spine:{x:300,y:225}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
       { head:{x:430,y:260}, shoulder_L:{x:380,y:260}, shoulder_R:{x:385,y:265}, elbow_L:{x:380,y:305}, elbow_R:{x:385,y:310}, wrist_L:{x:380,y:348}, wrist_R:{x:385,y:348}, hip_L:{x:240,y:280}, hip_R:{x:245,y:285}, knee_L:{x:240,y:348}, knee_R:{x:245,y:348}, ankle_L:{x:150,y:348}, ankle_R:{x:155,y:348}, mid_spine:{x:310,y:270}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
+  },
+  dhanurasana: {
+    label: 'धनुरासन · DHANURASANA · Bow Pose',
+    viewBox: '0 0 560 380',
+    matY: 348,
+    viewType: 'prone',
+    steps: [
+      { head:{x:155,y:336}, shoulder_L:{x:200,y:332}, shoulder_R:{x:208,y:334}, elbow_L:{x:250,y:330}, elbow_R:{x:258,y:332}, wrist_L:{x:310,y:330}, wrist_R:{x:318,y:332}, hip_L:{x:280,y:334}, hip_R:{x:288,y:336}, knee_L:{x:370,y:332}, knee_R:{x:378,y:334}, ankle_L:{x:430,y:330}, ankle_R:{x:438,y:332}, mid_spine:{x:240,y:333}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+      { head:{x:155,y:330}, shoulder_L:{x:200,y:326}, shoulder_R:{x:208,y:328}, elbow_L:{x:255,y:328}, elbow_R:{x:263,y:330}, wrist_L:{x:320,y:310}, wrist_R:{x:328,y:312}, hip_L:{x:280,y:326}, hip_R:{x:288,y:328}, knee_L:{x:345,y:270}, knee_R:{x:353,y:272}, ankle_L:{x:330,y:210}, ankle_R:{x:338,y:212}, mid_spine:{x:240,y:328}, isHoldStep:false, altShift:{tx:5,ty:0,scale:1.06} },
+      { head:{x:155,y:322}, shoulder_L:{x:200,y:318}, shoulder_R:{x:208,y:320}, elbow_L:{x:248,y:260}, elbow_R:{x:256,y:262}, wrist_L:{x:330,y:210}, wrist_R:{x:338,y:212}, hip_L:{x:280,y:320}, hip_R:{x:288,y:322}, knee_L:{x:340,y:265}, knee_R:{x:348,y:267}, ankle_L:{x:330,y:210}, ankle_R:{x:338,y:212}, mid_spine:{x:240,y:320}, isHoldStep:false, altShift:{tx:0,ty:5,scale:1.07} },
+      { head:{x:158,y:188}, shoulder_L:{x:200,y:220}, shoulder_R:{x:208,y:224}, elbow_L:{x:245,y:260}, elbow_R:{x:253,y:264}, wrist_L:{x:330,y:215}, wrist_R:{x:338,y:218}, hip_L:{x:280,y:326}, hip_R:{x:288,y:328}, knee_L:{x:340,y:268}, knee_R:{x:348,y:272}, ankle_L:{x:330,y:215}, ankle_R:{x:338,y:218}, mid_spine:{x:240,y:273}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.08} },
+      { head:{x:158,y:180}, shoulder_L:{x:200,y:215}, shoulder_R:{x:208,y:220}, elbow_L:{x:242,y:258}, elbow_R:{x:250,y:262}, wrist_L:{x:330,y:210}, wrist_R:{x:338,y:214}, hip_L:{x:280,y:326}, hip_R:{x:288,y:328}, knee_L:{x:340,y:266}, knee_R:{x:348,y:270}, ankle_L:{x:330,y:210}, ankle_R:{x:338,y:214}, mid_spine:{x:240,y:270}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
+      { head:{x:155,y:336}, shoulder_L:{x:200,y:332}, shoulder_R:{x:208,y:334}, elbow_L:{x:250,y:330}, elbow_R:{x:258,y:332}, wrist_L:{x:310,y:330}, wrist_R:{x:318,y:332}, hip_L:{x:280,y:334}, hip_R:{x:288,y:336}, knee_L:{x:370,y:332}, knee_R:{x:378,y:334}, ankle_L:{x:430,y:330}, ankle_R:{x:438,y:332}, mid_spine:{x:240,y:333}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+    ]
   }
 };
+
 
 export default function YogaSVG({ asanaId, coords, showAltView = false }) {
   const data = ASANA_GUIDE_DATA[asanaId];

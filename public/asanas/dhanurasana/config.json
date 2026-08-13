@@ -1,0 +1,132 @@
+{
+  "id": "dhanurasana",
+  "name": "Dhanurasana",
+  "sanskrit": "धनुरासन",
+  "english": "Bow Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A prone backbend posture where you lie on your stomach, bend your knees, reach back to hold both ankles, and lift your chest and thighs off the mat. Dhanurasana opens the chest and shoulders, strengthens the back, and stretches the entire front body.",
+  "benefits": [
+    "Stretches the entire front body including the chest, abdomen, hip flexors, and thighs",
+    "Strengthens the back muscles, glutes, and spine extensors",
+    "Stimulates the abdominal organs and improves posture and spinal flexibility"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Lie flat on your stomach on the mat with your legs hip-width apart and your arms resting by your sides.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Dhanurasana, or Bow Pose. Lie face down flat on your stomach on the mat. Let your legs rest hip-width apart and allow your arms to rest comfortably by your sides with your palms facing up. Rest your forehead or chin gently on the mat and breathe naturally.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "dhanurasana_body_1",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 175,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Lie flat on your stomach with your body straight on the mat.",
+          "fail_overbend_msg": "Keep your body relaxed and flat on the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bend both knees and bring your heels up toward your buttocks. Reach both arms back along your sides toward your feet.",
+      "duration": 10,
+      "voice_prompt": "Bend both knees and slowly bring your heels toward your buttocks. Reach both arms straight back behind you along your sides. Keep your knees no wider than hip-width and your forehead or chin resting softly on the mat.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "dhanurasana_knee_left_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 60,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your knees and bring your heels toward your buttocks.",
+          "fail_overbend_msg": "Keep your knees bent at a comfortable angle."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Grip the outside of both ankles or feet firmly with both hands.",
+      "duration": 10,
+      "voice_prompt": "Reach back and wrap your fingers firmly around the outside of both ankles. If you cannot reach your ankles, hold the tops of your feet. Keep your grip secure and your thumbs on the same side as your fingers.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "dhanurasana_arm_left_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 120,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Reach back and grasp both ankles firmly.",
+          "fail_overbend_msg": "Hold your ankles with a firm but comfortable grip."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Inhale and simultaneously kick your feet back and up while lifting your chest off the mat.",
+      "duration": 10,
+      "voice_prompt": "Take a deep breath in through your nose. As you inhale, press your feet actively back and upward into your hands. Let the resistance of your feet pulling against your hands lift your chest, head, and upper body off the mat. Look forward or slightly upward.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "dhanurasana_torso_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 130,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Lift your chest and thighs up off the mat as you kick your feet back.",
+          "fail_overbend_msg": "Keep the backbend smooth and avoid straining your lower back."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Bow Pose with your chest and thighs lifted, feet pressing back into your hands, and breathe steadily.",
+      "duration": 20,
+      "voice_prompt": "Hold this full Bow Pose. Keep pressing your feet actively back and upward into your hands to maintain the lift in your chest and thighs. Keep your knees hip-width and your gaze forward. Breathe slowly and deeply through your nose, expanding your chest on every inhale.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "dhanurasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 130,
+          "tolerance_deg": 40,
+          "fail_straight_msg": "Maintain your lift with chest and thighs off the mat.",
+          "fail_overbend_msg": "Keep your Bow Pose stable and breathe steadily."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: exhale, slowly release your ankles, lower your chest and thighs back to the mat, and straighten your legs.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to release, breathe out through your nose and slowly let go of your ankles. Gently lower your chest, thighs, and feet back down to the mat. Straighten both legs and turn your head to one side to rest. Well done, you have completed Dhanurasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}
