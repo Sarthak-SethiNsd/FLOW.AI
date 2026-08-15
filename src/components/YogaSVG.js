@@ -261,6 +261,20 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:158,y:180}, shoulder_L:{x:200,y:215}, shoulder_R:{x:208,y:220}, elbow_L:{x:242,y:258}, elbow_R:{x:250,y:262}, wrist_L:{x:330,y:210}, wrist_R:{x:338,y:214}, hip_L:{x:280,y:326}, hip_R:{x:288,y:328}, knee_L:{x:340,y:266}, knee_R:{x:348,y:270}, ankle_L:{x:330,y:210}, ankle_R:{x:338,y:214}, mid_spine:{x:240,y:270}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
       { head:{x:155,y:336}, shoulder_L:{x:200,y:332}, shoulder_R:{x:208,y:334}, elbow_L:{x:250,y:330}, elbow_R:{x:258,y:332}, wrist_L:{x:310,y:330}, wrist_R:{x:318,y:332}, hip_L:{x:280,y:334}, hip_R:{x:288,y:336}, knee_L:{x:370,y:332}, knee_R:{x:378,y:334}, ankle_L:{x:430,y:330}, ankle_R:{x:438,y:332}, mid_spine:{x:240,y:333}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
+  },
+  'ardha-matsyendrasana': {
+    label: 'अर्ध मत्स्येन्द्रासन · ARDHA MATSYENDRASANA · Half Lord of the Fishes',
+    viewBox: '0 0 400 560',
+    matY: 510,
+    viewType: 'front',
+    steps: [
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+      { head:{x:200,y:80}, shoulder_L:{x:155,y:145}, shoulder_R:{x:245,y:145}, elbow_L:{x:152,y:205}, elbow_R:{x:248,y:205}, wrist_L:{x:148,y:265}, wrist_R:{x:252,y:268}, hip_L:{x:175,y:295}, hip_R:{x:225,y:295}, knee_L:{x:170,y:400}, knee_R:{x:255,y:350}, ankle_L:{x:168,y:502}, ankle_R:{x:260,y:430}, mid_spine:{x:200,y:222}, isHoldStep:false, altShift:{tx:5,ty:0,scale:1.06} },
+      { head:{x:200,y:65}, shoulder_L:{x:155,y:130}, shoulder_R:{x:245,y:130}, elbow_L:{x:150,y:192}, elbow_R:{x:248,y:192}, wrist_L:{x:145,y:255}, wrist_R:{x:250,y:258}, hip_L:{x:175,y:295}, hip_R:{x:225,y:295}, knee_L:{x:170,y:400}, knee_R:{x:255,y:350}, ankle_L:{x:168,y:502}, ankle_R:{x:260,y:430}, mid_spine:{x:200,y:213}, isHoldStep:false, altShift:{tx:0,ty:5,scale:1.07} },
+      { head:{x:228,y:72}, shoulder_L:{x:160,y:135}, shoulder_R:{x:250,y:128}, elbow_L:{x:215,y:175}, elbow_R:{x:288,y:215}, wrist_L:{x:248,y:202}, wrist_R:{x:296,y:295}, hip_L:{x:175,y:295}, hip_R:{x:225,y:295}, knee_L:{x:170,y:400}, knee_R:{x:255,y:350}, ankle_L:{x:168,y:502}, ankle_R:{x:260,y:430}, mid_spine:{x:200,y:215}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.08} },
+      { head:{x:228,y:72}, shoulder_L:{x:160,y:135}, shoulder_R:{x:250,y:128}, elbow_L:{x:215,y:175}, elbow_R:{x:288,y:215}, wrist_L:{x:248,y:202}, wrist_R:{x:296,y:295}, hip_L:{x:175,y:295}, hip_R:{x:225,y:295}, knee_L:{x:170,y:400}, knee_R:{x:255,y:350}, ankle_L:{x:168,y:502}, ankle_R:{x:260,y:430}, mid_spine:{x:200,y:215}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+    ]
   }
 };
 

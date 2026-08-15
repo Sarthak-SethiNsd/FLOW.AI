@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+  <rect width="400" height="560" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="57" cy="140" r="1.2"/><circle cx="114" cy="140" r="1.2"/>
+    <circle cx="171" cy="140" r="1.2"/><circle cx="228" cy="140" r="1.2"/>
+    <circle cx="285" cy="140" r="1.2"/><circle cx="342" cy="140" r="1.2"/>
+    <circle cx="57" cy="280" r="1.2"/><circle cx="114" cy="280" r="1.2"/>
+    <circle cx="171" cy="280" r="1.2"/><circle cx="228" cy="280" r="1.2"/>
+    <circle cx="285" cy="280" r="1.2"/><circle cx="342" cy="280" r="1.2"/>
+    <circle cx="57" cy="420" r="1.2"/><circle cx="114" cy="420" r="1.2"/>
+    <circle cx="171" cy="420" r="1.2"/><circle cx="228" cy="420" r="1.2"/>
+    <circle cx="285" cy="420" r="1.2"/><circle cx="342" cy="420" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="510" width="320" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Stick figure: Ardha Matsyendrasana (seated spinal twist, 3/4 front-angled view) -->
+  <g filter="url(#glow)" class="pose-line">
+
+    <!-- Left leg (extended straight) -->
+    <line x1="200" y1="420" x2="310" y2="430" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round"/>
+    <line x1="310" y1="430" x2="360" y2="502" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Right leg (bent, crossed over, foot placed outside left knee) -->
+    <line x1="200" y1="420" x2="220" y2="350" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round"/>
+    <line x1="220" y1="350" x2="260" y2="430" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Hips -->
+    <circle cx="200" cy="420" r="5" fill="#7c3aed"/>
+
+    <!-- Spine / torso (upright, twisting to the right) -->
+    <path d="M200 420 Q195 350 200 280" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Shoulders (rotated/twisted — right shoulder back, left forward) -->
+    <line x1="170" y1="280" x2="240" y2="270" stroke="#9f7aea" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Left arm — hooking outside right knee (elbow to crossed knee) -->
+    <line x1="170" y1="280" x2="210" y2="330" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+    <line x1="210" y1="330" x2="250" y2="360" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Right arm — reaching back, hand on mat behind hip -->
+    <line x1="240" y1="270" x2="290" y2="310" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="290" y1="310" x2="300" y2="380" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Neck and Head (turned to the right to look over shoulder) -->
+    <line x1="200" y1="280" x2="218" y2="255" stroke="#c4b5fd" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="232" cy="238" r="21" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="200" cy="420" r="4.5" fill="#a78bfa"/>
+    <circle cx="310" cy="430" r="4.5" fill="#a78bfa"/>
+    <circle cx="220" cy="350" r="4.5" fill="#a78bfa"/>
+    <circle cx="170" cy="280" r="4.5" fill="#a78bfa"/>
+    <circle cx="210" cy="330" r="4.5" fill="#a78bfa"/>
+    <circle cx="290" cy="310" r="4.5" fill="#a78bfa"/>
+    <circle cx="300" cy="380" r="4.5" fill="#a78bfa"/>
+
+    <!-- Label -->
+    <text x="200" y="36" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#a78bfa" opacity="0.9" font-weight="500">अर्ध मत्स्येन्द्रासन</text>
+    <text x="200" y="54" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7c3aed" opacity="0.8">ARDHA MATSYENDRASANA</text>
+    <text x="200" y="70" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#6d28d9" opacity="0.75">Half Lord of the Fishes Pose</text>
+  </g>
+</svg>

@@ -1,0 +1,132 @@
+{
+  "id": "ardha-matsyendrasana",
+  "name": "Ardha Matsyendrasana",
+  "sanskrit": "अर्ध मत्स्येन्द्रासन",
+  "english": "Half Lord of the Fishes Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A seated spinal twist where one leg is extended and the other is bent with the foot placed outside the opposite thigh. Ardha Matsyendrasana deeply rotates the spine, opens the chest and shoulders, and stimulates the digestive organs.",
+  "benefits": [
+    "Deeply stretches and mobilises the entire spine, improving spinal rotation and flexibility",
+    "Opens the chest, shoulders, and hips while strengthening the oblique muscles",
+    "Stimulates the liver, kidneys, and digestive organs and helps relieve lower back tension"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Sit on the mat with both legs extended straight out in front of you in Staff Pose (Dandasana).",
+      "duration": 10,
+      "voice_prompt": "Let us begin Ardha Matsyendrasana, or Half Lord of the Fishes Pose. Sit tall on your mat with both legs extended straight out in front of you in Staff Pose. Press the backs of both legs firmly into the mat, sit up as tall as you can, and place your palms flat on the mat beside your hips.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "ardha_matsyendrasana_leg_left_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Extend both legs straight in front of you and sit tall.",
+          "fail_overbend_msg": "Keep your legs straight and flat on the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bend your right knee and cross your right foot over your left leg, placing your right foot flat on the mat on the outside of your left knee.",
+      "duration": 10,
+      "voice_prompt": "Bend your right knee and lift your right foot up and over your left leg. Place your right foot flat on the mat on the outside of your left knee. Your right knee will point straight up toward the ceiling. Keep your left leg extended and press the back of your left leg into the mat.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "ardha_matsyendrasana_knee_right_2",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 90,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your right knee and cross your right foot over your left leg.",
+          "fail_overbend_msg": "Keep your right knee bent with your right foot flat on the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Inhale and sit up tall, lengthening your spine from your tailbone to the crown of your head.",
+      "duration": 10,
+      "voice_prompt": "Take a slow, deep breath in through your nose. As you inhale, grow as tall as you can through your spine. Press down firmly through your sitting bones, draw your lower belly slightly in and up, and lift your chest. Keep your shoulders relaxed and level.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "ardha_matsyendrasana_spine_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 100,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Sit up tall and lengthen your spine before twisting.",
+          "fail_overbend_msg": "Keep your upper body upright as you prepare to twist."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Exhale and twist your upper body to the right. Place your left elbow on the outside of your right knee and your right hand on the mat behind you.",
+      "duration": 10,
+      "voice_prompt": "Breathe out and rotate your upper body to the right. Hook your left upper arm or elbow on the outside of your right knee to deepen the twist. Place your right hand flat on the mat directly behind your right hip. Keep your chest open and your spine long.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "ardha_matsyendrasana_twist_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "right_hip"],
+          "target_angle": 45,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Rotate your upper body further to the right and hook your left arm on your right knee.",
+          "fail_overbend_msg": "Keep your twist smooth and avoid collapsing your spine."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold the spinal twist. Keep your spine long, chest open, and breathe deeply. With each inhale grow taller; with each exhale twist a little further.",
+      "duration": 20,
+      "voice_prompt": "Hold this deep spinal twist and remain steady. Press your left elbow firmly into your right knee and use it as a lever to rotate your chest open to the right. Keep your right hand pressing into the mat behind you for support. On every inhale grow taller through your spine, and on every exhale let your chest rotate a little further to the right. Breathe slowly and deeply through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "ardha_matsyendrasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "right_hip"],
+          "target_angle": 45,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Maintain your spinal twist with your chest rotated to the right.",
+          "fail_overbend_msg": "Keep your spinal twist stable and breathe steadily."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: inhale and unwind back to centre, uncross your right leg, and return to Staff Pose with both legs extended.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to release, breathe in and slowly unwind your upper body back to face forward. Remove your left arm from your right knee and lift your right foot back over your left leg. Extend both legs straight out in front of you and return to Staff Pose. Sit tall and breathe naturally. Well done, you have completed Ardha Matsyendrasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

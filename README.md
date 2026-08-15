@@ -16,7 +16,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 
 ---
 
-## 🧘 Yoga Poses Included (18 Supported Poses)
+## 🧘 Yoga Poses Included (19 Supported Poses)
 
 | Pose | Difficulty |
 |---|---|
@@ -38,6 +38,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Virabhadrasana I (Warrior I Pose) | Intermediate |
 | Kumbhakasana (Plank Pose) | Intermediate |
 | Dhanurasana (Bow Pose) | Intermediate |
+| Ardha Matsyendrasana (Half Lord of the Fishes Pose) | Intermediate |
 
 ---
 
