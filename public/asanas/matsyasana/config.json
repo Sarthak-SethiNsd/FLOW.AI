@@ -1,0 +1,132 @@
+{
+  "id": "matsyasana",
+  "name": "Matsyasana",
+  "sanskrit": "मत्स्यासन",
+  "english": "Fish Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A supine backbend posture where you lie on your back, arch your chest upward, and rest the crown of your head lightly on the mat while keeping your legs extended. Matsyasana opens the chest, throat, and shoulders, improves respiration, and stretches the neck and abdomen.",
+  "benefits": [
+    "Opens the chest, throat, and ribcage, expanding lung capacity and improving deep breathing",
+    "Stretches the muscles of the throat, neck, abdomen, and hip flexors",
+    "Relieves tension in the neck and shoulders while strengthening the upper back"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Lie flat on your back on the mat in Corpse Pose (Savasana) with your legs straight and arms alongside your body.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Matsyasana, or Fish Pose. Lie flat on your back on the mat with your legs straight out in front of you and your feet together. Let your arms rest comfortably alongside your body with your palms facing down.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "matsyasana_body_1",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Lie flat on your back with your legs straight.",
+          "fail_overbend_msg": "Keep your body extended flat on the mat."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Slide your hands palms-down underneath your buttocks, bringing your forearms and elbows close into the sides of your torso.",
+      "duration": 10,
+      "voice_prompt": "Slide both hands, palms facing down, underneath your buttocks. Bring your elbows and forearms tucked in as close as possible to the sides of your body. Keep your legs extended straight and together on the mat.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "matsyasana_arm_left_2",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 160,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Tuck your forearms underneath your body close to your sides.",
+          "fail_overbend_msg": "Keep your arms tucked beneath your hips."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Inhale, press firmly down into your forearms and elbows, and lift your chest and upper back off the mat.",
+      "duration": 10,
+      "voice_prompt": "Inhale deeply. Press your elbows and forearms firmly down into the mat and lift your chest, heart, and upper back high into the air. Keep your thighs pressed down against the mat and broaden across your chest.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "matsyasana_chest_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 145,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Press into your elbows and lift your chest high off the mat.",
+          "fail_overbend_msg": "Keep your chest lifted in an arched posture."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Tilt your head gently backward and rest the crown of your head lightly on the mat, keeping most weight on your forearms.",
+      "duration": 10,
+      "voice_prompt": "Carefully tilt your head back and lower the top or crown of your head lightly to rest on the mat. Keep the majority of your body weight supported by your forearms and elbows, with minimal weight on your head and neck.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "matsyasana_head_4",
+          "type": "angle",
+          "keypoints": ["left_ear", "left_shoulder", "left_hip"],
+          "target_angle": 130,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Tilt your head gently back to rest the crown lightly on the mat.",
+          "fail_overbend_msg": "Ensure minimal weight rests on your head."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Fish Pose. Keep your chest arched high, forearms pressing down, legs straight, and breathe deeply through your chest.",
+      "duration": 20,
+      "voice_prompt": "Hold this open Fish Pose. Keep your forearms pressing down, chest expanding high toward the ceiling, and legs straight and active. Breathe deeply and smoothly through your nose, expanding your lungs with every inhale.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "matsyasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 145,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Maintain the arch in your chest with forearms supporting your pose.",
+          "fail_overbend_msg": "Keep your Fish Pose steady and breathe deeply."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: press into your forearms, lift your head, lower your back to the mat, and release your arms to rest in Savasana.",
+      "duration": 10,
+      "voice_prompt": "When you are ready to exit, press into your forearms, gently lift your head, and lower your spine and back flat onto the mat. Release your hands from beneath your body and relax in Savasana. Well done, you have completed Matsyasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}
