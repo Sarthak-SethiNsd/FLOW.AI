@@ -40,6 +40,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Dhanurasana (Bow Pose) | Intermediate |
 | Ardha Matsyendrasana (Half Lord of the Fishes Pose) | Intermediate |
 | Matsyasana (Fish Pose) | Intermediate |
+| Virabhadrasana II (Warrior II Pose) | Intermediate |
 
 ---
 

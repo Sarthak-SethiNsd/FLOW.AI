@@ -1,0 +1,132 @@
+{
+  "id": "virabhadrasana-2",
+  "name": "Virabhadrasana II",
+  "sanskrit": "वीरभद्रासन II",
+  "english": "Warrior II Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A powerful standing posture that builds stamina, opens the hips and chest, and strengthens the legs and core. Virabhadrasana II enhances focus and stability.",
+  "benefits": [
+    "Strengthens the legs, knees, ankles, and core muscles",
+    "Stretches the hips, groin, chest, and shoulders",
+    "Increases physical stamina, concentration, and body balance"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall in Tadasana (Mountain Pose) at the center of your mat with feet together and arms at your sides.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Virabhadrasana Two, or Warrior Two Pose. Stand tall in Mountain Pose at the center of your mat. Keep your feet together, roll your shoulders back and down, and let your arms rest by your sides. Look straight ahead.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virabhadrasana2_leg_left_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Stand upright with your legs straight.",
+          "fail_overbend_msg": "Keep your legs extended straight."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Step your feet wide apart, about 3 to 4 feet, keeping your legs straight and resting your hands on your hips.",
+      "duration": 10,
+      "voice_prompt": "Step your feet wide apart, about three to four feet. Keep both legs straight, place both hands on your hips, and keep your torso facing the side of your mat.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virabhadrasana2_leg_left_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 170,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Keep both legs straight in wide stance.",
+          "fail_overbend_msg": "Maintain extended straight legs."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Turn your right toes out 90 degrees and left toes slightly inward, keeping your torso facing the side.",
+      "duration": 10,
+      "voice_prompt": "Turn your right foot out to ninety degrees toward the front of your mat, and turn your left foot slightly inward. Keep both legs straight and keep your hips and chest facing the side of your mat.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virabhadrasana2_leg_right_3",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 170,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Keep your right leg straight as you position your foot.",
+          "fail_overbend_msg": "Keep both legs straight."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Inhale and raise both arms out to the sides parallel to the floor, palms facing down.",
+      "duration": 10,
+      "voice_prompt": "Inhale deeply and raise both arms straight out to the sides, level with your shoulders and parallel to the floor. Face your palms down toward the mat and keep your torso centered.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "virabhadrasana2_arm_left_4",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_shoulder", "left_elbow"],
+          "target_angle": 90,
+          "tolerance_deg": 25,
+          "fail_straight_msg": "Raise both arms straight out to the sides level with your shoulders.",
+          "fail_overbend_msg": "Keep your arms parallel to the floor."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Exhale, bend your right knee over your right ankle, and gaze out over your right fingertips.",
+      "duration": 20,
+      "voice_prompt": "Exhale and bend your right knee until your thigh is parallel to the floor and your knee is stacked directly over your ankle. Turn your head to gaze out over your right fingertips. Keep your left leg straight and your torso upright.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "virabhadrasana2_knee_right_5",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 90,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Bend your front right knee to a ninety degree angle.",
+          "fail_overbend_msg": "Keep your front knee stacked over your right ankle."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: inhale, straighten your right leg, lower your arms, and step your feet back together.",
+      "duration": 10,
+      "voice_prompt": "Inhale as you straighten your right leg. Lower your arms to your sides, turn your right foot back forward, and step your feet back together into Tadasana. Relax and breathe. Well done, you have completed Virabhadrasana Two.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}
