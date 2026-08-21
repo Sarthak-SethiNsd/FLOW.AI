@@ -16,7 +16,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 
 ---
 
-## 🧘 Yoga Poses Included (20 Supported Poses)
+## 🧘 Yoga Poses Included (21 Supported Poses)
 
 | Pose | Difficulty |
 |---|---|
@@ -34,13 +34,13 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Surya Namaskar (Sun Salutation) | Intermediate |
 | Utkatasana (Chair Pose) | Intermediate |
 | Trikonasana (Triangle Pose) | Intermediate |
-| Virabhadrasana II (Warrior II) | Intermediate |
 | Virabhadrasana I (Warrior I Pose) | Intermediate |
+| Virabhadrasana II (Warrior II Pose) | Intermediate |
 | Kumbhakasana (Plank Pose) | Intermediate |
 | Dhanurasana (Bow Pose) | Intermediate |
 | Ardha Matsyendrasana (Half Lord of the Fishes Pose) | Intermediate |
 | Matsyasana (Fish Pose) | Intermediate |
-| Virabhadrasana II (Warrior II Pose) | Intermediate |
+| Anjaneyasana (Low Lunge) | Intermediate |
 
 ---
 

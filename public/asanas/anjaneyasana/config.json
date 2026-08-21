@@ -1,0 +1,132 @@
+{
+  "id": "anjaneyasana",
+  "name": "Anjaneyasana",
+  "sanskrit": "अंजनेयासन",
+  "english": "Low Lunge",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A deep crescent low lunge posture with the back knee grounded and arms sweeping overhead in a gentle backbend. Anjaneyasana deeply stretches the hip flexors, quadriceps, and groin while opening the chest, shoulders, and heart.",
+  "benefits": [
+    "Deeply stretches the hip flexors, psoas, and quadriceps of the back leg",
+    "Opens the chest, shoulders, and lungs while improving spinal flexibility",
+    "Strengthens the hips, knees, and ankles and improves overall body balance"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Start in Downward-Facing Dog or Table Top posture with your hands firmly planted on the mat.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Anjaneyasana, or Low Lunge. Start on your hands and knees or in Downward-Facing Dog. Press your palms flat into the mat with fingers spread wide, and breathe steadily through your nose.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "anjaneyasana_arm_left_1",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Keep your arms extended with palms pressed firmly into the mat.",
+          "fail_overbend_msg": "Maintain straight supportive arms."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Step your right foot forward between your hands, aligning your right knee directly over your right ankle.",
+      "duration": 10,
+      "voice_prompt": "Step your right foot forward between your hands. Place your right foot flat on the mat so your knee is stacked directly above your ankle at a ninety-degree angle. Keep your fingertips resting lightly on the floor on either side of your foot.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "anjaneyasana_knee_right_2",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 90,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Bend your front right knee to 90 degrees directly above your ankle.",
+          "fail_overbend_msg": "Do not let your front knee overshoot your ankle."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Lower your left knee to the mat, untuck your left toes, and slide your left leg back until you feel a comfortable stretch in your left hip.",
+      "duration": 10,
+      "voice_prompt": "Gently lower your left knee down onto the mat. Untuck your left toes so the top of your left foot rests flat on the floor. Slide your left knee back slightly until you feel a comfortable, deep stretch along the front of your left hip and thigh.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "anjaneyasana_hip_left_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 140,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Lower your back knee and let your hips sink forward and down.",
+          "fail_overbend_msg": "Keep your hips square and supported."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Inhale, lift your torso upright, and sweep both arms straight up overhead with palms facing each other.",
+      "duration": 10,
+      "voice_prompt": "Inhale deeply. Lift your torso upright and sweep both arms high overhead. Keep your palms facing each other, fingers reaching toward the ceiling, and relax your shoulders down away from your ears.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "anjaneyasana_arm_left_4",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_shoulder", "left_elbow"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Reach both arms straight up overhead with elbows extended.",
+          "fail_overbend_msg": "Keep your arms reaching high toward the ceiling."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Sink your hips forward and down, gently arch your upper back, and gaze up between your hands. Hold and breathe deeply.",
+      "duration": 20,
+      "voice_prompt": "Hold this graceful Crescent Low Lunge. Allow your hips to sink forward and down toward the mat while lifting your chest and heart toward the ceiling. Draw your shoulder blades together in a gentle upper back arch and look softly upward between your hands. Breathe deeply and smoothly through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "anjaneyasana_hold_5",
+          "type": "angle",
+          "keypoints": ["right_hip", "right_knee", "right_ankle"],
+          "target_angle": 90,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Maintain the front knee at 90 degrees with hips sinking forward.",
+          "fail_overbend_msg": "Keep your Low Lunge stable and breathe steadily."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: exhale, lower your hands back to the mat, tuck your back toes, and step back into Downward Dog or Table Top.",
+      "duration": 10,
+      "voice_prompt": "Exhale as you slowly bring your hands back down to frame your front foot on the mat. Tuck your left toes under, lift your left knee, and step your right foot back into Downward-Facing Dog or Table Top posture. Relax and breathe naturally. Well done, you have completed Anjaneyasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

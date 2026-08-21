@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="560" height="380" fill="url(#bg)"/>
+  <rect width="560" height="380" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="80" cy="95" r="1.2"/><circle cx="160" cy="95" r="1.2"/>
+    <circle cx="240" cy="95" r="1.2"/><circle cx="320" cy="95" r="1.2"/>
+    <circle cx="400" cy="95" r="1.2"/><circle cx="480" cy="95" r="1.2"/>
+    <circle cx="80" cy="190" r="1.2"/><circle cx="160" cy="190" r="1.2"/>
+    <circle cx="240" cy="190" r="1.2"/><circle cx="320" cy="190" r="1.2"/>
+    <circle cx="400" cy="190" r="1.2"/><circle cx="480" cy="190" r="1.2"/>
+    <circle cx="80" cy="285" r="1.2"/><circle cx="160" cy="285" r="1.2"/>
+    <circle cx="240" cy="285" r="1.2"/><circle cx="320" cy="285" r="1.2"/>
+    <circle cx="400" cy="285" r="1.2"/><circle cx="480" cy="285" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="348" width="480" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Stick figure: Anjaneyasana (Crescent Low Lunge - Side view) -->
+  <g filter="url(#glow)" class="pose-line">
+
+    <!-- Back Left Leg (grounded knee on mat at x=140, foot extended back to x=80) -->
+    <line x1="260" y1="260" x2="150" y2="345" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+    <line x1="150" y1="345" x2="80" y2="348" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Front Right Leg (knee bent at 90 deg at x=370 y=260, ankle at x=370 y=348) -->
+    <line x1="260" y1="260" x2="370" y2="260" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round"/>
+    <line x1="370" y1="260" x2="370" y2="348" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Pelvis/Hips (sinking forward & down) -->
+    <circle cx="260" cy="260" r="5" fill="#7c3aed"/>
+
+    <!-- Spine/Torso (arching gently upward and backward) -->
+    <path d="M260 260 Q245 190 265 140" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Shoulders -->
+    <line x1="255" y1="140" x2="275" y2="140" stroke="#9f7aea" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Left Arm (Reaching up and slightly back) -->
+    <line x1="265" y1="140" x2="250" y2="80" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+    <line x1="250" y1="80" x2="235" y2="25" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Right Arm (Back arm, dimmer) -->
+    <line x1="270" y1="145" x2="255" y2="85" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="255" y1="85" x2="240" y2="30" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Neck & Head (tilted back looking upward) -->
+    <line x1="265" y1="140" x2="275" y2="115" stroke="#c4b5fd" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="285" cy="95" r="18" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="260" cy="260" r="4.5" fill="#a78bfa"/>
+    <circle cx="370" cy="260" r="4.5" fill="#a78bfa"/>
+    <circle cx="370" cy="348" r="4.5" fill="#a78bfa"/>
+    <circle cx="150" cy="345" r="4.5" fill="#a78bfa"/>
+    <circle cx="80" cy="348" r="4.5" fill="#a78bfa"/>
+    <circle cx="265" cy="140" r="4.5" fill="#a78bfa"/>
+    <circle cx="250" cy="80" r="4.5" fill="#a78bfa"/>
+    <circle cx="235" cy="25" r="4.5" fill="#a78bfa"/>
+
+    <!-- Label -->
+    <text x="280" y="36" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#a78bfa" opacity="0.9" font-weight="500">अंजनेयासन · ANJANEYASANA</text>
+    <text x="280" y="56" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7c3aed" opacity="0.8">Low Lunge</text>
+  </g>
+</svg>
