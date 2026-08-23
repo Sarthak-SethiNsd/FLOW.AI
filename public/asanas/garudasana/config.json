@@ -1,0 +1,132 @@
+{
+  "id": "garudasana",
+  "name": "Garudasana",
+  "sanskrit": "गरुड़ासन",
+  "english": "Eagle Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A standing balance posture in which both arms are wrapped around each other and one leg is crossed and hooked behind the standing calf. Garudasana challenges concentration, strengthens the ankles and calves, and deeply stretches the outer hips, shoulders, and upper back.",
+  "benefits": [
+    "Strengthens the ankles, calves, and thighs while improving balance and stability",
+    "Deeply stretches the outer hips, iliotibial band, shoulders, and upper back",
+    "Improves focus, concentration, and body awareness through single-leg balance"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall in Mountain Pose with feet together, arms relaxed at your sides, and your gaze fixed on a steady point in front of you.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Garudasana, or Eagle Pose. Stand upright in Mountain Pose with your feet together and your weight evenly distributed. Let your arms hang relaxed at your sides. Fix your gaze on a still point directly in front of you to support your balance throughout this pose.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "garudasana_stand_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Stand upright with legs straight and feet together.",
+          "fail_overbend_msg": "Keep your standing leg fully extended."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bend both knees slightly, then lift your right foot and cross your right thigh over your left thigh, hooking your right foot behind your left calf if possible.",
+      "duration": 10,
+      "voice_prompt": "Bend both knees gently. Shift your weight onto your left foot. Lift your right leg and cross your right thigh high over your left thigh. If your flexibility allows, hook your right foot around the back of your left calf. Press the toes of your right foot down toward the floor.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "garudasana_knee_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 150,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Bend your standing left knee and lift the right leg to cross over.",
+          "fail_overbend_msg": "Keep a slight bend in the standing knee for stability."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Extend both arms straight in front of you at shoulder height, then cross your left arm over your right arm and bend both elbows to wrap your forearms around each other.",
+      "duration": 10,
+      "voice_prompt": "Extend both arms straight forward at shoulder height with your palms facing the ceiling. Now cross your left elbow over your right elbow. Bend both elbows and wrap your forearms around each other, pressing your palms together or as close as they will come. Lift your elbows to shoulder height.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "garudasana_arm_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 90,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend both elbows and wrap your forearms around each other at shoulder height.",
+          "fail_overbend_msg": "Keep your crossed elbows lifted and at shoulder level."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Sink your hips downward as if sitting into a chair, keeping your spine tall and your wrapped elbows lifted to shoulder height.",
+      "duration": 10,
+      "voice_prompt": "Slowly sink your hips down and back as if lowering into a chair seat. Keep your spine long and your chest lifted. Hold your crossed arms at shoulder height with the elbows squeezed together. Keep your gaze fixed forward on your steady point.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "garudasana_squat_4",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 130,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Bend your standing knee more to sink your hips downward.",
+          "fail_overbend_msg": "Keep a stable bend in the knee without squatting too deep."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Eagle Pose with your hips low, spine tall, elbows lifted, and gaze fixed forward. Breathe slowly and steadily.",
+      "duration": 20,
+      "voice_prompt": "Hold Garudasana with strength and stillness. Keep your hips sinking low with your spine and chest lifted tall. Your crossed elbows should be at shoulder height. Breathe slowly and deeply through your nose. Feel the deep stretch across the back of your shoulders and in the outer hip of your crossed leg. Stay focused on your steady gaze point.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "garudasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 130,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep the standing knee bent and hips low in Eagle Pose.",
+          "fail_overbend_msg": "Maintain a steady Eagle Pose and breathe smoothly."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: inhale, unwind your arms and uncross your legs, and return to standing in Mountain Pose. Relax your arms at your sides.",
+      "duration": 10,
+      "voice_prompt": "Inhale as you slowly unwind your arms and lower them to your sides. Uncross your right leg and set your right foot down on the mat. Stand tall in Mountain Pose. Take a few natural breaths and feel the release of the stretch. Well done, you have completed Garudasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

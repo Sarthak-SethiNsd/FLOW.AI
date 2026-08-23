@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+  <rect width="400" height="560" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="67" cy="140" r="1.2"/><circle cx="133" cy="140" r="1.2"/>
+    <circle cx="200" cy="140" r="1.2"/><circle cx="267" cy="140" r="1.2"/>
+    <circle cx="333" cy="140" r="1.2"/>
+    <circle cx="67" cy="280" r="1.2"/><circle cx="133" cy="280" r="1.2"/>
+    <circle cx="200" cy="280" r="1.2"/><circle cx="267" cy="280" r="1.2"/>
+    <circle cx="333" cy="280" r="1.2"/>
+    <circle cx="67" cy="420" r="1.2"/><circle cx="133" cy="420" r="1.2"/>
+    <circle cx="200" cy="420" r="1.2"/><circle cx="267" cy="420" r="1.2"/>
+    <circle cx="333" cy="420" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="496" width="320" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Stick figure: Garudasana (Eagle Pose - Front view, full hold) -->
+  <!-- Showing the full Eagle Pose: arms crossed at chest height, right leg wrapped around left -->
+  <g filter="url(#glow)" class="pose-line">
+
+    <!-- Standing left leg (bent at knee) -->
+    <line x1="200" y1="300" x2="200" y2="400" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round"/>
+    <line x1="200" y1="400" x2="200" y2="510" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Crossed right leg (thigh over left thigh, foot hooked behind left calf) -->
+    <!-- Right thigh: from hip crossing over left thigh -->
+    <line x1="215" y1="300" x2="200" y2="370" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+    <!-- Right lower leg: curling behind, foot pointing downward -->
+    <line x1="200" y1="370" x2="190" y2="440" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Hip/pelvis cross bar -->
+    <line x1="180" y1="300" x2="220" y2="300" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="200" cy="300" r="5" fill="#7c3aed"/>
+
+    <!-- Torso / spine -->
+    <path d="M200 300 Q200 240 200 185" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Shoulders -->
+    <line x1="170" y1="185" x2="230" y2="185" stroke="#9f7aea" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Crossed arms: left arm over right, forearms wrapped together in front of chest -->
+    <!-- Left upper arm (coming from left shoulder, crossing to center) -->
+    <line x1="170" y1="185" x2="200" y2="220" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+    <!-- Right upper arm (coming from right shoulder, crossing to center) -->
+    <line x1="230" y1="185" x2="200" y2="220" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Forearms crossed together vertically, pointing up -->
+    <line x1="200" y1="220" x2="195" y2="155" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+    <line x1="200" y1="220" x2="205" y2="155" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Neck and head -->
+    <line x1="200" y1="185" x2="200" y2="162" stroke="#c4b5fd" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="200" cy="140" r="23" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="200" cy="300" r="4.5" fill="#a78bfa"/>
+    <circle cx="200" cy="400" r="4.5" fill="#a78bfa"/>
+    <circle cx="200" cy="510" r="4.5" fill="#a78bfa"/>
+    <circle cx="200" cy="370" r="4.5" fill="#a78bfa"/>
+    <circle cx="170" cy="185" r="4.5" fill="#a78bfa"/>
+    <circle cx="230" cy="185" r="4.5" fill="#a78bfa"/>
+    <circle cx="200" cy="220" r="4.5" fill="#a78bfa"/>
+    <circle cx="195" cy="155" r="4.5" fill="#a78bfa"/>
+
+    <!-- Label -->
+    <text x="200" y="52" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#a78bfa" opacity="0.9" font-weight="500">गरुड़ासन · GARUDASANA</text>
+    <text x="200" y="72" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7c3aed" opacity="0.8">Eagle Pose</text>
+  </g>
+</svg>
