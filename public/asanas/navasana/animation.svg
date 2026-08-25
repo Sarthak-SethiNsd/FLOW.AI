@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="560" height="380" fill="url(#bg)"/>
+  <rect width="560" height="380" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="80" cy="95" r="1.2"/><circle cx="160" cy="95" r="1.2"/>
+    <circle cx="240" cy="95" r="1.2"/><circle cx="320" cy="95" r="1.2"/>
+    <circle cx="400" cy="95" r="1.2"/><circle cx="480" cy="95" r="1.2"/>
+    <circle cx="80" cy="190" r="1.2"/><circle cx="160" cy="190" r="1.2"/>
+    <circle cx="240" cy="190" r="1.2"/><circle cx="320" cy="190" r="1.2"/>
+    <circle cx="400" cy="190" r="1.2"/><circle cx="480" cy="190" r="1.2"/>
+    <circle cx="80" cy="285" r="1.2"/><circle cx="160" cy="285" r="1.2"/>
+    <circle cx="240" cy="285" r="1.2"/><circle cx="320" cy="285" r="1.2"/>
+    <circle cx="400" cy="285" r="1.2"/><circle cx="480" cy="285" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="348" width="480" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Stick figure: Navasana (Boat Pose - Side view, V-Shape hold) -->
+  <g filter="url(#glow)" class="pose-line">
+
+    <!-- Right Leg (Back leg, darker violet) -->
+    <line x1="260" y1="310" x2="350" y2="210" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+    <line x1="350" y1="210" x2="430" y2="130" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Left Leg (Front leg, bright violet) -->
+    <line x1="250" y1="305" x2="340" y2="205" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round"/>
+    <line x1="340" y1="205" x2="420" y2="125" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Pelvis/Hips (sitting on mat) -->
+    <circle cx="250" cy="305" r="5" fill="#7c3aed"/>
+
+    <!-- Spine/Torso (leaning back in straight alignment) -->
+    <path d="M250 305 Q205 235 160 165" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Right Arm (Back arm, extending forward parallel to mat) -->
+    <line x1="170" y1="170" x2="250" y2="190" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="250" y1="190" x2="340" y2="190" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Left Arm (Front arm, extending forward parallel to mat) -->
+    <line x1="160" y1="165" x2="240" y2="185" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+    <line x1="240" y1="185" x2="330" y2="185" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Neck & Head -->
+    <line x1="160" y1="165" x2="140" y2="140" stroke="#c4b5fd" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="120" cy="115" r="21" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="250" cy="305" r="4.5" fill="#a78bfa"/>
+    <circle cx="340" cy="205" r="4.5" fill="#a78bfa"/>
+    <circle cx="420" cy="125" r="4.5" fill="#a78bfa"/>
+    <circle cx="160" cy="165" r="4.5" fill="#a78bfa"/>
+    <circle cx="240" cy="185" r="4.5" fill="#a78bfa"/>
+    <circle cx="330" cy="185" r="4.5" fill="#a78bfa"/>
+
+    <!-- Label -->
+    <text x="280" y="42" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#a78bfa" opacity="0.9" font-weight="500">नावासन · NAVASANA</text>
+    <text x="280" y="62" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7c3aed" opacity="0.8">Boat Pose</text>
+  </g>
+</svg>

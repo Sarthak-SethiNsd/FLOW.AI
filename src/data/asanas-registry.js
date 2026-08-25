@@ -36,6 +36,7 @@ import matsyasana from '../../public/asanas/matsyasana/config.json';
 import virabhadrasana2 from '../../public/asanas/virabhadrasana-2/config.json';
 import anjaneyasana from '../../public/asanas/anjaneyasana/config.json';
 import garudasana from '../../public/asanas/garudasana/config.json';
+import navasana from '../../public/asanas/navasana/config.json';
 
 /** All asanas in display order */
 export const ALL_ASANAS = [
@@ -62,6 +63,7 @@ export const ALL_ASANAS = [
   virabhadrasana2,
   anjaneyasana,
   garudasana,
+  navasana,
 ];
 
 /**

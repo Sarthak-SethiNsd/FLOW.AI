@@ -16,7 +16,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 
 ---
 
-## 🧘 Yoga Poses Included (22 Supported Poses)
+## 🧘 Yoga Poses Included (23 Supported Poses)
 
 | Pose | Difficulty |
 |---|---|
@@ -42,6 +42,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**.
 | Matsyasana (Fish Pose) | Intermediate |
 | Anjaneyasana (Low Lunge) | Intermediate |
 | Garudasana (Eagle Pose) | Intermediate |
+| Navasana (Boat Pose) | Intermediate |
 
 ---
 

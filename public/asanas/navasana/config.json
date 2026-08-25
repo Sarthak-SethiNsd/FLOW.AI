@@ -1,0 +1,132 @@
+{
+  "id": "navasana",
+  "name": "Navasana",
+  "sanskrit": "नावासन",
+  "english": "Boat Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A seated V-shaped core balancing posture in which the torso leans back and legs lift off the floor while balancing on the sitting bones with arms extending forward. Navasana builds deep abdominal and core strength, strengthens the hip flexors and spine, and sharpens mental focus.",
+  "benefits": [
+    "Strengthens the abdominal core muscles, hip flexors, and lower back",
+    "Improves balance, stability, and stamina by engaging the whole body",
+    "Stimulates abdominal organs, kidneys, and digestive system"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Sit on the mat in Staff Pose (Dandasana) with legs extended straight forward, spine tall, and hands resting beside your hips.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Navasana, or Boat Pose. Sit upright on your mat in Staff Pose with your legs extended straight in front of you. Keep your spine long, shoulders relaxed down, and place your hands flat on the mat beside your hips.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "navasana_sit_1",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 90,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Sit tall with your back straight and legs extended forward.",
+          "fail_overbend_msg": "Keep your spine upright and chest open."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bend your knees, place your feet flat on the mat, and hold lightly behind your thighs with your hands.",
+      "duration": 10,
+      "voice_prompt": "Bend both knees and place your feet flat on the floor close to your hips. Place your hands lightly behind your thighs or knees. Lift your chest tall and draw your shoulder blades gently together.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "navasana_knee_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 75,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your knees and place feet flat on the mat.",
+          "fail_overbend_msg": "Keep your spine lifted and knees bent."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Lean your torso back slightly onto your sitting bones and lift your feet until your shins are parallel to the floor.",
+      "duration": 10,
+      "voice_prompt": "Engage your core and lean your torso back slightly onto your sitting bones, keeping your spine straight without rounding your lower back. Lift your feet off the mat until your shins are parallel to the floor.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "navasana_shin_3",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 90,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Lean back slightly and lift your feet off the floor.",
+          "fail_overbend_msg": "Keep your core engaged and chest lifted."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Extend both legs straight up to form a sharp V-shape with your body, pointing your toes toward eye level.",
+      "duration": 10,
+      "voice_prompt": "Straighten both legs fully, extending your feet up so your body forms a crisp V-shape. Keep your chest open, spine straight, and toes pointing upward. If this feels too intense, keep knees slightly bent.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "navasana_leg_4",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 170,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Straighten both legs forward and up into a V-shape.",
+          "fail_overbend_msg": "Keep your legs extended and toes pointing upward."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Reach both arms straight forward parallel to the floor beside your knees. Hold Boat Pose balancing on your sitting bones and breathe steadily.",
+      "duration": 20,
+      "voice_prompt": "Release your hands and reach both arms straight forward parallel to the mat, palms facing each other. Hold strong in full Boat Pose. Draw your lower belly in, broaden across your collarbones, and breathe smoothly through your nose. Keep your gaze steady on your toes.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "navasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_hip", "left_knee"],
+          "target_angle": 90,
+          "tolerance_deg": 30,
+          "fail_straight_msg": "Maintain the V-shape balance with torso and legs lifted.",
+          "fail_overbend_msg": "Hold your Boat Pose steady with arms reaching forward."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: exhale, bend your knees, lower your feet to the mat, and sit upright in Staff Pose. Relax your breath.",
+      "duration": 10,
+      "voice_prompt": "Exhale as you bend your knees and gently lower your feet back down to the mat. Bring your torso upright and return to Staff Pose with hands resting beside your hips. Relax your core and breathe naturally. Excellent work, you have completed Navasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}
