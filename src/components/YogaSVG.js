@@ -345,6 +345,20 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:120,y:115}, shoulder_L:{x:160,y:165}, shoulder_R:{x:172,y:169}, elbow_L:{x:240,y:185}, elbow_R:{x:252,y:189}, wrist_L:{x:330,y:185}, wrist_R:{x:342,y:189}, hip_L:{x:250,y:305}, hip_R:{x:262,y:309}, knee_L:{x:340,y:205}, knee_R:{x:352,y:209}, ankle_L:{x:420,y:125}, ankle_R:{x:432,y:129}, mid_spine:{x:205,y:235}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
       { head:{x:230,y:105}, shoulder_L:{x:248,y:170}, shoulder_R:{x:260,y:174}, elbow_L:{x:246,y:240}, elbow_R:{x:258,y:244}, wrist_L:{x:244,y:305}, wrist_R:{x:256,y:309}, hip_L:{x:250,y:305}, hip_R:{x:262,y:309}, knee_L:{x:380,y:325}, knee_R:{x:392,y:329}, ankle_L:{x:480,y:348}, ankle_R:{x:492,y:348}, mid_spine:{x:248,y:235}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
+  },
+  malasana: {
+    label: 'मालासन · MALASANA · Garland Pose',
+    viewBox: '0 0 400 560',
+    matY: 510,
+    viewType: 'front',
+    steps: [
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+      { head:{x:200,y:100}, shoulder_L:{x:160,y:160}, shoulder_R:{x:240,y:160}, elbow_L:{x:152,y:218}, elbow_R:{x:248,y:218}, wrist_L:{x:148,y:278}, wrist_R:{x:252,y:278}, hip_L:{x:165,y:330}, hip_R:{x:235,y:330}, knee_L:{x:130,y:420}, knee_R:{x:270,y:420}, ankle_L:{x:125,y:502}, ankle_R:{x:275,y:502}, mid_spine:{x:200,y:245}, isHoldStep:false, altShift:{tx:0,ty:10,scale:1.07} },
+      { head:{x:200,y:200}, shoulder_L:{x:160,y:255}, shoulder_R:{x:240,y:255}, elbow_L:{x:148,y:310}, elbow_R:{x:252,y:310}, wrist_L:{x:145,y:365}, wrist_R:{x:255,y:365}, hip_L:{x:155,y:390}, hip_R:{x:245,y:390}, knee_L:{x:100,y:460}, knee_R:{x:300,y:460}, ankle_L:{x:100,y:502}, ankle_R:{x:300,y:502}, mid_spine:{x:200,y:325}, isHoldStep:false, altShift:{tx:0,ty:15,scale:1.08} },
+      { head:{x:200,y:195}, shoulder_L:{x:158,y:250}, shoulder_R:{x:242,y:250}, elbow_L:{x:148,y:305}, elbow_R:{x:252,y:305}, wrist_L:{x:180,y:340}, wrist_R:{x:220,y:340}, hip_L:{x:155,y:390}, hip_R:{x:245,y:390}, knee_L:{x:100,y:460}, knee_R:{x:300,y:460}, ankle_L:{x:100,y:502}, ankle_R:{x:300,y:502}, mid_spine:{x:200,y:320}, isHoldStep:false, altShift:{tx:0,ty:15,scale:1.09} },
+      { head:{x:200,y:195}, shoulder_L:{x:158,y:250}, shoulder_R:{x:242,y:250}, elbow_L:{x:148,y:305}, elbow_R:{x:252,y:305}, wrist_L:{x:180,y:340}, wrist_R:{x:220,y:340}, hip_L:{x:155,y:390}, hip_R:{x:245,y:390}, knee_L:{x:100,y:460}, knee_R:{x:300,y:460}, ankle_L:{x:100,y:502}, ankle_R:{x:300,y:502}, mid_spine:{x:200,y:320}, isHoldStep:true, altShift:{tx:-12,ty:0,scale:1.1} },
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+    ]
   }
 };
 

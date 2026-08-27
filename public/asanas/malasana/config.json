@@ -1,0 +1,132 @@
+{
+  "id": "malasana",
+  "name": "Malasana",
+  "sanskrit": "मालासन",
+  "english": "Garland Pose",
+  "difficulty": "Beginner",
+  "duration_seconds": 60,
+  "description": "A deep, grounded squat posture in which the feet are flat or slightly raised on the mat, knees are spread wide, and the hands press together at the heart in Anjali Mudra while the elbows gently press the inner knees outward. Malasana opens the hips, groin, and lower back, and grounds the body through the soles of the feet.",
+  "benefits": [
+    "Opens the hips, groins, and inner thighs while stretching the lower back",
+    "Strengthens the ankles, calves, and feet by loading the full squat position",
+    "Tones the abdominal core and stimulates digestive organs through compression"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand in Mountain Pose with your feet slightly wider than hip-width apart and toes turned out at about 45 degrees.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Malasana, or Garland Pose. Stand upright on your mat with your feet a little wider than your hips. Turn your toes outward at roughly forty-five degrees so they point diagonally to each side. Let your arms hang relaxed at your sides and breathe steadily through your nose.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "malasana_stand_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Stand tall with legs straight before beginning the squat.",
+          "fail_overbend_msg": "Keep your legs fully extended in the starting position."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Bend your knees and begin lowering your hips, keeping your heels on the mat and your chest lifted.",
+      "duration": 10,
+      "voice_prompt": "Inhale deeply. As you exhale, begin to bend both knees and slowly lower your hips downward. Keep both heels pressing firmly into the mat. Your knees should be tracking outward over your toes. Keep your spine long and chest lifted as you descend.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "malasana_descend_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 120,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your knees more and lower your hips toward the floor.",
+          "fail_overbend_msg": "Keep your knees tracking over your toes as you squat."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Lower all the way into a deep squat with your hips below your knees, thighs wide, and your torso between your inner thighs.",
+      "duration": 10,
+      "voice_prompt": "Continue lowering until you are in a deep squat with your hips dropping below your knees. Bring your torso forward and down between your inner thighs. Press both heels into the mat. Widen your knees to match the width of your shoulders.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "malasana_squat_3",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 70,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Squat deeper — bring your hips below your knees.",
+          "fail_overbend_msg": "Keep your heels on the mat and knees wide."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Bring your palms together at your heart in Anjali Mudra and press your elbows firmly against your inner knees to open the hips wider.",
+      "duration": 10,
+      "voice_prompt": "Bring your hands together at the center of your chest in prayer position — Anjali Mudra. Gently press your elbows outward into the inner sides of your knees. This creates a beneficial opening stretch in the inner groins and hips. Keep your spine as upright as possible and your chest broad.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "malasana_elbows_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 90,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your elbows and bring hands together at the chest.",
+          "fail_overbend_msg": "Keep elbows at chest height pressing against the inner knees."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Garland Pose in the full deep squat with palms at heart, elbows pressing knees wide, spine tall, and gaze forward. Breathe slowly and steadily.",
+      "duration": 20,
+      "voice_prompt": "Hold Malasana in the full Garland Pose. Feel your hips relaxing open with each exhale. Keep your spine long, chest open, and head floating tall above your hips. Press your palms gently together and your elbows outward. Breathe slowly and deeply through your nose. If your heels lift, place a folded blanket under them.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "malasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 70,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Maintain the deep squat with hips low and spine tall.",
+          "fail_overbend_msg": "Hold your Garland Pose steady and breathe through your nose."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: place your hands on the floor, straighten your legs slowly, and rise back up to standing in Mountain Pose.",
+      "duration": 10,
+      "voice_prompt": "Place your hands flat on the mat in front of you. Press into your hands and feet and slowly straighten your legs, rising back up to standing. Take a moment in Mountain Pose, relax your breath, and feel the openness in your hips and groins. Excellent work — you have completed Malasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}
