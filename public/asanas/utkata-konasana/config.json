@@ -1,0 +1,132 @@
+{
+  "id": "utkata-konasana",
+  "name": "Utkata Konasana",
+  "sanskrit": "उत्कट कोणासन",
+  "english": "Goddess Pose",
+  "difficulty": "Intermediate",
+  "duration_seconds": 60,
+  "description": "A powerful wide-legged squat posture in which the knees bend deeply over the toes, the torso remains tall and upright, and the arms are held in a cactus shape with bent elbows at shoulder height. Utkata Konasana strengthens the thighs, hips, calves, and core while deeply opening the pelvic region and improving stability.",
+  "benefits": [
+    "Strengthens the quadriceps, glutes, inner thighs, and calves",
+    "Deeply opens the hips, pelvis, groin, and chest",
+    "Tones the core, strengthens the spine, and improves overall body stamina"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "type": "hold",
+      "instruction": "Stand tall in Mountain Pose facing the long edge of your mat with your hands resting on your hips.",
+      "duration": 10,
+      "voice_prompt": "Let us begin Utkata Konasana, or Goddess Pose. Stand tall on your mat with your spine long and shoulders relaxed. Place your hands on your hips and take a deep, steady breath in through your nose.",
+      "video_start": 0,
+      "video_end": 10,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "utkata_konasana_stand_1",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Stand upright with straight legs before taking your wide stance.",
+          "fail_overbend_msg": "Keep your legs straight in Mountain Pose."
+        }
+      ]
+    },
+    {
+      "step_number": 2,
+      "type": "hold",
+      "instruction": "Step your feet wide apart (about 3 to 4 feet) and turn both feet outward at roughly 45 degrees.",
+      "duration": 10,
+      "voice_prompt": "Step your feet wide apart, about three to four feet. Turn your toes outward diagonally at about forty-five degrees, with your heels turned inward facing each other. Keep your hands resting on your hips and your chest lifted.",
+      "video_start": 10,
+      "video_end": 20,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "utkata_konasana_stance_2",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 175,
+          "tolerance_deg": 20,
+          "fail_straight_msg": "Step feet wide apart with legs straight and toes turned out.",
+          "fail_overbend_msg": "Keep your legs extended as you set up your wide stance."
+        }
+      ]
+    },
+    {
+      "step_number": 3,
+      "type": "hold",
+      "instruction": "Exhale, bend both knees deeply, and sink your hips down until your thighs are parallel to the mat with knees over your ankles.",
+      "duration": 10,
+      "voice_prompt": "Exhale as you bend both knees deeply, lowering your hips into a wide horse squat. Aim to bring your thighs parallel to the mat. Make sure your knees track directly in line with your middle toes and do not collapse inward.",
+      "video_start": 20,
+      "video_end": 30,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "utkata_konasana_squat_3",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 105,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend your knees deeper into a wide squat.",
+          "fail_overbend_msg": "Keep your knees aligned directly over your ankles."
+        }
+      ]
+    },
+    {
+      "step_number": 4,
+      "type": "hold",
+      "instruction": "Raise your arms out to the sides at shoulder height, bend your elbows at 90 degrees in cactus arms, and face your palms forward.",
+      "duration": 10,
+      "voice_prompt": "Raise your arms out to your sides and bend your elbows to a ninety-degree angle, making cactus or goddess arms. Keep your elbows at shoulder height, fingers spread wide and pointing up, and palms facing forward. Draw your shoulder blades gently down your back.",
+      "video_start": 30,
+      "video_end": 40,
+      "isHoldStep": false,
+      "validation": [
+        {
+          "id": "utkata_konasana_arms_4",
+          "type": "angle",
+          "keypoints": ["left_shoulder", "left_elbow", "left_wrist"],
+          "target_angle": 90,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Bend elbows at 90 degrees with arms at shoulder height.",
+          "fail_overbend_msg": "Keep your cactus arms lifted and elbows at shoulder height."
+        }
+      ]
+    },
+    {
+      "step_number": 5,
+      "type": "hold",
+      "instruction": "Hold Goddess Pose with knees wide, thighs low, spine upright, and arms in cactus position. Breathe deeply.",
+      "duration": 20,
+      "voice_prompt": "Hold Goddess Pose with strength and poise. Press firmly into all four corners of both feet. Keep your tailbone tucked slightly, spine long, and chest lifted high. Squeeze your shoulder blades together and breathe deeply and steadily through your nose.",
+      "video_start": 40,
+      "video_end": 60,
+      "isHoldStep": true,
+      "validation": [
+        {
+          "id": "utkata_konasana_hold_5",
+          "type": "angle",
+          "keypoints": ["left_hip", "left_knee", "left_ankle"],
+          "target_angle": 105,
+          "tolerance_deg": 35,
+          "fail_straight_msg": "Keep your thighs low and knees bent in Goddess Pose.",
+          "fail_overbend_msg": "Maintain your steady wide squat and keep breathing."
+        }
+      ]
+    },
+    {
+      "step_number": 6,
+      "type": "hold",
+      "instruction": "To come out: inhale, press into your feet to straighten your legs, lower your arms, and step back to Mountain Pose.",
+      "duration": 10,
+      "voice_prompt": "Inhale as you press firmly into your feet to straighten both legs. Lower your arms to your sides. Step your feet back together and return to standing tall in Mountain Pose. Relax your shoulders and take a few deep, restorative breaths. Excellent work, you have completed Utkata Konasana.",
+      "video_start": 60,
+      "video_end": 70,
+      "isHoldStep": false,
+      "validation": []
+    }
+  ]
+}

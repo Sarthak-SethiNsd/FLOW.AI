@@ -359,6 +359,20 @@ export const ASANA_GUIDE_DATA = {
       { head:{x:200,y:195}, shoulder_L:{x:158,y:250}, shoulder_R:{x:242,y:250}, elbow_L:{x:148,y:305}, elbow_R:{x:252,y:305}, wrist_L:{x:180,y:340}, wrist_R:{x:220,y:340}, hip_L:{x:155,y:390}, hip_R:{x:245,y:390}, knee_L:{x:100,y:460}, knee_R:{x:300,y:460}, ankle_L:{x:100,y:502}, ankle_R:{x:300,y:502}, mid_spine:{x:200,y:320}, isHoldStep:true, altShift:{tx:-12,ty:0,scale:1.1} },
       { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
     ]
+  },
+  'utkata-konasana': {
+    label: 'उत्कट कोणासन · UTKATA KONASANA · Goddess Pose',
+    viewBox: '0 0 400 560',
+    matY: 510,
+    viewType: 'front',
+    steps: [
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:140,y:195}, elbow_R:{x:260,y:195}, wrist_L:{x:165,y:270}, wrist_R:{x:235,y:270}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:130,y:394}, knee_R:{x:270,y:394}, ankle_L:{x:90,y:502}, ankle_R:{x:310,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:5,ty:0,scale:1.06} },
+      { head:{x:200,y:125}, shoulder_L:{x:155,y:170}, shoulder_R:{x:245,y:170}, elbow_L:{x:140,y:225}, elbow_R:{x:260,y:225}, wrist_L:{x:165,y:295}, wrist_R:{x:235,y:295}, hip_L:{x:170,y:315}, hip_R:{x:230,y:315}, knee_L:{x:90,y:395}, knee_R:{x:310,y:395}, ankle_L:{x:90,y:502}, ankle_R:{x:310,y:502}, mid_spine:{x:200,y:242}, isHoldStep:false, altShift:{tx:0,ty:5,scale:1.07} },
+      { head:{x:200,y:125}, shoulder_L:{x:155,y:170}, shoulder_R:{x:245,y:170}, elbow_L:{x:95,y:170}, elbow_R:{x:305,y:170}, wrist_L:{x:95,y:95}, wrist_R:{x:305,y:95}, hip_L:{x:170,y:315}, hip_R:{x:230,y:315}, knee_L:{x:90,y:395}, knee_R:{x:310,y:395}, ankle_L:{x:90,y:502}, ankle_R:{x:310,y:502}, mid_spine:{x:200,y:242}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.08} },
+      { head:{x:200,y:125}, shoulder_L:{x:155,y:170}, shoulder_R:{x:245,y:170}, elbow_L:{x:95,y:170}, elbow_R:{x:305,y:170}, wrist_L:{x:95,y:95}, wrist_R:{x:305,y:95}, hip_L:{x:170,y:315}, hip_R:{x:230,y:315}, knee_L:{x:90,y:395}, knee_R:{x:310,y:395}, ankle_L:{x:90,y:502}, ankle_R:{x:310,y:502}, mid_spine:{x:200,y:242}, isHoldStep:true, altShift:{tx:-10,ty:0,scale:1.1} },
+      { head:{x:200,y:74}, shoulder_L:{x:152,y:140}, shoulder_R:{x:248,y:140}, elbow_L:{x:150,y:202}, elbow_R:{x:250,y:202}, wrist_L:{x:148,y:266}, wrist_R:{x:252,y:266}, hip_L:{x:170,y:292}, hip_R:{x:230,y:292}, knee_L:{x:168,y:394}, knee_R:{x:232,y:394}, ankle_L:{x:166,y:502}, ankle_R:{x:234,y:502}, mid_spine:{x:200,y:218}, isHoldStep:false, altShift:{tx:0,ty:0,scale:1.06} },
+    ]
   }
 };
 

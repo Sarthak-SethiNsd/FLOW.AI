@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0821"/>
+      <stop offset="100%" stop-color="#130d24"/>
+    </linearGradient>
+    <radialGradient id="amb" cx="50%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pose-line { animation: posePulse 3s ease-in-out infinite; }
+      @keyframes posePulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.82; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+  <rect width="400" height="560" fill="url(#amb)"/>
+
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#7c3aed">
+    <circle cx="67" cy="140" r="1.2"/><circle cx="133" cy="140" r="1.2"/>
+    <circle cx="200" cy="140" r="1.2"/><circle cx="267" cy="140" r="1.2"/>
+    <circle cx="333" cy="140" r="1.2"/>
+    <circle cx="67" cy="280" r="1.2"/><circle cx="133" cy="280" r="1.2"/>
+    <circle cx="200" cy="280" r="1.2"/><circle cx="267" cy="280" r="1.2"/>
+    <circle cx="333" cy="280" r="1.2"/>
+    <circle cx="67" cy="420" r="1.2"/><circle cx="133" cy="420" r="1.2"/>
+    <circle cx="200" cy="420" r="1.2"/><circle cx="267" cy="420" r="1.2"/>
+    <circle cx="333" cy="420" r="1.2"/>
+  </g>
+
+  <!-- Mat -->
+  <rect x="40" y="496" width="320" height="14" rx="7" fill="#3b0764" stroke="#7c3aed" stroke-width="0.8" opacity="0.9"/>
+
+  <!-- Stick figure: Utkata Konasana (Goddess Pose - front view, wide squat + cactus arms) -->
+  <g filter="url(#glow)" class="pose-line">
+
+    <!-- Right leg (back leg, darker violet): hip to wide knee, knee down to wide ankle -->
+    <line x1="230" y1="315" x2="310" y2="395" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+    <line x1="310" y1="395" x2="310" y2="502" stroke="#4c1d95" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Left leg (front leg, bright violet): hip to wide knee, knee down to wide ankle -->
+    <line x1="170" y1="315" x2="90" y2="395" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round"/>
+    <line x1="90" y1="395" x2="90" y2="502" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Pelvic / Hip bar -->
+    <line x1="170" y1="315" x2="230" y2="315" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="200" cy="315" r="5" fill="#7c3aed"/>
+
+    <!-- Spine / Torso (upright from hips to shoulders) -->
+    <path d="M200 315 Q200 240 200 170" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Shoulders -->
+    <line x1="155" y1="170" x2="245" y2="170" stroke="#9f7aea" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Right Arm (Cactus: shoulder out to elbow, elbow up to wrist/hand) -->
+    <line x1="245" y1="170" x2="305" y2="170" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="305" y1="170" x2="305" y2="95" stroke="#5b21b6" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Left Arm (Cactus: shoulder out to elbow, elbow up to wrist/hand) -->
+    <line x1="155" y1="170" x2="95" y2="170" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+    <line x1="95" y1="170" x2="95" y2="95" stroke="#c4b5fd" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Neck and head -->
+    <line x1="200" y1="170" x2="200" y2="148" stroke="#c4b5fd" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="200" cy="125" r="23" fill="#0d0821" stroke="#c4b5fd" stroke-width="3"/>
+
+    <!-- Joint nodes -->
+    <circle cx="200" cy="315" r="4.5" fill="#a78bfa"/>
+    <circle cx="90" cy="395" r="4.5" fill="#a78bfa"/>
+    <circle cx="90" cy="502" r="4.5" fill="#a78bfa"/>
+    <circle cx="310" cy="395" r="4.5" fill="#a78bfa"/>
+    <circle cx="310" cy="502" r="4.5" fill="#a78bfa"/>
+    <circle cx="155" cy="170" r="4.5" fill="#a78bfa"/>
+    <circle cx="95" cy="170" r="4.5" fill="#a78bfa"/>
+    <circle cx="95" cy="95" r="4.5" fill="#a78bfa"/>
+    <circle cx="245" cy="170" r="4.5" fill="#a78bfa"/>
+    <circle cx="305" cy="170" r="4.5" fill="#a78bfa"/>
+    <circle cx="305" cy="95" r="4.5" fill="#a78bfa"/>
+
+    <!-- Label -->
+    <text x="200" y="46" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#a78bfa" opacity="0.9" font-weight="500">उत्कट कोणासन · UTKATA KONASANA</text>
+    <text x="200" y="66" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7c3aed" opacity="0.8">Goddess Pose</text>
+  </g>
+</svg>
