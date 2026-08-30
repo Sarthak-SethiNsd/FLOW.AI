@@ -134,4 +134,67 @@ npm start
 
 - The webcam feed is processed **entirely on your device** using WebAssembly.
 - No video, images, or body tracking data is ever uploaded to any server.
-- No login or account is required.
+- No login or account is required to use any yoga feature.
+
+---
+
+## 🔑 Firebase Authentication
+
+Firebase Authentication has been added as the **authentication foundation for the upcoming AI chatbot**. It is not required for any existing yoga functionality.
+
+### What This Means
+
+| Feature | Requires Sign-In? |
+|---|---|
+| Browse all 25 yoga poses | ❌ No |
+| Watch & Learn Mode | ❌ No |
+| Practice Mode (real-time pose detection) | ❌ No |
+| English / Hindi language switching | ❌ No |
+| AI Chatbot *(coming soon)* | ✅ Yes |
+
+### Authentication Method
+
+**Google Sign-In** (OAuth popup) — no separate FLOW.AI account is needed.
+
+### Architecture
+
+```
+FLOW.AI UI
+    ↓
+useAuth() hook  ←  AuthContext (src/context/AuthContext.js)
+    ↓
+Firebase Authentication (client-side SDK)
+```
+
+Future chatbot integration will call `useAuth()` and check `isAuthenticated` without touching Firebase directly.
+
+### Required Environment Variables
+
+Add these to your `.env.local` file (see `.env.example` for the template):
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase Web API Key |
+| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase Auth Domain |
+| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase Project ID |
+| `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` | Firebase Storage Bucket |
+| `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` | Firebase Messaging Sender ID |
+| `NEXT_PUBLIC_FIREBASE_APP_ID` | Firebase Web App ID |
+
+### Firebase Console Setup
+
+1. Go to [Firebase Console](https://console.firebase.google.com/) → create or open your project
+2. **Authentication** → **Sign-in method** → Enable **Google** → Save
+3. **Project Settings** → **Your apps** → Web app → copy the `firebaseConfig` object
+4. Paste each value into `.env.local`
+5. **Authentication** → **Settings** → **Authorized domains** → add `localhost` (dev) and your production domain
+
+### Enabling the Chatbot
+
+Once Firebase is configured and a Groq API key is added, set in `.env.local`:
+
+```bash
+NEXT_PUBLIC_ENABLE_AI_ASSISTANT=true
+```
+
+Unauthenticated users will see a "Sign in with Google" prompt when they click the chatbot button. Authenticated users will get full chatbot access.

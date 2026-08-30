@@ -1,12 +1,21 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Activity } from 'lucide-react';
+import { Activity, LogIn, LogOut } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Header({ cameraConnected = false, cameraActive = false }) {
   const { language, setLanguage, t } = useLanguage();
+  const { user, loading, isAuthenticated, signIn, signOut } = useAuth();
+  const [signingIn, setSigningIn] = useState(false);
+
+  const handleSignIn = async () => {
+    setSigningIn(true);
+    await signIn();
+    setSigningIn(false);
+  };
 
   return (
     <header className="flex items-center justify-between px-4 md:px-8 py-3.5 bg-[#161b22] border-b border-[#30363d] select-none">
@@ -52,6 +61,46 @@ export default function Header({ cameraConnected = false, cameraActive = false }
             हिन्दी
           </button>
         </div>
+
+        {/* Auth Button — only renders after Firebase has resolved auth state */}
+        {!loading && (
+          isAuthenticated ? (
+            /* Signed-in: avatar initial + sign-out */
+            <div className="flex items-center space-x-2">
+              {/* User avatar chip */}
+              <div
+                className="w-7 h-7 rounded-full bg-flow-green/20 border border-flow-green/40 flex items-center justify-center text-xs font-bold text-flow-green uppercase"
+                title={`${t('authUserLabel')}: ${user?.displayName || user?.email || ''}`}
+              >
+                {(user?.displayName || user?.email || '?').charAt(0)}
+              </div>
+              {/* Sign-out button */}
+              <button
+                onClick={signOut}
+                className="flex items-center space-x-1 bg-[#21262d] px-2.5 py-1 rounded-full border border-[#30363d] text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-all"
+                aria-label={t('signOut')}
+                title={t('signOut')}
+              >
+                <LogOut className="w-3 h-3" />
+                <span className="hidden sm:inline">{t('signOut')}</span>
+              </button>
+            </div>
+          ) : (
+            /* Signed-out: sign-in button */
+            <button
+              onClick={handleSignIn}
+              disabled={signingIn}
+              className="flex items-center space-x-1.5 bg-[#21262d] px-2.5 py-1 rounded-full border border-[#30363d] text-xs text-gray-400 hover:text-white hover:border-gray-500 transition-all disabled:opacity-50 disabled:pointer-events-none"
+              aria-label={t('signIn')}
+              title={t('signIn')}
+            >
+              <LogIn className="w-3 h-3" />
+              <span className="hidden sm:inline">
+                {signingIn ? t('signingIn') : t('signIn')}
+              </span>
+            </button>
+          )
+        )}
 
         {/* Camera Status Indicator */}
         {cameraActive ? (

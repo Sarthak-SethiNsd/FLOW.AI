@@ -157,7 +157,15 @@ export const UI_TRANSLATIONS = {
     // Difficulties
     difficultyBeginner: "Beginner",
     difficultyIntermediate: "Intermediate",
-    difficultyAdvanced: "Advanced"
+    difficultyAdvanced: "Advanced",
+
+    // Authentication (Firebase — chatbot access gate)
+    signIn: "Sign in with Google",
+    signOut: "Sign out",
+    signingIn: "Signing in…",
+    authRequiredTitle: "Sign in required",
+    authRequiredDesc: "Sign in with Google to access the AI yoga assistant.",
+    authUserLabel: "Signed in as",
   },
   hi: {
     // Header & Nav
@@ -311,6 +319,14 @@ export const UI_TRANSLATIONS = {
     // Difficulties
     difficultyBeginner: "शुरुआती",
     difficultyIntermediate: "मध्यम",
-    difficultyAdvanced: "उन्नत"
+    difficultyAdvanced: "उन्नत",
+
+    // Authentication (Firebase — chatbot access gate)
+    signIn: "Google से साइन इन करें",
+    signOut: "साइन आउट करें",
+    signingIn: "साइन इन हो रहा है…",
+    authRequiredTitle: "साइन इन आवश्यक",
+    authRequiredDesc: "AI योग सहायक तक पहुँचने के लिए Google से साइन इन करें।",
+    authUserLabel: "साइन इन किया है",
   }
 };
