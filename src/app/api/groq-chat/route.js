@@ -7,10 +7,18 @@ export async function POST(request) {
     const { message, history = [], asanaContext = null } = await request.json();
 
     const apiKey = process.env.GROQ_API_KEY;
+    // Model is configurable via GROQ_MODEL env var.
+    // Intended value: openai/gpt-oss-20b
+    const model = process.env.GROQ_MODEL;
     const isAssistantEnabled = process.env.NEXT_PUBLIC_ENABLE_AI_ASSISTANT === 'true';
 
-    if (!isAssistantEnabled || !apiKey || apiKey === 'gsk_placeholder_key') {
+    if (!isAssistantEnabled || !apiKey) {
       return NextResponse.json({ error: 'AI Assistant is not active' }, { status: 403 });
+    }
+
+    if (!model) {
+      console.error('[groq-chat] GROQ_MODEL environment variable is not set.');
+      return NextResponse.json({ error: 'AI model is not configured' }, { status: 503 });
     }
 
     // Attempt to read custom system prompt from private file prompts/yoga_coach_system_prompt.txt
@@ -50,7 +58,7 @@ export async function POST(request) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama-3.1-8b-instant',
+        model,           // Reads from GROQ_MODEL env var — intended: openai/gpt-oss-20b
         messages: formattedMessages,
         temperature: 0.7,
         max_tokens: 500

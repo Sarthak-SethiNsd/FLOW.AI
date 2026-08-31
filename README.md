@@ -198,3 +198,59 @@ NEXT_PUBLIC_ENABLE_AI_ASSISTANT=true
 ```
 
 Unauthenticated users will see a "Sign in with Google" prompt when they click the chatbot button. Authenticated users will get full chatbot access.
+
+---
+
+## 🤖 AI Yoga Chatbot — Groq Configuration
+
+The FLOW.AI chatbot is powered by **Groq** using the **GPT-OSS 20B** model.
+
+### Model
+
+| Setting | Value |
+|---|---|
+| Provider | Groq |
+| Model | GPT-OSS 20B |
+| Model identifier | `openai/gpt-oss-20b` |
+| Configured via | `GROQ_MODEL` environment variable |
+
+### Required Environment Variables
+
+| Variable | Secret? | Description |
+|---|---|---|
+| `GROQ_API_KEY` | ✅ **Yes — never commit** | Your Groq API key from [console.groq.com](https://console.groq.com) |
+| `GROQ_MODEL` | No | Model identifier — set to `openai/gpt-oss-20b` |
+
+### Security Rules for `GROQ_API_KEY`
+
+- **Never** prefix it with `NEXT_PUBLIC_` — that exposes it to every browser visitor
+- **Never** hard-code it in any source file
+- **Never** commit it to Git (`.env*` is already gitignored)
+- The key is read **only** inside the server-side Route Handler at `src/app/api/groq-chat/route.js`
+- The browser never receives the key — it only calls `/api/groq-chat`
+
+### Server-Side Architecture
+
+```
+Browser (Chatbot UI)
+    │  POST /api/groq-chat  { message, history }
+    ▼
+Next.js Route Handler — src/app/api/groq-chat/route.js  (server only)
+    │  reads GROQ_API_KEY and GROQ_MODEL from environment
+    ▼
+Groq API  →  openai/gpt-oss-20b
+    │
+    ▼
+{ reply }  →  Browser
+```
+
+### Enabling the Chatbot
+
+Once Firebase is configured, add your Groq key, and set:
+
+```bash
+# In .env.local
+GROQ_API_KEY=          # ← paste your real key here (never commit)
+GROQ_MODEL=openai/gpt-oss-20b
+NEXT_PUBLIC_ENABLE_AI_ASSISTANT=true
+```
