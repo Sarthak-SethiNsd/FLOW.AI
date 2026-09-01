@@ -150,7 +150,7 @@ Firebase Authentication has been added as the **authentication foundation for th
 | Watch & Learn Mode | ❌ No |
 | Practice Mode (real-time pose detection) | ❌ No |
 | English / Hindi language switching | ❌ No |
-| AI Chatbot *(coming soon)* | ✅ Yes |
+| AI Chatbot | ✅ Yes |
 
 ### Authentication Method
 

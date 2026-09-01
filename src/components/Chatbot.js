@@ -17,7 +17,7 @@ export default function Chatbot({ asanaContext = null }) {
   // isAuthenticated: false  → show sign-in prompt when user clicks the button
   // loading: true           → suppress the button entirely (no flicker)
   // -------------------------------------------------------------------------
-  const { isAuthenticated, loading: authLoading, signIn } = useAuth();
+  const { user, isAuthenticated, loading: authLoading, signIn } = useAuth();
   const { t } = useLanguage();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +57,7 @@ export default function Chatbot({ asanaContext = null }) {
   // -------------------------------------------------------------------------
   const handleSend = async (e) => {
     e.preventDefault();
-    if (!inputValue.trim() || isLoading) return;
+    if (!inputValue.trim() || isLoading || !isAuthenticated || !user) return;
 
     const userMessage = { role: 'user', content: inputValue };
     setMessages(prev => [...prev, userMessage]);
@@ -65,11 +65,29 @@ export default function Chatbot({ asanaContext = null }) {
     setIsLoading(true);
 
     try {
+      let token = '';
+      try {
+        if (user && typeof user.getIdToken === 'function') {
+          token = await user.getIdToken();
+        }
+      } catch (tokenErr) {
+        console.error('Failed to retrieve Firebase auth token:', tokenErr);
+      }
+
+      if (!token) {
+        setMessages(prev => [...prev, { role: 'assistant', content: t('authRequiredDesc') || 'Please sign in with Google to continue.' }]);
+        setIsLoading(false);
+        return;
+      }
+
       const history = messages.map(msg => ({ role: msg.role, content: msg.content }));
       
       const response = await fetch('/api/groq-chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({
           message: userMessage.content,
           history,
