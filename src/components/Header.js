@@ -65,15 +65,21 @@ export default function Header({ cameraConnected = false, cameraActive = false }
         {/* Auth Button — only renders after Firebase has resolved auth state */}
         {!loading && (
           isAuthenticated ? (
-            /* Signed-in: avatar initial + sign-out */
+            /* Signed-in: avatar initial + email + sign-out */
             <div className="flex items-center space-x-2">
               {/* User avatar chip */}
               <div
-                className="w-7 h-7 rounded-full bg-flow-green/20 border border-flow-green/40 flex items-center justify-center text-xs font-bold text-flow-green uppercase"
+                className="w-7 h-7 rounded-full bg-flow-green/20 border border-flow-green/40 flex items-center justify-center text-xs font-bold text-flow-green uppercase flex-shrink-0"
                 title={`${t('authUserLabel')}: ${user?.displayName || user?.email || ''}`}
               >
                 {(user?.displayName || user?.email || '?').charAt(0)}
               </div>
+              {/* Signed-in email — visible on sm+ screens, sourced from Firebase user object */}
+              {user?.email && (
+                <span className="hidden sm:inline text-xs text-gray-300 max-w-[140px] truncate" title={user.email}>
+                  {user.email}
+                </span>
+              )}
               {/* Sign-out button */}
               <button
                 onClick={signOut}
