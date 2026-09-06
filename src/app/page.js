@@ -64,7 +64,7 @@ export default function HomePage() {
       <footer className="bg-[#161b22] border-t border-[#30363d] px-8 py-6 text-center text-xs text-gray-500">
         <p>&copy; {new Date().getFullYear()} {t('footerText')}</p>
       </footer>
-      <Chatbot />
+      <Chatbot variant="pill" />
     </div>
   );
 }

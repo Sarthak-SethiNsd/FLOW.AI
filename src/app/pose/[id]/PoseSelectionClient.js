@@ -96,7 +96,7 @@ export default function PoseSelectionClient({ rawAsana }) {
       </footer>
 
       {/* Chatbot */}
-      <Chatbot />
+      <Chatbot variant="pill" />
     </div>
   );
 }

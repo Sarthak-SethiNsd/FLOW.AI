@@ -144,6 +144,8 @@ export const UI_TRANSLATIONS = {
     presetPrompt1: "How does Tadasana help?",
     presetPrompt2: "Tips for beginner yoga",
     presetPrompt3: "Safety precautions",
+    chatbotPillLabel: "Chat with FLOW.AI",
+    chatbotPillTooltip: "Click here to chat with the FLOW.AI Assistant",
 
     // Joint Labels
     jointHeadNeck: "Head / Neck",
@@ -306,6 +308,8 @@ export const UI_TRANSLATIONS = {
     presetPrompt1: "ताड़ासन कैसे मदद करता है?",
     presetPrompt2: "शुरुआती योग के लिए सुझाव",
     presetPrompt3: "सुरक्षा सावधानियां",
+    chatbotPillLabel: "FLOW.AI से चैट करें",
+    chatbotPillTooltip: "FLOW.AI सहायक से चैट करने के लिए यहाँ क्लिक करें",
 
     // Joint Labels
     jointHeadNeck: "सिर / गर्दन",

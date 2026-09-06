@@ -95,7 +95,7 @@ export default function AboutPage() {
         <p>&copy; {new Date().getFullYear()} {t('footerText')}</p>
       </footer>
 
-      <Chatbot />
+      <Chatbot variant="pill" />
     </div>
   );
 }

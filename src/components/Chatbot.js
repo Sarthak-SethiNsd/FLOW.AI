@@ -1,11 +1,11 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Loader2, LogIn } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
 
-export default function Chatbot({ asanaContext = null }) {
+export default function Chatbot({ asanaContext = null, variant = 'floating' }) {
   // -------------------------------------------------------------------------
   // Feature flag — existing gate, unchanged.
   // The chatbot UI only mounts at all when this env var is 'true'.
@@ -111,7 +111,136 @@ export default function Chatbot({ asanaContext = null }) {
   };
 
   // -------------------------------------------------------------------------
-  // Render — auth gate determines what the open panel shows
+  // Variant: 'pill' — labeled trigger + wider comfortable panel
+  // Used on: Home (/), About (/about), Asana Selection (/pose/[id])
+  // -------------------------------------------------------------------------
+  if (variant === 'pill') {
+    return (
+      <div className="fixed bottom-6 right-4 sm:right-6 z-40 select-text flex flex-col items-end">
+
+        {/* Pill Trigger — visible when panel is closed */}
+        {!isOpen && (
+          <button
+            onClick={() => setIsOpen(true)}
+            className="inline-flex items-center space-x-2.5 px-4 py-2.5 rounded-full bg-[#161b22] border border-flow-green/40 text-flow-green text-sm font-semibold shadow-lg hover:bg-[#21262d] hover:border-flow-green hover:shadow-[0_0_12px_rgba(46,164,79,0.25)] transition duration-200"
+            title={t('chatbotPillTooltip')}
+            aria-label={t('chatbotPillLabel')}
+          >
+            <span className="w-2 h-2 rounded-full bg-flow-green animate-pulse flex-shrink-0" />
+            <span>{t('chatbotPillLabel')}</span>
+            <MessageSquare className="w-4 h-4 flex-shrink-0" />
+          </button>
+        )}
+
+        {/* Open panel — wider and taller than floating variant */}
+        {isOpen && (
+          <div className="w-96 max-w-[calc(100vw-2rem)] bg-[#161b22] border border-[#30363d] rounded-xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+
+            {/* Panel header */}
+            <div className="bg-[#21262d] border-b border-[#30363d] px-4 py-3 flex items-center justify-between flex-shrink-0">
+              <div className="flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse" />
+                <span className="text-xs font-bold text-white tracking-wide uppercase">
+                  {t('chatbotHeaderTitle')}
+                </span>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-gray-400 hover:text-white transition"
+                aria-label="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Auth gate — unauthenticated users see sign-in prompt */}
+            {!isAuthenticated ? (
+              <div className="p-6 flex flex-col items-center space-y-4 text-center">
+                <div className="w-10 h-10 rounded-full bg-flow-green/10 border border-flow-green/30 flex items-center justify-center">
+                  <LogIn className="w-5 h-5 text-flow-green" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white mb-1">
+                    {t('authRequiredTitle')}
+                  </p>
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    {t('authRequiredDesc')}
+                  </p>
+                </div>
+                <button
+                  onClick={handleSignIn}
+                  disabled={signingIn}
+                  className="w-full py-2.5 rounded-lg text-xs font-semibold bg-flow-green text-white hover:bg-flow-green-hover transition disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center space-x-2"
+                >
+                  {signingIn ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>{t('signingIn')}</span>
+                    </>
+                  ) : (
+                    <>
+                      <LogIn className="w-3.5 h-3.5" />
+                      <span>{t('signIn')}</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+            ) : (
+              /* Authenticated — full chat interface */
+              <>
+                {/* Message list — taller than floating variant */}
+                <div className="h-80 p-4 overflow-y-auto space-y-3 text-xs flex flex-col scrollbar-thin">
+                  {messages.map((msg, index) => (
+                    <div
+                      key={index}
+                      className={`max-w-[80%] px-3 py-2.5 rounded-lg leading-relaxed ${
+                        msg.role === 'user'
+                          ? 'bg-flow-green/20 text-white border border-flow-green/25 self-end rounded-br-none'
+                          : 'bg-[#21262d] text-gray-300 border border-[#30363d] self-start rounded-bl-none'
+                      }`}
+                    >
+                      {msg.content}
+                    </div>
+                  ))}
+                  {isLoading && (
+                    <div className="bg-[#21262d] text-gray-400 border border-[#30363d] max-w-[80%] px-3 py-2.5 rounded-lg rounded-bl-none self-start flex items-center space-x-1">
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-flow-green" />
+                      <span>{t('chatbotAnalyzing')}</span>
+                    </div>
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input form */}
+                <form onSubmit={handleSend} className="p-3 bg-[#21262d] border-t border-[#30363d] flex items-center space-x-2 flex-shrink-0">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder={t('chatbotPlaceholder')}
+                    className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition"
+                    disabled={isLoading}
+                  />
+                  <button
+                    type="submit"
+                    disabled={!inputValue.trim() || isLoading}
+                    className="p-2 rounded-lg bg-flow-green text-white hover:bg-flow-green-hover transition disabled:opacity-40 disabled:pointer-events-none"
+                  >
+                    <Send className="w-3.5 h-3.5 fill-white" />
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // -------------------------------------------------------------------------
+  // Variant: 'floating' (default) — original behavior, 100% unchanged
+  // Used on: Watch & Learn (/pose/[id]/watch), Practice (/pose/[id]/practice)
   // -------------------------------------------------------------------------
   return (
     <div className="fixed bottom-24 right-6 z-40 select-text">
