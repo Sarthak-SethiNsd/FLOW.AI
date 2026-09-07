@@ -5,7 +5,7 @@ import { MessageSquare, X, Send, Loader2, LogIn } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
 
-export default function Chatbot({ asanaContext = null, variant = 'floating', positionClass = '' }) {
+export default function Chatbot({ asanaContext = null, variant = 'floating', positionClass = '', initialOpen = false }) {
   // -------------------------------------------------------------------------
   // Feature flag — existing gate, unchanged.
   // The chatbot UI only mounts at all when this env var is 'true'.
@@ -20,7 +20,7 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
   const { user, isAuthenticated, loading: authLoading, signIn } = useAuth();
   const { t } = useLanguage();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(initialOpen);
   const [signingIn, setSigningIn] = useState(false);
   const [messages, setMessages] = useState([
     { role: 'assistant', content: t('chatbotWelcome') }
