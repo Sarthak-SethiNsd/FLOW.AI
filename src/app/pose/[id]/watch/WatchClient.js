@@ -204,8 +204,8 @@ export default function WatchClient({ asana }) {
       <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
 
         {/* Left: Canvas */}
-        <div className="h-[55vh] md:flex-1 md:h-auto p-4 md:p-5 flex flex-col relative bg-background">
-          <div className="relative w-full h-full rounded-xl overflow-hidden bg-panel border border-border-dark flex items-center justify-center shadow-2xl">
+        <div className="h-[45vh] sm:h-[50vh] md:h-auto md:flex-1 p-3 sm:p-4 md:p-5 flex flex-col justify-center items-center relative bg-background flex-shrink-0">
+          <div className="relative w-full h-full max-w-4xl xl:max-w-5xl rounded-xl overflow-hidden bg-panel border border-border-dark flex items-center justify-center shadow-2xl">
 
             {/* 2D Vector Stickman SVG */}
             <div className="absolute inset-0 z-0 flex items-center justify-center p-6">
@@ -245,8 +245,10 @@ export default function WatchClient({ asana }) {
         </div>
 
         {/* Right: Sidebar */}
-        <div className="w-full md:w-[22rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
-          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+        <div className="w-full md:w-[24rem] lg:w-[26rem] xl:w-[28rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
+          {/* Inner wrapper: relative so Chatbot workspace can absolutely fill this area */}
+          <div className="flex-1 flex flex-col relative overflow-hidden min-h-0">
+            <div className="flex-1 overflow-y-auto p-5 space-y-4 pb-16">
 
             {/* Pose Title */}
             <div>
@@ -384,8 +386,20 @@ export default function WatchClient({ asana }) {
                 ))}
               </div>
             </div>
-
           </div>
+
+          {/* FLOW.AI Assistant — workspace variant fills this relative container */}
+          <Chatbot
+            variant="workspace"
+            asanaContext={{
+              name: localizedAsana.name,
+              sanskrit: localizedAsana.sanskrit,
+              currentStep: stepIndex + 1,
+              totalSteps: steps.length,
+              instruction: currentStep.instruction,
+            }}
+          />
+        </div>
 
           {/* Footer Navigation */}
           <div className="border-t border-border-dark px-5 py-4 flex-shrink-0 flex items-center justify-between bg-panel">
@@ -413,16 +427,6 @@ export default function WatchClient({ asana }) {
           </div>
         </div>
       </main>
-
-      <Chatbot
-        asanaContext={{
-          name: localizedAsana.name,
-          sanskrit: localizedAsana.sanskrit,
-          currentStep: stepIndex + 1,
-          totalSteps: steps.length,
-          instruction: currentStep.instruction,
-        }}
-      />
     </div>
   );
 }

@@ -1,11 +1,11 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Loader2, LogIn } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
 
-export default function Chatbot({ asanaContext = null, variant = 'floating' }) {
+export default function Chatbot({ asanaContext = null, variant = 'floating', positionClass = '' }) {
   // -------------------------------------------------------------------------
   // Feature flag — existing gate, unchanged.
   // The chatbot UI only mounts at all when this env var is 'true'.
@@ -239,8 +239,152 @@ export default function Chatbot({ asanaContext = null, variant = 'floating' }) {
   }
 
   // -------------------------------------------------------------------------
-  // Variant: 'floating' (default) — original behavior, 100% unchanged
+  // Variant: 'workspace' — inline panel that fills its parent container
   // Used on: Watch & Learn (/pose/[id]/watch), Practice (/pose/[id]/practice)
+  // Parent must have: position: relative, overflow-hidden, and adequate height.
+  // -------------------------------------------------------------------------
+  if (variant === 'workspace') {
+    return (
+      <>
+        {/* Closed state — pill trigger pinned at the bottom of the workspace */}
+        {!isOpen && (
+          <div className="absolute bottom-0 left-0 right-0 z-20 px-4 py-3 bg-panel border-t border-border-dark flex items-center justify-between flex-shrink-0">
+            <div className="flex items-center space-x-2 text-xs text-gray-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse flex-shrink-0" />
+              <span className="uppercase tracking-wider font-semibold">{t('chatbotHeaderTitle')}</span>
+            </div>
+            <button
+              onClick={() => setIsOpen(true)}
+              className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-[#0d1117] border border-flow-green/40 text-flow-green text-xs font-semibold shadow hover:bg-[#21262d] hover:border-flow-green hover:shadow-[0_0_10px_rgba(46,164,79,0.2)] transition duration-200"
+              title={t('chatbotPillTooltip')}
+              aria-label={t('chatbotPillLabel')}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse flex-shrink-0" />
+              <span>{t('chatbotPillLabel')}</span>
+              <MessageSquare className="w-3.5 h-3.5 flex-shrink-0" />
+            </button>
+          </div>
+        )}
+
+        {/* Open state — fills the parent container via absolute inset-0 */}
+        {isOpen && (
+          <div className="absolute inset-0 z-20 bg-panel flex flex-col overflow-hidden animate-in fade-in duration-200">
+
+            {/* Panel header */}
+            <div className="bg-[#0d1117] border-b border-[#30363d] px-4 py-3 flex items-center justify-between flex-shrink-0">
+              <div className="flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse" />
+                <span className="text-xs font-bold text-white tracking-wide uppercase">{t('chatbotHeaderTitle')}</span>
+                {asanaContext?.name && (
+                  <span className="text-[10px] text-gray-400 font-medium bg-[#21262d] px-2 py-0.5 rounded border border-[#30363d]">
+                    {asanaContext.name}
+                  </span>
+                )}
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-gray-400 hover:text-white transition"
+                aria-label="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Context strip — current step info */}
+            {asanaContext?.instruction && (
+              <div className="px-4 py-2 bg-flow-green/5 border-b border-[#30363d] flex-shrink-0">
+                <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-0.5">
+                  {asanaContext.currentStep && asanaContext.totalSteps
+                    ? `Step ${asanaContext.currentStep} of ${asanaContext.totalSteps}`
+                    : 'Current Step'}
+                </p>
+                <p className="text-xs text-gray-300 leading-relaxed line-clamp-2">{asanaContext.instruction}</p>
+              </div>
+            )}
+
+            {/* Auth gate — unauthenticated users see sign-in prompt */}
+            {!isAuthenticated ? (
+              <div className="flex-1 p-6 flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="w-10 h-10 rounded-full bg-flow-green/10 border border-flow-green/30 flex items-center justify-center">
+                  <LogIn className="w-5 h-5 text-flow-green" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white mb-1">{t('authRequiredTitle')}</p>
+                  <p className="text-xs text-gray-400 leading-relaxed">{t('authRequiredDesc')}</p>
+                </div>
+                <button
+                  onClick={handleSignIn}
+                  disabled={signingIn}
+                  className="w-full max-w-xs py-2.5 rounded-lg text-xs font-semibold bg-flow-green text-white hover:bg-flow-green-hover transition disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center space-x-2"
+                >
+                  {signingIn ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>{t('signingIn')}</span>
+                    </>
+                  ) : (
+                    <>
+                      <LogIn className="w-3.5 h-3.5" />
+                      <span>{t('signIn')}</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+            ) : (
+              /* Authenticated — full chat interface */
+              <>
+                {/* Message list — fills remaining vertical space */}
+                <div className="flex-1 p-4 overflow-y-auto space-y-3 text-xs flex flex-col scrollbar-thin min-h-0">
+                  {messages.map((msg, index) => (
+                    <div
+                      key={index}
+                      className={`max-w-[85%] px-3 py-2.5 rounded-lg leading-relaxed ${
+                        msg.role === 'user'
+                          ? 'bg-flow-green/20 text-white border border-flow-green/25 self-end rounded-br-none'
+                          : 'bg-[#21262d] text-gray-300 border border-[#30363d] self-start rounded-bl-none'
+                      }`}
+                    >
+                      {msg.content}
+                    </div>
+                  ))}
+                  {isLoading && (
+                    <div className="bg-[#21262d] text-gray-400 border border-[#30363d] max-w-[80%] px-3 py-2.5 rounded-lg rounded-bl-none self-start flex items-center space-x-1">
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-flow-green" />
+                      <span>{t('chatbotAnalyzing')}</span>
+                    </div>
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input form */}
+                <form onSubmit={handleSend} className="p-3 bg-[#21262d] border-t border-[#30363d] flex items-center space-x-2 flex-shrink-0">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder={t('chatbotPlaceholder')}
+                    className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition"
+                    disabled={isLoading}
+                  />
+                  <button
+                    type="submit"
+                    disabled={!inputValue.trim() || isLoading}
+                    className="p-2 rounded-lg bg-flow-green text-white hover:bg-flow-green-hover transition disabled:opacity-40 disabled:pointer-events-none"
+                  >
+                    <Send className="w-3.5 h-3.5 fill-white" />
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        )}
+      </>
+    );
+  }
+
+  // -------------------------------------------------------------------------
+  // Variant: 'floating' (default) — original behavior, legacy fallback
   // -------------------------------------------------------------------------
   return (
     <div className="fixed bottom-24 right-6 z-40 select-text">
