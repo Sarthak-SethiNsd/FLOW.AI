@@ -239,70 +239,104 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
   }
 
   // -------------------------------------------------------------------------
-  // Variant: 'workspace' — inline panel that fills its parent container
+  // Variant: 'workspace' — true embedded right-side workspace
   // Used on: Watch & Learn (/pose/[id]/watch), Practice (/pose/[id]/practice)
-  // Parent must have: position: relative, overflow-hidden, and adequate height.
+  // Behaves like: width: 100%; height: 100%; position: relative;
   // -------------------------------------------------------------------------
   if (variant === 'workspace') {
     return (
-      <>
-        {/* Closed state — pill trigger pinned at the bottom of the workspace */}
-        {!isOpen && (
-          <div className="absolute bottom-0 left-0 right-0 z-20 px-4 py-3 bg-panel border-t border-border-dark flex items-center justify-between flex-shrink-0">
-            <div className="flex items-center space-x-2 text-xs text-gray-500">
-              <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse flex-shrink-0" />
-              <span className="uppercase tracking-wider font-semibold">{t('chatbotHeaderTitle')}</span>
-            </div>
+      <div className="w-full h-full flex flex-col relative bg-panel overflow-hidden">
+        {/* Workspace Header */}
+        <div className="bg-[#0d1117] border-b border-[#30363d] px-4 py-3 flex items-center justify-between flex-shrink-0">
+          <div className="flex items-center space-x-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse flex-shrink-0" />
+            <span className="text-xs font-bold text-white tracking-wide uppercase">{t('chatbotHeaderTitle')}</span>
+            {asanaContext?.name && (
+              <span className="text-[10px] text-gray-400 font-medium bg-[#21262d] px-2 py-0.5 rounded border border-[#30363d] truncate max-w-[130px]">
+                {asanaContext.name}
+              </span>
+            )}
+          </div>
+          {isOpen && (
             <button
-              onClick={() => setIsOpen(true)}
-              className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-[#0d1117] border border-flow-green/40 text-flow-green text-xs font-semibold shadow hover:bg-[#21262d] hover:border-flow-green hover:shadow-[0_0_10px_rgba(46,164,79,0.2)] transition duration-200"
-              title={t('chatbotPillTooltip')}
-              aria-label={t('chatbotPillLabel')}
+              onClick={() => setIsOpen(false)}
+              className="text-gray-400 hover:text-white transition p-1 rounded hover:bg-[#21262d]"
+              aria-label="Close"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse flex-shrink-0" />
-              <span>{t('chatbotPillLabel')}</span>
-              <MessageSquare className="w-3.5 h-3.5 flex-shrink-0" />
+              <X className="w-4 h-4" />
             </button>
+          )}
+        </div>
+
+        {/* Context strip — current step info */}
+        {asanaContext?.instruction && (
+          <div className="px-4 py-2 bg-flow-green/5 border-b border-[#30363d] flex-shrink-0">
+            <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-0.5">
+              {asanaContext.currentStep && asanaContext.totalSteps
+                ? `Step ${asanaContext.currentStep} of ${asanaContext.totalSteps}`
+                : 'Current Step'}
+            </p>
+            <p className="text-xs text-gray-300 leading-relaxed line-clamp-2">{asanaContext.instruction}</p>
           </div>
         )}
 
-        {/* Open state — fills the parent container via absolute inset-0 */}
-        {isOpen && (
-          <div className="absolute inset-0 z-20 bg-panel flex flex-col overflow-hidden animate-in fade-in duration-200">
-
-            {/* Panel header */}
-            <div className="bg-[#0d1117] border-b border-[#30363d] px-4 py-3 flex items-center justify-between flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-flow-green animate-pulse" />
-                <span className="text-xs font-bold text-white tracking-wide uppercase">{t('chatbotHeaderTitle')}</span>
-                {asanaContext?.name && (
-                  <span className="text-[10px] text-gray-400 font-medium bg-[#21262d] px-2 py-0.5 rounded border border-[#30363d]">
-                    {asanaContext.name}
-                  </span>
-                )}
+        {/* Workspace Body */}
+        {!isOpen ? (
+          /* CLOSED STATE — Dedicated Assistant Workspace View */
+          <div className="flex-1 p-4 sm:p-5 flex flex-col justify-between overflow-y-auto min-h-0">
+            <div className="space-y-4">
+              <div className="p-4 rounded-xl bg-[#0d1117] border border-border-dark space-y-2">
+                <div className="flex items-center space-x-2 text-flow-green">
+                  <MessageSquare className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase tracking-wider">AI Yoga Assistant</span>
+                </div>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  Have questions about alignment, breathing, or modifications for {asanaContext?.name || 'this pose'}? FLOW.AI is ready to assist you in real time.
+                </p>
               </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-gray-400 hover:text-white transition"
-                aria-label="Close"
-              >
-                <X className="w-4 h-4" />
-              </button>
+
+              {/* Quick suggestions */}
+              <div className="space-y-2">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
+                  Ask FLOW.AI:
+                </p>
+                {[
+                  'How should I align my posture?',
+                  'What are common mistakes in this pose?',
+                  'How should I breathe during this step?'
+                ].map((promptText, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setInputValue(promptText);
+                      setIsOpen(true);
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-lg bg-[#161b22] hover:bg-[#21262d] border border-border-dark text-xs text-gray-300 hover:text-white transition flex items-center justify-between group"
+                  >
+                    <span className="truncate">{promptText}</span>
+                    <span className="text-flow-green text-[11px] opacity-0 group-hover:opacity-100 transition">→</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* Context strip — current step info */}
-            {asanaContext?.instruction && (
-              <div className="px-4 py-2 bg-flow-green/5 border-b border-[#30363d] flex-shrink-0">
-                <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-0.5">
-                  {asanaContext.currentStep && asanaContext.totalSteps
-                    ? `Step ${asanaContext.currentStep} of ${asanaContext.totalSteps}`
-                    : 'Current Step'}
-                </p>
-                <p className="text-xs text-gray-300 leading-relaxed line-clamp-2">{asanaContext.instruction}</p>
-              </div>
-            )}
-
-            {/* Auth gate — unauthenticated users see sign-in prompt */}
+            {/* Pill trigger at bottom of workspace */}
+            <div className="pt-4 border-t border-border-dark flex justify-center flex-shrink-0">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="inline-flex items-center space-x-2.5 px-4 py-2.5 rounded-full bg-[#0d1117] border border-flow-green/40 text-flow-green text-xs font-semibold shadow hover:bg-[#21262d] hover:border-flow-green hover:shadow-[0_0_12px_rgba(46,164,79,0.25)] transition duration-200"
+                title={t('chatbotPillTooltip')}
+                aria-label={t('chatbotPillLabel')}
+              >
+                <span className="w-2 h-2 rounded-full bg-flow-green animate-pulse flex-shrink-0" />
+                <span>{t('chatbotPillLabel')}</span>
+                <MessageSquare className="w-3.5 h-3.5 flex-shrink-0" />
+              </button>
+            </div>
+          </div>
+        ) : (
+          /* OPEN STATE — Full Chat Panel Filling Right Workspace */
+          <div className="flex-1 flex flex-col min-h-0">
             {!isAuthenticated ? (
               <div className="flex-1 p-6 flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="w-10 h-10 rounded-full bg-flow-green/10 border border-flow-green/30 flex items-center justify-center">
@@ -330,16 +364,14 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                   )}
                 </button>
               </div>
-
             ) : (
-              /* Authenticated — full chat interface */
               <>
-                {/* Message list — fills remaining vertical space */}
+                {/* Message list */}
                 <div className="flex-1 p-4 overflow-y-auto space-y-3 text-xs flex flex-col scrollbar-thin min-h-0">
                   {messages.map((msg, index) => (
                     <div
                       key={index}
-                      className={`max-w-[85%] px-3 py-2.5 rounded-lg leading-relaxed ${
+                      className={`max-w-[85%] px-3.5 py-2.5 rounded-lg leading-relaxed ${
                         msg.role === 'user'
                           ? 'bg-flow-green/20 text-white border border-flow-green/25 self-end rounded-br-none'
                           : 'bg-[#21262d] text-gray-300 border border-[#30363d] self-start rounded-bl-none'
@@ -349,7 +381,7 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                     </div>
                   ))}
                   {isLoading && (
-                    <div className="bg-[#21262d] text-gray-400 border border-[#30363d] max-w-[80%] px-3 py-2.5 rounded-lg rounded-bl-none self-start flex items-center space-x-1">
+                    <div className="bg-[#21262d] text-gray-400 border border-[#30363d] max-w-[80%] px-3.5 py-2.5 rounded-lg rounded-bl-none self-start flex items-center space-x-1.5">
                       <Loader2 className="w-3.5 h-3.5 animate-spin text-flow-green" />
                       <span>{t('chatbotAnalyzing')}</span>
                     </div>
@@ -379,7 +411,7 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
             )}
           </div>
         )}
-      </>
+      </div>
     );
   }
 

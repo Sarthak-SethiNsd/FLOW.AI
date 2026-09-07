@@ -501,10 +501,10 @@ export default function PracticeClient({ asana }) {
       )}
 
       {/* Main Workspace */}
-      <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
+      <main className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_24rem] lg:grid-cols-[1fr_26rem] xl:grid-cols-[1fr_28rem] md:grid-rows-[1fr_auto] overflow-y-auto md:overflow-hidden min-h-0 w-full">
 
-        {/* Arena: 50/50 Dual View */}
-        <div className="h-[45vh] sm:h-[50vh] md:h-auto md:flex-1 p-3 sm:p-4 md:p-5 flex flex-col justify-center items-center relative bg-background flex-shrink-0">
+        {/* 1. ARENA: 50/50 DUAL VIEW (Desktop: Col 1, Row 1 | Mobile: Order 1) */}
+        <div className="order-1 md:order-none md:col-start-1 md:row-start-1 p-3 sm:p-4 md:p-5 flex flex-col justify-center items-center relative bg-background overflow-hidden min-h-[350px] md:min-h-0">
           <div className="relative w-full h-full max-w-4xl xl:max-w-5xl rounded-xl overflow-hidden bg-panel border border-[#30363d] flex flex-col md:flex-row shadow-2xl">
 
             {/* Left 50%: Live User Camera + MediaPipe Skeleton */}
@@ -565,7 +565,7 @@ export default function PracticeClient({ asana }) {
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${poseState === 'correct' ? 'bg-flow-green' : 'bg-yellow-500'} opacity-75`}></span>
                 <span className={`relative inline-flex rounded-full h-2 w-2 ${poseState === 'correct' ? 'bg-flow-green' : 'bg-yellow-500'}`}></span>
               </span>
-              <p className="leading-relaxed font-sans text-xs text-white">"{captionText}"</p>
+              <p className="leading-relaxed font-sans text-xs text-white">&quot;{captionText}&quot;</p>
             </div>
 
             {/* Bottom HUD: Progress bar + Hold timer */}
@@ -602,160 +602,8 @@ export default function PracticeClient({ asana }) {
           </div>
         </div>
 
-        {/* Right Sidebar */}
-        <div className="w-full md:w-[24rem] lg:w-[26rem] xl:w-[28rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
-          {/* Inner wrapper: relative so Chatbot workspace can absolutely fill this area */}
-          <div className="flex-1 flex flex-col relative overflow-hidden min-h-0">
-            <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 pb-16">
-
-            {/* Title + Mute */}
-            <div className="flex justify-between items-start">
-              <div>
-                <h2 className="text-xl font-bold tracking-tight text-white">{localizedAsana.name}</h2>
-                <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{localizedAsana.english}</p>
-              </div>
-              <button
-                onClick={() => { setIsMuted(v => !v); isMutedRef.current = !isMutedRef.current; }}
-                className={`p-2 rounded-lg border transition ${!isMuted ? 'bg-flow-green/10 text-flow-green border-flow-green/20' : 'bg-card-bg text-gray-400 border-border-dark'}`}
-                title={isMuted ? t('unmute') : t('mute')}
-              >
-                <Volume2 className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Step Instruction */}
-            <div className="p-4 bg-card-bg rounded-lg border border-border-dark">
-              <span className="text-[10px] font-bold uppercase text-gray-500 tracking-wider block mb-1">
-                {t('stepHeader', { step: currentStepIndex + 1 })}
-              </span>
-              <p className="text-sm text-gray-100 leading-relaxed font-medium">
-                {currentStep.instruction}
-              </p>
-            </div>
-
-            {/* Live Posture Feedback Box */}
-            <div>
-              {!isCalibrated ? (
-                <div className="p-3.5 bg-amber-500/10 border border-amber-500/30 rounded-lg text-xs text-amber-300 flex items-start space-x-2.5 animate-pulse">
-                  <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-400" />
-                  <div>
-                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Positioning Required</span>
-                    <span>{t('calibStepBack')}</span>
-                  </div>
-                </div>
-              ) : isPaused ? (
-                <div className="p-3.5 bg-blue-500/10 border border-blue-500/30 rounded-lg text-xs text-blue-300 flex items-start space-x-2.5">
-                  <Pause className="w-4 h-4 flex-shrink-0 mt-0.5 text-blue-400" />
-                  <div>
-                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Practice Paused</span>
-                    <span>{t('correctPostureToResume')}</span>
-                  </div>
-                </div>
-              ) : activeError ? (
-                <div className="p-3.5 bg-red-500/15 border border-red-500/30 rounded-lg text-xs text-red-300 flex items-start space-x-2.5 animate-pulse">
-                  <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400" />
-                  <div>
-                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Posture Correction Needed</span>
-                    <span>{activeError}</span>
-                  </div>
-                </div>
-              ) : (
-                <div className="p-3.5 bg-flow-green/15 border border-flow-green/30 rounded-lg text-xs text-emerald-300 flex items-start space-x-2.5">
-                  <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-flow-green" />
-                  <div>
-                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Form Aligned</span>
-                    <span>{t('holdSteady')}</span>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Audio Controls */}
-            <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('audioControlsTitle')}</p>
-              <div className="flex flex-col gap-2">
-                <div className="flex gap-2">
-                  <button onClick={handleStopAudio} disabled={audioState !== 'playing'}
-                    className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Square className="w-3.5 h-3.5" /><span>{t('stopAudio')}</span>
-                  </button>
-                  <button onClick={handleContinueAudio} disabled={audioState === 'playing'}
-                    className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Play className="w-3.5 h-3.5" /><span>{t('continueAudio')}</span>
-                  </button>
-                </div>
-                <button onClick={handleReplayAudio}
-                  className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-violet-950/40 hover:bg-violet-900/60 text-violet-300 border border-violet-800/30 transition flex items-center justify-center gap-1.5">
-                  <RotateCcw className="w-3 h-3" /><span>{t('replayAudio')}</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Visual Guide Controls */}
-            <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('visualControlsTitle')}</p>
-              <div className="flex flex-col gap-2">
-                <div className="flex gap-2">
-                  <button onClick={handleStopVisual} disabled={visualState !== 'playing'}
-                    className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Square className="w-3.5 h-3.5" /><span>{t('pauseGuide')}</span>
-                  </button>
-                  <button onClick={handleContinueVisual} disabled={visualState === 'playing'}
-                    className="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1.5">
-                    <Play className="w-3.5 h-3.5" /><span>{t('resumeGuide')}</span>
-                  </button>
-                </div>
-                <button onClick={handleReplayVisual}
-                  className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-indigo-950/40 hover:bg-indigo-900/60 text-indigo-300 border border-indigo-800/30 transition flex items-center justify-center gap-1.5">
-                  <RotateCcw className="w-3 h-3" /><span>{t('replayVisual')}</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Joint Numbering Legend */}
-            <div className="p-3 bg-card-bg/40 rounded-lg border border-border-dark/60">
-              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('jointKeyTitle')}</h4>
-              <div className="space-y-1.5 text-[10px] text-gray-400">
-                {[{n:'1',a:t('jointWrist'),l:t('jointHip')},{n:'2',a:t('jointElbow'),l:t('jointKnee')},{n:'3',a:t('jointShoulder'),l:t('jointAnkle')}].map(({n,a,l}) => (
-                  <div key={n} className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-purple-700 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0">{n}</span>
-                    <span>Arm → {a} &nbsp;|&nbsp; Leg → {l}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Segment Tracker */}
-            <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-3">{t('stepCount', { step: currentStepIndex + 1, total: steps.length })}</h4>
-              <div className="flex items-center space-x-1.5">
-                {steps.map((step, idx) => (
-                  <React.Fragment key={idx}>
-                    <button
-                      onClick={() => setCurrentStepIndex(idx)}
-                      className="flex flex-col items-center flex-1 focus:outline-none group"
-                    >
-                      <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        idx === currentStepIndex
-                          ? 'bg-flow-green ring-4 ring-flow-green/20 shadow-[0_0_8px_#2ea44f]'
-                          : idx < currentStepIndex
-                            ? 'bg-flow-green/60'
-                            : 'bg-gray-700 group-hover:bg-gray-500'
-                      }`}></div>
-                      <span className={`text-[9px] font-medium mt-1 transition-colors ${idx === currentStepIndex ? 'text-white' : 'text-gray-500'}`}>
-                        {idx + 1}
-                      </span>
-                    </button>
-                    {idx < steps.length - 1 && (
-                      <div className={`h-0.5 flex-1 -mt-3.5 transition-colors ${idx < currentStepIndex ? 'bg-flow-green/45' : 'bg-gray-700'}`}></div>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* FLOW.AI Assistant — workspace variant fills this relative container */}
+        {/* 2. FLOW.AI ASSISTANT WORKSPACE (Desktop: Col 2, Rows 1-2 | Mobile: Order 2) */}
+        <div className="order-2 md:order-none md:col-start-2 md:row-start-1 md:row-span-2 border-t md:border-t-0 md:border-l border-border-dark overflow-hidden flex flex-col min-h-[420px] md:min-h-0 shadow-xl bg-panel">
           <Chatbot
             variant="workspace"
             asanaContext={{
@@ -767,60 +615,213 @@ export default function PracticeClient({ asana }) {
             }}
           />
         </div>
-      </div>
 
-      </main>
+        {/* 3. PAGE CONTROLS & FOOTER (Desktop: Col 1, Row 2 | Mobile: Order 3) */}
+        <div className="order-3 md:order-none md:col-start-1 md:row-start-2 border-t border-border-dark bg-panel flex flex-col flex-shrink-0">
+          <div className="p-4 space-y-3 max-h-56 md:max-h-64 overflow-y-auto">
+            {/* Title + Mute */}
+            <div className="flex justify-between items-start">
+              <div>
+                <h2 className="text-lg font-bold tracking-tight text-white">{localizedAsana.name}</h2>
+                <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{localizedAsana.english}</p>
+              </div>
+              <button
+                onClick={() => { setIsMuted(v => !v); isMutedRef.current = !isMutedRef.current; }}
+                className={`p-1.5 rounded-lg border transition ${!isMuted ? 'bg-flow-green/10 text-flow-green border-flow-green/20' : 'bg-card-bg text-gray-400 border-border-dark'}`}
+                title={isMuted ? t('unmute') : t('mute')}
+              >
+                <Volume2 className="w-4 h-4" />
+              </button>
+            </div>
 
-      {/* Footer Controls */}
-      <footer className="bg-panel border-t border-border-dark px-4 md:px-8 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-        <div className="hidden md:flex items-center space-x-6">
-          <div className="text-sm">
-            <span className="text-gray-400">Current:</span>
-            <span className="font-semibold text-white ml-1">{localizedAsana.name}</span>
+            {/* Step Instruction */}
+            <div className="p-3.5 bg-card-bg rounded-lg border border-border-dark">
+              <span className="text-[10px] font-bold uppercase text-gray-500 tracking-wider block mb-1">
+                {t('stepHeader', { step: currentStepIndex + 1 })}
+              </span>
+              <p className="text-xs text-gray-100 leading-relaxed font-medium">
+                {currentStep.instruction}
+              </p>
+            </div>
+
+            {/* Live Posture Feedback Box */}
+            <div>
+              {!isCalibrated ? (
+                <div className="p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg text-xs text-amber-300 flex items-start space-x-2.5 animate-pulse">
+                  <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-400" />
+                  <div>
+                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Positioning Required</span>
+                    <span>{t('calibStepBack')}</span>
+                  </div>
+                </div>
+              ) : isPaused ? (
+                <div className="p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg text-xs text-blue-300 flex items-start space-x-2.5">
+                  <Pause className="w-4 h-4 flex-shrink-0 mt-0.5 text-blue-400" />
+                  <div>
+                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Practice Paused</span>
+                    <span>{t('correctPostureToResume')}</span>
+                  </div>
+                </div>
+              ) : activeError ? (
+                <div className="p-3 bg-red-500/15 border border-red-500/30 rounded-lg text-xs text-red-300 flex items-start space-x-2.5 animate-pulse">
+                  <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400" />
+                  <div>
+                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Posture Correction Needed</span>
+                    <span>{activeError}</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-3 bg-flow-green/15 border border-flow-green/30 rounded-lg text-xs text-emerald-300 flex items-start space-x-2.5">
+                  <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-flow-green" />
+                  <div>
+                    <span className="font-bold block mb-0.5 uppercase tracking-wider text-[10px]">Form Aligned</span>
+                    <span>{t('holdSteady')}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Audio & Visual Guide Controls in 2 columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {/* Audio Controls */}
+              <div className="p-2.5 bg-card-bg/50 rounded-lg border border-border-dark">
+                <p className="text-[10px] font-bold uppercase text-gray-500 mb-1.5 tracking-wider">{t('audioControlsTitle')}</p>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex gap-1.5">
+                    <button onClick={handleStopAudio} disabled={audioState !== 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1">
+                      <Square className="w-3 h-3" /><span>{t('stopAudio')}</span>
+                    </button>
+                    <button onClick={handleContinueAudio} disabled={audioState === 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1">
+                      <Play className="w-3 h-3" /><span>{t('continueAudio')}</span>
+                    </button>
+                  </div>
+                  <button onClick={handleReplayAudio}
+                    className="w-full px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-violet-950/40 hover:bg-violet-900/60 text-violet-300 border border-violet-800/30 transition flex items-center justify-center gap-1">
+                    <RotateCcw className="w-3 h-3" /><span>{t('replayAudio')}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Visual Guide Controls */}
+              <div className="p-2.5 bg-card-bg/50 rounded-lg border border-border-dark">
+                <p className="text-[10px] font-bold uppercase text-gray-500 mb-1.5 tracking-wider">{t('visualControlsTitle')}</p>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex gap-1.5">
+                    <button onClick={handleStopVisual} disabled={visualState !== 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1">
+                      <Square className="w-3 h-3" /><span>{t('pauseGuide')}</span>
+                    </button>
+                    <button onClick={handleContinueVisual} disabled={visualState === 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-25 disabled:pointer-events-none transition flex items-center justify-center gap-1">
+                      <Play className="w-3 h-3" /><span>{t('resumeGuide')}</span>
+                    </button>
+                  </div>
+                  <button onClick={handleReplayVisual}
+                    className="w-full px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-indigo-950/40 hover:bg-indigo-900/60 text-indigo-300 border border-indigo-800/30 transition flex items-center justify-center gap-1">
+                    <RotateCcw className="w-3 h-3" /><span>{t('replayVisual')}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Joint Numbering Legend */}
+            <div className="p-2.5 bg-card-bg/40 rounded-lg border border-border-dark/60">
+              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-1.5 tracking-wider">{t('jointKeyTitle')}</h4>
+              <div className="grid grid-cols-3 gap-2 text-[10px] text-gray-400">
+                {[{n:'1',a:t('jointWrist'),l:t('jointHip')},{n:'2',a:t('jointElbow'),l:t('jointKnee')},{n:'3',a:t('jointShoulder'),l:t('jointAnkle')}].map(({n,a,l}) => (
+                  <div key={n} className="flex items-center gap-1.5">
+                    <span className="w-4 h-4 rounded-full bg-purple-700 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0">{n}</span>
+                    <span className="truncate">{a} / {l}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Segment Tracker */}
+            <div>
+              <h4 className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-2">{t('stepCount', { step: currentStepIndex + 1, total: steps.length })}</h4>
+              <div className="flex items-center space-x-1.5">
+                {steps.map((step, idx) => (
+                  <React.Fragment key={idx}>
+                    <button
+                      onClick={() => setCurrentStepIndex(idx)}
+                      className="flex flex-col items-center flex-1 focus:outline-none group"
+                    >
+                      <div className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        idx === currentStepIndex
+                          ? 'bg-flow-green ring-4 ring-flow-green/20 shadow-[0_0_8px_#2ea44f]'
+                          : idx < currentStepIndex
+                            ? 'bg-flow-green/60'
+                            : 'bg-gray-700 group-hover:bg-gray-500'
+                      }`}></div>
+                      <span className={`text-[8px] font-medium mt-0.5 transition-colors ${idx === currentStepIndex ? 'text-white' : 'text-gray-500'}`}>
+                        {idx + 1}
+                      </span>
+                    </button>
+                    {idx < steps.length - 1 && (
+                      <div className={`h-0.5 flex-1 -mt-3 transition-colors ${idx < currentStepIndex ? 'bg-flow-green/45' : 'bg-gray-700'}`}></div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+
           </div>
-          <div className="w-px h-4 bg-gray-700"></div>
-          <div className="text-sm flex items-center space-x-1.5">
-            <span className="text-gray-400">Step:</span>
-            <span className="font-semibold text-white">{t('stepCount', { step: currentStepIndex + 1, total: steps.length })}</span>
-            <div className="flex space-x-1 ml-1">
-              {steps.map((_, i) => (
-                <span key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentStepIndex ? 'bg-flow-green' : 'bg-gray-700'}`}></span>
-              ))}
+
+          {/* Footer Controls Bar */}
+          <div className="border-t border-border-dark px-4 md:px-6 py-3 flex flex-wrap items-center justify-between gap-2 bg-panel flex-shrink-0">
+            <div className="hidden sm:flex items-center space-x-4">
+              <div className="text-xs">
+                <span className="text-gray-400">Current:</span>
+                <span className="font-semibold text-white ml-1">{localizedAsana.name}</span>
+              </div>
+              <div className="w-px h-3.5 bg-gray-700"></div>
+              <div className="text-xs flex items-center space-x-1.5">
+                <span className="text-gray-400">Step:</span>
+                <span className="font-semibold text-white">{t('stepCount', { step: currentStepIndex + 1, total: steps.length })}</span>
+                <div className="flex space-x-1 ml-1">
+                  {steps.map((_, i) => (
+                    <span key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === currentStepIndex ? 'bg-flow-green' : 'bg-gray-700'}`}></span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 justify-center sm:justify-end w-full sm:w-auto">
+              <button
+                onClick={handlePause}
+                className={`px-4 py-1.5 rounded-lg text-xs font-semibold border transition flex items-center space-x-1.5 ${
+                  isPaused
+                    ? 'bg-flow-green text-white border-flow-green hover:bg-flow-green-hover'
+                    : 'bg-[#21262d] hover:bg-[#30363d] text-gray-200 border-[#30363d]'
+                }`}
+              >
+                {isPaused ? <Play className="w-3.5 h-3.5" /> : <Pause className="w-3.5 h-3.5" />}
+                <span>{isPaused ? t('resumePractice') : t('pausePractice')}</span>
+              </button>
+
+              <button
+                onClick={handleRestart}
+                className="px-4 py-1.5 rounded-lg text-xs font-semibold bg-[#21262d] hover:bg-[#30363d] text-gray-200 border border-[#30363d] transition flex items-center space-x-1.5"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>{t('restartPractice')}</span>
+              </button>
+
+              <button
+                onClick={handleStepComplete}
+                className="px-4 py-1.5 rounded-lg text-xs font-bold bg-flow-green hover:bg-flow-green-hover text-white shadow-md shadow-emerald-950 transition flex items-center space-x-1.5"
+              >
+                <span>{t('nextStep')}</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center flex-wrap gap-2 justify-center md:justify-start">
-          <button
-            onClick={handlePause}
-            className={`px-5 py-2 rounded-lg text-sm font-semibold border transition flex items-center space-x-2 ${
-              isPaused
-                ? 'bg-flow-green text-white border-flow-green hover:bg-flow-green-hover'
-                : 'bg-[#21262d] hover:bg-[#30363d] text-gray-200 border-[#30363d]'
-            }`}
-          >
-            {isPaused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
-            <span>{isPaused ? t('resumePractice') : t('pausePractice')}</span>
-          </button>
-
-          <button
-            onClick={handleRestart}
-            className="px-5 py-2 rounded-lg text-sm font-semibold bg-[#21262d] hover:bg-[#30363d] text-gray-200 border border-[#30363d] transition flex items-center space-x-2"
-          >
-            <RotateCcw className="w-4 h-4" />
-            <span>{t('restartPractice')}</span>
-          </button>
-
-          <button
-            onClick={handleStepComplete}
-            className="px-5 py-2 rounded-lg text-sm font-bold bg-flow-green hover:bg-flow-green-hover text-white shadow-md shadow-emerald-950 transition flex items-center space-x-2"
-          >
-            <span>{t('nextStep')}</span>
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </footer>
-
+      </main>
     </div>
   );
 }

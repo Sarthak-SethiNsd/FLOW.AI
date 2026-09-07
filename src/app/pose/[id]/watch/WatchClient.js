@@ -201,10 +201,10 @@ export default function WatchClient({ asana }) {
     <div className="min-h-screen md:h-screen flex flex-col md:overflow-hidden bg-background text-foreground select-none">
       <Header cameraActive={false} />
 
-      <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
+      <main className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_24rem] lg:grid-cols-[1fr_26rem] xl:grid-cols-[1fr_28rem] md:grid-rows-[1fr_auto] overflow-y-auto md:overflow-hidden min-h-0 w-full">
 
-        {/* Left: Canvas */}
-        <div className="h-[45vh] sm:h-[50vh] md:h-auto md:flex-1 p-3 sm:p-4 md:p-5 flex flex-col justify-center items-center relative bg-background flex-shrink-0">
+        {/* 1. POSE PREVIEW CANVAS (Desktop: Col 1, Row 1 | Mobile: Order 1) */}
+        <div className="order-1 md:order-none md:col-start-1 md:row-start-1 p-3 sm:p-4 md:p-5 flex flex-col justify-center items-center relative bg-background overflow-hidden min-h-[350px] md:min-h-0">
           <div className="relative w-full h-full max-w-4xl xl:max-w-5xl rounded-xl overflow-hidden bg-panel border border-border-dark flex items-center justify-center shadow-2xl">
 
             {/* 2D Vector Stickman SVG */}
@@ -244,151 +244,8 @@ export default function WatchClient({ asana }) {
           </div>
         </div>
 
-        {/* Right: Sidebar */}
-        <div className="w-full md:w-[24rem] lg:w-[26rem] xl:w-[28rem] bg-panel border-t md:border-t-0 md:border-l border-border-dark flex flex-col shadow-xl md:flex-shrink-0 overflow-hidden">
-          {/* Inner wrapper: relative so Chatbot workspace can absolutely fill this area */}
-          <div className="flex-1 flex flex-col relative overflow-hidden min-h-0">
-            <div className="flex-1 overflow-y-auto p-5 space-y-4 pb-16">
-
-            {/* Pose Title */}
-            <div>
-              <h2 className="text-xl font-bold tracking-tight text-white">{localizedAsana.name}</h2>
-              <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{localizedAsana.english}</p>
-            </div>
-
-            {/* Step Instruction */}
-            <div className="p-4 bg-card-bg rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">
-                {t('stepHeader', { step: currentStep.step_number })}
-              </p>
-              <p className="text-sm text-gray-100 leading-relaxed font-medium">
-                {currentStep.instruction}
-              </p>
-            </div>
-
-            {/* Voice Guide */}
-            <div className="p-4 bg-[#0d1117] rounded-lg border border-border-dark">
-              <div className="flex items-center space-x-2 mb-2">
-                <Volume2 className={`w-3.5 h-3.5 flex-shrink-0 ${audioState === 'playing' ? 'text-flow-green animate-pulse' : 'text-gray-500'}`} />
-                <p className="text-[10px] font-bold uppercase text-gray-500 tracking-wider">
-                  {audioState === 'playing' ? 'Voice Guide Speaking…' : 'Voice Guide Text'}
-                </p>
-              </div>
-              <p className="text-xs text-gray-300 leading-relaxed">{currentStep.voice_prompt}</p>
-            </div>
-
-            {/* Audio Controls */}
-            <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('audioControlsTitle')}</p>
-              <div className="flex flex-col gap-2">
-                <div className="flex gap-2">
-                  <button
-                    onClick={handleStopAudio}
-                    disabled={audioState !== 'playing'}
-                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
-                  >
-                    <Square className="w-3.5 h-3.5" />
-                    <span>{t('stopAudio')}</span>
-                  </button>
-                  <button
-                    onClick={handleContinueAudio}
-                    disabled={audioState === 'playing'}
-                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
-                  >
-                    <Play className="w-3.5 h-3.5" />
-                    <span>{t('continueAudio')}</span>
-                  </button>
-                </div>
-                <button
-                  onClick={handleReplayAudio}
-                  className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-violet-950/40 hover:bg-violet-900/60 text-violet-300 border border-violet-800/30 transition flex items-center justify-center gap-1.5"
-                >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>{t('replayAudio')}</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Visual Controls */}
-            <div className="p-3 bg-card-bg/50 rounded-lg border border-border-dark">
-              <p className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('visualControlsTitle')}</p>
-              <div className="flex flex-col gap-2">
-                <div className="flex gap-2">
-                  <button
-                    onClick={handleStopVisual}
-                    disabled={visualState !== 'playing'}
-                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
-                  >
-                    <Square className="w-3.5 h-3.5" />
-                    <span>{t('pauseGuide')}</span>
-                  </button>
-                  <button
-                    onClick={handleContinueVisual}
-                    disabled={visualState === 'playing'}
-                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1.5"
-                  >
-                    <Play className="w-3.5 h-3.5" />
-                    <span>{t('resumeGuide')}</span>
-                  </button>
-                </div>
-                <button
-                  onClick={handleReplayVisual}
-                  className="w-full px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-indigo-950/40 hover:bg-indigo-900/60 text-indigo-300 border border-indigo-800/30 transition flex items-center justify-center gap-1.5"
-                >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>{t('replayVisual')}</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Joint Legend */}
-            <div className="p-3 bg-card-bg/40 rounded-lg border border-border-dark/60">
-              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('jointKeyTitle')}</h4>
-              <div className="space-y-1.5 text-[10px] text-gray-400">
-                {[{ n: '1', a: t('jointWrist'), l: t('jointHip') }, { n: '2', a: t('jointElbow'), l: t('jointKnee') }, { n: '3', a: t('jointShoulder'), l: t('jointAnkle') }].map(({ n, a, l }) => (
-                  <div key={n} className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-purple-700 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0">
-                      {n}
-                    </span>
-                    <span>Arm → {a} &nbsp;|&nbsp; Leg → {l}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Segment Tracker */}
-            <div>
-              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-3 tracking-wider">{t('stepCount', { step: stepIndex + 1, total: steps.length })}</h4>
-              <div className="flex items-center space-x-1">
-                {steps.map((_, idx) => (
-                  <React.Fragment key={idx}>
-                    <button
-                      onClick={() => setStepIndex(idx)}
-                      className="flex flex-col items-center flex-1 focus:outline-none group"
-                    >
-                      <div
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                          idx === stepIndex
-                            ? 'bg-flow-green ring-4 ring-flow-green/20 shadow-[0_0_8px_#2ea44f]'
-                            : idx < stepIndex
-                            ? 'bg-flow-green/55'
-                            : 'bg-gray-700 group-hover:bg-gray-500'
-                        }`}
-                      />
-                      <span className={`text-[9px] font-medium mt-1 ${idx === stepIndex ? 'text-white' : 'text-gray-600'}`}>
-                        {idx + 1}
-                      </span>
-                    </button>
-                    {idx < steps.length - 1 && (
-                      <div className={`h-0.5 flex-1 -mt-3.5 transition-colors ${idx < stepIndex ? 'bg-flow-green/45' : 'bg-gray-700'}`} />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* FLOW.AI Assistant — workspace variant fills this relative container */}
+        {/* 2. FLOW.AI ASSISTANT WORKSPACE (Desktop: Col 2, Rows 1-2 | Mobile: Order 2) */}
+        <div className="order-2 md:order-none md:col-start-2 md:row-start-1 md:row-span-2 border-t md:border-t-0 md:border-l border-border-dark overflow-hidden flex flex-col min-h-[420px] md:min-h-0 shadow-xl bg-panel">
           <Chatbot
             variant="workspace"
             asanaContext={{
@@ -401,8 +258,152 @@ export default function WatchClient({ asana }) {
           />
         </div>
 
-          {/* Footer Navigation */}
-          <div className="border-t border-border-dark px-5 py-4 flex-shrink-0 flex items-center justify-between bg-panel">
+        {/* 3. PAGE CONTROLS & NAVIGATION (Desktop: Col 1, Row 2 | Mobile: Order 3) */}
+        <div className="order-3 md:order-none md:col-start-1 md:row-start-2 border-t border-border-dark bg-panel flex flex-col flex-shrink-0">
+          <div className="p-4 space-y-3 max-h-56 md:max-h-64 overflow-y-auto">
+            {/* Pose Title */}
+            <div>
+              <h2 className="text-lg font-bold tracking-tight text-white">{localizedAsana.name}</h2>
+              <p className="text-xs font-semibold text-flow-green uppercase tracking-wider mt-0.5">{localizedAsana.english}</p>
+            </div>
+
+            {/* Step Instruction */}
+            <div className="p-3.5 bg-card-bg rounded-lg border border-border-dark">
+              <p className="text-[10px] font-bold uppercase text-gray-500 mb-1 tracking-wider">
+                {t('stepHeader', { step: currentStep.step_number })}
+              </p>
+              <p className="text-xs text-gray-100 leading-relaxed font-medium">
+                {currentStep.instruction}
+              </p>
+            </div>
+
+            {/* Voice Guide */}
+            <div className="p-3 bg-[#0d1117] rounded-lg border border-border-dark">
+              <div className="flex items-center space-x-2 mb-1.5">
+                <Volume2 className={`w-3.5 h-3.5 flex-shrink-0 ${audioState === 'playing' ? 'text-flow-green animate-pulse' : 'text-gray-500'}`} />
+                <p className="text-[10px] font-bold uppercase text-gray-500 tracking-wider">
+                  {audioState === 'playing' ? 'Voice Guide Speaking…' : 'Voice Guide Text'}
+                </p>
+              </div>
+              <p className="text-xs text-gray-300 leading-relaxed">{currentStep.voice_prompt}</p>
+            </div>
+
+            {/* Audio & Visual Controls */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {/* Audio Controls */}
+              <div className="p-2.5 bg-card-bg/50 rounded-lg border border-border-dark">
+                <p className="text-[10px] font-bold uppercase text-gray-500 mb-1.5 tracking-wider">{t('audioControlsTitle')}</p>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex gap-1.5">
+                    <button
+                      onClick={handleStopAudio}
+                      disabled={audioState !== 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1"
+                    >
+                      <Square className="w-3 h-3" />
+                      <span>{t('stopAudio')}</span>
+                    </button>
+                    <button
+                      onClick={handleContinueAudio}
+                      disabled={audioState === 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1"
+                    >
+                      <Play className="w-3 h-3" />
+                      <span>{t('continueAudio')}</span>
+                    </button>
+                  </div>
+                  <button
+                    onClick={handleReplayAudio}
+                    className="w-full px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-violet-950/40 hover:bg-violet-900/60 text-violet-300 border border-violet-800/30 transition flex items-center justify-center gap-1"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    <span>{t('replayAudio')}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Visual Controls */}
+              <div className="p-2.5 bg-card-bg/50 rounded-lg border border-border-dark">
+                <p className="text-[10px] font-bold uppercase text-gray-500 mb-1.5 tracking-wider">{t('visualControlsTitle')}</p>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex gap-1.5">
+                    <button
+                      onClick={handleStopVisual}
+                      disabled={visualState !== 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-800/40 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1"
+                    >
+                      <Square className="w-3 h-3" />
+                      <span>{t('pauseGuide')}</span>
+                    </button>
+                    <button
+                      onClick={handleContinueVisual}
+                      disabled={visualState === 'playing'}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-flow-green/20 hover:bg-flow-green/30 text-flow-green border border-flow-green/30 disabled:opacity-20 disabled:pointer-events-none transition flex items-center justify-center gap-1"
+                    >
+                      <Play className="w-3 h-3" />
+                      <span>{t('resumeGuide')}</span>
+                    </button>
+                  </div>
+                  <button
+                    onClick={handleReplayVisual}
+                    className="w-full px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-indigo-950/40 hover:bg-indigo-900/60 text-indigo-300 border border-indigo-800/30 transition flex items-center justify-center gap-1"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    <span>{t('replayVisual')}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Joint Legend */}
+            <div className="p-2.5 bg-card-bg/40 rounded-lg border border-border-dark/60">
+              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-1.5 tracking-wider">{t('jointKeyTitle')}</h4>
+              <div className="grid grid-cols-3 gap-2 text-[10px] text-gray-400">
+                {[{ n: '1', a: t('jointWrist'), l: t('jointHip') }, { n: '2', a: t('jointElbow'), l: t('jointKnee') }, { n: '3', a: t('jointShoulder'), l: t('jointAnkle') }].map(({ n, a, l }) => (
+                  <div key={n} className="flex items-center gap-1.5">
+                    <span className="w-4 h-4 rounded-full bg-purple-700 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0">
+                      {n}
+                    </span>
+                    <span className="truncate">{a} / {l}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Segment Tracker */}
+            <div>
+              <h4 className="text-[10px] font-bold uppercase text-gray-500 mb-2 tracking-wider">{t('stepCount', { step: stepIndex + 1, total: steps.length })}</h4>
+              <div className="flex items-center space-x-1">
+                {steps.map((_, idx) => (
+                  <React.Fragment key={idx}>
+                    <button
+                      onClick={() => setStepIndex(idx)}
+                      className="flex flex-col items-center flex-1 focus:outline-none group"
+                    >
+                      <div
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                          idx === stepIndex
+                            ? 'bg-flow-green ring-4 ring-flow-green/20 shadow-[0_0_8px_#2ea44f]'
+                            : idx < stepIndex
+                            ? 'bg-flow-green/55'
+                            : 'bg-gray-700 group-hover:bg-gray-500'
+                        }`}
+                      />
+                      <span className={`text-[8px] font-medium mt-0.5 ${idx === stepIndex ? 'text-white' : 'text-gray-600'}`}>
+                        {idx + 1}
+                      </span>
+                    </button>
+                    {idx < steps.length - 1 && (
+                      <div className={`h-0.5 flex-1 -mt-3 transition-colors ${idx < stepIndex ? 'bg-flow-green/45' : 'bg-gray-700'}`} />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Navigation Bar */}
+          <div className="border-t border-border-dark px-5 py-3.5 flex-shrink-0 flex items-center justify-between bg-panel">
             <div className="text-xs text-gray-500">
               {t('stepCount', { step: stepIndex + 1, total: steps.length })}
             </div>
@@ -426,6 +427,7 @@ export default function WatchClient({ asana }) {
             </div>
           </div>
         </div>
+
       </main>
     </div>
   );
