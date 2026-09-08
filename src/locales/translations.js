@@ -146,6 +146,11 @@ export const UI_TRANSLATIONS = {
     presetPrompt3: "Safety precautions",
     chatbotPillLabel: "Chat with FLOW.AI",
     chatbotPillTooltip: "Click here to chat with the FLOW.AI Assistant",
+    recNoteTitle: "Want a personalized yoga asana recommendation?",
+    recNotePrompt: "For a better response, tell me:",
+    recNoteLevel: "Your experience level",
+    recNoteLimitation: "Any injury or physical limitation",
+    recNoteGoal: "Your goal (flexibility, strength, relaxation, posture, etc.)",
 
     // Joint Labels
     jointHeadNeck: "Head / Neck",
@@ -310,6 +315,11 @@ export const UI_TRANSLATIONS = {
     presetPrompt3: "सुरक्षा सावधानियां",
     chatbotPillLabel: "FLOW.AI से चैट करें",
     chatbotPillTooltip: "FLOW.AI सहायक से चैट करने के लिए यहाँ क्लिक करें",
+    recNoteTitle: "क्या आप व्यक्तिगत योग आसन अनुशंसा चाहते हैं?",
+    recNotePrompt: "बेहतर सुझाव के लिए, मुझे बताएं:",
+    recNoteLevel: "आपका अनुभव स्तर",
+    recNoteLimitation: "कोई चोट या शारीरिक सीमा",
+    recNoteGoal: "आपका लक्ष्य (लचीलापन, शक्ति, विश्राम, मुद्रा, आदि)",
 
     // Joint Labels
     jointHeadNeck: "सिर / गर्दन",

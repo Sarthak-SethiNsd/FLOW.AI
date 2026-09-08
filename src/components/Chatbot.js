@@ -1,9 +1,44 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageSquare, X, Send, Loader2, LogIn } from 'lucide-react';
+import { MessageSquare, X, Send, Loader2, LogIn, Sparkles } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
+
+// ---------------------------------------------------------------------------
+// Recommendation Note Component
+// Compact, clearly styled informational note (guidance only, no form/buttons)
+// Declared outside parent component so it is not re-created during render.
+// ---------------------------------------------------------------------------
+function RecommendationNote({ t, compact = false }) {
+  return (
+    <div className={`rounded-lg bg-[#0d1117]/90 border border-[#30363d] text-gray-300 ${compact ? 'p-3 text-[11px] space-y-1.5' : 'p-4 text-xs space-y-2'}`}>
+      <div className="flex items-center space-x-2 text-flow-green">
+        <Sparkles className={`${compact ? 'w-3.5 h-3.5' : 'w-4 h-4'} flex-shrink-0`} />
+        <span className="text-xs font-bold tracking-wide text-white">
+          {t('recNoteTitle') || 'Want a personalized yoga asana recommendation?'}
+        </span>
+      </div>
+      <p className="text-gray-400">
+        {t('recNotePrompt') || 'For a better response, tell me:'}
+      </p>
+      <ul className="text-gray-400 space-y-1 pl-1">
+        <li className="flex items-start space-x-1.5">
+          <span className="text-flow-green font-bold select-none">•</span>
+          <span>{t('recNoteLevel') || 'Your experience level'}</span>
+        </li>
+        <li className="flex items-start space-x-1.5">
+          <span className="text-flow-green font-bold select-none">•</span>
+          <span>{t('recNoteLimitation') || 'Any injury or physical limitation'}</span>
+        </li>
+        <li className="flex items-start space-x-1.5">
+          <span className="text-flow-green font-bold select-none">•</span>
+          <span>{t('recNoteGoal') || 'Your goal (flexibility, strength, relaxation, posture, etc.)'}</span>
+        </li>
+      </ul>
+    </div>
+  );
+}
 
 export default function Chatbot({ asanaContext = null, variant = 'floating', positionClass = '', initialOpen = false }) {
   // -------------------------------------------------------------------------
@@ -191,6 +226,9 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
               <>
                 {/* Message list — taller than floating variant */}
                 <div className="h-80 p-4 overflow-y-auto space-y-3 text-xs flex flex-col scrollbar-thin">
+                  {/* Recommendation Guidance Note */}
+                  <RecommendationNote t={t} compact />
+
                   {messages.map((msg, index) => (
                     <div
                       key={index}
@@ -285,39 +323,7 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
           /* CLOSED STATE — Dedicated Assistant Workspace View */
           <div className="flex-1 p-4 sm:p-5 flex flex-col justify-between overflow-y-auto min-h-0">
             <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-[#0d1117] border border-border-dark space-y-2">
-                <div className="flex items-center space-x-2 text-flow-green">
-                  <MessageSquare className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase tracking-wider">AI Yoga Assistant</span>
-                </div>
-                <p className="text-xs text-gray-300 leading-relaxed">
-                  Have questions about alignment, breathing, or modifications for {asanaContext?.name || 'this pose'}? FLOW.AI is ready to assist you in real time.
-                </p>
-              </div>
-
-              {/* Quick suggestions */}
-              <div className="space-y-2">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
-                  Ask FLOW.AI:
-                </p>
-                {[
-                  'How should I align my posture?',
-                  'What are common mistakes in this pose?',
-                  'How should I breathe during this step?'
-                ].map((promptText, i) => (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setInputValue(promptText);
-                      setIsOpen(true);
-                    }}
-                    className="w-full text-left px-3 py-2 rounded-lg bg-[#161b22] hover:bg-[#21262d] border border-border-dark text-xs text-gray-300 hover:text-white transition flex items-center justify-between group"
-                  >
-                    <span className="truncate">{promptText}</span>
-                    <span className="text-flow-green text-[11px] opacity-0 group-hover:opacity-100 transition">→</span>
-                  </button>
-                ))}
-              </div>
+              <RecommendationNote t={t} />
             </div>
 
             {/* Pill trigger at bottom of workspace */}
@@ -368,6 +374,9 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
               <>
                 {/* Message list */}
                 <div className="flex-1 p-4 overflow-y-auto space-y-3 text-xs flex flex-col scrollbar-thin min-h-0">
+                  {/* Recommendation Guidance Note */}
+                  <RecommendationNote t={t} compact />
+
                   {messages.map((msg, index) => (
                     <div
                       key={index}
@@ -497,6 +506,9 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
             <>
               {/* Message List */}
               <div className="h-72 p-4 overflow-y-auto space-y-3 text-xs flex flex-col scrollbar-thin">
+                {/* Recommendation Guidance Note */}
+                <RecommendationNote t={t} compact />
+
                 {messages.map((msg, index) => (
                   <div
                     key={index}
