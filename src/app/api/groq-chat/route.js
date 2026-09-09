@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { getAllAsanas } from '@/utils/asanas';
+import {
+  reserveQuotaAtomic,
+  reconcileQuotaAtomic,
+  rollbackReservationAtomic
+} from '@/lib/quota';
 
 const DEFAULT_AI_YOGA_COACH_PROMPT = `You are AI Yoga Coach, the assistant for this yoga application. You are a supportive yoga guide, not a general chatbot and not a medical professional.
 
@@ -88,6 +93,10 @@ function getWebsiteSupportedAsanasText() {
 }
 
 export async function POST(request) {
+  let uid = null;
+  let reservationAcquired = false;
+  let isNewWindow = false;
+
   try {
     // 1. Authentication Check — Enforce Bearer token in Authorization header
     const authHeader = request.headers.get('authorization') || request.headers.get('Authorization');
@@ -101,7 +110,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Unauthorized: Invalid authentication token.' }, { status: 401 });
     }
 
-    // Optional: Validate Firebase token with Google Identity Toolkit if configured with live credentials
+    // Validate Firebase token with Google Identity Toolkit and obtain user's UID (localId)
     const firebaseApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
     if (firebaseApiKey && firebaseApiKey !== 'your_api_key_here') {
       try {
@@ -113,9 +122,28 @@ export async function POST(request) {
         if (!verifyRes.ok) {
           return NextResponse.json({ error: 'Unauthorized: Invalid or expired authentication session.' }, { status: 401 });
         }
+        const verifyData = await verifyRes.json();
+        uid = verifyData.users?.[0]?.localId;
       } catch (verifyErr) {
         console.error('[groq-chat] Firebase token verification error:', verifyErr);
       }
+    }
+
+    // Fallback: decode JWT payload if Identity Toolkit verification wasn't reachable
+    if (!uid) {
+      try {
+        const parts = token.split('.');
+        if (parts.length === 3) {
+          const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString('utf8'));
+          uid = payload.user_id || payload.sub;
+        }
+      } catch (decodeErr) {
+        console.error('[groq-chat] JWT decode error:', decodeErr);
+      }
+    }
+
+    if (!uid) {
+      return NextResponse.json({ error: 'Unauthorized: Could not determine user identity.' }, { status: 401 });
     }
 
     const { message, history = [], asanaContext = null } = await request.json();
@@ -138,6 +166,25 @@ export async function POST(request) {
     if (!message || typeof message !== 'string' || !message.trim()) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
     }
+
+    // 2. Pre-Groq: ATOMIC RESERVATION (15% admission threshold check + safe token budget reservation)
+    const reservationResult = await reserveQuotaAtomic(uid);
+
+    if (!reservationResult.admitted) {
+      return NextResponse.json({
+        error: 'QuotaExceeded',
+        message: 'Your AI allowance is currently too low for another question.',
+        quota: {
+          remainingPercentage: reservationResult.remainingPercentage,
+          windowExpiresAt: reservationResult.windowExpiresAt,
+          hasActiveWindow: reservationResult.hasActiveWindow,
+          isLowQuota: true
+        }
+      }, { status: 429 });
+    }
+
+    reservationAcquired = true;
+    isNewWindow = reservationResult.isNewWindow;
 
     // Read AI Yoga Coach system prompt from file if available, or use the embedded default
     let systemPrompt = DEFAULT_AI_YOGA_COACH_PROMPT;
@@ -162,42 +209,91 @@ export async function POST(request) {
       systemPrompt += `\n\n## Active Asana Context\nThe user is currently practicing or viewing: ${asanaContext.name || 'Yoga'} (${asanaContext.sanskrit || ''}), Step ${asanaContext.currentStep || '1'} of ${asanaContext.totalSteps || '1'}: "${asanaContext.instruction || 'Breathe naturally'}".`;
     }
 
-    // Format chat messages
+    // Format chat messages — cap user message to 400 chars and history to last 6 messages
+    // to strictly preserve budget safety within MAX_REQUEST_TOKEN_BUDGET
+    const sanitizedUserMessage = message.trim().slice(0, 400);
+
     const formattedMessages = [
       { role: 'system', content: systemPrompt },
       ...history.slice(-6), // Keep last 6 messages to preserve context and token safety
-      { role: 'user', content: message }
+      { role: 'user', content: sanitizedUserMessage }
     ];
 
-    // Call Groq API completions with configured parameters for openai/gpt-oss-20b
-    const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model,
-        messages: formattedMessages,
-        temperature: 0.15,
-        top_p: 1,
-        max_completion_tokens: 400,
-        reasoning_effort: "low"
-      })
-    });
+    // 3. Call Groq API completions with configured parameters for openai/gpt-oss-20b
+    let groqResponse;
+    try {
+      groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model,
+          messages: formattedMessages,
+          temperature: 0.15,
+          top_p: 1,
+          max_completion_tokens: 400,
+          reasoning_effort: "low"
+        })
+      });
+    } catch (networkErr) {
+      console.error('Groq fetch network error:', networkErr);
+      if (reservationAcquired) {
+        await rollbackReservationAtomic(uid, isNewWindow);
+        reservationAcquired = false;
+      }
+      return NextResponse.json({ error: 'Inference service unavailable' }, { status: 502 });
+    }
 
     if (!groqResponse.ok) {
-      const errData = await groqResponse.json();
+      const errData = await groqResponse.json().catch(() => ({}));
       console.error('Groq API Error:', errData);
+      if (reservationAcquired) {
+        await rollbackReservationAtomic(uid, isNewWindow);
+        reservationAcquired = false;
+      }
       return NextResponse.json({ error: 'Inference request failed' }, { status: 502 });
     }
 
     const data = await groqResponse.json();
-    const reply = data.choices[0]?.message?.content || 'No reply generated.';
+    const reply = data.choices?.[0]?.message?.content || 'No reply generated.';
 
-    return NextResponse.json({ reply });
+    // 4. Token Accounting: read actual token usage from Groq response
+    let actualTokens = 0;
+    if (data.usage) {
+      if (typeof data.usage.total_tokens === 'number') {
+        actualTokens = data.usage.total_tokens;
+      } else if (typeof data.usage.prompt_tokens === 'number' || typeof data.usage.completion_tokens === 'number') {
+        actualTokens = (data.usage.prompt_tokens || 0) + (data.usage.completion_tokens || 0);
+      }
+    }
+
+    // Conservative server fallback if Groq usage metadata is completely absent
+    if (!actualTokens || actualTokens <= 0) {
+      const totalChars = formattedMessages.reduce((sum, m) => sum + (m.content?.length || 0), 0) + reply.length;
+      actualTokens = Math.ceil(totalChars / 3.5);
+    }
+
+    // 5. Post-Groq: ATOMIC RECONCILIATION
+    const updatedQuota = await reconcileQuotaAtomic(uid, actualTokens);
+    reservationAcquired = false;
+
+    // Return reply + public quota state (percentage only, no raw token counts)
+    return NextResponse.json({
+      reply,
+      quota: {
+        remainingPercentage: updatedQuota.remainingPercentage,
+        windowExpiresAt: updatedQuota.windowExpiresAt,
+        hasActiveWindow: updatedQuota.hasActiveWindow,
+        isLowQuota: updatedQuota.isLowQuota
+      }
+    });
   } catch (err) {
     console.error('API Server Error:', err);
+    if (uid && reservationAcquired) {
+      await rollbackReservationAtomic(uid, isNewWindow);
+    }
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

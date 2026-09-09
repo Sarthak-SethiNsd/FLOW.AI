@@ -40,6 +40,90 @@ function RecommendationNote({ t, compact = false }) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Helper: Format remaining time until reset
+// Human-readable format: "Resets in X days, Y hours", "Resets in X hours", etc.
+// No seconds displayed.
+// ---------------------------------------------------------------------------
+function formatResetCountdown(windowExpiresAt, t) {
+  if (!windowExpiresAt) return '';
+
+  const expiresMs = new Date(windowExpiresAt).getTime();
+  const nowMs = Date.now();
+  const diffMs = expiresMs - nowMs;
+
+  if (diffMs <= 0) return '';
+
+  const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
+  const days = Math.floor(totalHours / 24);
+  const hours = totalHours % 24;
+
+  const dayLabel = days === 1 ? (t('timeDay') || 'day') : (t('timeDays') || 'days');
+  const hourLabel = hours === 1 ? (t('timeHour') || 'hour') : (t('timeHours') || 'hours');
+
+  if (days > 0) {
+    if (hours > 0) {
+      return `${t('resetsIn') || 'Resets in'} ${days} ${dayLabel}, ${hours} ${hourLabel}`;
+    }
+    return `${t('resetsIn') || 'Resets in'} ${days} ${dayLabel}`;
+  }
+
+  const displayHours = Math.max(1, hours);
+  const singleHourLabel = displayHours === 1 ? (t('timeHour') || 'hour') : (t('timeHours') || 'hours');
+  return `${t('resetsIn') || 'Resets in'} ${displayHours} ${singleHourLabel}`;
+}
+
+// ---------------------------------------------------------------------------
+// AI Usage Indicator Component
+// Compact, displays progress bar of quota REMAINING, percentage remaining,
+// and reset timing or start notice. Never shows raw token counts.
+// ---------------------------------------------------------------------------
+function AiUsageIndicator({ quota, t, compact = false }) {
+  const remaining = typeof quota?.remainingPercentage === 'number' ? quota.remainingPercentage : 100;
+  const hasActiveWindow = !!quota?.hasActiveWindow && !!quota?.windowExpiresAt;
+  const isLow = !!quota?.isLowQuota || remaining < 15;
+
+  // Bar color: green when healthy, amber/yellow when approaching 15%, red when < 15%
+  let barColorClass = 'bg-flow-green';
+  if (remaining < 15) {
+    barColorClass = 'bg-red-500';
+  } else if (remaining <= 25) {
+    barColorClass = 'bg-amber-400';
+  }
+
+  const resetText = hasActiveWindow
+    ? formatResetCountdown(quota.windowExpiresAt, t)
+    : (t('allowanceNotice') || 'Your 7-day allowance starts with your first question.');
+
+  return (
+    <div className={`rounded-lg bg-[#0d1117]/80 border border-[#30363d] text-gray-300 ${compact ? 'p-2.5 text-[11px] space-y-1.5' : 'p-3 text-xs space-y-2'}`}>
+      <div className="flex items-center justify-between">
+        <span className="font-semibold text-gray-300 tracking-wide uppercase text-[10px]">
+          {t('aiUsageTitle') || 'AI Usage'}
+        </span>
+        <span className={`font-bold ${isLow ? 'text-red-400' : 'text-gray-200'}`}>
+          {remaining}% {t('remaining') || 'remaining'}
+        </span>
+      </div>
+
+      {/* Progress bar representing REMAINING quota */}
+      <div className="w-full bg-[#21262d] h-1.5 rounded-full overflow-hidden border border-[#30363d]">
+        <div
+          className={`h-full rounded-full transition-all duration-300 ${barColorClass}`}
+          style={{ width: `${Math.max(0, Math.min(100, remaining))}%` }}
+        />
+      </div>
+
+      {/* Reset timing or window start notice */}
+      {resetText && (
+        <p className={`text-[10px] ${isLow ? 'text-amber-400/90 font-medium' : 'text-gray-400'}`}>
+          {resetText}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function Chatbot({ asanaContext = null, variant = 'floating', positionClass = '', initialOpen = false }) {
   // -------------------------------------------------------------------------
   // Feature flag — existing gate, unchanged.
@@ -62,6 +146,12 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [quota, setQuota] = useState({
+    remainingPercentage: 100,
+    windowExpiresAt: null,
+    hasActiveWindow: false,
+    isLowQuota: false
+  });
   const messagesEndRef = useRef(null);
 
   // Auto-scroll to bottom of chat
@@ -70,6 +160,48 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, isOpen]);
+
+  // Fetch quota when user is authenticated or when chatbot opens
+  useEffect(() => {
+    if (!isAuthenticated || !user) return;
+
+    let isMounted = true;
+    const fetchQuota = async () => {
+      try {
+        let token = '';
+        if (typeof user.getIdToken === 'function') {
+          token = await user.getIdToken();
+        }
+        if (!token) return;
+
+        const res = await fetch('/api/groq-chat/quota', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (res.ok && isMounted) {
+          const data = await res.json();
+          if (data?.quota) {
+            setQuota(data.quota);
+          }
+        }
+      } catch (err) {
+        console.error('[Chatbot] Failed to fetch quota:', err);
+      }
+    };
+
+    fetchQuota();
+
+    // Re-check countdown/quota every 60 seconds while open
+    const interval = setInterval(() => {
+      if (isMounted) {
+        setQuota(prev => ({ ...prev }));
+      }
+    }, 60000);
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, [isAuthenticated, user, isOpen]);
 
   // -------------------------------------------------------------------------
   // Don't render at all if:
@@ -92,7 +224,7 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
   // -------------------------------------------------------------------------
   const handleSend = async (e) => {
     e.preventDefault();
-    if (!inputValue.trim() || isLoading || !isAuthenticated || !user) return;
+    if (!inputValue.trim() || isLoading || !isAuthenticated || !user || quota.isLowQuota) return;
 
     const userMessage = { role: 'user', content: inputValue };
     setMessages(prev => [...prev, userMessage]);
@@ -132,8 +264,17 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
 
       const data = await response.json();
       
+      if (data?.quota) {
+        setQuota(data.quota);
+      }
+
       if (response.ok) {
         setMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
+      } else if (response.status === 429) {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: t('lowQuotaWarning') || 'Your AI allowance is currently too low for another question.'
+        }]);
       } else {
         setMessages(prev => [...prev, { role: 'assistant', content: `Error: ${data.error || 'Failed to generate response.'}` }]);
       }
@@ -229,6 +370,9 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                   {/* Recommendation Guidance Note */}
                   <RecommendationNote t={t} compact />
 
+                  {/* AI Usage Indicator directly below Recommendation Note */}
+                  <AiUsageIndicator quota={quota} t={t} compact />
+
                   {messages.map((msg, index) => (
                     <div
                       key={index}
@@ -250,19 +394,29 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                   <div ref={messagesEndRef} />
                 </div>
 
+                {/* Low Quota Warning banner if remaining < 15% */}
+                {quota.isLowQuota && (
+                  <div className="px-3 py-2 bg-red-950/40 border-t border-red-800/40 text-[11px] text-red-300 flex-shrink-0">
+                    <p className="font-semibold">{t('lowQuotaWarning') || 'Your AI allowance is currently too low for another question.'}</p>
+                    {quota.windowExpiresAt && (
+                      <p className="text-gray-400 text-[10px] mt-0.5">{formatResetCountdown(quota.windowExpiresAt, t)}</p>
+                    )}
+                  </div>
+                )}
+
                 {/* Input form */}
                 <form onSubmit={handleSend} className="p-3 bg-[#21262d] border-t border-[#30363d] flex items-center space-x-2 flex-shrink-0">
                   <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder={t('chatbotPlaceholder')}
-                    className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition"
-                    disabled={isLoading}
+                    placeholder={quota.isLowQuota ? (t('lowQuotaWarning') || 'Allowance too low for another question') : t('chatbotPlaceholder')}
+                    className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition disabled:opacity-50 disabled:bg-[#161b22]/50"
+                    disabled={isLoading || quota.isLowQuota}
                   />
                   <button
                     type="submit"
-                    disabled={!inputValue.trim() || isLoading}
+                    disabled={!inputValue.trim() || isLoading || quota.isLowQuota}
                     className="p-2 rounded-lg bg-flow-green text-white hover:bg-flow-green-hover transition disabled:opacity-40 disabled:pointer-events-none"
                   >
                     <Send className="w-3.5 h-3.5 fill-white" />
@@ -324,6 +478,8 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
           <div className="flex-1 p-4 sm:p-5 flex flex-col justify-between overflow-y-auto min-h-0">
             <div className="space-y-4">
               <RecommendationNote t={t} />
+              {/* AI Usage Indicator directly below Recommendation Note */}
+              <AiUsageIndicator quota={quota} t={t} />
             </div>
 
             {/* Pill trigger at bottom of workspace */}
@@ -377,6 +533,9 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                   {/* Recommendation Guidance Note */}
                   <RecommendationNote t={t} compact />
 
+                  {/* AI Usage Indicator directly below Recommendation Note */}
+                  <AiUsageIndicator quota={quota} t={t} compact />
+
                   {messages.map((msg, index) => (
                     <div
                       key={index}
@@ -398,19 +557,29 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                   <div ref={messagesEndRef} />
                 </div>
 
+                {/* Low Quota Warning banner if remaining < 15% */}
+                {quota.isLowQuota && (
+                  <div className="px-3 py-2 bg-red-950/40 border-t border-red-800/40 text-[11px] text-red-300 flex-shrink-0">
+                    <p className="font-semibold">{t('lowQuotaWarning') || 'Your AI allowance is currently too low for another question.'}</p>
+                    {quota.windowExpiresAt && (
+                      <p className="text-gray-400 text-[10px] mt-0.5">{formatResetCountdown(quota.windowExpiresAt, t)}</p>
+                    )}
+                  </div>
+                )}
+
                 {/* Input form */}
                 <form onSubmit={handleSend} className="p-3 bg-[#21262d] border-t border-[#30363d] flex items-center space-x-2 flex-shrink-0">
                   <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder={t('chatbotPlaceholder')}
-                    className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition"
-                    disabled={isLoading}
+                    placeholder={quota.isLowQuota ? (t('lowQuotaWarning') || 'Allowance too low for another question') : t('chatbotPlaceholder')}
+                    className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition disabled:opacity-50 disabled:bg-[#161b22]/50"
+                    disabled={isLoading || quota.isLowQuota}
                   />
                   <button
                     type="submit"
-                    disabled={!inputValue.trim() || isLoading}
+                    disabled={!inputValue.trim() || isLoading || quota.isLowQuota}
                     className="p-2 rounded-lg bg-flow-green text-white hover:bg-flow-green-hover transition disabled:opacity-40 disabled:pointer-events-none"
                   >
                     <Send className="w-3.5 h-3.5 fill-white" />
@@ -509,6 +678,9 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                 {/* Recommendation Guidance Note */}
                 <RecommendationNote t={t} compact />
 
+                {/* AI Usage Indicator directly below Recommendation Note */}
+                <AiUsageIndicator quota={quota} t={t} compact />
+
                 {messages.map((msg, index) => (
                   <div
                     key={index}
@@ -530,19 +702,29 @@ export default function Chatbot({ asanaContext = null, variant = 'floating', pos
                 <div ref={messagesEndRef} />
               </div>
 
+              {/* Low Quota Warning banner if remaining < 15% */}
+              {quota.isLowQuota && (
+                <div className="px-3 py-2 bg-red-950/40 border-t border-red-800/40 text-[11px] text-red-300 flex-shrink-0">
+                  <p className="font-semibold">{t('lowQuotaWarning') || 'Your AI allowance is currently too low for another question.'}</p>
+                  {quota.windowExpiresAt && (
+                    <p className="text-gray-400 text-[10px] mt-0.5">{formatResetCountdown(quota.windowExpiresAt, t)}</p>
+                  )}
+                </div>
+              )}
+
               {/* Input Form */}
               <form onSubmit={handleSend} className="p-3 bg-[#21262d] border-t border-[#30363d] flex items-center space-x-2">
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder={t('chatbotPlaceholder')}
-                  className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition"
-                  disabled={isLoading}
+                  placeholder={quota.isLowQuota ? (t('lowQuotaWarning') || 'Allowance too low for another question') : t('chatbotPlaceholder')}
+                  className="flex-1 bg-[#161b22] border border-[#30363d] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-flow-green transition disabled:opacity-50 disabled:bg-[#161b22]/50"
+                  disabled={isLoading || quota.isLowQuota}
                 />
                 <button
                   type="submit"
-                  disabled={!inputValue.trim() || isLoading}
+                  disabled={!inputValue.trim() || isLoading || quota.isLowQuota}
                   className="p-2 rounded-lg bg-flow-green text-white hover:bg-flow-green-hover transition disabled:opacity-40 disabled:pointer-events-none"
                 >
                   <Send className="w-3.5 h-3.5 fill-white" />

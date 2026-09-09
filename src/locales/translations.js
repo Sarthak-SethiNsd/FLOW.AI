@@ -152,6 +152,17 @@ export const UI_TRANSLATIONS = {
     recNoteLimitation: "Any injury or physical limitation",
     recNoteGoal: "Your goal (flexibility, strength, relaxation, posture, etc.)",
 
+    // AI Usage Quota
+    aiUsageTitle: "AI Usage",
+    remaining: "remaining",
+    resetsIn: "Resets in",
+    allowanceNotice: "Your 7-day allowance starts with your first question.",
+    lowQuotaWarning: "Your AI allowance is currently too low for another question.",
+    timeDays: "days",
+    timeDay: "day",
+    timeHours: "hours",
+    timeHour: "hour",
+
     // Joint Labels
     jointHeadNeck: "Head / Neck",
     jointShoulder: "Shoulder",
@@ -320,6 +331,17 @@ export const UI_TRANSLATIONS = {
     recNoteLevel: "आपका अनुभव स्तर",
     recNoteLimitation: "कोई चोट या शारीरिक सीमा",
     recNoteGoal: "आपका लक्ष्य (लचीलापन, शक्ति, विश्राम, मुद्रा, आदि)",
+
+    // AI Usage Quota
+    aiUsageTitle: "AI उपयोग",
+    remaining: "शेष",
+    resetsIn: "रीसेट होगा",
+    allowanceNotice: "आपका 7-दिवसीय कोटा आपके पहले प्रश्न से शुरू होगा।",
+    lowQuotaWarning: "आपका AI कोटा वर्तमान में किसी अन्य प्रश्न के लिए बहुत कम है।",
+    timeDays: "दिन",
+    timeDay: "दिन",
+    timeHours: "घंटे",
+    timeHour: "घंटा",
 
     // Joint Labels
     jointHeadNeck: "सिर / गर्दन",
